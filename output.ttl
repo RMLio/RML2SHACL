@@ -1,0 +1,24 @@
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix sh: <http://www.w3.org/ns/shacl#> .
+@prefix xml: <http://www.w3.org/XML/1998/namespace> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+<http://example.com/base/TriplesMap1> a sh:NodeShape ;
+    sh:targetSubjectsOf <http://xmlns.com/foaf/0.1/name> .
+
+sh:property sh:nodeKind sh:Literal ;
+    sh:path <http://xmlns.com/foaf/0.1/name> .
+
+
+
+
+ex:TriplesMap1 
+    sh:closed true;
+    a sh:NodeShape ;
+    sh:targetSubjectsOf foaf:name;
+
+sh:property [
+    sh:nodeKind sh:Literal ;
+    sh:path foaf:name;
+]
