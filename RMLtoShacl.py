@@ -48,18 +48,23 @@ class RMLtoSHACL:
                 self.SHACL.graph.add((self.shaclNS.property,self.shaclNS.pattern,stringpattern))
                 for s,p,o in self.RML.graph.triples((sOM,None,None)):
                     if p == self.termType and o== self.r2rmlNS.Literal:
-                        self.SHACL.graph.add((self.shaclNS.property,self.shaclNS.nodeKind,self.shaclNS.Literal))
+                        self.literalActions(sOM)
                     else:
-                        self.SHACL.graph.add((self.shaclNS.property,self.shaclNS.nodeKind,self.shaclNS.IRI))
+                        self.URIActions()
         
             elif p == self.reference:
-                #self.SHACL.graph.add((self.shaclNS.property,self.shaclNS.pattern,o))    #doesn't really fit in pattern
                 for s,p,o in self.RML.graph.triples((sOM,None,None)):
                     if p == self.termType and o== self.r2rmlNS.IRI:
-                        self.SHACL.graph.add((self.shaclNS.property,self.shaclNS.nodeKind,self.shaclNS.IRI))
+                        self.URIActions()
                     else:
-                        self.SHACL.graph.add((self.shaclNS.property,self.shaclNS.nodeKind,self.shaclNS.Literal))
-  
+                        self.literalActions(sOM)
+    def literalActions(self,sOM):
+        self.SHACL.graph.add((self.shaclNS.property,self.shaclNS.nodeKind,self.shaclNS.Literal))
+        pLan  = self.r2rmlNS.language
+        for s,p,o in self.RML.graph.triples((sOM,pLan,None)):
+            self.SHACL.graph.add((self.shaclNS.property,self.shaclNS.language,o))
+    def URIActions(self):
+        self.SHACL.graph.add((self.shaclNS.property,self.shaclNS.nodeKind,self.shaclNS.IRI))
     def createPattern(self,templateString):
         parts = templateString.split('{')
         parts2 = []
@@ -78,9 +83,9 @@ class RMLtoSHACL:
             tel += 1
         return string
     def writeShapeToFile(self):
+        for prefix, ns in self.RML.graph.namespaces():
+            self.SHACL.graph.bind(prefix,ns)            #@base is not possible to find immediatly
         self.SHACL.graph.bind('sh','http://www.w3.org/ns/shacl#',False)
-        self.SHACL.graph.bind('foaf','http://xmlns.com/foaf/0.1#',False) #werkt niet
-        self.SHACL.graph.bind('ex',"http://example.org/")
         self.SHACL.graph.serialize(destination='output2.ttl', format='turtle')
     def main(self):
         self.createNodeShape()

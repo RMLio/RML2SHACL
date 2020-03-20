@@ -12,8 +12,11 @@ class RML:
             for stmt in self.graph:
                 pprint.pprint(stmt)
     def createGraph(self):
-        self.graph.parse("C:\\Users\\Birte\\Documents\\GitHub\\rml-test-cases\\test-cases\\RMLTC0000-CSV\\mapping.ttl", format="turtle")
+        #self.graph.parse("C:\\Users\\Birte\\Documents\\GitHub\\rml-test-cases\\test-cases\\RMLTC0000-CSV\\mapping.ttl", format="turtle")
         #self.graph.parse("C:\\Users\\Birte\\Documents\\GitHub\\rml-test-cases\\test-cases\\RMLTC0002a-CSV\\mapping.ttl", format="turtle")
+        self.graph.parse("C:\\Users\\Birte\\Documents\\masterproefHelpFiles\\rmlex.ttl",format="turtle") #troubles before because no rdfs prefix, is this normal for a RML mapping doc?
+        for ns in self.graph.namespaces():
+            print(ns)
     def removeBlankNodes(self):
         for s,p,o in self.graph:
             for s2,p2,o2 in self.graph:
@@ -23,16 +26,4 @@ class RML:
                     self.graph.remove((s,p,o))
 
 #wat als we meerdere triplemaps hebben?? testen op eerste subject en daaruit naam triples map halen
-
-
-
-#print(rdflib.util.guess_format("RML.ttl"))
-
-#g = rdflib.Graph()
-#g.parse("RML.ttl", format="turtle")
-#g.parse("C:\\Users\\Birte\\Documents\\GitHub\\rml-test-cases\\test-cases\\RMLTC0000-CSV\\mapping.ttl", format="turtle")
-
-
-#from rdflib import Namespace
-
 
