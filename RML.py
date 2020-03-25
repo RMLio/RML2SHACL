@@ -4,6 +4,19 @@ import pprint
 class RML:
     def __init__(self):
         self.graph = rdflib.Graph()
+        self.rmlNS = rdflib.Namespace('http://semweb.mmlab.be/ns/rml#')
+        self.r2rmlNS = rdflib.Namespace('http://www.w3.org/ns/r2rml#')
+        self.template = self.r2rmlNS.template
+        self.reference = self.rmlNS.reference
+        self.termType = self.r2rmlNS.termType
+        self.sPOM = self.r2rmlNS.predicateObjectMap
+        self.pPred = self.r2rmlNS.predicate
+        self.tM = self.r2rmlNS.TriplesMap
+        self.sSM = self.r2rmlNS.subjectMap
+        self.pclass = self.r2rmlNS['class']
+        self.sOM  = self.r2rmlNS.objectMap
+        self.IRI = self.r2rmlNS.IRI
+        self.pLan  = self.r2rmlNS.language
     def printGraph(self, keuze):
         if keuze == 1: 
             for stmt in self.graph:
@@ -13,8 +26,8 @@ class RML:
                 pprint.pprint(stmt)
     def createGraph(self):
         #self.graph.parse("C:\\Users\\Birte\\Documents\\GitHub\\rml-test-cases\\test-cases\\RMLTC0000-CSV\\mapping.ttl", format="turtle")
-        #self.graph.parse("C:\\Users\\Birte\\Documents\\GitHub\\rml-test-cases\\test-cases\\RMLTC0002a-CSV\\mapping.ttl", format="turtle")
-        self.graph.parse("C:\\Users\\Birte\\Documents\\masterproefHelpFiles\\rmlex.ttl",format="turtle") #troubles before because no rdfs prefix, is this normal for a RML mapping doc?
+        self.graph.parse("C:\\Users\\Birte\\Documents\\GitHub\\rml-test-cases\\test-cases\\RMLTC0002a-CSV\\mapping.ttl", format="turtle")
+        #self.graph.parse("C:\\Users\\Birte\\Documents\\masterproefHelpFiles\\rmlex.ttl",format="turtle")
         for ns in self.graph.namespaces():
             print(ns)
     def removeBlankNodes(self):
