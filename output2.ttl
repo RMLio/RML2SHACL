@@ -10,11 +10,11 @@
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
 <http://example.com/base/TriplesMap1> a sh:NodeShape ;
+    sh:property [ sh:nodeKind sh:Literal ;
+            sh:path foaf:name ],
+        [ sh:nodeKind sh:Literal ;
+            sh:path ex:id ] ;
     sh:targetClass foaf:Person ;
     sh:targetSubjectsOf ex:id,
-        foaf:name .
-
-sh:property sh:nodeKind sh:Literal ;
-    sh:path ex:id,
         foaf:name .
 

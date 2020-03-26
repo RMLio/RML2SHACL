@@ -1,4 +1,5 @@
 import rdflib
+import pprint
 class SHACL:
     def __init__(self):
         self.graph = rdflib.Graph()

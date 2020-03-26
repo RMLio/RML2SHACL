@@ -30,6 +30,7 @@ class RML:
         #self.graph.parse("C:\\Users\\Birte\\Documents\\masterproefHelpFiles\\rmlex.ttl",format="turtle")
         for ns in self.graph.namespaces():
             print(ns)
+        #self.printGraph(1)
     def removeBlankNodes(self):
         for s,p,o in self.graph:
             for s2,p2,o2 in self.graph:
