@@ -7,57 +7,56 @@ class RMLtoSHACL:
     def __init__(self):
         self.RML = RML()
         self.RML.createGraph()
-        self.RML.removeBlankNodes()
+        #self.RML.removeBlankNodes()
         self.shaclNS = rdflib.Namespace('http://www.w3.org/ns/shacl#')      
         self.SHACL = SHACL()
         self.sNodeShape = None
         self.propertygraphs = []
-    def createNodeShape(self):
+    def createNodeShape(self, graph):
         #start of SHACL shape
-        for s,p,o in self.RML.graph.triples((None,RDF.type,self.RML.tM)):
+        for s,p,o in graph.triples((None,RDF.type,self.RML.tM)):
             self.SHACL.graph.add((s,p,self.shaclNS.NodeShape))
         self.sNodeShape = s
     def inferclass(self):
         pass
-    def subjectTargetOf(self):
-        for s,p,o in self.RML.graph.triples((self.RML.sPOM,self.RML.pPred,None)):
+    def subjectTargetOf(self,graph):
+        for s,p,o in graph.triples((self.RML.sPOM,self.RML.pPred,None)):
             self.SHACL.graph.add((self.sNodeShape,self.shaclNS.targetSubjectsOf,o))  #can we have more than one targetSubjectsOf?
 
-    def findClass(self):
-        for s,p,o in self.RML.graph.triples((self.RML.sSM,self.RML.pclass,None)):
+    def findClass(self,graph):
+        for s,p,o in graph.triples((self.RML.sSM,self.RML.pclass,None)):
                 self.SHACL.graph.add((self.sNodeShape,self.shaclNS.targetClass,o))
-    def fillinProperty(self):
-        for s,p,o in self.RML.graph.triples((self.RML.sPOM,self.RML.pPred,None)):
+    def fillinProperty(self, graph):
+        for s,p,o in graph.triples((self.RML.sPOM,self.RML.pPred,None)):
             propertyBl = rdflib.BNode()
-            graph = rdflib.Graph()
-            graph.add((self.sNodeShape,self.shaclNS.property,propertyBl))
-            graph.add((propertyBl,self.shaclNS.path,o))
-            #graph.add((self.shaclNS.property,self.shaclNS.path,o))
-            self.findObject(propertyBl,graph)
-            self.propertygraphs.append(graph)
-    def findObject(self,propertyBl,graph):
-        for s,p,o in self.RML.graph.triples((self.RML.sOM,None,None)):
+            graphHelp = rdflib.Graph()
+            graphHelp.add((self.sNodeShape,self.shaclNS.property,propertyBl))
+            graphHelp.add((propertyBl,self.shaclNS.path,o))
+            self.findObject(propertyBl,graphHelp,graph)
+            self.propertygraphs.append(graphHelp)
+    def findObject(self,propertyBl,graphHelp, graph):
+        for s,p,o in graph.triples((self.RML.sOM,None,None)):
             if p == self.RML.template:
                 stringpattern= self.createPattern(o)
-                graph.add((propertyBl,self.shaclNS.pattern,stringpattern))
-                for s,p,o in self.RML.graph.triples((self.RML.sOM,None,None)):
+                graphHelp.add((propertyBl,self.shaclNS.pattern,stringpattern))
+                for s,p,o in graph.triples((self.RML.sOM,None,None)):
                     if p == self.RML.termType and o== self.RML.r2rmlNS.Literal:
-                        self.literalActions(self.RML.sOM,propertyBl,graph)
+                        self.literalActions(self.RML.sOM,propertyBl,graphHelp)
                     else:
                         self.URIActions()
         
             elif p == self.RML.reference:
-                for s,p,o in self.RML.graph.triples((self.RML.sOM,None,None)):
+                for s,p,o in graph.triples((self.RML.sOM,None,None)):
                     if p == self.RML.termType and o== self.RML.IRI:
-                        self.URIActions(propertyBl,graph)
+                        self.URIActions(propertyBl,graphHelp)
                     else:
-                        self.literalActions(self.RML.sOM,propertyBl,graph)
-    def literalActions(self,sOM,propertyBl,graph):
-        graph.add((propertyBl,self.shaclNS.nodeKind,self.shaclNS.Literal))
-        for s,p,o in self.RML.graph.triples((sOM,self.RML.pLan,None)):
-            graph.add((propertyBl,self.shaclNS.language,o))
-    def URIActions(self,propertyBl,graph):
-        graph.add((propertyBl,self.shaclNS.nodeKind,self.shaclNS.IRI))
+                        self.literalActions(self.RML.sOM,propertyBl,graphHelp, graph)
+    def literalActions(self,sOM,propertyBl,graphHelp, graph):
+        graphHelp.add((propertyBl,self.shaclNS.nodeKind,self.shaclNS.Literal))
+        for s,p,o in graph.triples((sOM,self.RML.pLan,None)):
+            graphHelp.add((propertyBl,self.shaclNS.language,o))
+    def URIActions(self,propertyBl,graphHelp):
+        graphHelp.add((propertyBl,self.shaclNS.nodeKind,self.shaclNS.IRI))
     def createPattern(self,templateString):
         parts = templateString.split('{')
         parts2 = []
@@ -84,13 +83,15 @@ class RMLtoSHACL:
         self.SHACL.graph.bind('sh','http://www.w3.org/ns/shacl#',False)
         self.SHACL.graph.serialize(destination='output2.ttl', format='turtle')
     def main(self):
-        self.createNodeShape()
-        self.findClass()
-        self.subjectTargetOf()
-        self.fillinProperty()
-        #self.SHACL.printGraph(1)
-        #self.RML.printGraph(1)
-        self.writeShapeToFile()
+        self.RML.removeBlankNodesMultipleMaps()
+        for graph in self.RML.graphs:
+            self.createNodeShape(graph)
+            self.findClass(graph)
+            self.subjectTargetOf(graph)
+            self.fillinProperty(graph)
+            self.SHACL.printGraph(1)
+            ##self.RML.printGraph(1)
+            self.writeShapeToFile()
         
 
 

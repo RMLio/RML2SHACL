@@ -17,6 +17,7 @@ class RML:
         self.sOM  = self.r2rmlNS.objectMap
         self.IRI = self.r2rmlNS.IRI
         self.pLan  = self.r2rmlNS.language
+        self.graphs = []
     def printGraph(self, keuze):
         if keuze == 1: 
             for stmt in self.graph:
@@ -26,7 +27,8 @@ class RML:
                 pprint.pprint(stmt)
     def createGraph(self):
         #self.graph.parse("C:\\Users\\Birte\\Documents\\GitHub\\rml-test-cases\\test-cases\\RMLTC0000-CSV\\mapping.ttl", format="turtle")
-        self.graph.parse("C:\\Users\\Birte\\Documents\\GitHub\\rml-test-cases\\test-cases\\RMLTC0002a-CSV\\mapping.ttl", format="turtle")
+        #self.graph.parse("C:\\Users\\Birte\\Documents\\GitHub\\rml-test-cases\\test-cases\\RMLTC0002a-CSV\\mapping.ttl", format="turtle")
+        self.graph.parse("C:\\Users\\Birte\\Documents\\GitHub\\rml-test-cases\\test-cases\\RMLTC0004a-CSV\\mapping.ttl", format="turtle")
         #self.graph.parse("C:\\Users\\Birte\\Documents\\masterproefHelpFiles\\rmlex.ttl",format="turtle")
         for ns in self.graph.namespaces():
             print(ns)
@@ -38,6 +40,24 @@ class RML:
                     self.graph.add((p,p2,o2))
                     self.graph.remove((s2,p2,o2))
                     self.graph.remove((s,p,o))
+    def removeBlankNodesMultipleMaps(self):
+        for sTM,pTM,oTM in self.graph.triples((None,None,self.r2rmlNS.TriplesMap)):
+            graph = rdflib.Graph()
+            graph.add((sTM,pTM,oTM))
+            for s,p,o in self.graph:
+                if s==sTM:
+                    for s2,p2,o2 in self.graph.triples((o,None,None)): #searching for same Blank Node
+                        if p2 == self.r2rmlNS.objectMap:        #same for when we have refernrece map stuff??? (future work)
+                            for s3,p3,o3 in self.graph.triples((o2,None,None)):
+                                graph.add((p2,p3,o3))
+                        else:
+                            graph.add((p,p2,o2))
+            self.graphs.append(graph)
+        for graph in self.graphs:
+            print("Hallo")
+            for stmt in graph:
+                print(stmt)
+
 
 #wat als we meerdere triplemaps hebben?? testen op eerste subject en daaruit naam triples map halen
 
