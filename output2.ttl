@@ -10,14 +10,5 @@
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
 <http://example.com/base/TriplesMap1> a sh:NodeShape ;
-    sh:property [ sh:nodeKind sh:Literal ;
-            sh:path foaf:name ] ;
-    sh:targetClass ex:Student ;
-    sh:targetSubjectsOf foaf:name .
-
-<http://example.com/base/TriplesMap2> a sh:NodeShape ;
-    sh:property [ sh:nodeKind sh:Literal ;
-            sh:path foaf:name ] ;
-    sh:targetClass ex:Sport ;
-    sh:targetSubjectsOf foaf:name .
+    sh:property [ sh:hasValue "Bad Student" ] .
 

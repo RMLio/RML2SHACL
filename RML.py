@@ -11,12 +11,14 @@ class RML:
         self.termType = self.r2rmlNS.termType
         self.sPOM = self.r2rmlNS.predicateObjectMap
         self.pPred = self.r2rmlNS.predicate
+        self.pPredMap = self.r2rmlNS.predicateMap
         self.tM = self.r2rmlNS.TriplesMap
         self.sSM = self.r2rmlNS.subjectMap
         self.pclass = self.r2rmlNS['class']
         self.sOM  = self.r2rmlNS.objectMap
         self.IRI = self.r2rmlNS.IRI
         self.pLan  = self.r2rmlNS.language
+        self.pCons  = self.r2rmlNS.constant
         self.graphs = []
     def printGraph(self, keuze):
         if keuze == 1: 
@@ -28,7 +30,22 @@ class RML:
     def createGraph(self):
         #self.graph.parse("C:\\Users\\Birte\\Documents\\GitHub\\rml-test-cases\\test-cases\\RMLTC0000-CSV\\mapping.ttl", format="turtle")
         #self.graph.parse("C:\\Users\\Birte\\Documents\\GitHub\\rml-test-cases\\test-cases\\RMLTC0002a-CSV\\mapping.ttl", format="turtle")
-        self.graph.parse("C:\\Users\\Birte\\Documents\\GitHub\\rml-test-cases\\test-cases\\RMLTC0004a-CSV\\mapping.ttl", format="turtle")
+        #self.graph.parse("C:\\Users\\Birte\\Documents\\GitHub\\rml-test-cases\\test-cases\\RMLTC0004a-CSV\\mapping.ttl", format="turtle")
+        #self.graph.parse("C:\\Users\\Birte\\Documents\\GitHub\\rml-test-cases\\test-cases\\RMLTC0005a-CSV\\mapping.ttl", format="turtle")
+
+
+        #to do: constants => works for object but not yet for subject and or predicateMap
+        self.graph.parse("C:\\Users\\Birte\\Documents\\GitHub\\rml-test-cases\\test-cases\\RMLTC0006a-CSV\\mapping.ttl", format="turtle")
+
+
+        #geeft fout => stringpattern is niet juist
+        #self.graph.parse("C:\\Users\\Birte\\Documents\\GitHub\\rml-test-cases\\test-cases\\RMLTC0011b-CSV\\mapping.ttl", format="turtle")
+        #self.graph.parse("C:\\Users\\Birte\\Documents\\GitHub\\rml-test-cases\\test-cases\\RMLTC0012a-CSV\\mapping.ttl", format="turtle")
+
+
+        #self.graph.parse("C:\\Users\\Birte\\Documents\\GitHub\\rml-test-cases\\test-cases\\RMLTC0015a-CSV\\mapping.ttl", format="turtle") #geen rdfs
+        #self.graph.parse("C:\\Users\\Birte\\Documents\\masterproefHelpFiles\\rml15withRDFS.ttl",format="turtle")
+
         #self.graph.parse("C:\\Users\\Birte\\Documents\\masterproefHelpFiles\\rmlex.ttl",format="turtle")
         for ns in self.graph.namespaces():
             print(ns)
@@ -57,7 +74,7 @@ class RML:
             print("Hallo")
             for stmt in graph:
                 print(stmt)
-
+        
 
 #wat als we meerdere triplemaps hebben?? testen op eerste subject en daaruit naam triples map halen
 
