@@ -35,18 +35,24 @@ class RML:
 
 
         #to do: constants => works for object but not yet for subject and or predicateMap
-        self.graph.parse("C:\\Users\\Birte\\Documents\\GitHub\\rml-test-cases\\test-cases\\RMLTC0006a-CSV\\mapping.ttl", format="turtle")
+        #self.graph.parse("C:\\Users\\Birte\\Documents\\GitHub\\rml-test-cases\\test-cases\\RMLTC0006a-CSV\\mapping.ttl", format="turtle")
 
 
-        #geeft fout => stringpattern is niet juist
+        # #troubles readin this RML file in => template object bad escape
+        #self.graph.parse("C:\\Users\\Birte\\Documents\\GitHub\\rml-test-cases\\test-cases\\RMLTC0010c-CSV\\mapping.ttl", format="turtle")
+
+        #works template
         #self.graph.parse("C:\\Users\\Birte\\Documents\\GitHub\\rml-test-cases\\test-cases\\RMLTC0011b-CSV\\mapping.ttl", format="turtle")
         #self.graph.parse("C:\\Users\\Birte\\Documents\\GitHub\\rml-test-cases\\test-cases\\RMLTC0012a-CSV\\mapping.ttl", format="turtle")
 
-
+        #lang test
         #self.graph.parse("C:\\Users\\Birte\\Documents\\GitHub\\rml-test-cases\\test-cases\\RMLTC0015a-CSV\\mapping.ttl", format="turtle") #geen rdfs
-        #self.graph.parse("C:\\Users\\Birte\\Documents\\masterproefHelpFiles\\rml15withRDFS.ttl",format="turtle")
+        self.graph.parse("C:\\Users\\Birte\\Documents\\masterproefHelpFiles\\rml15withRDFS.ttl",format="turtle")
 
         #self.graph.parse("C:\\Users\\Birte\\Documents\\masterproefHelpFiles\\rmlex.ttl",format="turtle")
+
+        #self.graph.parse("C:\\Users\\Birte\\Documents\\GitHub\\rml-test-cases\\test-cases\\RMLTC0008b-CSV\\mapping.ttl", format="turtle") #geen rdf
+        #self.graph.parse("C:\\Users\\Birte\\Documents\\masterproefHelpFiles\\rml8bwithRDFS.ttl",format="turtle") #output gives one [ sh:nodeKind sh:Literal ], too much
         for ns in self.graph.namespaces():
             print(ns)
         #self.printGraph(1)
@@ -58,8 +64,9 @@ class RML:
                     self.graph.remove((s2,p2,o2))
                     self.graph.remove((s,p,o))
     def removeBlankNodesMultipleMaps(self):
+        graph = rdflib.Graph()
+        #graphPredicatObjectMap = rdflib.Graph()
         for sTM,pTM,oTM in self.graph.triples((None,None,self.r2rmlNS.TriplesMap)):
-            graph = rdflib.Graph()
             graph.add((sTM,pTM,oTM))
             for s,p,o in self.graph:
                 if s==sTM:
@@ -75,6 +82,4 @@ class RML:
             for stmt in graph:
                 print(stmt)
         
-
-#wat als we meerdere triplemaps hebben?? testen op eerste subject en daaruit naam triples map halen
 

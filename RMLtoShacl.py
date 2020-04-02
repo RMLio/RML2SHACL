@@ -46,18 +46,17 @@ class RMLtoSHACL:
             if p == self.RML.template:
                 stringpattern= self.createPattern(o)
                 graphHelp.add((propertyBl,self.shaclNS.pattern,stringpattern))
-                for s,p,o in graph.triples((self.RML.sOM,None,None)):
-                    if p == self.RML.termType and o== self.RML.r2rmlNS.Literal:
-                        self.literalActions(self.RML.sOM,propertyBl,graphHelp)
-                    else:
-                        self.URIActions()
-        
+                if p == self.RML.termType and o== self.RML.r2rmlNS.Literal:
+                    self.literalActions(self.RML.sOM,propertyBl,graphHelp,graph)
+                else:
+                    self.URIActions(propertyBl,graphHelp)
+    
             elif p == self.RML.reference:
-                for s,p,o in graph.triples((self.RML.sOM,None,None)):
-                    if p == self.RML.termType and o== self.RML.IRI:
-                        self.URIActions(propertyBl,graphHelp)
-                    else:
-                        self.literalActions(self.RML.sOM,propertyBl,graphHelp, graph)
+
+                if p == self.RML.termType and o== self.RML.IRI:
+                    self.URIActions(propertyBl,graphHelp)
+                else:
+                    self.literalActions(self.RML.sOM,propertyBl,graphHelp, graph)
             elif p == self.RML.pCons:
                 graphHelp.add((propertyBl,self.shaclNS.hasValue, o))
     def literalActions(self,sOM,propertyBl,graphHelp, graph):
@@ -82,7 +81,8 @@ class RMLtoSHACL:
             else:
                 string = string + '.' #wildcard
             tel += 1
-        return string
+        resultaat = rdflib.Literal(string)
+        return resultaat
     def writeShapeToFile(self):
         for g in self.propertygraphs:
             self.SHACL.graph = self.SHACL.graph + g
