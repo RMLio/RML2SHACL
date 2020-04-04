@@ -15,7 +15,7 @@ class RML:
         self.tM = self.r2rmlNS.TriplesMap
         self.sSM = self.r2rmlNS.subjectMap
         self.pclass = self.r2rmlNS['class']
-        self.sOM  = self.r2rmlNS.objectMap
+        self.oM  = self.r2rmlNS.objectMap
         self.IRI = self.r2rmlNS.IRI
         self.pLan  = self.r2rmlNS.language
         self.pCons  = self.r2rmlNS.constant
@@ -64,22 +64,104 @@ class RML:
                     self.graph.remove((s2,p2,o2))
                     self.graph.remove((s,p,o))
     def removeBlankNodesMultipleMaps(self):
-        graph = rdflib.Graph()
-        #graphPredicatObjectMap = rdflib.Graph()
         for sTM,pTM,oTM in self.graph.triples((None,None,self.r2rmlNS.TriplesMap)):
-            graph.add((sTM,pTM,oTM))
-            for s,p,o in self.graph:
-                if s==sTM:
-                    for s2,p2,o2 in self.graph.triples((o,None,None)): #searching for same Blank Node
-                        if p2 == self.r2rmlNS.objectMap:        #same for when we have refernrece map stuff??? (future work)
-                            for s3,p3,o3 in self.graph.triples((o2,None,None)):
-                                graph.add((p2,p3,o3))
-                        else:
-                            graph.add((p,p2,o2))
-            self.graphs.append(graph)
-        for graph in self.graphs:
-            print("Hallo")
-            for stmt in graph:
-                print(stmt)
-        
+            graphHelp = {}
+            graphsPOM = []
+            graphTripleMap = rdflib.Graph()
+            graphsubjectMap = rdflib.Graph()
+            graphlogicalSource = rdflib.Graph()
+            graphTripleMap.add((sTM,pTM,oTM)) #add triplesmap header
+            graphHelp["TM"] = graphTripleMap
+            tel=0
+            for s,p,o in self.graph.triples((sTM,None,None)):
+                #if s==sTM:
+                    if p == self.rmlNS.logicalSource:
+                        for s2,p2,o2 in self.graph.triples((o,None,None)): #searching for same Blank Node
+                            graphlogicalSource.add((p,p2,o2)) #add logical source info
+                        graphHelp["LS"] = graphlogicalSource
+                    if p == self.sSM:
+                        for s2,p2,o2 in self.graph.triples((o,None,None)): #searching for same Blank Node
+                            graphsubjectMap.add((p,p2,o2)) #add subject Map  info
+                        graphHelp["SM"] = graphsubjectMap
+                    if p == self.sPOM:
+                        #tel=0
+                        graphPredicatObjectMap = rdflib.Graph()
+                        #graphPredicatObjectMap.add((p,p2,o2))
+                        for s2,p2,o2 in self.graph.triples((o,None,None)): #searching for same Blank Node
+                            #graphPredicatObjectMap = rdflib.Graph()
+                            if p2 == self.r2rmlNS.objectMap:        #same for when we have reference map stuff??? (future work)
+                                for s3,p3,o3 in self.graph.triples((o2,None,None)):
+                                    graphPredicatObjectMap.add((p2,p3,o3))
+                            else:
+                                graphPredicatObjectMap.add((p,p2,o2))
+                            for stm in graphPredicatObjectMap:
+                                print(tel)
+                                print(stm)
+                            graphHelp["POM"+str(tel)] = graphPredicatObjectMap
+                            tel = tel +1
+            
+           
+            self.graphs.append(graphHelp)
 
+
+
+    def removeBlankNodesMultipleMapsTwo(self):
+        for sTM,pTM,oTM in self.graph.triples((None,None,self.r2rmlNS.TriplesMap)):
+            graphHelp = {}
+            graphsPOM = []
+            graphTripleMap = rdflib.Graph()
+            graphsubjectMap = rdflib.Graph()
+            graphlogicalSource = rdflib.Graph()
+            graphTripleMap.add((sTM,pTM,oTM)) #add triplesmap header
+            graphHelp["TM"] = graphTripleMap
+            tel=0
+            for s,p,o in self.graph.triples((sTM,None,None)):
+                #if s==sTM:
+                    if p == self.rmlNS.logicalSource:
+                        for s2,p2,o2 in self.graph.triples((o,None,None)): #searching for same Blank Node
+                            graphlogicalSource.add((p,p2,o2)) #add logical source info
+                        graphHelp["LS"] = graphlogicalSource
+                    if p == self.sSM:
+                        for s2,p2,o2 in self.graph.triples((o,None,None)): #searching for same Blank Node
+                            graphsubjectMap.add((p,p2,o2)) #add subject Map  info
+                        graphHelp["SM"] = graphsubjectMap
+                    if p == self.sPOM:
+                        graphPredicatObjectMap = rdflib.Graph()
+                        for s2,p2,o2 in self.graph.triples((o,None,None)): #searching for same Blank Node
+                            graphPredicatObjectMap.add((p,p2,o2))       #add the predicateobjectMap
+                        for s2,p2,o2 in graphPredicatObjectMap.triples((p,self.oM,None)):
+                            for s3,p3,o3 in self.graph.triples((o2,None,None)):
+                                graphPredicatObjectMap.add((p2,p3,o3))      #add the objectMap beloning to the predicateobjectMap added in previous loop
+                        graphPredicatObjectMap.remove((s2,p2,o2))
+                        graphHelp["POM"+str(tel)] = graphPredicatObjectMap
+                        tel = tel +1
+            
+           
+            self.graphs.append(graphHelp)
+        for graphHelp in self.graphs:
+            print("Hallo")
+            '''for g in graphHelp["TM"]:
+                print(g)
+            for g in graphHelp["LS"]:
+                print(g)
+            for g in graphHelp["SM"]:
+                print(g)
+            lengte = len(graphHelp)-3
+            for i in range(lengte):
+                print("new POM" + str(i))
+                for g in graphHelp["POM"+str(i)]:
+                    print(g)'''
+            print("test")
+            for n,g in graphHelp.items():
+                 for stm in g:
+                    print(n,stm)
+            '''for g in graphHelp.values():
+               for stm in g:
+                    print(stm)'''
+            
+    def main(self):
+        self.createGraph()
+        self.removeBlankNodesMultipleMapsTwo()
+
+Rml = RML()
+Rml.main()
