@@ -14,7 +14,7 @@ class RMLtoSHACL:
         self.propertygraphs = []
     def createNodeShape(self, graph):
         #start of SHACL shape
-        for s,p,o in graph.triples((None,RDF.type,self.RML.tM)):
+        for s,p,o in graph["TM"]:      #.triples((None,RDF.type,self.RML.tM)):
             self.SHACL.graph.add((s,p,self.shaclNS.NodeShape))
         self.sNodeShape = s
     def inferclass(self):
@@ -24,15 +24,17 @@ class RMLtoSHACL:
             self.SHACL.graph.add((self.sNodeShape,self.shaclNS.targetSubjectsOf,o))  #can we have more than one targetSubjectsOf?
 
     def findClass(self,graph):
-        for s,p,o in graph.triples((self.RML.sSM,self.RML.pclass,None)):
+        for s,p,o in graph['SM'].triples((self.RML.sSM,self.RML.pclass,None)):
                 self.SHACL.graph.add((self.sNodeShape,self.shaclNS.targetClass,o))
     def fillinProperty(self, graph):
+        propertyBl = rdflib.BNode()
+        graphHelp = rdflib.Graph()
         for s,p,o in graph.triples((self.RML.sPOM,None,None)):
-            propertyBl = rdflib.BNode()
-            graphHelp = rdflib.Graph()
             graphHelp.add((self.sNodeShape,self.shaclNS.property,propertyBl))
             if p==self.RML.pPred :
                 graphHelp.add((propertyBl,self.shaclNS.path,o))
+            elif p == self.RML.obj:
+                graphHelp.add((propertyBl,self.shaclNS.hasValue, o))
             elif p==self.RML.pPredMap:   #we have a rr:constant, does not work
                 for s,p,o in graph.triples((self.RML.pPredMap,self.RML.pCons,None)):
                     print("object constant is" + o)
@@ -42,23 +44,23 @@ class RMLtoSHACL:
 
             
     def findObject(self,propertyBl,graphHelp, graph):
-        for s,p,o in graph.triples((self.RML.sOM,None,None)):
+        for s,p,o in graph.triples((self.RML.oM,None,None)):
             if p == self.RML.template:
                 stringpattern= self.createPattern(o)
                 graphHelp.add((propertyBl,self.shaclNS.pattern,stringpattern))
                 if p == self.RML.termType and o== self.RML.r2rmlNS.Literal:
-                    self.literalActions(self.RML.sOM,propertyBl,graphHelp,graph)
+                    self.literalActions(self.RML.oM,propertyBl,graphHelp,graph)
                 else:
                     self.URIActions(propertyBl,graphHelp)
     
             elif p == self.RML.reference:
-
                 if p == self.RML.termType and o== self.RML.IRI:
                     self.URIActions(propertyBl,graphHelp)
                 else:
-                    self.literalActions(self.RML.sOM,propertyBl,graphHelp, graph)
+                    self.literalActions(self.RML.oM,propertyBl,graphHelp, graph)
             elif p == self.RML.pCons:
                 graphHelp.add((propertyBl,self.shaclNS.hasValue, o))
+
     def literalActions(self,sOM,propertyBl,graphHelp, graph):
         graphHelp.add((propertyBl,self.shaclNS.nodeKind,self.shaclNS.Literal))
         for s,p,o in graph.triples((sOM,self.RML.pLan,None)):
@@ -88,20 +90,25 @@ class RMLtoSHACL:
             self.SHACL.graph = self.SHACL.graph + g
         #self.SHACL.printGraph(1)
         for prefix, ns in self.RML.graph.namespaces():
-            self.SHACL.graph.bind(prefix,ns)            #@base is not possible to find immediatly
+            self.SHACL.graph.bind(prefix,ns)            #@base is used for <> in the RML ttl graph
         self.SHACL.graph.bind('sh','http://www.w3.org/ns/shacl#',False)
         self.SHACL.graph.serialize(destination='output2.ttl', format='turtle')
     def main(self):
-        self.RML.removeBlankNodesMultipleMaps()
+        self.RML.removeBlankNodesMultipleMapsTwo()
         for graph in self.RML.graphs:
             self.createNodeShape(graph)
             self.findClass(graph)
-            self.subjectTargetOf(graph)
-            self.fillinProperty(graph)
-            #self.SHACL.printGraph(1)
+            lengte = len(graph)-3
+            for i in range(lengte):
+                    self.subjectTargetOf(graph["POM"+str(i)])
+                    self.fillinProperty(graph["POM"+str(i)])
+        #for g in self.propertygraphs: #is inside of writeShapeToFile maybe place somewhere else
+           # self.SHACL.graph = self.SHACL.graph + g
             ##self.RML.printGraph(1)
-            self.writeShapeToFile()
-        
+        self.writeShapeToFile()
+        #self.SHACL.printGraph(1)
+        print(len(self.SHACL.graph))
+
 
 
 RtoS = RMLtoSHACL()

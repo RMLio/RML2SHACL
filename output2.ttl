@@ -1,3 +1,4 @@
+@prefix activity: <http://example.com/activity/> .
 @prefix ex: <http://example.com/> .
 @prefix foaf: <http://xmlns.com/foaf/0.1/> .
 @prefix ql: <http://semweb.mmlab.be/ns/ql#> .
@@ -10,20 +11,20 @@
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
 <http://example.com/base/TriplesMap1> a sh:NodeShape ;
-    sh:property [ sh:languageIn "be",
-                "en" ;
-            sh:nodeKind sh:Literal ;
-            sh:path rdfs:label ],
-        [ sh:languageIn "be",
-                "en" ;
-            sh:nodeKind sh:Literal ;
-            sh:path ex:extra ] ;
-    sh:targetSubjectsOf ex:extra,
-        rdfs:label .
+    sh:property [ sh:hasValue foaf:Person ;
+            sh:path rdf:type ],
+        [ sh:path ex:Sport ],
+        [ sh:nodeKind sh:Literal ;
+            sh:path ex:id ],
+        [ sh:nodeKind sh:Literal ;
+            sh:path foaf:name ] ;
+    sh:targetSubjectsOf ex:Sport,
+        ex:id,
+        rdf:type,
+        foaf:name .
 
 <http://example.com/base/TriplesMap2> a sh:NodeShape ;
-    sh:property [ sh:languageIn "es" ;
-            sh:nodeKind sh:Literal ;
-            sh:path rdfs:label ] ;
-    sh:targetSubjectsOf rdfs:label .
+    sh:property [ sh:hasValue activity:Sport ;
+            sh:path rdf:type ] ;
+    sh:targetSubjectsOf rdf:type .
 
