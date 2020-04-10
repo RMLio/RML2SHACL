@@ -22,10 +22,15 @@ class RMLtoSHACL:
     def subjectTargetOf(self,graph):
         for s,p,o in graph.triples((self.RML.sPOM,self.RML.pPred,None)):
             self.SHACL.graph.add((self.sNodeShape,self.shaclNS.targetSubjectsOf,o))  #can we have more than one targetSubjectsOf?
+    def targetNode(self,graph):
+        #if there's a constant in the subjectmzp we can add this as sh:targetNode for the shape
+        for s,p,o in graph['SM'].triples((self.RML.sSM,self.RML.pCons,None)):
+            self.SHACL.graph.add((self.sNodeShape,self.shaclNS.targetNode,o))
 
     def findClass(self,graph):
         for s,p,o in graph['SM'].triples((self.RML.sSM,self.RML.pclass,None)):
                 self.SHACL.graph.add((self.sNodeShape,self.shaclNS.targetClass,o))
+        self.inferclass()
     def fillinProperty(self, graph):
         propertyBl = rdflib.BNode()
         graphHelp = rdflib.Graph()
@@ -33,12 +38,12 @@ class RMLtoSHACL:
             graphHelp.add((self.sNodeShape,self.shaclNS.property,propertyBl))
             if p==self.RML.pPred :
                 graphHelp.add((propertyBl,self.shaclNS.path,o))
-            elif p == self.RML.obj:
-                graphHelp.add((propertyBl,self.shaclNS.hasValue, o))
-            elif p==self.RML.pPredMap:   #we have a rr:constant, does not work
+            '''elif p == self.RML.obj:
+                graphHelp.add((propertyBl,self.shaclNS.hasValue, o))'''
+            '''elif p==self.RML.pPredMap:   #we have a rr:constant, does not work
                 for s,p,o in graph.triples((self.RML.pPredMap,self.RML.pCons,None)):
                     print("object constant is" + o)
-                    graphHelp.add((propertyBl,self.shaclNS.path,o))
+                    graphHelp.add((propertyBl,self.shaclNS.path,o))'''
             self.findObject(propertyBl,graphHelp,graph)
             self.propertygraphs.append(graphHelp)
 
@@ -52,7 +57,6 @@ class RMLtoSHACL:
                     self.literalActions(self.RML.oM,propertyBl,graphHelp,graph)
                 else:
                     self.URIActions(propertyBl,graphHelp)
-    
             elif p == self.RML.reference:
                 if p == self.RML.termType and o== self.RML.IRI:
                     self.URIActions(propertyBl,graphHelp)
@@ -94,10 +98,11 @@ class RMLtoSHACL:
         self.SHACL.graph.bind('sh','http://www.w3.org/ns/shacl#',False)
         self.SHACL.graph.serialize(destination='output2.ttl', format='turtle')
     def main(self):
-        self.RML.removeBlankNodesMultipleMapsTwo()
+        self.RML.removeBlankNodesMultipleMaps()
         for graph in self.RML.graphs:
             self.createNodeShape(graph)
             self.findClass(graph)
+            self.targetNode(graph)
             lengte = len(graph)-3
             for i in range(lengte):
                     self.subjectTargetOf(graph["POM"+str(i)])
