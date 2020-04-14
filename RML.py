@@ -20,6 +20,7 @@ class RML:
         self.pLan  = self.r2rmlNS.language
         self.pCons  = self.r2rmlNS.constant
         self.obj = self.r2rmlNS.object
+        self.datatype = self.r2rmlNS.datatype
         self.graphs = []
         self.refgraphs = []
     def printGraph(self, keuze):
@@ -34,10 +35,8 @@ class RML:
         #self.graph.parse("C:\\Users\\Birte\\Documents\\GitHub\\rml-test-cases\\test-cases\\RMLTC0002a-CSV\\mapping.ttl", format="turtle") #with rr:class
         #self.graph.parse("C:\\Users\\Birte\\Documents\\GitHub\\rml-test-cases\\test-cases\\RMLTC0004a-CSV\\mapping.ttl", format="turtle")
         #self.graph.parse("C:\\Users\\Birte\\Documents\\GitHub\\rml-test-cases\\test-cases\\RMLTC0005a-CSV\\mapping.ttl", format="turtle")
-
-
-        #to do: constants => works for object but not yet for subject and or predicateMap
-        self.graph.parse("C:\\Users\\Birte\\Documents\\GitHub\\rml-test-cases\\test-cases\\RMLTC0006a-CSV\\mapping.ttl", format="turtle")
+        #constants test
+        #self.graph.parse("C:\\Users\\Birte\\Documents\\GitHub\\rml-test-cases\\test-cases\\RMLTC0006a-CSV\\mapping.ttl", format="turtle")
 
 
         # #troubles readin this RML file in => template object bad escape
@@ -55,7 +54,7 @@ class RML:
 
         #parentriplemap test
         #self.graph.parse("C:\\Users\\Birte\\Documents\\GitHub\\rml-test-cases\\test-cases\\RMLTC0008b-CSV\\mapping.ttl", format="turtle") #geen rdf
-        #self.graph.parse("C:\\Users\\Birte\\Documents\\masterproefHelpFiles\\rml8bwithRDFS.ttl",format="turtle") 
+        self.graph.parse("C:\\Users\\Birte\\Documents\\masterproefHelpFiles\\rml8bwithRDFS.ttl",format="turtle") 
         '''for ns in self.graph.namespaces():
             print(ns)'''
         #self.printGraph(1)
@@ -116,38 +115,35 @@ class RML:
                         graphHelp["POM"+str(tel)] = graphPredicatObjectMap
                         tel = tel +1
             self.graphs.append(graphHelp)
-        '''for sROM,pROM,oROM in self.graph.triples((None,None,self.r2rmlNS.RefObjectMap)):
-            graphHelp = {}
-            graph = rdflib.Graph()
-            graph.add((sROM,pROM,oROM))
-            for s,p,o in self.graph.triples((sROM,None,None)):
-                    graph.add((s,p,o))
-            graphHelp['ROM'] = graph
-            for g in graphHelp['ROM']:
-                print(g)
-            self.refgraphs.append(graphHelp)'''
-
-
+    def printDictionary(self, keuze):
         #print(self.graphs)
         for graphHelp in self.graphs:
-            '''for g in graphHelp["TM"]:
-                print("TM graph: " + str(g))
-            for g in graphHelp["LS"]:
-                print(g)
-            for g in graphHelp["SM"]:
-                print(g)
-            lengte = len(graphHelp)-3
-            for i in range(lengte):
-                print("new POM" + str(i))
-                for g in graphHelp["POM"+str(i)]:
-                    print(g)'''
-            for n,g in graphHelp.items():
-                 for stm in g:
-                    print(n,stm)
-            '''for g in graphHelp.values():
-               for stm in g:
-                    print(stm)'''
-            
+            if keuze == 1:
+                for g in graphHelp["TM"]:
+                    print("TM graph: " + str(g))
+            if keuze == 2:
+                for g in graphHelp["LS"]:
+                    print(g)
+            if keuze == 3:
+                for g in graphHelp["SM"]:
+                    print(g)
+            if keuze == 4:
+                length = len(graphHelp)-3
+                #Because the dictionary inside graphHelp has first 'TM', 'LM' and 'SM' as keys we do the length of the dictionary minus 3
+                #this way we can use this newly calculated length for the indexes used for the possible multiple PredicateObjectsMaps (POM)
+                for i in range(length):
+                    print("new POM" + str(i))
+                    for g in graphHelp["POM"+str(i)]:
+                        print(g)
+            if keuze == 5:
+                for n,g in graphHelp.items():
+                    for stm in g:
+                        print(n,stm)
+            if keuze == 6:
+                for g in graphHelp.values():
+                    for stm in g:
+                        print(stm)
+                
             
     def main(self):
         self.createGraph()
