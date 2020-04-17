@@ -6,7 +6,7 @@ class SHACL:
     def printGraph(self, keuze):
         if keuze == 1: 
             for stmt in self.graph:
-                print(stmt)
+                print("SHACL:" + str(stmt))
         else:
             for stmt in self.graph:
                 pprint.pprint(stmt)
