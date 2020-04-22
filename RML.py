@@ -51,13 +51,15 @@ class RML:
         #self.graph.parse("C:\\Users\\Birte\\Documents\\masterproefHelpFiles\\rml15withRDFS.ttl",format="turtle")
 
         #self.graph.parse("C:\\Users\\Birte\\Documents\\masterproefHelpFiles\\rmlex.ttl",format="turtle")
+        
+        #self.graph.parse("C:\\Users\\Birte\\Documents\\masterproefHelpFiles\\shacleorshape.ttl",format="turtle")
 
         #parentriplemap test
         #self.graph.parse("C:\\Users\\Birte\\Documents\\GitHub\\rml-test-cases\\test-cases\\RMLTC0008b-CSV\\mapping.ttl", format="turtle") #geen rdf
         self.graph.parse("C:\\Users\\Birte\\Documents\\masterproefHelpFiles\\rml8bwithRDFS.ttl",format="turtle") 
         '''for ns in self.graph.namespaces():
             print(ns)'''
-        #self.printGraph(1)
+        self.printGraph(1)
 
     def removeBlankNodesMultipleMaps(self):
         #loop over all the Triple Maps in the RML input file
@@ -147,7 +149,7 @@ class RML:
             
     def main(self):
         self.createGraph()
-        self.removeBlankNodesMultipleMaps()
+        #self.removeBlankNodesMultipleMaps()
 
 Rml = RML()
 Rml.main()

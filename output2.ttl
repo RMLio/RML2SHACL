@@ -4,29 +4,30 @@
 @prefix ql: <http://semweb.mmlab.be/ns/ql#> .
 @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix rdfs1: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
 @prefix rml: <http://semweb.mmlab.be/ns/rml#> .
 @prefix rr: <http://www.w3.org/ns/r2rml#> .
 @prefix sh: <http://www.w3.org/ns/shacl#> .
 @prefix xml: <http://www.w3.org/XML/1998/namespace> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
-<http://example.com/base/TriplesMap1> a sh:NodeShape ;
+<http://example.com/base/TriplesMap1/shape> a sh:NodeShape ;
+    sh:and ( [ sh:nodeKind sh:IRI ;
+                sh:pattern "http://example.com/." ] [ sh:node <http://example.com/base/TriplesMap2/shape> ] ) ;
     sh:property [ sh:nodeKind sh:Literal ;
-            sh:path ex:id ],
-        [ sh:nodeKind sh:IRI ;
-            sh:path ex:Sport ;
-            sh:pattern "http://example.com/." ],
-        [ sh:hasValue foaf:Person ;
-            sh:path rdf:type ],
+            sh:path foaf:name ],
+        [ sh:path ex:Sport ],
         [ sh:nodeKind sh:Literal ;
-            sh:path foaf:name ] ;
+            sh:path ex:id ],
+        [ sh:hasValue foaf:Person ;
+            sh:path rdfs1:type ] ;
+    sh:targetClass foaf:Person ;
     sh:targetSubjectsOf ex:Sport,
         ex:id,
-        rdf:type,
         foaf:name .
 
-<http://example.com/base/TriplesMap2> a sh:NodeShape ;
+<http://example.com/base/TriplesMap2/shape> a sh:NodeShape ;
     sh:property [ sh:hasValue activity:Sport ;
-            sh:path rdf:type ] ;
-    sh:targetSubjectsOf rdf:type .
+            sh:path rdfs1:type ] ;
+    sh:targetClass activity:Sport .
 
