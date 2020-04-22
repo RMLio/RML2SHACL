@@ -3,16 +3,45 @@ import rdflib
 from rdflib import RDF
 from RML import *
 from SHACL import *
+import requests
+class FilesGitHub:
+    def __init__(self):
+        self.CSV = '-CSV'
+        self.XML = '-XML'
+        self.mySql = '-MySQL'
+        self.Postgre = '-PostgreSQL'
+        self.js = '-JSON'
+        self.sparql = '-SPARQL'
+        self.sqlserver = '-SQLServer'
+        self.Mappingfile = '/mapping.ttl'
+        self.outputRdfFile = '/output.nq'
+    def getFile(self, nummer,letter,typeFile, fileNeeded): 
+        #This function makes it possible to get the RML input files with the matching RDF output file from GitHub 
+        if nummer <10:
+            url = 'https://raw.githubusercontent.com/RMLio/rml-test-cases/master/test-cases/RMLTC000' + str(nummer) +letter + typeFile + fileNeeded
+        else: #one 0 less in the base of the URL
+            url = 'https://raw.githubusercontent.com/RMLio/rml-test-cases/master/test-cases/RMLTC00' + str(nummer) +letter +  typeFile + fileNeeded
+        r = requests.get(url)
+        if str(r) == '<Response [404]>':
+            print('File not found.')
+            return None
+        else:
+            fileName = fileNeeded.replace('/','')
+            f = open(fileName,'w')
+            f.write(r.text)
+            f.close()
+            return fileName
 class RMLtoSHACL:
     def __init__(self):
         self.RML = RML()
-        self.RML.createGraph()
+        self.readfileObject = FilesGitHub()
         #self.RML.removeBlankNodes()
         self.shaclNS = rdflib.Namespace('http://www.w3.org/ns/shacl#')
         self.rdfSyntax = rdflib.Namespace('http://www.w3.org/1999/02/22-rdf-syntax-ns#')    
         self.SHACL = SHACL()
         self.sNodeShape = None
         self.propertygraphs = []
+        
     def createNodeShape(self, graph):
         #start of SHACL shape
         for s,p,o in graph["TM"]:      #.triples((None,RDF.type,self.RML.tM)):
@@ -152,6 +181,10 @@ class RMLtoSHACL:
         self.SHACL.graph.bind('rdfs','http://www.w3.org/1999/02/22-rdf-syntax-ns#')
         self.SHACL.graph.serialize(destination='output2.ttl', format='turtle')
     def main(self):
+        number = 8
+        letter = 'b'
+        inputfileType = self.readfileObject.CSV
+        self.RML.createGraph(number,letter,inputfileType)
         self.RML.removeBlankNodesMultipleMaps()
         for graph in self.RML.graphs:
             self.createNodeShape(graph)
@@ -168,7 +201,10 @@ class RMLtoSHACL:
         self.writeShapeToFile()
         #self.SHACL.printGraph(1)
         print(len(self.SHACL.graph))
-
+        filenameOutput = self.readfileObject.getFile(number,letter,inputfileType,self.readfileObject.outputRdfFile)
+        graphOutput = rdflib.Graph()
+        graphOutput.parse(filenameOutput,format="turtle")
+        self.SHACL.Validation(self.SHACL.graph,graphOutput) 
 
 
 RtoS = RMLtoSHACL()

@@ -1,6 +1,36 @@
 import rdflib
 import pprint
 
+import requests
+class FilesGitHub:
+    def __init__(self):
+        self.CSV = '-CSV'
+        self.XML = '-XML'
+        self.mySql = '-MySQL'
+        self.Postgre = '-PostgreSQL'
+        self.js = '-JSON'
+        self.sparql = '-SPARQL'
+        self.sqlserver = '-SQLServer'
+        self.Mappingfile = '/mapping.ttl'
+        self.outputRdfFile = '/output.nq'
+    def getFile(self, nummer,letter,typeFile, fileNeeded): 
+        #This function makes it possible to get the RML input files with the matching RDF output file from GitHub 
+        if nummer <10:
+            url = 'https://raw.githubusercontent.com/RMLio/rml-test-cases/master/test-cases/RMLTC000' + str(nummer) +letter + typeFile + fileNeeded
+        else: #one 0 less in the base of the URL
+            url = 'https://raw.githubusercontent.com/RMLio/rml-test-cases/master/test-cases/RMLTC00' + str(nummer) +letter +  typeFile + fileNeeded
+        r = requests.get(url)
+        if str(r) == '<Response [404]>':
+            print('File not found.')
+            return None
+        else:
+            fileName = fileNeeded.replace('/','')
+            f = open(fileName,'w')
+            f.write(r.text)
+            f.close()
+            return fileName
+#from FilesGitHub import *
+
 class RML:
     def __init__(self):
         self.graph = rdflib.Graph()
@@ -30,33 +60,11 @@ class RML:
         else:
             for stmt in self.graph:
                 pprint.pprint(stmt)
-    def createGraph(self):
-        #self.graph.parse("C:\\Users\\Birte\\Documents\\GitHub\\rml-test-cases\\test-cases\\RMLTC0000-CSV\\mapping.ttl", format="turtle")
-        #self.graph.parse("C:\\Users\\Birte\\Documents\\GitHub\\rml-test-cases\\test-cases\\RMLTC0002a-CSV\\mapping.ttl", format="turtle") #with rr:class
-        #self.graph.parse("C:\\Users\\Birte\\Documents\\GitHub\\rml-test-cases\\test-cases\\RMLTC0004a-CSV\\mapping.ttl", format="turtle")
-        #self.graph.parse("C:\\Users\\Birte\\Documents\\GitHub\\rml-test-cases\\test-cases\\RMLTC0005a-CSV\\mapping.ttl", format="turtle")
-        #constants test
-        #self.graph.parse("C:\\Users\\Birte\\Documents\\GitHub\\rml-test-cases\\test-cases\\RMLTC0006a-CSV\\mapping.ttl", format="turtle")
-
-
-        # #troubles readin this RML file in => template object bad escape
-        #self.graph.parse("C:\\Users\\Birte\\Documents\\GitHub\\rml-test-cases\\test-cases\\RMLTC0010c-CSV\\mapping.ttl", format="turtle")
-
-        #works template
-        #self.graph.parse("C:\\Users\\Birte\\Documents\\GitHub\\rml-test-cases\\test-cases\\RMLTC0011b-CSV\\mapping.ttl", format="turtle")
-        #self.graph.parse("C:\\Users\\Birte\\Documents\\GitHub\\rml-test-cases\\test-cases\\RMLTC0012a-CSV\\mapping.ttl", format="turtle")
-
-        #lang test
-        #self.graph.parse("C:\\Users\\Birte\\Documents\\GitHub\\rml-test-cases\\test-cases\\RMLTC0015a-CSV\\mapping.ttl", format="turtle") #geen rdfs
-        #self.graph.parse("C:\\Users\\Birte\\Documents\\masterproefHelpFiles\\rml15withRDFS.ttl",format="turtle")
-
-        #self.graph.parse("C:\\Users\\Birte\\Documents\\masterproefHelpFiles\\rmlex.ttl",format="turtle")
-        
-        #self.graph.parse("C:\\Users\\Birte\\Documents\\masterproefHelpFiles\\shacleorshape.ttl",format="turtle")
-
-        #parentriplemap test
-        #self.graph.parse("C:\\Users\\Birte\\Documents\\GitHub\\rml-test-cases\\test-cases\\RMLTC0008b-CSV\\mapping.ttl", format="turtle") #geen rdf
-        self.graph.parse("C:\\Users\\Birte\\Documents\\masterproefHelpFiles\\rml8bwithRDFS.ttl",format="turtle") 
+    def createGraph(self,number, letter,typeInputFile):
+        fileReadObject = FilesGitHub()
+        filename = fileReadObject.getFile(number,letter,typeInputFile,fileReadObject.Mappingfile)
+        #self.graph.parse(filename,format="turtle") 
+        self.graph.parse("C:\\Users\\Birte\\Documents\\masterproefHelpFiles\\rml8bwithRDFS.ttl",format="turtle")
         '''for ns in self.graph.namespaces():
             print(ns)'''
         self.printGraph(1)
@@ -147,9 +155,12 @@ class RML:
                         print(stm)
                 
             
-    def main(self):
-        self.createGraph()
+    def testmain(self):
+        pass
+        #self.createGraph(8,'b',)
         #self.removeBlankNodesMultipleMaps()
 
 Rml = RML()
-Rml.main()
+Rml.testmain()
+
+

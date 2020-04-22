@@ -16,11 +16,11 @@
                 sh:pattern "http://example.com/." ] [ sh:node <http://example.com/base/TriplesMap2/shape> ] ) ;
     sh:property [ sh:nodeKind sh:Literal ;
             sh:path foaf:name ],
-        [ sh:path ex:Sport ],
         [ sh:nodeKind sh:Literal ;
             sh:path ex:id ],
         [ sh:hasValue foaf:Person ;
-            sh:path rdfs1:type ] ;
+            sh:path rdfs1:type ],
+        [ sh:path ex:Sport ] ;
     sh:targetClass foaf:Person ;
     sh:targetSubjectsOf ex:Sport,
         ex:id,
