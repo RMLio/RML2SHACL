@@ -68,7 +68,7 @@ class RMLtoSHACL:
             for s,p,o in graph.triples((self.RML.oM,self.RML.pCons,None)):
                 self.SHACL.graph.add((self.sNodeShape,self.shaclNS.targetClass,o))
     def fillinProperty(self, graph):
-        rdfType = Falsegit
+        rdfType = False
         propertyBl = rdflib.BNode()
         graphHelp = rdflib.Graph()
         for s,p,o in graph.triples((self.RML.sPOM,None,None)):
