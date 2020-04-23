@@ -68,22 +68,27 @@ class RMLtoSHACL:
             for s,p,o in graph.triples((self.RML.oM,self.RML.pCons,None)):
                 self.SHACL.graph.add((self.sNodeShape,self.shaclNS.targetClass,o))
     def fillinProperty(self, graph):
+        rdfType = Falsegit
         propertyBl = rdflib.BNode()
         graphHelp = rdflib.Graph()
         for s,p,o in graph.triples((self.RML.sPOM,None,None)):
-            graphHelp.add((self.sNodeShape,self.shaclNS.property,propertyBl))
-            if p==self.RML.pPred:
-                graphHelp.add((propertyBl,self.shaclNS.path,o))
-            self.findObject(propertyBl,graphHelp,graph)
+            if o != rdflib.RDF.type: #We skip the predicate object maps that have rdf:type because those are added in findClassinPredicateOM()
+                graphHelp.add((self.sNodeShape,self.shaclNS.property,propertyBl))
+                if p==self.RML.pPred:
+                    graphHelp.add((propertyBl,self.shaclNS.path,o))
+            else:
+                rdfType = True #important to give this information to the findObject() function
+            self.findObject(propertyBl,graphHelp,graph,rdfType)
             self.propertygraphs.append(graphHelp)
 
             
-    def findObject(self,propertyBl,graphHelp, graph):
+    def findObject(self,propertyBl,graphHelp, graph,rdfType):
         #we test if the object is an IRI or a Literal
         for s,p,o in graph.triples((self.RML.oM,None,None)):
             #Test for when it has a template
             result = self.testIfIRIorLiteral(p,o, graphHelp,propertyBl,graph)
-            if not result and p == self.RML.pCons:
+            if not result and p == self.RML.pCons and not rdfType:
+                #if rdfType is True then we have a predicateobject with rdf:type and then we don't have to look at the constant values because it's filled in findClassinPredicateOM()
                 graphHelp.add((propertyBl,self.shaclNS.hasValue, o))
             elif p == self.RML.r2rmlNS.parentTriplesMap:
                 #test in other graphs

@@ -154,13 +154,5 @@ class RML:
                     for stm in g:
                         print(stm)
                 
-            
-    def testmain(self):
-        pass
-        #self.createGraph(8,'b',)
-        #self.removeBlankNodesMultipleMaps()
-
-Rml = RML()
-Rml.testmain()
 
 

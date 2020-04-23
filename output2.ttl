@@ -14,20 +14,16 @@
 <http://example.com/base/TriplesMap1/shape> a sh:NodeShape ;
     sh:and ( [ sh:nodeKind sh:IRI ;
                 sh:pattern "http://example.com/." ] [ sh:node <http://example.com/base/TriplesMap2/shape> ] ) ;
-    sh:property [ sh:nodeKind sh:Literal ;
+    sh:property [ sh:path ex:Sport ],
+        [ sh:nodeKind sh:Literal ;
             sh:path foaf:name ],
         [ sh:nodeKind sh:Literal ;
-            sh:path ex:id ],
-        [ sh:hasValue foaf:Person ;
-            sh:path rdfs1:type ],
-        [ sh:path ex:Sport ] ;
+            sh:path ex:id ] ;
     sh:targetClass foaf:Person ;
     sh:targetSubjectsOf ex:Sport,
         ex:id,
         foaf:name .
 
 <http://example.com/base/TriplesMap2/shape> a sh:NodeShape ;
-    sh:property [ sh:hasValue activity:Sport ;
-            sh:path rdfs1:type ] ;
     sh:targetClass activity:Sport .
 
