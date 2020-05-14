@@ -1,0 +1,788 @@
+number;letter;file type;conforms?;validation result
+3;a;MySQL;True;
+3;a;PostgreSQL;True;
+3;a;SQLServer;True;
+3;b;MySQL;True;
+3;b;PostgreSQL;True;
+3;b;SQLServer;True;
+3;c;CSV;False;"Validation Report
+Conforms: False
+Results (1):
+Constraint Violation in NodeKindConstraintComponent (http://www.w3.org/ns/shacl#NodeKindConstraintComponent):
+	Severity: sh:Violation
+	Source Shape: [ sh:nodeKind sh:IRI ; sh:path foaf:name ; sh:pattern Literal("". ."") ]
+	Focus Node: <http://example.com/Student10>
+	Value Node: Literal(""Venus Williams"")
+	Result Path: foaf:name
+"
+3;c;XML;False;"Validation Report
+Conforms: False
+Results (4):
+Constraint Violation in NodeKindConstraintComponent (http://www.w3.org/ns/shacl#NodeKindConstraintComponent):
+	Severity: sh:Violation
+	Source Shape: [ sh:nodeKind sh:IRI ; sh:path foaf:name ; sh:pattern Literal("". ."") ]
+	Focus Node: <http://example.com/Student10>
+	Value Node: Literal(""Venus Williams"")
+	Result Path: foaf:name
+Constraint Violation in NodeKindConstraintComponent (http://www.w3.org/ns/shacl#NodeKindConstraintComponent):
+	Severity: sh:Violation
+	Source Shape: [ sh:nodeKind sh:IRI ; sh:path foaf:name ; sh:pattern Literal("". ."") ]
+	Focus Node: <http://example.com/Student10>
+	Value Node: Literal(""Venus Williams"")
+	Result Path: foaf:name
+Constraint Violation in NodeKindConstraintComponent (http://www.w3.org/ns/shacl#NodeKindConstraintComponent):
+	Severity: sh:Violation
+	Source Shape: [ sh:nodeKind sh:IRI ; sh:path foaf:name ; sh:pattern Literal("". ."") ]
+	Focus Node: <http://example.com/Student10>
+	Value Node: Literal(""Venus Williams"")
+	Result Path: foaf:name
+Constraint Violation in NodeKindConstraintComponent (http://www.w3.org/ns/shacl#NodeKindConstraintComponent):
+	Severity: sh:Violation
+	Source Shape: [ sh:nodeKind sh:IRI ; sh:path foaf:name ; sh:pattern Literal("". ."") ]
+	Focus Node: <http://example.com/Student10>
+	Value Node: Literal(""Venus Williams"")
+	Result Path: foaf:name
+"
+3;c;MySQL;False;"Validation Report
+Conforms: False
+Results (10):
+Constraint Violation in NodeKindConstraintComponent (http://www.w3.org/ns/shacl#NodeKindConstraintComponent):
+	Severity: sh:Violation
+	Source Shape: [ sh:nodeKind sh:IRI ; sh:path foaf:name ; sh:pattern Literal("". ."") ]
+	Focus Node: <http://example.com/Student10>
+	Value Node: Literal(""Venus Williams"")
+	Result Path: foaf:name
+Constraint Violation in NodeKindConstraintComponent (http://www.w3.org/ns/shacl#NodeKindConstraintComponent):
+	Severity: sh:Violation
+	Source Shape: [ sh:nodeKind sh:IRI ; sh:path foaf:name ; sh:pattern Literal("". ."") ]
+	Focus Node: <http://example.com/Student10>
+	Value Node: Literal(""Venus Williams"")
+	Result Path: foaf:name
+Constraint Violation in NodeKindConstraintComponent (http://www.w3.org/ns/shacl#NodeKindConstraintComponent):
+	Severity: sh:Violation
+	Source Shape: [ sh:nodeKind sh:IRI ; sh:path foaf:name ; sh:pattern Literal("". ."") ]
+	Focus Node: <http://example.com/Student10>
+	Value Node: Literal(""Venus Williams"")
+	Result Path: foaf:name
+Constraint Violation in NodeKindConstraintComponent (http://www.w3.org/ns/shacl#NodeKindConstraintComponent):
+	Severity: sh:Violation
+	Source Shape: [ sh:nodeKind sh:IRI ; sh:path foaf:name ; sh:pattern Literal("". ."") ]
+	Focus Node: <http://example.com/Student10>
+	Value Node: Literal(""Venus Williams"")
+	Result Path: foaf:name
+Constraint Violation in NodeKindConstraintComponent (http://www.w3.org/ns/shacl#NodeKindConstraintComponent):
+	Severity: sh:Violation
+	Source Shape: [ sh:nodeKind sh:IRI ; sh:path foaf:name ; sh:pattern Literal("". ."") ]
+	Focus Node: <http://example.com/Student10>
+	Value Node: Literal(""Venus Williams"")
+	Result Path: foaf:name
+Constraint Violation in NodeKindConstraintComponent (http://www.w3.org/ns/shacl#NodeKindConstraintComponent):
+	Severity: sh:Violation
+	Source Shape: [ sh:nodeKind sh:IRI ; sh:path foaf:name ; sh:pattern Literal("". ."") ]
+	Focus Node: <http://example.com/Student10>
+	Value Node: Literal(""Venus Williams"")
+	Result Path: foaf:name
+Constraint Violation in NodeKindConstraintComponent (http://www.w3.org/ns/shacl#NodeKindConstraintComponent):
+	Severity: sh:Violation
+	Source Shape: [ sh:nodeKind sh:IRI ; sh:path foaf:name ; sh:pattern Literal("". ."") ]
+	Focus Node: <http://example.com/Student10>
+	Value Node: Literal(""Venus Williams"")
+	Result Path: foaf:name
+Constraint Violation in NodeKindConstraintComponent (http://www.w3.org/ns/shacl#NodeKindConstraintComponent):
+	Severity: sh:Violation
+	Source Shape: [ sh:nodeKind sh:IRI ; sh:path foaf:name ; sh:pattern Literal("". ."") ]
+	Focus Node: <http://example.com/Student10>
+	Value Node: Literal(""Venus Williams"")
+	Result Path: foaf:name
+Constraint Violation in NodeKindConstraintComponent (http://www.w3.org/ns/shacl#NodeKindConstraintComponent):
+	Severity: sh:Violation
+	Source Shape: [ sh:nodeKind sh:IRI ; sh:path foaf:name ; sh:pattern Literal("". ."") ]
+	Focus Node: <http://example.com/Student10>
+	Value Node: Literal(""Venus Williams"")
+	Result Path: foaf:name
+Constraint Violation in NodeKindConstraintComponent (http://www.w3.org/ns/shacl#NodeKindConstraintComponent):
+	Severity: sh:Violation
+	Source Shape: [ sh:nodeKind sh:IRI ; sh:path foaf:name ; sh:pattern Literal("". ."") ]
+	Focus Node: <http://example.com/Student10>
+	Value Node: Literal(""Venus Williams"")
+	Result Path: foaf:name
+"
+3;c;PostgreSQL;False;"Validation Report
+Conforms: False
+Results (20):
+Constraint Violation in NodeKindConstraintComponent (http://www.w3.org/ns/shacl#NodeKindConstraintComponent):
+	Severity: sh:Violation
+	Source Shape: [ sh:nodeKind sh:IRI ; sh:path foaf:name ; sh:pattern Literal("". ."") ]
+	Focus Node: <http://example.com/Student10>
+	Value Node: Literal(""Venus Williams"")
+	Result Path: foaf:name
+Constraint Violation in NodeKindConstraintComponent (http://www.w3.org/ns/shacl#NodeKindConstraintComponent):
+	Severity: sh:Violation
+	Source Shape: [ sh:nodeKind sh:IRI ; sh:path foaf:name ; sh:pattern Literal("". ."") ]
+	Focus Node: <http://example.com/Student10>
+	Value Node: Literal(""Venus Williams"")
+	Result Path: foaf:name
+Constraint Violation in NodeKindConstraintComponent (http://www.w3.org/ns/shacl#NodeKindConstraintComponent):
+	Severity: sh:Violation
+	Source Shape: [ sh:nodeKind sh:IRI ; sh:path foaf:name ; sh:pattern Literal("". ."") ]
+	Focus Node: <http://example.com/Student10>
+	Value Node: Literal(""Venus Williams"")
+	Result Path: foaf:name
+Constraint Violation in NodeKindConstraintComponent (http://www.w3.org/ns/shacl#NodeKindConstraintComponent):
+	Severity: sh:Violation
+	Source Shape: [ sh:nodeKind sh:IRI ; sh:path foaf:name ; sh:pattern Literal("". ."") ]
+	Focus Node: <http://example.com/Student10>
+	Value Node: Literal(""Venus Williams"")
+	Result Path: foaf:name
+Constraint Violation in NodeKindConstraintComponent (http://www.w3.org/ns/shacl#NodeKindConstraintComponent):
+	Severity: sh:Violation
+	Source Shape: [ sh:nodeKind sh:IRI ; sh:path foaf:name ; sh:pattern Literal("". ."") ]
+	Focus Node: <http://example.com/Student10>
+	Value Node: Literal(""Venus Williams"")
+	Result Path: foaf:name
+Constraint Violation in NodeKindConstraintComponent (http://www.w3.org/ns/shacl#NodeKindConstraintComponent):
+	Severity: sh:Violation
+	Source Shape: [ sh:nodeKind sh:IRI ; sh:path foaf:name ; sh:pattern Literal("". ."") ]
+	Focus Node: <http://example.com/Student10>
+	Value Node: Literal(""Venus Williams"")
+	Result Path: foaf:name
+Constraint Violation in NodeKindConstraintComponent (http://www.w3.org/ns/shacl#NodeKindConstraintComponent):
+	Severity: sh:Violation
+	Source Shape: [ sh:nodeKind sh:IRI ; sh:path foaf:name ; sh:pattern Literal("". ."") ]
+	Focus Node: <http://example.com/Student10>
+	Value Node: Literal(""Venus Williams"")
+	Result Path: foaf:name
+Constraint Violation in NodeKindConstraintComponent (http://www.w3.org/ns/shacl#NodeKindConstraintComponent):
+	Severity: sh:Violation
+	Source Shape: [ sh:nodeKind sh:IRI ; sh:path foaf:name ; sh:pattern Literal("". ."") ]
+	Focus Node: <http://example.com/Student10>
+	Value Node: Literal(""Venus Williams"")
+	Result Path: foaf:name
+Constraint Violation in NodeKindConstraintComponent (http://www.w3.org/ns/shacl#NodeKindConstraintComponent):
+	Severity: sh:Violation
+	Source Shape: [ sh:nodeKind sh:IRI ; sh:path foaf:name ; sh:pattern Literal("". ."") ]
+	Focus Node: <http://example.com/Student10>
+	Value Node: Literal(""Venus Williams"")
+	Result Path: foaf:name
+Constraint Violation in NodeKindConstraintComponent (http://www.w3.org/ns/shacl#NodeKindConstraintComponent):
+	Severity: sh:Violation
+	Source Shape: [ sh:nodeKind sh:IRI ; sh:path foaf:name ; sh:pattern Literal("". ."") ]
+	Focus Node: <http://example.com/Student10>
+	Value Node: Literal(""Venus Williams"")
+	Result Path: foaf:name
+Constraint Violation in NodeKindConstraintComponent (http://www.w3.org/ns/shacl#NodeKindConstraintComponent):
+	Severity: sh:Violation
+	Source Shape: [ sh:nodeKind sh:IRI ; sh:path foaf:name ; sh:pattern Literal("". ."") ]
+	Focus Node: <http://example.com/Student10>
+	Value Node: Literal(""Venus Williams"")
+	Result Path: foaf:name
+Constraint Violation in NodeKindConstraintComponent (http://www.w3.org/ns/shacl#NodeKindConstraintComponent):
+	Severity: sh:Violation
+	Source Shape: [ sh:nodeKind sh:IRI ; sh:path foaf:name ; sh:pattern Literal("". ."") ]
+	Focus Node: <http://example.com/Student10>
+	Value Node: Literal(""Venus Williams"")
+	Result Path: foaf:name
+Constraint Violation in NodeKindConstraintComponent (http://www.w3.org/ns/shacl#NodeKindConstraintComponent):
+	Severity: sh:Violation
+	Source Shape: [ sh:nodeKind sh:IRI ; sh:path foaf:name ; sh:pattern Literal("". ."") ]
+	Focus Node: <http://example.com/Student10>
+	Value Node: Literal(""Venus Williams"")
+	Result Path: foaf:name
+Constraint Violation in NodeKindConstraintComponent (http://www.w3.org/ns/shacl#NodeKindConstraintComponent):
+	Severity: sh:Violation
+	Source Shape: [ sh:nodeKind sh:IRI ; sh:path foaf:name ; sh:pattern Literal("". ."") ]
+	Focus Node: <http://example.com/Student10>
+	Value Node: Literal(""Venus Williams"")
+	Result Path: foaf:name
+Constraint Violation in NodeKindConstraintComponent (http://www.w3.org/ns/shacl#NodeKindConstraintComponent):
+	Severity: sh:Violation
+	Source Shape: [ sh:nodeKind sh:IRI ; sh:path foaf:name ; sh:pattern Literal("". ."") ]
+	Focus Node: <http://example.com/Student10>
+	Value Node: Literal(""Venus Williams"")
+	Result Path: foaf:name
+Constraint Violation in NodeKindConstraintComponent (http://www.w3.org/ns/shacl#NodeKindConstraintComponent):
+	Severity: sh:Violation
+	Source Shape: [ sh:nodeKind sh:IRI ; sh:path foaf:name ; sh:pattern Literal("". ."") ]
+	Focus Node: <http://example.com/Student10>
+	Value Node: Literal(""Venus Williams"")
+	Result Path: foaf:name
+Constraint Violation in NodeKindConstraintComponent (http://www.w3.org/ns/shacl#NodeKindConstraintComponent):
+	Severity: sh:Violation
+	Source Shape: [ sh:nodeKind sh:IRI ; sh:path foaf:name ; sh:pattern Literal("". ."") ]
+	Focus Node: <http://example.com/Student10>
+	Value Node: Literal(""Venus Williams"")
+	Result Path: foaf:name
+Constraint Violation in NodeKindConstraintComponent (http://www.w3.org/ns/shacl#NodeKindConstraintComponent):
+	Severity: sh:Violation
+	Source Shape: [ sh:nodeKind sh:IRI ; sh:path foaf:name ; sh:pattern Literal("". ."") ]
+	Focus Node: <http://example.com/Student10>
+	Value Node: Literal(""Venus Williams"")
+	Result Path: foaf:name
+Constraint Violation in NodeKindConstraintComponent (http://www.w3.org/ns/shacl#NodeKindConstraintComponent):
+	Severity: sh:Violation
+	Source Shape: [ sh:nodeKind sh:IRI ; sh:path foaf:name ; sh:pattern Literal("". ."") ]
+	Focus Node: <http://example.com/Student10>
+	Value Node: Literal(""Venus Williams"")
+	Result Path: foaf:name
+Constraint Violation in NodeKindConstraintComponent (http://www.w3.org/ns/shacl#NodeKindConstraintComponent):
+	Severity: sh:Violation
+	Source Shape: [ sh:nodeKind sh:IRI ; sh:path foaf:name ; sh:pattern Literal("". ."") ]
+	Focus Node: <http://example.com/Student10>
+	Value Node: Literal(""Venus Williams"")
+	Result Path: foaf:name
+"
+3;c;JSON;False;"Validation Report
+Conforms: False
+Results (35):
+Constraint Violation in NodeKindConstraintComponent (http://www.w3.org/ns/shacl#NodeKindConstraintComponent):
+	Severity: sh:Violation
+	Source Shape: [ sh:nodeKind sh:IRI ; sh:path foaf:name ; sh:pattern Literal("". ."") ]
+	Focus Node: <http://example.com/Student10>
+	Value Node: Literal(""Venus Williams"")
+	Result Path: foaf:name
+Constraint Violation in NodeKindConstraintComponent (http://www.w3.org/ns/shacl#NodeKindConstraintComponent):
+	Severity: sh:Violation
+	Source Shape: [ sh:nodeKind sh:IRI ; sh:path foaf:name ; sh:pattern Literal("". ."") ]
+	Focus Node: <http://example.com/Student10>
+	Value Node: Literal(""Venus Williams"")
+	Result Path: foaf:name
+Constraint Violation in NodeKindConstraintComponent (http://www.w3.org/ns/shacl#NodeKindConstraintComponent):
+	Severity: sh:Violation
+	Source Shape: [ sh:nodeKind sh:IRI ; sh:path foaf:name ; sh:pattern Literal("". ."") ]
+	Focus Node: <http://example.com/Student10>
+	Value Node: Literal(""Venus Williams"")
+	Result Path: foaf:name
+Constraint Violation in NodeKindConstraintComponent (http://www.w3.org/ns/shacl#NodeKindConstraintComponent):
+	Severity: sh:Violation
+	Source Shape: [ sh:nodeKind sh:IRI ; sh:path foaf:name ; sh:pattern Literal("". ."") ]
+	Focus Node: <http://example.com/Student10>
+	Value Node: Literal(""Venus Williams"")
+	Result Path: foaf:name
+Constraint Violation in NodeKindConstraintComponent (http://www.w3.org/ns/shacl#NodeKindConstraintComponent):
+	Severity: sh:Violation
+	Source Shape: [ sh:nodeKind sh:IRI ; sh:path foaf:name ; sh:pattern Literal("". ."") ]
+	Focus Node: <http://example.com/Student10>
+	Value Node: Literal(""Venus Williams"")
+	Result Path: foaf:name
+Constraint Violation in NodeKindConstraintComponent (http://www.w3.org/ns/shacl#NodeKindConstraintComponent):
+	Severity: sh:Violation
+	Source Shape: [ sh:nodeKind sh:IRI ; sh:path foaf:name ; sh:pattern Literal("". ."") ]
+	Focus Node: <http://example.com/Student10>
+	Value Node: Literal(""Venus Williams"")
+	Result Path: foaf:name
+Constraint Violation in NodeKindConstraintComponent (http://www.w3.org/ns/shacl#NodeKindConstraintComponent):
+	Severity: sh:Violation
+	Source Shape: [ sh:nodeKind sh:IRI ; sh:path foaf:name ; sh:pattern Literal("". ."") ]
+	Focus Node: <http://example.com/Student10>
+	Value Node: Literal(""Venus Williams"")
+	Result Path: foaf:name
+Constraint Violation in NodeKindConstraintComponent (http://www.w3.org/ns/shacl#NodeKindConstraintComponent):
+	Severity: sh:Violation
+	Source Shape: [ sh:nodeKind sh:IRI ; sh:path foaf:name ; sh:pattern Literal("". ."") ]
+	Focus Node: <http://example.com/Student10>
+	Value Node: Literal(""Venus Williams"")
+	Result Path: foaf:name
+Constraint Violation in NodeKindConstraintComponent (http://www.w3.org/ns/shacl#NodeKindConstraintComponent):
+	Severity: sh:Violation
+	Source Shape: [ sh:nodeKind sh:IRI ; sh:path foaf:name ; sh:pattern Literal("". ."") ]
+	Focus Node: <http://example.com/Student10>
+	Value Node: Literal(""Venus Williams"")
+	Result Path: foaf:name
+Constraint Violation in NodeKindConstraintComponent (http://www.w3.org/ns/shacl#NodeKindConstraintComponent):
+	Severity: sh:Violation
+	Source Shape: [ sh:nodeKind sh:IRI ; sh:path foaf:name ; sh:pattern Literal("". ."") ]
+	Focus Node: <http://example.com/Student10>
+	Value Node: Literal(""Venus Williams"")
+	Result Path: foaf:name
+Constraint Violation in NodeKindConstraintComponent (http://www.w3.org/ns/shacl#NodeKindConstraintComponent):
+	Severity: sh:Violation
+	Source Shape: [ sh:nodeKind sh:IRI ; sh:path foaf:name ; sh:pattern Literal("". ."") ]
+	Focus Node: <http://example.com/Student10>
+	Value Node: Literal(""Venus Williams"")
+	Result Path: foaf:name
+Constraint Violation in NodeKindConstraintComponent (http://www.w3.org/ns/shacl#NodeKindConstraintComponent):
+	Severity: sh:Violation
+	Source Shape: [ sh:nodeKind sh:IRI ; sh:path foaf:name ; sh:pattern Literal("". ."") ]
+	Focus Node: <http://example.com/Student10>
+	Value Node: Literal(""Venus Williams"")
+	Result Path: foaf:name
+Constraint Violation in NodeKindConstraintComponent (http://www.w3.org/ns/shacl#NodeKindConstraintComponent):
+	Severity: sh:Violation
+	Source Shape: [ sh:nodeKind sh:IRI ; sh:path foaf:name ; sh:pattern Literal("". ."") ]
+	Focus Node: <http://example.com/Student10>
+	Value Node: Literal(""Venus Williams"")
+	Result Path: foaf:name
+Constraint Violation in NodeKindConstraintComponent (http://www.w3.org/ns/shacl#NodeKindConstraintComponent):
+	Severity: sh:Violation
+	Source Shape: [ sh:nodeKind sh:IRI ; sh:path foaf:name ; sh:pattern Literal("". ."") ]
+	Focus Node: <http://example.com/Student10>
+	Value Node: Literal(""Venus Williams"")
+	Result Path: foaf:name
+Constraint Violation in NodeKindConstraintComponent (http://www.w3.org/ns/shacl#NodeKindConstraintComponent):
+	Severity: sh:Violation
+	Source Shape: [ sh:nodeKind sh:IRI ; sh:path foaf:name ; sh:pattern Literal("". ."") ]
+	Focus Node: <http://example.com/Student10>
+	Value Node: Literal(""Venus Williams"")
+	Result Path: foaf:name
+Constraint Violation in NodeKindConstraintComponent (http://www.w3.org/ns/shacl#NodeKindConstraintComponent):
+	Severity: sh:Violation
+	Source Shape: [ sh:nodeKind sh:IRI ; sh:path foaf:name ; sh:pattern Literal("". ."") ]
+	Focus Node: <http://example.com/Student10>
+	Value Node: Literal(""Venus Williams"")
+	Result Path: foaf:name
+Constraint Violation in NodeKindConstraintComponent (http://www.w3.org/ns/shacl#NodeKindConstraintComponent):
+	Severity: sh:Violation
+	Source Shape: [ sh:nodeKind sh:IRI ; sh:path foaf:name ; sh:pattern Literal("". ."") ]
+	Focus Node: <http://example.com/Student10>
+	Value Node: Literal(""Venus Williams"")
+	Result Path: foaf:name
+Constraint Violation in NodeKindConstraintComponent (http://www.w3.org/ns/shacl#NodeKindConstraintComponent):
+	Severity: sh:Violation
+	Source Shape: [ sh:nodeKind sh:IRI ; sh:path foaf:name ; sh:pattern Literal("". ."") ]
+	Focus Node: <http://example.com/Student10>
+	Value Node: Literal(""Venus Williams"")
+	Result Path: foaf:name
+Constraint Violation in NodeKindConstraintComponent (http://www.w3.org/ns/shacl#NodeKindConstraintComponent):
+	Severity: sh:Violation
+	Source Shape: [ sh:nodeKind sh:IRI ; sh:path foaf:name ; sh:pattern Literal("". ."") ]
+	Focus Node: <http://example.com/Student10>
+	Value Node: Literal(""Venus Williams"")
+	Result Path: foaf:name
+Constraint Violation in NodeKindConstraintComponent (http://www.w3.org/ns/shacl#NodeKindConstraintComponent):
+	Severity: sh:Violation
+	Source Shape: [ sh:nodeKind sh:IRI ; sh:path foaf:name ; sh:pattern Literal("". ."") ]
+	Focus Node: <http://example.com/Student10>
+	Value Node: Literal(""Venus Williams"")
+	Result Path: foaf:name
+Constraint Violation in NodeKindConstraintComponent (http://www.w3.org/ns/shacl#NodeKindConstraintComponent):
+	Severity: sh:Violation
+	Source Shape: [ sh:nodeKind sh:IRI ; sh:path foaf:name ; sh:pattern Literal("". ."") ]
+	Focus Node: <http://example.com/Student10>
+	Value Node: Literal(""Venus Williams"")
+	Result Path: foaf:name
+Constraint Violation in NodeKindConstraintComponent (http://www.w3.org/ns/shacl#NodeKindConstraintComponent):
+	Severity: sh:Violation
+	Source Shape: [ sh:nodeKind sh:IRI ; sh:path foaf:name ; sh:pattern Literal("". ."") ]
+	Focus Node: <http://example.com/Student10>
+	Value Node: Literal(""Venus Williams"")
+	Result Path: foaf:name
+Constraint Violation in NodeKindConstraintComponent (http://www.w3.org/ns/shacl#NodeKindConstraintComponent):
+	Severity: sh:Violation
+	Source Shape: [ sh:nodeKind sh:IRI ; sh:path foaf:name ; sh:pattern Literal("". ."") ]
+	Focus Node: <http://example.com/Student10>
+	Value Node: Literal(""Venus Williams"")
+	Result Path: foaf:name
+Constraint Violation in NodeKindConstraintComponent (http://www.w3.org/ns/shacl#NodeKindConstraintComponent):
+	Severity: sh:Violation
+	Source Shape: [ sh:nodeKind sh:IRI ; sh:path foaf:name ; sh:pattern Literal("". ."") ]
+	Focus Node: <http://example.com/Student10>
+	Value Node: Literal(""Venus Williams"")
+	Result Path: foaf:name
+Constraint Violation in NodeKindConstraintComponent (http://www.w3.org/ns/shacl#NodeKindConstraintComponent):
+	Severity: sh:Violation
+	Source Shape: [ sh:nodeKind sh:IRI ; sh:path foaf:name ; sh:pattern Literal("". ."") ]
+	Focus Node: <http://example.com/Student10>
+	Value Node: Literal(""Venus Williams"")
+	Result Path: foaf:name
+Constraint Violation in NodeKindConstraintComponent (http://www.w3.org/ns/shacl#NodeKindConstraintComponent):
+	Severity: sh:Violation
+	Source Shape: [ sh:nodeKind sh:IRI ; sh:path foaf:name ; sh:pattern Literal("". ."") ]
+	Focus Node: <http://example.com/Student10>
+	Value Node: Literal(""Venus Williams"")
+	Result Path: foaf:name
+Constraint Violation in NodeKindConstraintComponent (http://www.w3.org/ns/shacl#NodeKindConstraintComponent):
+	Severity: sh:Violation
+	Source Shape: [ sh:nodeKind sh:IRI ; sh:path foaf:name ; sh:pattern Literal("". ."") ]
+	Focus Node: <http://example.com/Student10>
+	Value Node: Literal(""Venus Williams"")
+	Result Path: foaf:name
+Constraint Violation in NodeKindConstraintComponent (http://www.w3.org/ns/shacl#NodeKindConstraintComponent):
+	Severity: sh:Violation
+	Source Shape: [ sh:nodeKind sh:IRI ; sh:path foaf:name ; sh:pattern Literal("". ."") ]
+	Focus Node: <http://example.com/Student10>
+	Value Node: Literal(""Venus Williams"")
+	Result Path: foaf:name
+Constraint Violation in NodeKindConstraintComponent (http://www.w3.org/ns/shacl#NodeKindConstraintComponent):
+	Severity: sh:Violation
+	Source Shape: [ sh:nodeKind sh:IRI ; sh:path foaf:name ; sh:pattern Literal("". ."") ]
+	Focus Node: <http://example.com/Student10>
+	Value Node: Literal(""Venus Williams"")
+	Result Path: foaf:name
+Constraint Violation in NodeKindConstraintComponent (http://www.w3.org/ns/shacl#NodeKindConstraintComponent):
+	Severity: sh:Violation
+	Source Shape: [ sh:nodeKind sh:IRI ; sh:path foaf:name ; sh:pattern Literal("". ."") ]
+	Focus Node: <http://example.com/Student10>
+	Value Node: Literal(""Venus Williams"")
+	Result Path: foaf:name
+Constraint Violation in NodeKindConstraintComponent (http://www.w3.org/ns/shacl#NodeKindConstraintComponent):
+	Severity: sh:Violation
+	Source Shape: [ sh:nodeKind sh:IRI ; sh:path foaf:name ; sh:pattern Literal("". ."") ]
+	Focus Node: <http://example.com/Student10>
+	Value Node: Literal(""Venus Williams"")
+	Result Path: foaf:name
+Constraint Violation in NodeKindConstraintComponent (http://www.w3.org/ns/shacl#NodeKindConstraintComponent):
+	Severity: sh:Violation
+	Source Shape: [ sh:nodeKind sh:IRI ; sh:path foaf:name ; sh:pattern Literal("". ."") ]
+	Focus Node: <http://example.com/Student10>
+	Value Node: Literal(""Venus Williams"")
+	Result Path: foaf:name
+Constraint Violation in NodeKindConstraintComponent (http://www.w3.org/ns/shacl#NodeKindConstraintComponent):
+	Severity: sh:Violation
+	Source Shape: [ sh:nodeKind sh:IRI ; sh:path foaf:name ; sh:pattern Literal("". ."") ]
+	Focus Node: <http://example.com/Student10>
+	Value Node: Literal(""Venus Williams"")
+	Result Path: foaf:name
+Constraint Violation in NodeKindConstraintComponent (http://www.w3.org/ns/shacl#NodeKindConstraintComponent):
+	Severity: sh:Violation
+	Source Shape: [ sh:nodeKind sh:IRI ; sh:path foaf:name ; sh:pattern Literal("". ."") ]
+	Focus Node: <http://example.com/Student10>
+	Value Node: Literal(""Venus Williams"")
+	Result Path: foaf:name
+Constraint Violation in NodeKindConstraintComponent (http://www.w3.org/ns/shacl#NodeKindConstraintComponent):
+	Severity: sh:Violation
+	Source Shape: [ sh:nodeKind sh:IRI ; sh:path foaf:name ; sh:pattern Literal("". ."") ]
+	Focus Node: <http://example.com/Student10>
+	Value Node: Literal(""Venus Williams"")
+	Result Path: foaf:name
+"
+3;c;SPARQL;fout;
+3;c;SQLServer;False;"Validation Report
+Conforms: False
+Results (56):
+Constraint Violation in NodeKindConstraintComponent (http://www.w3.org/ns/shacl#NodeKindConstraintComponent):
+	Severity: sh:Violation
+	Source Shape: [ sh:nodeKind sh:IRI ; sh:path foaf:name ; sh:pattern Literal("". ."") ]
+	Focus Node: <http://example.com/Student10>
+	Value Node: Literal(""Venus Williams"")
+	Result Path: foaf:name
+Constraint Violation in NodeKindConstraintComponent (http://www.w3.org/ns/shacl#NodeKindConstraintComponent):
+	Severity: sh:Violation
+	Source Shape: [ sh:nodeKind sh:IRI ; sh:path foaf:name ; sh:pattern Literal("". ."") ]
+	Focus Node: <http://example.com/Student10>
+	Value Node: Literal(""Venus Williams"")
+	Result Path: foaf:name
+Constraint Violation in NodeKindConstraintComponent (http://www.w3.org/ns/shacl#NodeKindConstraintComponent):
+	Severity: sh:Violation
+	Source Shape: [ sh:nodeKind sh:IRI ; sh:path foaf:name ; sh:pattern Literal("". ."") ]
+	Focus Node: <http://example.com/Student10>
+	Value Node: Literal(""Venus Williams"")
+	Result Path: foaf:name
+Constraint Violation in NodeKindConstraintComponent (http://www.w3.org/ns/shacl#NodeKindConstraintComponent):
+	Severity: sh:Violation
+	Source Shape: [ sh:nodeKind sh:IRI ; sh:path foaf:name ; sh:pattern Literal("". ."") ]
+	Focus Node: <http://example.com/Student10>
+	Value Node: Literal(""Venus Williams"")
+	Result Path: foaf:name
+Constraint Violation in NodeKindConstraintComponent (http://www.w3.org/ns/shacl#NodeKindConstraintComponent):
+	Severity: sh:Violation
+	Source Shape: [ sh:nodeKind sh:IRI ; sh:path foaf:name ; sh:pattern Literal("". ."") ]
+	Focus Node: <http://example.com/Student10>
+	Value Node: Literal(""Venus Williams"")
+	Result Path: foaf:name
+Constraint Violation in NodeKindConstraintComponent (http://www.w3.org/ns/shacl#NodeKindConstraintComponent):
+	Severity: sh:Violation
+	Source Shape: [ sh:nodeKind sh:IRI ; sh:path foaf:name ; sh:pattern Literal("". ."") ]
+	Focus Node: <http://example.com/Student10>
+	Value Node: Literal(""Venus Williams"")
+	Result Path: foaf:name
+Constraint Violation in NodeKindConstraintComponent (http://www.w3.org/ns/shacl#NodeKindConstraintComponent):
+	Severity: sh:Violation
+	Source Shape: [ sh:nodeKind sh:IRI ; sh:path foaf:name ; sh:pattern Literal("". ."") ]
+	Focus Node: <http://example.com/Student10>
+	Value Node: Literal(""Venus Williams"")
+	Result Path: foaf:name
+Constraint Violation in NodeKindConstraintComponent (http://www.w3.org/ns/shacl#NodeKindConstraintComponent):
+	Severity: sh:Violation
+	Source Shape: [ sh:nodeKind sh:IRI ; sh:path foaf:name ; sh:pattern Literal("". ."") ]
+	Focus Node: <http://example.com/Student10>
+	Value Node: Literal(""Venus Williams"")
+	Result Path: foaf:name
+Constraint Violation in NodeKindConstraintComponent (http://www.w3.org/ns/shacl#NodeKindConstraintComponent):
+	Severity: sh:Violation
+	Source Shape: [ sh:nodeKind sh:IRI ; sh:path foaf:name ; sh:pattern Literal("". ."") ]
+	Focus Node: <http://example.com/Student10>
+	Value Node: Literal(""Venus Williams"")
+	Result Path: foaf:name
+Constraint Violation in NodeKindConstraintComponent (http://www.w3.org/ns/shacl#NodeKindConstraintComponent):
+	Severity: sh:Violation
+	Source Shape: [ sh:nodeKind sh:IRI ; sh:path foaf:name ; sh:pattern Literal("". ."") ]
+	Focus Node: <http://example.com/Student10>
+	Value Node: Literal(""Venus Williams"")
+	Result Path: foaf:name
+Constraint Violation in NodeKindConstraintComponent (http://www.w3.org/ns/shacl#NodeKindConstraintComponent):
+	Severity: sh:Violation
+	Source Shape: [ sh:nodeKind sh:IRI ; sh:path foaf:name ; sh:pattern Literal("". ."") ]
+	Focus Node: <http://example.com/Student10>
+	Value Node: Literal(""Venus Williams"")
+	Result Path: foaf:name
+Constraint Violation in NodeKindConstraintComponent (http://www.w3.org/ns/shacl#NodeKindConstraintComponent):
+	Severity: sh:Violation
+	Source Shape: [ sh:nodeKind sh:IRI ; sh:path foaf:name ; sh:pattern Literal("". ."") ]
+	Focus Node: <http://example.com/Student10>
+	Value Node: Literal(""Venus Williams"")
+	Result Path: foaf:name
+Constraint Violation in NodeKindConstraintComponent (http://www.w3.org/ns/shacl#NodeKindConstraintComponent):
+	Severity: sh:Violation
+	Source Shape: [ sh:nodeKind sh:IRI ; sh:path foaf:name ; sh:pattern Literal("". ."") ]
+	Focus Node: <http://example.com/Student10>
+	Value Node: Literal(""Venus Williams"")
+	Result Path: foaf:name
+Constraint Violation in NodeKindConstraintComponent (http://www.w3.org/ns/shacl#NodeKindConstraintComponent):
+	Severity: sh:Violation
+	Source Shape: [ sh:nodeKind sh:IRI ; sh:path foaf:name ; sh:pattern Literal("". ."") ]
+	Focus Node: <http://example.com/Student10>
+	Value Node: Literal(""Venus Williams"")
+	Result Path: foaf:name
+Constraint Violation in NodeKindConstraintComponent (http://www.w3.org/ns/shacl#NodeKindConstraintComponent):
+	Severity: sh:Violation
+	Source Shape: [ sh:nodeKind sh:IRI ; sh:path foaf:name ; sh:pattern Literal("". ."") ]
+	Focus Node: <http://example.com/Student10>
+	Value Node: Literal(""Venus Williams"")
+	Result Path: foaf:name
+Constraint Violation in NodeKindConstraintComponent (http://www.w3.org/ns/shacl#NodeKindConstraintComponent):
+	Severity: sh:Violation
+	Source Shape: [ sh:nodeKind sh:IRI ; sh:path foaf:name ; sh:pattern Literal("". ."") ]
+	Focus Node: <http://example.com/Student10>
+	Value Node: Literal(""Venus Williams"")
+	Result Path: foaf:name
+Constraint Violation in NodeKindConstraintComponent (http://www.w3.org/ns/shacl#NodeKindConstraintComponent):
+	Severity: sh:Violation
+	Source Shape: [ sh:nodeKind sh:IRI ; sh:path foaf:name ; sh:pattern Literal("". ."") ]
+	Focus Node: <http://example.com/Student10>
+	Value Node: Literal(""Venus Williams"")
+	Result Path: foaf:name
+Constraint Violation in NodeKindConstraintComponent (http://www.w3.org/ns/shacl#NodeKindConstraintComponent):
+	Severity: sh:Violation
+	Source Shape: [ sh:nodeKind sh:IRI ; sh:path foaf:name ; sh:pattern Literal("". ."") ]
+	Focus Node: <http://example.com/Student10>
+	Value Node: Literal(""Venus Williams"")
+	Result Path: foaf:name
+Constraint Violation in NodeKindConstraintComponent (http://www.w3.org/ns/shacl#NodeKindConstraintComponent):
+	Severity: sh:Violation
+	Source Shape: [ sh:nodeKind sh:IRI ; sh:path foaf:name ; sh:pattern Literal("". ."") ]
+	Focus Node: <http://example.com/Student10>
+	Value Node: Literal(""Venus Williams"")
+	Result Path: foaf:name
+Constraint Violation in NodeKindConstraintComponent (http://www.w3.org/ns/shacl#NodeKindConstraintComponent):
+	Severity: sh:Violation
+	Source Shape: [ sh:nodeKind sh:IRI ; sh:path foaf:name ; sh:pattern Literal("". ."") ]
+	Focus Node: <http://example.com/Student10>
+	Value Node: Literal(""Venus Williams"")
+	Result Path: foaf:name
+Constraint Violation in NodeKindConstraintComponent (http://www.w3.org/ns/shacl#NodeKindConstraintComponent):
+	Severity: sh:Violation
+	Source Shape: [ sh:nodeKind sh:IRI ; sh:path foaf:name ; sh:pattern Literal("". ."") ]
+	Focus Node: <http://example.com/Student10>
+	Value Node: Literal(""Venus Williams"")
+	Result Path: foaf:name
+Constraint Violation in NodeKindConstraintComponent (http://www.w3.org/ns/shacl#NodeKindConstraintComponent):
+	Severity: sh:Violation
+	Source Shape: [ sh:nodeKind sh:IRI ; sh:path foaf:name ; sh:pattern Literal("". ."") ]
+	Focus Node: <http://example.com/Student10>
+	Value Node: Literal(""Venus Williams"")
+	Result Path: foaf:name
+Constraint Violation in NodeKindConstraintComponent (http://www.w3.org/ns/shacl#NodeKindConstraintComponent):
+	Severity: sh:Violation
+	Source Shape: [ sh:nodeKind sh:IRI ; sh:path foaf:name ; sh:pattern Literal("". ."") ]
+	Focus Node: <http://example.com/Student10>
+	Value Node: Literal(""Venus Williams"")
+	Result Path: foaf:name
+Constraint Violation in NodeKindConstraintComponent (http://www.w3.org/ns/shacl#NodeKindConstraintComponent):
+	Severity: sh:Violation
+	Source Shape: [ sh:nodeKind sh:IRI ; sh:path foaf:name ; sh:pattern Literal("". ."") ]
+	Focus Node: <http://example.com/Student10>
+	Value Node: Literal(""Venus Williams"")
+	Result Path: foaf:name
+Constraint Violation in NodeKindConstraintComponent (http://www.w3.org/ns/shacl#NodeKindConstraintComponent):
+	Severity: sh:Violation
+	Source Shape: [ sh:nodeKind sh:IRI ; sh:path foaf:name ; sh:pattern Literal("". ."") ]
+	Focus Node: <http://example.com/Student10>
+	Value Node: Literal(""Venus Williams"")
+	Result Path: foaf:name
+Constraint Violation in NodeKindConstraintComponent (http://www.w3.org/ns/shacl#NodeKindConstraintComponent):
+	Severity: sh:Violation
+	Source Shape: [ sh:nodeKind sh:IRI ; sh:path foaf:name ; sh:pattern Literal("". ."") ]
+	Focus Node: <http://example.com/Student10>
+	Value Node: Literal(""Venus Williams"")
+	Result Path: foaf:name
+Constraint Violation in NodeKindConstraintComponent (http://www.w3.org/ns/shacl#NodeKindConstraintComponent):
+	Severity: sh:Violation
+	Source Shape: [ sh:nodeKind sh:IRI ; sh:path foaf:name ; sh:pattern Literal("". ."") ]
+	Focus Node: <http://example.com/Student10>
+	Value Node: Literal(""Venus Williams"")
+	Result Path: foaf:name
+Constraint Violation in NodeKindConstraintComponent (http://www.w3.org/ns/shacl#NodeKindConstraintComponent):
+	Severity: sh:Violation
+	Source Shape: [ sh:nodeKind sh:IRI ; sh:path foaf:name ; sh:pattern Literal("". ."") ]
+	Focus Node: <http://example.com/Student10>
+	Value Node: Literal(""Venus Williams"")
+	Result Path: foaf:name
+Constraint Violation in NodeKindConstraintComponent (http://www.w3.org/ns/shacl#NodeKindConstraintComponent):
+	Severity: sh:Violation
+	Source Shape: [ sh:nodeKind sh:IRI ; sh:path foaf:name ; sh:pattern Literal("". ."") ]
+	Focus Node: <http://example.com/Student10>
+	Value Node: Literal(""Venus Williams"")
+	Result Path: foaf:name
+Constraint Violation in NodeKindConstraintComponent (http://www.w3.org/ns/shacl#NodeKindConstraintComponent):
+	Severity: sh:Violation
+	Source Shape: [ sh:nodeKind sh:IRI ; sh:path foaf:name ; sh:pattern Literal("". ."") ]
+	Focus Node: <http://example.com/Student10>
+	Value Node: Literal(""Venus Williams"")
+	Result Path: foaf:name
+Constraint Violation in NodeKindConstraintComponent (http://www.w3.org/ns/shacl#NodeKindConstraintComponent):
+	Severity: sh:Violation
+	Source Shape: [ sh:nodeKind sh:IRI ; sh:path foaf:name ; sh:pattern Literal("". ."") ]
+	Focus Node: <http://example.com/Student10>
+	Value Node: Literal(""Venus Williams"")
+	Result Path: foaf:name
+Constraint Violation in NodeKindConstraintComponent (http://www.w3.org/ns/shacl#NodeKindConstraintComponent):
+	Severity: sh:Violation
+	Source Shape: [ sh:nodeKind sh:IRI ; sh:path foaf:name ; sh:pattern Literal("". ."") ]
+	Focus Node: <http://example.com/Student10>
+	Value Node: Literal(""Venus Williams"")
+	Result Path: foaf:name
+Constraint Violation in NodeKindConstraintComponent (http://www.w3.org/ns/shacl#NodeKindConstraintComponent):
+	Severity: sh:Violation
+	Source Shape: [ sh:nodeKind sh:IRI ; sh:path foaf:name ; sh:pattern Literal("". ."") ]
+	Focus Node: <http://example.com/Student10>
+	Value Node: Literal(""Venus Williams"")
+	Result Path: foaf:name
+Constraint Violation in NodeKindConstraintComponent (http://www.w3.org/ns/shacl#NodeKindConstraintComponent):
+	Severity: sh:Violation
+	Source Shape: [ sh:nodeKind sh:IRI ; sh:path foaf:name ; sh:pattern Literal("". ."") ]
+	Focus Node: <http://example.com/Student10>
+	Value Node: Literal(""Venus Williams"")
+	Result Path: foaf:name
+Constraint Violation in NodeKindConstraintComponent (http://www.w3.org/ns/shacl#NodeKindConstraintComponent):
+	Severity: sh:Violation
+	Source Shape: [ sh:nodeKind sh:IRI ; sh:path foaf:name ; sh:pattern Literal("". ."") ]
+	Focus Node: <http://example.com/Student10>
+	Value Node: Literal(""Venus Williams"")
+	Result Path: foaf:name
+Constraint Violation in NodeKindConstraintComponent (http://www.w3.org/ns/shacl#NodeKindConstraintComponent):
+	Severity: sh:Violation
+	Source Shape: [ sh:nodeKind sh:IRI ; sh:path foaf:name ; sh:pattern Literal("". ."") ]
+	Focus Node: <http://example.com/Student10>
+	Value Node: Literal(""Venus Williams"")
+	Result Path: foaf:name
+Constraint Violation in NodeKindConstraintComponent (http://www.w3.org/ns/shacl#NodeKindConstraintComponent):
+	Severity: sh:Violation
+	Source Shape: [ sh:nodeKind sh:IRI ; sh:path foaf:name ; sh:pattern Literal("". ."") ]
+	Focus Node: <http://example.com/Student10>
+	Value Node: Literal(""Venus Williams"")
+	Result Path: foaf:name
+Constraint Violation in NodeKindConstraintComponent (http://www.w3.org/ns/shacl#NodeKindConstraintComponent):
+	Severity: sh:Violation
+	Source Shape: [ sh:nodeKind sh:IRI ; sh:path foaf:name ; sh:pattern Literal("". ."") ]
+	Focus Node: <http://example.com/Student10>
+	Value Node: Literal(""Venus Williams"")
+	Result Path: foaf:name
+Constraint Violation in NodeKindConstraintComponent (http://www.w3.org/ns/shacl#NodeKindConstraintComponent):
+	Severity: sh:Violation
+	Source Shape: [ sh:nodeKind sh:IRI ; sh:path foaf:name ; sh:pattern Literal("". ."") ]
+	Focus Node: <http://example.com/Student10>
+	Value Node: Literal(""Venus Williams"")
+	Result Path: foaf:name
+Constraint Violation in NodeKindConstraintComponent (http://www.w3.org/ns/shacl#NodeKindConstraintComponent):
+	Severity: sh:Violation
+	Source Shape: [ sh:nodeKind sh:IRI ; sh:path foaf:name ; sh:pattern Literal("". ."") ]
+	Focus Node: <http://example.com/Student10>
+	Value Node: Literal(""Venus Williams"")
+	Result Path: foaf:name
+Constraint Violation in NodeKindConstraintComponent (http://www.w3.org/ns/shacl#NodeKindConstraintComponent):
+	Severity: sh:Violation
+	Source Shape: [ sh:nodeKind sh:IRI ; sh:path foaf:name ; sh:pattern Literal("". ."") ]
+	Focus Node: <http://example.com/Student10>
+	Value Node: Literal(""Venus Williams"")
+	Result Path: foaf:name
+Constraint Violation in NodeKindConstraintComponent (http://www.w3.org/ns/shacl#NodeKindConstraintComponent):
+	Severity: sh:Violation
+	Source Shape: [ sh:nodeKind sh:IRI ; sh:path foaf:name ; sh:pattern Literal("". ."") ]
+	Focus Node: <http://example.com/Student10>
+	Value Node: Literal(""Venus Williams"")
+	Result Path: foaf:name
+Constraint Violation in NodeKindConstraintComponent (http://www.w3.org/ns/shacl#NodeKindConstraintComponent):
+	Severity: sh:Violation
+	Source Shape: [ sh:nodeKind sh:IRI ; sh:path foaf:name ; sh:pattern Literal("". ."") ]
+	Focus Node: <http://example.com/Student10>
+	Value Node: Literal(""Venus Williams"")
+	Result Path: foaf:name
+Constraint Violation in NodeKindConstraintComponent (http://www.w3.org/ns/shacl#NodeKindConstraintComponent):
+	Severity: sh:Violation
+	Source Shape: [ sh:nodeKind sh:IRI ; sh:path foaf:name ; sh:pattern Literal("". ."") ]
+	Focus Node: <http://example.com/Student10>
+	Value Node: Literal(""Venus Williams"")
+	Result Path: foaf:name
+Constraint Violation in NodeKindConstraintComponent (http://www.w3.org/ns/shacl#NodeKindConstraintComponent):
+	Severity: sh:Violation
+	Source Shape: [ sh:nodeKind sh:IRI ; sh:path foaf:name ; sh:pattern Literal("". ."") ]
+	Focus Node: <http://example.com/Student10>
+	Value Node: Literal(""Venus Williams"")
+	Result Path: foaf:name
+Constraint Violation in NodeKindConstraintComponent (http://www.w3.org/ns/shacl#NodeKindConstraintComponent):
+	Severity: sh:Violation
+	Source Shape: [ sh:nodeKind sh:IRI ; sh:path foaf:name ; sh:pattern Literal("". ."") ]
+	Focus Node: <http://example.com/Student10>
+	Value Node: Literal(""Venus Williams"")
+	Result Path: foaf:name
+Constraint Violation in NodeKindConstraintComponent (http://www.w3.org/ns/shacl#NodeKindConstraintComponent):
+	Severity: sh:Violation
+	Source Shape: [ sh:nodeKind sh:IRI ; sh:path foaf:name ; sh:pattern Literal("". ."") ]
+	Focus Node: <http://example.com/Student10>
+	Value Node: Literal(""Venus Williams"")
+	Result Path: foaf:name
+Constraint Violation in NodeKindConstraintComponent (http://www.w3.org/ns/shacl#NodeKindConstraintComponent):
+	Severity: sh:Violation
+	Source Shape: [ sh:nodeKind sh:IRI ; sh:path foaf:name ; sh:pattern Literal("". ."") ]
+	Focus Node: <http://example.com/Student10>
+	Value Node: Literal(""Venus Williams"")
+	Result Path: foaf:name
+Constraint Violation in NodeKindConstraintComponent (http://www.w3.org/ns/shacl#NodeKindConstraintComponent):
+	Severity: sh:Violation
+	Source Shape: [ sh:nodeKind sh:IRI ; sh:path foaf:name ; sh:pattern Literal("". ."") ]
+	Focus Node: <http://example.com/Student10>
+	Value Node: Literal(""Venus Williams"")
+	Result Path: foaf:name
+Constraint Violation in NodeKindConstraintComponent (http://www.w3.org/ns/shacl#NodeKindConstraintComponent):
+	Severity: sh:Violation
+	Source Shape: [ sh:nodeKind sh:IRI ; sh:path foaf:name ; sh:pattern Literal("". ."") ]
+	Focus Node: <http://example.com/Student10>
+	Value Node: Literal(""Venus Williams"")
+	Result Path: foaf:name
+Constraint Violation in NodeKindConstraintComponent (http://www.w3.org/ns/shacl#NodeKindConstraintComponent):
+	Severity: sh:Violation
+	Source Shape: [ sh:nodeKind sh:IRI ; sh:path foaf:name ; sh:pattern Literal("". ."") ]
+	Focus Node: <http://example.com/Student10>
+	Value Node: Literal(""Venus Williams"")
+	Result Path: foaf:name
+Constraint Violation in NodeKindConstraintComponent (http://www.w3.org/ns/shacl#NodeKindConstraintComponent):
+	Severity: sh:Violation
+	Source Shape: [ sh:nodeKind sh:IRI ; sh:path foaf:name ; sh:pattern Literal("". ."") ]
+	Focus Node: <http://example.com/Student10>
+	Value Node: Literal(""Venus Williams"")
+	Result Path: foaf:name
+Constraint Violation in NodeKindConstraintComponent (http://www.w3.org/ns/shacl#NodeKindConstraintComponent):
+	Severity: sh:Violation
+	Source Shape: [ sh:nodeKind sh:IRI ; sh:path foaf:name ; sh:pattern Literal("". ."") ]
+	Focus Node: <http://example.com/Student10>
+	Value Node: Literal(""Venus Williams"")
+	Result Path: foaf:name
+Constraint Violation in NodeKindConstraintComponent (http://www.w3.org/ns/shacl#NodeKindConstraintComponent):
+	Severity: sh:Violation
+	Source Shape: [ sh:nodeKind sh:IRI ; sh:path foaf:name ; sh:pattern Literal("". ."") ]
+	Focus Node: <http://example.com/Student10>
+	Value Node: Literal(""Venus Williams"")
+	Result Path: foaf:name
+Constraint Violation in NodeKindConstraintComponent (http://www.w3.org/ns/shacl#NodeKindConstraintComponent):
+	Severity: sh:Violation
+	Source Shape: [ sh:nodeKind sh:IRI ; sh:path foaf:name ; sh:pattern Literal("". ."") ]
+	Focus Node: <http://example.com/Student10>
+	Value Node: Literal(""Venus Williams"")
+	Result Path: foaf:name
+Constraint Violation in NodeKindConstraintComponent (http://www.w3.org/ns/shacl#NodeKindConstraintComponent):
+	Severity: sh:Violation
+	Source Shape: [ sh:nodeKind sh:IRI ; sh:path foaf:name ; sh:pattern Literal("". ."") ]
+	Focus Node: <http://example.com/Student10>
+	Value Node: Literal(""Venus Williams"")
+	Result Path: foaf:name
+"

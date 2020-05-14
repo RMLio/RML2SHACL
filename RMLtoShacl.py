@@ -3,34 +3,11 @@ import rdflib
 from rdflib import RDF
 from RML import *
 from SHACL import *
-import requests
-class FilesGitHub:
-    def __init__(self):
-        self.CSV = '-CSV'
-        self.XML = '-XML'
-        self.mySql = '-MySQL'
-        self.Postgre = '-PostgreSQL'
-        self.js = '-JSON'
-        self.sparql = '-SPARQL'
-        self.sqlserver = '-SQLServer'
-        self.Mappingfile = '/mapping.ttl'
-        self.outputRdfFile = '/output.nq'
-    def getFile(self, nummer,letter,typeFile, fileNeeded): 
-        #This function makes it possible to get the RML input files with the matching RDF output file from GitHub 
-        if nummer <10:
-            url = 'https://raw.githubusercontent.com/RMLio/rml-test-cases/master/test-cases/RMLTC000' + str(nummer) +letter + typeFile + fileNeeded
-        else: #one 0 less in the base of the URL
-            url = 'https://raw.githubusercontent.com/RMLio/rml-test-cases/master/test-cases/RMLTC00' + str(nummer) +letter +  typeFile + fileNeeded
-        r = requests.get(url)
-        if str(r) == '<Response [404]>':
-            print('File not found.')
-            return None
-        else:
-            fileName = fileNeeded.replace('/','')
-            f = open(fileName,'w')
-            f.write(r.text)
-            f.close()
-            return fileName
+from FilesGitHub import *
+import string
+import csv
+from requests.exceptions import HTTPError
+
 class RMLtoSHACL:
     def __init__(self):
         self.RML = RML()
@@ -55,7 +32,7 @@ class RMLtoSHACL:
             if o != rdflib.RDF.type:
                 self.SHACL.graph.add((self.sNodeShape,self.shaclNS.targetSubjectsOf,o))
     def targetNode(self,graph):
-        #if there's a constant in the subjectmzp we can add this as sh:targetNode for the shape
+        #if there's a constant in the subjectmap we can add this as sh:targetNode for the shape
         for s,p,o in graph['SM'].triples((self.RML.sSM,self.RML.pCons,None)):
             self.SHACL.graph.add((self.sNodeShape,self.shaclNS.targetNode,o))
 
@@ -65,8 +42,8 @@ class RMLtoSHACL:
         self.inferclass()
     def findClassinPrediacteOM(self,graph):
         for s,p,o in graph.triples((self.RML.sPOM,self.RML.pPred,rdflib.RDF.type)):
-            for s,p,o in graph.triples((self.RML.oM,self.RML.pCons,None)):
-                self.SHACL.graph.add((self.sNodeShape,self.shaclNS.targetClass,o))
+            for s1,p1,o1 in graph.triples((self.RML.oM,self.RML.pCons,None)):
+                self.SHACL.graph.add((self.sNodeShape,self.shaclNS.targetClass,o1))
     def fillinProperty(self, graph):
         rdfType = False
         propertyBl = rdflib.BNode()
@@ -88,6 +65,7 @@ class RMLtoSHACL:
             #Test for when it has a template
             result = self.testIfIRIorLiteral(p,o, graphHelp,propertyBl,graph)
             if not result and p == self.RML.pCons and not rdfType:
+                #we don't have a Literal nor an IRI
                 #if rdfType is True then we have a predicateobject with rdf:type and then we don't have to look at the constant values because it's filled in findClassinPredicateOM()
                 graphHelp.add((propertyBl,self.shaclNS.hasValue, o))
             elif p == self.RML.r2rmlNS.parentTriplesMap:
@@ -103,7 +81,8 @@ class RMLtoSHACL:
                 self.SHACL.graph.add((blankNoderest,self.rdfSyntax.rest,self.rdfSyntax.nil))
                 blankNodefirstTwo = rdflib.BNode()
                 self.SHACL.graph.add((blankNoderest,self.rdfSyntax.first,blankNodefirstTwo))
-                self.SHACL.graph.add((blankNodefirstTwo,self.shaclNS.node,o+'/shape'))
+                self.SHACL.graph.add((blankNodefirstTwo,self.shaclNS.node,o+'/shape')) 
+                #plus '/shape' because we took the name for the Triples Map and added shape and we need to refer to the shape now
 
                 for graph in self.RML.graphs:
                     for s1,p1,o1 in graph['TM']:
@@ -185,10 +164,10 @@ class RMLtoSHACL:
         self.SHACL.graph.bind('sh','http://www.w3.org/ns/shacl#',False)
         self.SHACL.graph.bind('rdfs','http://www.w3.org/1999/02/22-rdf-syntax-ns#')
         self.SHACL.graph.serialize(destination='output2.ttl', format='turtle')
-    def main(self):
-        number = 8
-        letter = 'b'
-        inputfileType = self.readfileObject.CSV
+    def MakeTotalShape(self,numberInput,letterInput, inputfile):
+        number = numberInput
+        letter = letterInput
+        inputfileType = inputfile 
         self.RML.createGraph(number,letter,inputfileType)
         self.RML.removeBlankNodesMultipleMaps()
         for graph in self.RML.graphs:
@@ -205,12 +184,39 @@ class RMLtoSHACL:
         self.finalizeShape()
         self.writeShapeToFile()
         #self.SHACL.printGraph(1)
-        print(len(self.SHACL.graph))
-        filenameOutput = self.readfileObject.getFile(number,letter,inputfileType,self.readfileObject.outputRdfFile)
+        #print(len(self.SHACL.graph))
+        filenameOutput = self.readfileObject.getFile(number,letter,inputfileType,FilesGitHub.outputRdfFile)
         graphOutput = rdflib.Graph()
         graphOutput.parse(filenameOutput,format="turtle")
         self.SHACL.Validation(self.SHACL.graph,graphOutput) 
 
+    def main(self):
+        with open('Results5.csv','w', newline= '') as file:
+            writer = csv.writer(file, delimiter = ';')
+            writer.writerow(['number', 'letter','file type', 'conforms?', 'validation result'])
+            for i in range(6,8):
+                for letter in string.ascii_lowercase:
+                    for filetype in FilesGitHub.FileTypes:
+                        filetypeColomnInput = filetype.replace('-','')
+                        try:
+                            print('Busy: ' + str(i) +''+ letter +''+ filetype) 
+                            self.MakeTotalShape(i,letter,filetype)
+                            if self.SHACL.conforms:
+                                writer.writerow([i, letter,filetypeColomnInput,self.SHACL.conforms, ''])
+                            else:
+                                writer.writerow([i, letter,filetypeColomnInput,self.SHACL.conforms, self.SHACL.results_text])
+                            print('Ready: ' + str(i) +''+ letter +''+ filetype)  
+                        except SyntaxError as error:        #something wrong with the files on GitHub
+                            print(error)
+                            writer.writerow([i, letter,filetypeColomnInput ,'fout'])
+                            pass
+                        except HTTPError as error: #files do not exist
+                            print(error)
+                            pass
+                    if letter == 'h':
+                        break;
 
-RtoS = RMLtoSHACL()
-RtoS.main()
+
+if __name__ == "__main__":
+    RtoS = RMLtoSHACL()
+    RtoS.main()

@@ -1,0 +1,10 @@
+number;letter;file type;conforms?;validation result
+2;c;CSV;True;
+2;c;XML;True;
+2;c;MySQL;True;
+2;c;PostgreSQL;True;
+2;c;JSON;True;
+2;c;SQLServer;True;
+2;d;MySQL;True;
+2;d;PostgreSQL;True;
+2;d;SQLServer;True;

@@ -1,35 +1,7 @@
 import rdflib
 import pprint
 
-import requests
-class FilesGitHub:
-    def __init__(self):
-        self.CSV = '-CSV'
-        self.XML = '-XML'
-        self.mySql = '-MySQL'
-        self.Postgre = '-PostgreSQL'
-        self.js = '-JSON'
-        self.sparql = '-SPARQL'
-        self.sqlserver = '-SQLServer'
-        self.Mappingfile = '/mapping.ttl'
-        self.outputRdfFile = '/output.nq'
-    def getFile(self, nummer,letter,typeFile, fileNeeded): 
-        #This function makes it possible to get the RML input files with the matching RDF output file from GitHub 
-        if nummer <10:
-            url = 'https://raw.githubusercontent.com/RMLio/rml-test-cases/master/test-cases/RMLTC000' + str(nummer) +letter + typeFile + fileNeeded
-        else: #one 0 less in the base of the URL
-            url = 'https://raw.githubusercontent.com/RMLio/rml-test-cases/master/test-cases/RMLTC00' + str(nummer) +letter +  typeFile + fileNeeded
-        r = requests.get(url)
-        if str(r) == '<Response [404]>':
-            print('File not found.')
-            return None
-        else:
-            fileName = fileNeeded.replace('/','')
-            f = open(fileName,'w')
-            f.write(r.text)
-            f.close()
-            return fileName
-#from FilesGitHub import *
+from FilesGitHub import *
 
 class RML:
     def __init__(self):
@@ -63,11 +35,11 @@ class RML:
     def createGraph(self,number, letter,typeInputFile):
         fileReadObject = FilesGitHub()
         filename = fileReadObject.getFile(number,letter,typeInputFile,fileReadObject.Mappingfile)
-        #self.graph.parse(filename,format="turtle") 
-        self.graph.parse("C:\\Users\\Birte\\Documents\\masterproefHelpFiles\\rml8bwithRDFS.ttl",format="turtle")
+        self.graph.parse(filename,format="turtle") 
+        #self.graph.parse("C:\\Users\\Birte\\Documents\\masterproefHelpFiles\\rml8bwithRDFS.ttl",format="turtle")
         '''for ns in self.graph.namespaces():
             print(ns)'''
-        self.printGraph(1)
+        #self.printGraph(1)
 
     def removeBlankNodesMultipleMaps(self):
         #loop over all the Triple Maps in the RML input file
@@ -154,5 +126,12 @@ class RML:
                     for stm in g:
                         print(stm)
                 
+            
+    def testmain(self):
+        self.createGraph(7,'b',FilesGitHub.CSV)
+        #self.removeBlankNodesMultipleMaps()
+if __name__ == '__main__':
+    Rml = RML()
+    Rml.testmain()
 
 
