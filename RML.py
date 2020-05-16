@@ -35,11 +35,7 @@ class RML:
     def createGraph(self,number, letter,typeInputFile):
         fileReadObject = FilesGitHub()
         filename = fileReadObject.getFile(number,letter,typeInputFile,fileReadObject.Mappingfile)
-        self.graph.parse(filename,format="turtle") 
-        #self.graph.parse("C:\\Users\\Birte\\Documents\\masterproefHelpFiles\\rml8bwithRDFS.ttl",format="turtle")
-        '''for ns in self.graph.namespaces():
-            print(ns)'''
-        #self.printGraph(1)
+        self.graph.parse(filename,format=rdflib.util.guess_format(filename)) 
 
     def removeBlankNodesMultipleMaps(self):
         #loop over all the Triple Maps in the RML input file

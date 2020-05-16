@@ -7,6 +7,8 @@ from FilesGitHub import *
 import string
 import csv
 from requests.exceptions import HTTPError
+import time
+from lib2to3.pgen2.parse import ParseError
 
 class RMLtoSHACL:
     def __init__(self):
@@ -18,6 +20,7 @@ class RMLtoSHACL:
         self.SHACL = SHACL()
         self.sNodeShape = None
         self.propertygraphs = []
+
         
     def createNodeShape(self, graph):
         #start of SHACL shape
@@ -157,18 +160,21 @@ class RMLtoSHACL:
         #adding the idividual propertygraphs to the total shape
         for g in self.propertygraphs:
             self.SHACL.graph = self.SHACL.graph + g
-        #self.SHACL.printGraph(1)
+        self.propertygraphs.clear()
     def writeShapeToFile(self):
         for prefix, ns in self.RML.graph.namespaces():
             self.SHACL.graph.bind(prefix,ns)            #@base is used for <> in the RML ttl graph
         self.SHACL.graph.bind('sh','http://www.w3.org/ns/shacl#',False)
         self.SHACL.graph.bind('rdfs','http://www.w3.org/1999/02/22-rdf-syntax-ns#')
-        self.SHACL.graph.serialize(destination='output2.ttl', format='turtle')
+        filenNameShape = 'outputShape.ttl'
+        self.SHACL.graph.serialize(destination=filenNameShape, format='turtle')
     def MakeTotalShape(self,numberInput,letterInput, inputfile):
         number = numberInput
         letter = letterInput
         inputfileType = inputfile 
+        start = time.time()
         self.RML.createGraph(number,letter,inputfileType)
+        print("Create graph finished: " + f'{time.time() - start}')
         self.RML.removeBlankNodesMultipleMaps()
         for graph in self.RML.graphs:
             self.createNodeShape(graph)
@@ -182,41 +188,49 @@ class RMLtoSHACL:
                     self.findClassinPrediacteOM(graph["POM"+str(i)])
                     self.fillinProperty(graph["POM"+str(i)])
         self.finalizeShape()
+        print("Make shape finished: " + f'{time.time() - start}')
         self.writeShapeToFile()
-        #self.SHACL.printGraph(1)
-        #print(len(self.SHACL.graph))
+        print("Write shape to file finished: " + f'{time.time() - start}')
         filenameOutput = self.readfileObject.getFile(number,letter,inputfileType,FilesGitHub.outputRdfFile)
         graphOutput = rdflib.Graph()
-        graphOutput.parse(filenameOutput,format="turtle")
+        graphOutput.parse(filenameOutput,format=rdflib.util.guess_format(filenameOutput))
+        print("Write inout RDF to file finished: " + f'{time.time() - start}')
         self.SHACL.Validation(self.SHACL.graph,graphOutput) 
+        print("Validate shape finished: " + f'{time.time() - start}')
 
     def main(self):
-        with open('Results5.csv','w', newline= '') as file:
+        with open('ResultsFinal.csv','w', newline= '') as file:
             writer = csv.writer(file, delimiter = ';')
             writer.writerow(['number', 'letter','file type', 'conforms?', 'validation result'])
-            for i in range(6,8):
-                for letter in string.ascii_lowercase:
+            for i in range(1,21): #go over all the possible numbers for the file names
+                for letter in string.ascii_lowercase: #go over all the possible letters for the file names
                     for filetype in FilesGitHub.FileTypes:
                         filetypeColomnInput = filetype.replace('-','')
+                        RtoS = RMLtoSHACL() #create RtoS object again for a fresh start
                         try:
                             print('Busy: ' + str(i) +''+ letter +''+ filetype) 
-                            self.MakeTotalShape(i,letter,filetype)
-                            if self.SHACL.conforms:
-                                writer.writerow([i, letter,filetypeColomnInput,self.SHACL.conforms, ''])
+                            RtoS.MakeTotalShape(i,letter,filetype)
+                            if RtoS.SHACL.conforms:
+                                writer.writerow([i, letter,filetypeColomnInput,RtoS.SHACL.conforms, ''])
                             else:
-                                writer.writerow([i, letter,filetypeColomnInput,self.SHACL.conforms, self.SHACL.results_text])
+                                writer.writerow([i, letter,filetypeColomnInput,RtoS.SHACL.conforms, RtoS.SHACL.results_text])
                             print('Ready: ' + str(i) +''+ letter +''+ filetype)  
                         except SyntaxError as error:        #something wrong with the files on GitHub
                             print(error)
-                            writer.writerow([i, letter,filetypeColomnInput ,'fout'])
+                            writer.writerow([i, letter,filetypeColomnInput ,error])
                             pass
-                        except HTTPError as error: #files do not exist
-                            print(error)
+                        except HTTPError as errorHttp: #files do not exist
+                            print(errorHttp)
                             pass
-                    if letter == 'h':
+                        except Exception as e:        #something wrong with the files on GitHub
+                            print(e)
+                            writer.writerow([i, letter,filetypeColomnInput ,e])
+                            pass
+                        del RtoS
+                    if letter == 'j':
                         break;
 
-
+                
 if __name__ == "__main__":
     RtoS = RMLtoSHACL()
     RtoS.main()
