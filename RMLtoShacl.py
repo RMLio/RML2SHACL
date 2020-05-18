@@ -28,8 +28,26 @@ class RMLtoSHACL:
             subjectShape = rdflib.URIRef(s+'/shape') #we create a new IRI for the new shape based on the triple map IRI
             self.SHACL.graph.add((subjectShape,p,self.shaclNS.NodeShape))
         self.sNodeShape = subjectShape
-    def inferclass(self):
-        pass
+    def inferclass(self,graphPOM):
+        namespaceGraphs = []
+        for prefix, ns in self.RML.graph.namespaces():
+            graph = rdflib.Graph()
+            try:
+                #we first parse the graphs from all the namespaces from the RML mapping and save those graphs in an array
+                graph.parse(ns,format=rdflib.util.guess_format(ns))
+                namespaceGraphs.append(graph)
+            except:
+                pass
+        #loop over the namespace graphs 
+        for graph in namespaceGraphs:
+            #loop over the Predicate Object Maps only looking at the rr:predicate statements
+            for s1,p1,o1 in graphPOM.triples((self.RML.sPOM,self.RML.pPred,None)):
+                #loop over the stmt inside the namespace graph
+                for s,p,o in graph:
+                    #test if we have an rdfs:domain that belongs to to the object of our rr:predicate statement
+                    if p == rdflib.RDFS.domain and s==o1:
+                        #add the domain aka class to the shape as sh:targetClass
+                        self.SHACL.graph.add((self.sNodeShape,self.shaclNS.targetClass,o))
     def subjectTargetOf(self,graph):
         for s,p,o in graph.triples((self.RML.sPOM,self.RML.pPred,None)):
             if o != rdflib.RDF.type:
@@ -42,11 +60,12 @@ class RMLtoSHACL:
     def findClass(self,graph):
         for s,p,o in graph['SM'].triples((self.RML.sSM,self.RML.pclass,None)):
                 self.SHACL.graph.add((self.sNodeShape,self.shaclNS.targetClass,o))
-        self.inferclass()
-    def findClassinPrediacteOM(self,graph):
-        for s,p,o in graph.triples((self.RML.sPOM,self.RML.pPred,rdflib.RDF.type)):
-            for s1,p1,o1 in graph.triples((self.RML.oM,self.RML.pCons,None)):
+        
+    def findClassinPrediacteOM(self,graphPOM):
+        for s,p,o in graphPOM.triples((self.RML.sPOM,self.RML.pPred,rdflib.RDF.type)):
+            for s1,p1,o1 in graphPOM.triples((self.RML.oM,self.RML.pCons,None)):
                 self.SHACL.graph.add((self.sNodeShape,self.shaclNS.targetClass,o1))
+        self.inferclass(graphPOM)
     def fillinProperty(self, graphPOM):
         rdfType = False
         propertyBl = rdflib.BNode()
@@ -221,7 +240,7 @@ class RMLtoSHACL:
             self.targetNode(graph)
             length = len(graph)-3
             #Because the dictionary inside graph has first 'TM', 'LM' and 'SM' as keys we do the length of the dictionary minus 3
-            #this way we can use this newly calculated length for the indexes used for the possible multiple PredicateObjectsMaps (POM)
+            #we can use this newly calculated length for the indexes used for the possible multiple PredicateObjectsMaps (POM)
             for i in range(length):
                     self.subjectTargetOf(graph["POM"+str(i)])
                     self.findClassinPrediacteOM(graph["POM"+str(i)])
@@ -230,7 +249,7 @@ class RMLtoSHACL:
         print("Make shape finished: " + f'{time.time() - start}')
         self.writeShapeToFile()
         print("Write shape to file finished: " + f'{time.time() - start}')
-        self.SHACL.printGraph(1,self.SHACL.graph)
+        #self.SHACL.printGraph(1,self.SHACL.graph)
         filenameOutput = self.readfileObject.getFile(number,letter,inputfileType,FilesGitHub.outputRdfFile)
         graphOutput = rdflib.Graph()
         graphOutput.parse(filenameOutput,format=rdflib.util.guess_format(filenameOutput))
@@ -272,7 +291,7 @@ class RMLtoSHACL:
 
     def miniMain(self):
         letter = 'a'
-        i = 15
+        i = 4
         filetype = FilesGitHub.XML
         RtoS.MakeTotalShape(i,letter,filetype)
         print(RtoS.SHACL.results_text)

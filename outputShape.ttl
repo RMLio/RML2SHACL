@@ -11,14 +11,16 @@
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
 <http://example.com/base/TriplesMap1/shape> a sh:NodeShape ;
-    sh:property [ sh:languageIn ( "en" ) ;
-            sh:nodeKind sh:Literal ;
-            sh:path rdfs:label ] ;
-    sh:targetSubjectsOf rdfs:label .
+    sh:property [ sh:nodeKind sh:Literal ;
+            sh:path foaf:name ] ;
+    sh:targetClass ex:Student,
+        <http://www.w3.org/2002/07/owl#Thing> ;
+    sh:targetSubjectsOf foaf:name .
 
 <http://example.com/base/TriplesMap2/shape> a sh:NodeShape ;
-    sh:property [ sh:languageIn ( "es" ) ;
-            sh:nodeKind sh:Literal ;
-            sh:path rdfs:label ] ;
-    sh:targetSubjectsOf rdfs:label .
+    sh:property [ sh:nodeKind sh:Literal ;
+            sh:path foaf:name ] ;
+    sh:targetClass ex:Sport,
+        <http://www.w3.org/2002/07/owl#Thing> ;
+    sh:targetSubjectsOf foaf:name .
 
