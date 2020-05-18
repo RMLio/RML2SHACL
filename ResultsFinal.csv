@@ -1,0 +1,1078 @@
+number;letter;file type;conforms?;validation result
+1;a;CSV;True;
+1;a;XML;True;
+1;a;MySQL;True;
+1;a;PostgreSQL;True;
+1;a;JSON;True;
+1;a;SPARQL;"at line 43 of <>:
+Bad syntax (Prefix ""foaf:"" not bound) at ^ in:
+""...b'    ];\r\n\r\n    rr:predicateObjectMap [\r\n        rr:predicate '^b'foaf:name ;\r\n        rr:objectMap [\r\n            rml:referen'..."""
+1;a;SQLServer;True;
+1;b;CSV;True;
+1;b;XML;True;
+1;b;MySQL;True;
+1;b;PostgreSQL;True;
+1;b;JSON;True;
+1;b;SPARQL;"at line 43 of <>:
+Bad syntax (Prefix ""foaf:"" not bound) at ^ in:
+""...b'    ];\r\n\r\n    rr:predicateObjectMap [\r\n        rr:predicate '^b'foaf:name ;\r\n        rr:objectMap [\r\n            rml:referen'..."""
+1;b;SQLServer;True;
+2;a;CSV;True;
+2;a;XML;True;
+2;a;MySQL;True;
+2;a;PostgreSQL;True;
+2;a;JSON;True;
+2;a;SPARQL;"at line 44 of <>:
+Bad syntax (Prefix ""foaf:"" not bound) at ^ in:
+""...b'example.com/{ID.value}/{Name.value}"";\r\n            rr:class '^b'foaf:Person\r\n    ];\r\n\r\n    rr:predicateObjectMap [\r\n      rr'..."""
+2;a;SQLServer;True;
+2;b;CSV;True;
+2;b;XML;True;
+2;b;MySQL;True;
+2;b;PostgreSQL;True;
+2;b;JSON;True;
+2;b;SPARQL;"at line 48 of <>:
+Bad syntax (Prefix ""foaf:"" not bound) at ^ in:
+""...b'  ];\r\n\r\n      rr:predicateObjectMap [\r\n        rr:predicate '^b'foaf:name;\r\n        rr:objectMap [ rml:reference ""Name.value'..."""
+2;b;SQLServer;True;
+2;c;CSV;True;
+2;c;XML;True;
+2;c;MySQL;True;
+2;c;PostgreSQL;True;
+2;c;JSON;True;
+2;c;SQLServer;True;
+2;d;MySQL;True;
+2;d;PostgreSQL;True;
+2;d;SQLServer;True;
+2;g;MySQL;True;
+2;g;PostgreSQL;True;
+2;g;JSON;True;
+2;g;SPARQL;True;
+2;g;SQLServer;True;
+2;h;MySQL;True;
+2;h;PostgreSQL;True;
+2;h;SPARQL;True;
+2;h;SQLServer;True;
+2;i;MySQL;True;
+2;i;PostgreSQL;True;
+2;i;SQLServer;True;
+2;j;MySQL;True;
+2;j;PostgreSQL;True;
+2;j;SQLServer;True;
+3;a;MySQL;True;
+3;a;PostgreSQL;True;
+3;a;SQLServer;True;
+3;b;MySQL;True;
+3;b;PostgreSQL;True;
+3;b;SQLServer;True;
+3;c;CSV;False;"Validation Report
+Conforms: False
+Results (1):
+Constraint Violation in NodeKindConstraintComponent (http://www.w3.org/ns/shacl#NodeKindConstraintComponent):
+	Severity: sh:Violation
+	Source Shape: [ sh:nodeKind sh:IRI ; sh:path foaf:name ; sh:pattern Literal("". ."") ]
+	Focus Node: <http://example.com/Student10>
+	Value Node: Literal(""Venus Williams"")
+	Result Path: foaf:name
+"
+3;c;XML;False;"Validation Report
+Conforms: False
+Results (1):
+Constraint Violation in NodeKindConstraintComponent (http://www.w3.org/ns/shacl#NodeKindConstraintComponent):
+	Severity: sh:Violation
+	Source Shape: [ sh:nodeKind sh:IRI ; sh:path foaf:name ; sh:pattern Literal("". ."") ]
+	Focus Node: <http://example.com/Student10>
+	Value Node: Literal(""Venus Williams"")
+	Result Path: foaf:name
+"
+3;c;MySQL;False;"Validation Report
+Conforms: False
+Results (1):
+Constraint Violation in NodeKindConstraintComponent (http://www.w3.org/ns/shacl#NodeKindConstraintComponent):
+	Severity: sh:Violation
+	Source Shape: [ sh:nodeKind sh:IRI ; sh:path foaf:name ; sh:pattern Literal("". ."") ]
+	Focus Node: <http://example.com/Student10>
+	Value Node: Literal(""Venus Williams"")
+	Result Path: foaf:name
+"
+3;c;PostgreSQL;False;"Validation Report
+Conforms: False
+Results (1):
+Constraint Violation in NodeKindConstraintComponent (http://www.w3.org/ns/shacl#NodeKindConstraintComponent):
+	Severity: sh:Violation
+	Source Shape: [ sh:nodeKind sh:IRI ; sh:path foaf:name ; sh:pattern Literal("". ."") ]
+	Focus Node: <http://example.com/Student10>
+	Value Node: Literal(""Venus Williams"")
+	Result Path: foaf:name
+"
+3;c;JSON;False;"Validation Report
+Conforms: False
+Results (1):
+Constraint Violation in NodeKindConstraintComponent (http://www.w3.org/ns/shacl#NodeKindConstraintComponent):
+	Severity: sh:Violation
+	Source Shape: [ sh:nodeKind sh:IRI ; sh:path foaf:name ; sh:pattern Literal("". ."") ]
+	Focus Node: <http://example.com/Student10>
+	Value Node: Literal(""Venus Williams"")
+	Result Path: foaf:name
+"
+3;c;SPARQL;"at line 49 of <>:
+Bad syntax (Prefix ""foaf:"" not bound) at ^ in:
+""...b'  ];\r\n\r\n      rr:predicateObjectMap [\r\n        rr:predicate '^b'foaf:name ;\r\n        rr:objectMap [\r\n          rr:template ""'..."""
+3;c;SQLServer;False;"Validation Report
+Conforms: False
+Results (1):
+Constraint Violation in NodeKindConstraintComponent (http://www.w3.org/ns/shacl#NodeKindConstraintComponent):
+	Severity: sh:Violation
+	Source Shape: [ sh:nodeKind sh:IRI ; sh:path foaf:name ; sh:pattern Literal("". ."") ]
+	Focus Node: <http://example.com/Student10>
+	Value Node: Literal(""Venus Williams"")
+	Result Path: foaf:name
+"
+4;a;CSV;True;
+4;a;XML;True;
+4;a;MySQL;True;
+4;a;PostgreSQL;True;
+4;a;JSON;True;
+4;a;SPARQL;"at line 49 of <>:
+Bad syntax (Prefix ""foaf:"" not bound) at ^ in:
+""...b'  ];\r\n\r\n      rr:predicateObjectMap [\r\n        rr:predicate '^b'foaf:name ;\r\n        rr:objectMap [\r\n          rml:reference'..."""
+4;a;SQLServer;True;
+4;b;CSV;True;
+4;b;XML;True;
+4;b;MySQL;True;
+4;b;PostgreSQL;True;
+4;b;JSON;True;
+4;b;SPARQL;"at line 47 of <>:
+Bad syntax (Prefix ""foaf:"" not bound) at ^ in:
+""...b'    ];\r\n\r\n     rr:predicateObjectMap [\r\n       rr:predicate '^b'foaf:name;\r\n       rr:objectMap [\r\n         rml:reference ""N'..."""
+4;b;SQLServer;True;
+5;a;CSV;True;
+5;a;XML;True;
+5;a;MySQL;True;
+5;a;PostgreSQL;True;
+5;a;JSON;True;
+5;a;SQLServer;True;
+5;b;MySQL;"Invalid line (Predicate must be uriref):
+'_:Bob_Smith <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://example.com/base/IOUs> .'"
+5;b;PostgreSQL;"Invalid line (Predicate must be uriref):
+'_:Bob_Smith <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://example.com/base/IOUs> .'"
+5;b;SQLServer;"Invalid line (Predicate must be uriref):
+'_:Bob_Smith <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://example.com/base/IOUs> .'"
+6;a;CSV;False;"Validation Report
+Conforms: False
+Results (1):
+Constraint Violation in HasValueConstraintComponent (http://www.w3.org/ns/shacl#HasValueConstraintComponent):
+	Severity: sh:Violation
+	Source Shape: [ sh:hasValue Literal(""Bad Student"") ; sh:path ex:description ]
+	Focus Node: ex:BadStudent
+	Result Path: ex:description
+"
+6;a;XML;False;"Validation Report
+Conforms: False
+Results (1):
+Constraint Violation in HasValueConstraintComponent (http://www.w3.org/ns/shacl#HasValueConstraintComponent):
+	Severity: sh:Violation
+	Source Shape: [ sh:hasValue Literal(""Bad Student"") ; sh:path ex:description ]
+	Focus Node: ex:BadStudent
+	Result Path: ex:description
+"
+6;a;MySQL;False;"Validation Report
+Conforms: False
+Results (1):
+Constraint Violation in HasValueConstraintComponent (http://www.w3.org/ns/shacl#HasValueConstraintComponent):
+	Severity: sh:Violation
+	Source Shape: [ sh:hasValue Literal(""Bad Student"") ; sh:path ex:description ]
+	Focus Node: ex:BadStudent
+	Result Path: ex:description
+"
+6;a;PostgreSQL;False;"Validation Report
+Conforms: False
+Results (1):
+Constraint Violation in HasValueConstraintComponent (http://www.w3.org/ns/shacl#HasValueConstraintComponent):
+	Severity: sh:Violation
+	Source Shape: [ sh:hasValue Literal(""Bad Student"") ; sh:path ex:description ]
+	Focus Node: ex:BadStudent
+	Result Path: ex:description
+"
+6;a;JSON;False;"Validation Report
+Conforms: False
+Results (1):
+Constraint Violation in HasValueConstraintComponent (http://www.w3.org/ns/shacl#HasValueConstraintComponent):
+	Severity: sh:Violation
+	Source Shape: [ sh:hasValue Literal(""Bad Student"") ; sh:path ex:description ]
+	Focus Node: ex:BadStudent
+	Result Path: ex:description
+"
+6;a;SPARQL;False;"Validation Report
+Conforms: False
+Results (1):
+Constraint Violation in HasValueConstraintComponent (http://www.w3.org/ns/shacl#HasValueConstraintComponent):
+	Severity: sh:Violation
+	Source Shape: [ sh:hasValue Literal(""Bad Student"") ; sh:path ex:description ]
+	Focus Node: ex:BadStudent
+	Result Path: ex:description
+"
+6;a;SQLServer;False;"Validation Report
+Conforms: False
+Results (1):
+Constraint Violation in HasValueConstraintComponent (http://www.w3.org/ns/shacl#HasValueConstraintComponent):
+	Severity: sh:Violation
+	Source Shape: [ sh:hasValue Literal(""Bad Student"") ; sh:path ex:description ]
+	Focus Node: ex:BadStudent
+	Result Path: ex:description
+"
+7;a;CSV;True;
+7;a;XML;True;
+7;a;MySQL;True;
+7;a;PostgreSQL;True;
+7;a;JSON;True;
+7;a;SPARQL;"at line 51 of <>:
+Bad syntax (Prefix ""foaf:"" not bound) at ^ in:
+""...b'ectMap [\r\n        rr:predicate rdf:type;\r\n        rr:object '^b'foaf:Person;\r\n      ].\r\n'"""
+7;a;SQLServer;True;
+7;b;CSV;True;
+7;b;XML;True;
+7;b;MySQL;True;
+7;b;PostgreSQL;True;
+7;b;JSON;True;
+7;b;SPARQL;"at line 50 of <>:
+Bad syntax (Prefix ""rdf:"" not bound) at ^ in:
+""...b'  ];\r\n\r\n      rr:predicateObjectMap [\r\n        rr:predicate '^b'rdf:type;\r\n        rr:object foaf:Person;\r\n      ];\r\n\r\n     '..."""
+7;b;SQLServer;True;
+7;c;CSV;True;
+7;c;XML;True;
+7;c;MySQL;True;
+7;c;PostgreSQL;True;
+7;c;JSON;True;
+7;c;SPARQL;"at line 46 of <>:
+Bad syntax (Prefix ""foaf:"" not bound) at ^ in:
+""...b'om/Student/{ID.value}/{FirstName.value}"";\r\n        rr:class '^b'foaf:Person, ex:Student\r\n      ];\r\n\r\n      rr:predicateObjec'..."""
+7;c;SQLServer;True;
+7;d;CSV;True;
+7;d;XML;True;
+7;d;MySQL;True;
+7;d;PostgreSQL;True;
+7;d;JSON;True;
+7;d;SPARQL;"at line 51 of <>:
+Bad syntax (Prefix ""foaf:"" not bound) at ^ in:
+""...b'ectMap [\r\n        rr:predicate rdf:type;\r\n        rr:object '^b'foaf:Person;\r\n      ];\r\n\r\n      rr:predicateObjectMap [\r\n   '..."""
+7;d;SQLServer;True;
+7;e;CSV;True;
+7;e;XML;True;
+7;e;MySQL;True;
+7;e;PostgreSQL;True;
+7;e;JSON;True;
+7;e;SPARQL;"at line 47 of <>:
+Bad syntax (Prefix ""foaf:"" not bound) at ^ in:
+""...b'lue}"";\r\n        rr:graph ex:PersonGraph ;\r\n        rr:class '^b'foaf:Person\r\n      ].'"""
+7;e;SQLServer;True;
+7;f;CSV;True;
+7;f;XML;True;
+7;f;MySQL;True;
+7;f;PostgreSQL;True;
+7;f;JSON;True;
+7;f;SPARQL;"at line 52 of <>:
+Bad syntax (Prefix ""foaf:"" not bound) at ^ in:
+""...b'ectMap [\r\n        rr:predicate rdf:type;\r\n        rr:object '^b'foaf:Person\r\n      ].\r\n'"""
+7;f;SQLServer;True;
+7;g;CSV;True;
+7;g;XML;True;
+7;g;MySQL;True;
+7;g;PostgreSQL;True;
+7;g;JSON;True;
+7;g;SPARQL;"at line 50 of <>:
+Bad syntax (Prefix ""foaf:"" not bound) at ^ in:
+""...b'  ];\r\n\r\n      rr:predicateObjectMap [\r\n        rr:predicate '^b'foaf:name;\r\n        rr:objectMap [\r\n          rml:reference '..."""
+7;g;SQLServer;True;
+7;h;CSV;True;
+7;h;XML;True;
+7;h;MySQL;True;
+7;h;PostgreSQL;True;
+7;h;JSON;True;
+7;h;SPARQL;"at line 50 of <>:
+Bad syntax (Prefix ""foaf:"" not bound) at ^ in:
+""...b'  ];\r\n\r\n      rr:predicateObjectMap [\r\n        rr:predicate '^b'foaf:name;\r\n        rr:objectMap [\r\n          rml:reference '..."""
+7;h;SQLServer;True;
+8;a;CSV;True;
+8;a;XML;True;
+8;a;MySQL;True;
+8;a;PostgreSQL;True;
+8;a;JSON;True;
+8;a;SPARQL;"at line 54 of <>:
+Bad syntax (Prefix ""foaf:"" not bound) at ^ in:
+""...b'ctMap [\r\n        rr:predicate rdf:type ;\r\n        rr:object '^b'foaf:Person;\r\n      ];\r\n\r\n      rr:predicateObjectMap [\r\n   '..."""
+8;a;SQLServer;True;
+8;b;CSV;True;
+8;b;XML;True;
+8;b;MySQL;True;
+8;b;PostgreSQL;True;
+8;b;JSON;True;
+8;b;SPARQL;"at line 84 of <>:
+Bad syntax (Prefix ""foaf:"" not bound) at ^ in:
+""...b'ctMap [\r\n        rr:predicate rdf:type ;\r\n        rr:object '^b'foaf:Person ;\r\n      ];\r\n\r\n      rr:predicateObjectMap [\r\n  '..."""
+8;b;SQLServer;True;
+8;c;CSV;"An implicit PropertyShape cannot have more than one 'sh:path' predicate.
+https://www.w3.org/TR/shacl/#property-shapes"
+8;c;XML;"An implicit PropertyShape cannot have more than one 'sh:path' predicate.
+https://www.w3.org/TR/shacl/#property-shapes"
+8;c;MySQL;"An implicit PropertyShape cannot have more than one 'sh:path' predicate.
+https://www.w3.org/TR/shacl/#property-shapes"
+8;c;PostgreSQL;"An implicit PropertyShape cannot have more than one 'sh:path' predicate.
+https://www.w3.org/TR/shacl/#property-shapes"
+8;c;JSON;"An implicit PropertyShape cannot have more than one 'sh:path' predicate.
+https://www.w3.org/TR/shacl/#property-shapes"
+8;c;SPARQL;"at line 12 of <>:
+Bad syntax (Prefix ""sd:"" not bound) at ^ in:
+""...b'-berlin.de/suhl/bizer/D2RQ/0.1#> .\r\n\r\n<#InputSPARQL>\r\n    a '^b'sd:Service ;\r\n    sd:endpoint <http://localhost:PORT/ds1/spa'..."""
+8;c;SQLServer;"An implicit PropertyShape cannot have more than one 'sh:path' predicate.
+https://www.w3.org/TR/shacl/#property-shapes"
+9;a;CSV;False;"Validation Report
+Conforms: False
+Results (2):
+Constraint Violation in AndConstraintComponent (http://www.w3.org/ns/shacl#AndConstraintComponent):
+	Severity: sh:Violation
+	Source Shape: <http://example.com/base/TriplesMap1/shape>
+	Focus Node: <http://example.com/resource/student_10>
+	Value Node: <http://example.com/resource/student_10>
+Constraint Violation in AndConstraintComponent (http://www.w3.org/ns/shacl#AndConstraintComponent):
+	Severity: sh:Violation
+	Source Shape: <http://example.com/base/TriplesMap1/shape>
+	Focus Node: <http://example.com/resource/student_20>
+	Value Node: <http://example.com/resource/student_20>
+"
+9;a;XML;False;"Validation Report
+Conforms: False
+Results (2):
+Constraint Violation in AndConstraintComponent (http://www.w3.org/ns/shacl#AndConstraintComponent):
+	Severity: sh:Violation
+	Source Shape: <http://example.com/base/TriplesMap1/shape>
+	Focus Node: <http://example.com/resource/student_10>
+	Value Node: <http://example.com/resource/student_10>
+Constraint Violation in AndConstraintComponent (http://www.w3.org/ns/shacl#AndConstraintComponent):
+	Severity: sh:Violation
+	Source Shape: <http://example.com/base/TriplesMap1/shape>
+	Focus Node: <http://example.com/resource/student_20>
+	Value Node: <http://example.com/resource/student_20>
+"
+9;a;MySQL;False;"Validation Report
+Conforms: False
+Results (2):
+Constraint Violation in AndConstraintComponent (http://www.w3.org/ns/shacl#AndConstraintComponent):
+	Severity: sh:Violation
+	Source Shape: <http://example.com/base/TriplesMap1/shape>
+	Focus Node: <http://example.com/resource/student_10>
+	Value Node: <http://example.com/resource/student_10>
+Constraint Violation in AndConstraintComponent (http://www.w3.org/ns/shacl#AndConstraintComponent):
+	Severity: sh:Violation
+	Source Shape: <http://example.com/base/TriplesMap1/shape>
+	Focus Node: <http://example.com/resource/student_20>
+	Value Node: <http://example.com/resource/student_20>
+"
+9;a;PostgreSQL;False;"Validation Report
+Conforms: False
+Results (2):
+Constraint Violation in AndConstraintComponent (http://www.w3.org/ns/shacl#AndConstraintComponent):
+	Severity: sh:Violation
+	Source Shape: <http://example.com/base/TriplesMap1/shape>
+	Focus Node: <http://example.com/resource/student_10>
+	Value Node: <http://example.com/resource/student_10>
+Constraint Violation in AndConstraintComponent (http://www.w3.org/ns/shacl#AndConstraintComponent):
+	Severity: sh:Violation
+	Source Shape: <http://example.com/base/TriplesMap1/shape>
+	Focus Node: <http://example.com/resource/student_20>
+	Value Node: <http://example.com/resource/student_20>
+"
+9;a;JSON;False;"Validation Report
+Conforms: False
+Results (2):
+Constraint Violation in AndConstraintComponent (http://www.w3.org/ns/shacl#AndConstraintComponent):
+	Severity: sh:Violation
+	Source Shape: <http://example.com/base/TriplesMap1/shape>
+	Focus Node: <http://example.com/resource/student_10>
+	Value Node: <http://example.com/resource/student_10>
+Constraint Violation in AndConstraintComponent (http://www.w3.org/ns/shacl#AndConstraintComponent):
+	Severity: sh:Violation
+	Source Shape: <http://example.com/base/TriplesMap1/shape>
+	Focus Node: <http://example.com/resource/student_20>
+	Value Node: <http://example.com/resource/student_20>
+"
+9;a;SPARQL;"at line 13 of <>:
+Bad syntax (Prefix ""sd:"" not bound) at ^ in:
+""...b'berlin.de/suhl/bizer/D2RQ/0.1#> .\r\n\r\n<#InputSPARQL1>\r\n    a '^b'sd:Service ;\r\n    sd:endpoint <http://localhost:PORT/ds1/spa'..."""
+9;a;SQLServer;False;"Validation Report
+Conforms: False
+Results (2):
+Constraint Violation in AndConstraintComponent (http://www.w3.org/ns/shacl#AndConstraintComponent):
+	Severity: sh:Violation
+	Source Shape: <http://example.com/base/TriplesMap1/shape>
+	Focus Node: <http://example.com/resource/student_10>
+	Value Node: <http://example.com/resource/student_10>
+Constraint Violation in AndConstraintComponent (http://www.w3.org/ns/shacl#AndConstraintComponent):
+	Severity: sh:Violation
+	Source Shape: <http://example.com/base/TriplesMap1/shape>
+	Focus Node: <http://example.com/resource/student_20>
+	Value Node: <http://example.com/resource/student_20>
+"
+9;b;CSV;True;
+9;b;XML;True;
+9;b;MySQL;True;
+9;b;PostgreSQL;True;
+9;b;JSON;True;
+9;b;SPARQL;"at line 13 of <>:
+Bad syntax (Prefix ""sd:"" not bound) at ^ in:
+""...b'berlin.de/suhl/bizer/D2RQ/0.1#> .\r\n\r\n<#InputSPARQL1>\r\n    a '^b'sd:Service ;\r\n    sd:endpoint <http://localhost:PORT/ds1/spa'..."""
+9;b;SQLServer;True;
+9;c;MySQL;True;
+9;c;PostgreSQL;True;
+9;c;SQLServer;True;
+9;d;MySQL;True;
+9;d;PostgreSQL;True;
+9;d;SQLServer;True;
+10;a;CSV;True;
+10;a;MySQL;True;
+10;a;PostgreSQL;True;
+10;a;JSON;True;
+10;a;SQLServer;True;
+10;b;CSV;True;
+10;b;XML;True;
+10;b;MySQL;True;
+10;b;PostgreSQL;True;
+10;b;JSON;True;
+10;b;SQLServer;True;
+10;c;CSV;"at line 22 of <>:
+Bad syntax (bad escape) at ^ in:
+""...b'    rr:predicate ex:code ;\r\n    rr:objectMap [ rr:template ""'^b'\\{\\{\\{ {ISO 3166} \\}\\}\\}""; rr:termType rr:Literal]\r\n  ] .\r\n'"""
+10;c;XML;"at line 23 of <>:
+Bad syntax (bad escape) at ^ in:
+""...b'    rr:predicate ex:code ;\r\n    rr:objectMap [ rr:template ""'^b'\\{\\{\\{ {ISO3166} \\}\\}\\}""; rr:termType rr:Literal]\r\n  ] .\r\n'"""
+10;c;MySQL;"at line 24 of <>:
+Bad syntax (bad escape) at ^ in:
+""...b'    rr:predicate ex:code ;\r\n    rr:objectMap [ rr:template ""'^b'\\{\\{\\{ {ISO 3166} \\}\\}\\}""; rr:termType rr:Literal]\r\n  ] .\r\n\r'..."""
+10;c;PostgreSQL;"at line 24 of <>:
+Bad syntax (bad escape) at ^ in:
+""...b'    rr:predicate ex:code ;\r\n    rr:objectMap [ rr:template ""'^b'\\{\\{\\{ {ISO 3166} \\}\\}\\}""; rr:termType rr:Literal]\r\n  ] .\r\n\r'..."""
+10;c;JSON;"at line 23 of <>:
+Bad syntax (bad escape) at ^ in:
+""...b'    rr:predicate ex:code ;\r\n    rr:objectMap [ rr:template ""'^b'\\{\\{\\{ {ISO 3166} \\}\\}\\}""; rr:termType rr:Literal]\r\n  ] .\r\n'"""
+10;c;SQLServer;"at line 24 of <>:
+Bad syntax (bad escape) at ^ in:
+""...b'    rr:predicate ex:code ;\r\n    rr:objectMap [ rr:template ""'^b'\\{\\{\\{ {ISO 3166} \\}\\}\\}""; rr:termType rr:Literal]\r\n  ] .\r\n\r'..."""
+11;a;MySQL;False;"Validation Report
+Conforms: False
+Results (4):
+Constraint Violation in PatternConstraintComponent (http://www.w3.org/ns/shacl#PatternConstraintComponent):
+	Severity: sh:Violation
+	Source Shape: [ sh:nodeKind sh:IRI ; sh:path ex:plays ; sh:pattern Literal(""http://example.com/./."") ]
+	Focus Node: <http://example.com/11/Fernando;Alonso>
+	Value Node: <http://example.com/112/Formula1>
+	Result Path: ex:plays
+Constraint Violation in PatternConstraintComponent (http://www.w3.org/ns/shacl#PatternConstraintComponent):
+	Severity: sh:Violation
+	Source Shape: [ sh:nodeKind sh:IRI ; sh:path ex:plays ; sh:pattern Literal(""http://example.com/./."") ]
+	Focus Node: <http://example.com/11/Fernando;Alonso>
+	Value Node: <http://example.com/111/Football>
+	Result Path: ex:plays
+Constraint Violation in PatternConstraintComponent (http://www.w3.org/ns/shacl#PatternConstraintComponent):
+	Severity: sh:Violation
+	Source Shape: [ sh:nodeKind sh:IRI ; sh:path ex:plays ; sh:pattern Literal(""http://example.com/./."") ]
+	Focus Node: <http://example.com/10/Venus;Williams>
+	Value Node: <http://example.com/110/Tennis>
+	Result Path: ex:plays
+Constraint Violation in PatternConstraintComponent (http://www.w3.org/ns/shacl#PatternConstraintComponent):
+	Severity: sh:Violation
+	Source Shape: [ sh:nodeKind sh:IRI ; sh:path ex:plays ; sh:pattern Literal(""http://example.com/./."") ]
+	Focus Node: <http://example.com/12/David;Villa>
+	Value Node: <http://example.com/111/Football>
+	Result Path: ex:plays
+"
+11;a;PostgreSQL;False;"Validation Report
+Conforms: False
+Results (4):
+Constraint Violation in PatternConstraintComponent (http://www.w3.org/ns/shacl#PatternConstraintComponent):
+	Severity: sh:Violation
+	Source Shape: [ sh:nodeKind sh:IRI ; sh:path ex:plays ; sh:pattern Literal(""http://example.com/./."") ]
+	Focus Node: <http://example.com/11/Fernando;Alonso>
+	Value Node: <http://example.com/112/Formula1>
+	Result Path: ex:plays
+Constraint Violation in PatternConstraintComponent (http://www.w3.org/ns/shacl#PatternConstraintComponent):
+	Severity: sh:Violation
+	Source Shape: [ sh:nodeKind sh:IRI ; sh:path ex:plays ; sh:pattern Literal(""http://example.com/./."") ]
+	Focus Node: <http://example.com/11/Fernando;Alonso>
+	Value Node: <http://example.com/111/Football>
+	Result Path: ex:plays
+Constraint Violation in PatternConstraintComponent (http://www.w3.org/ns/shacl#PatternConstraintComponent):
+	Severity: sh:Violation
+	Source Shape: [ sh:nodeKind sh:IRI ; sh:path ex:plays ; sh:pattern Literal(""http://example.com/./."") ]
+	Focus Node: <http://example.com/10/Venus;Williams>
+	Value Node: <http://example.com/110/Tennis>
+	Result Path: ex:plays
+Constraint Violation in PatternConstraintComponent (http://www.w3.org/ns/shacl#PatternConstraintComponent):
+	Severity: sh:Violation
+	Source Shape: [ sh:nodeKind sh:IRI ; sh:path ex:plays ; sh:pattern Literal(""http://example.com/./."") ]
+	Focus Node: <http://example.com/12/David;Villa>
+	Value Node: <http://example.com/111/Football>
+	Result Path: ex:plays
+"
+11;a;SQLServer;False;"Validation Report
+Conforms: False
+Results (4):
+Constraint Violation in PatternConstraintComponent (http://www.w3.org/ns/shacl#PatternConstraintComponent):
+	Severity: sh:Violation
+	Source Shape: [ sh:nodeKind sh:IRI ; sh:path ex:plays ; sh:pattern Literal(""http://example.com/./."") ]
+	Focus Node: <http://example.com/11/Fernando;Alonso>
+	Value Node: <http://example.com/112/Formula1>
+	Result Path: ex:plays
+Constraint Violation in PatternConstraintComponent (http://www.w3.org/ns/shacl#PatternConstraintComponent):
+	Severity: sh:Violation
+	Source Shape: [ sh:nodeKind sh:IRI ; sh:path ex:plays ; sh:pattern Literal(""http://example.com/./."") ]
+	Focus Node: <http://example.com/11/Fernando;Alonso>
+	Value Node: <http://example.com/111/Football>
+	Result Path: ex:plays
+Constraint Violation in PatternConstraintComponent (http://www.w3.org/ns/shacl#PatternConstraintComponent):
+	Severity: sh:Violation
+	Source Shape: [ sh:nodeKind sh:IRI ; sh:path ex:plays ; sh:pattern Literal(""http://example.com/./."") ]
+	Focus Node: <http://example.com/10/Venus;Williams>
+	Value Node: <http://example.com/110/Tennis>
+	Result Path: ex:plays
+Constraint Violation in PatternConstraintComponent (http://www.w3.org/ns/shacl#PatternConstraintComponent):
+	Severity: sh:Violation
+	Source Shape: [ sh:nodeKind sh:IRI ; sh:path ex:plays ; sh:pattern Literal(""http://example.com/./."") ]
+	Focus Node: <http://example.com/12/David;Villa>
+	Value Node: <http://example.com/111/Football>
+	Result Path: ex:plays
+"
+11;b;CSV;True;
+11;b;XML;True;
+11;b;MySQL;True;
+11;b;PostgreSQL;True;
+11;b;JSON;True;
+11;b;SQLServer;True;
+12;a;CSV;False;"Validation Report
+Conforms: False
+Results (2):
+Constraint Violation in NodeKindConstraintComponent (http://www.w3.org/ns/shacl#NodeKindConstraintComponent):
+	Severity: sh:Violation
+	Source Shape: [ sh:nodeKind sh:IRI ; sh:path foaf:name ; sh:pattern Literal("". ."") ]
+	Focus Node: [ <http://example.com/amount> Literal(""30"") ; <http://xmlns.com/foaf/0.1/name> Literal(""Bob Smith"") ; rdf:type rdfs:Resource ]
+	Value Node: Literal(""Bob Smith"")
+	Result Path: foaf:name
+Constraint Violation in NodeKindConstraintComponent (http://www.w3.org/ns/shacl#NodeKindConstraintComponent):
+	Severity: sh:Violation
+	Source Shape: [ sh:nodeKind sh:IRI ; sh:path foaf:name ; sh:pattern Literal("". ."") ]
+	Focus Node: [ <http://example.com/amount> Literal(""20"") ; <http://xmlns.com/foaf/0.1/name> Literal(""Sue Jones"") ; rdf:type rdfs:Resource ]
+	Value Node: Literal(""Sue Jones"")
+	Result Path: foaf:name
+"
+12;a;XML;False;"Validation Report
+Conforms: False
+Results (2):
+Constraint Violation in NodeKindConstraintComponent (http://www.w3.org/ns/shacl#NodeKindConstraintComponent):
+	Severity: sh:Violation
+	Source Shape: [ sh:nodeKind sh:IRI ; sh:path foaf:name ; sh:pattern Literal("". ."") ]
+	Focus Node: [ <http://example.com/amount> Literal(""30"") ; <http://xmlns.com/foaf/0.1/name> Literal(""Bob Smith"") ; rdf:type rdfs:Resource ]
+	Value Node: Literal(""Bob Smith"")
+	Result Path: foaf:name
+Constraint Violation in NodeKindConstraintComponent (http://www.w3.org/ns/shacl#NodeKindConstraintComponent):
+	Severity: sh:Violation
+	Source Shape: [ sh:nodeKind sh:IRI ; sh:path foaf:name ; sh:pattern Literal("". ."") ]
+	Focus Node: [ <http://example.com/amount> Literal(""20"") ; <http://xmlns.com/foaf/0.1/name> Literal(""Sue Jones"") ; rdf:type rdfs:Resource ]
+	Value Node: Literal(""Sue Jones"")
+	Result Path: foaf:name
+"
+12;a;MySQL;"Invalid line (Predicate must be uriref):
+'_:Bob_Smith_30 <http://example.com/amount> ""30""^^<http://www.w3.org/2001/XMLSchema#integer> .'"
+12;a;PostgreSQL;"Invalid line (Predicate must be uriref):
+'_:Bob_Smith_30 <http://example.com/amount> ""30""^^<http://www.w3.org/2001/XMLSchema#integer> .'"
+12;a;JSON;False;"Validation Report
+Conforms: False
+Results (2):
+Constraint Violation in NodeKindConstraintComponent (http://www.w3.org/ns/shacl#NodeKindConstraintComponent):
+	Severity: sh:Violation
+	Source Shape: [ sh:nodeKind sh:IRI ; sh:path foaf:name ; sh:pattern Literal("". ."") ]
+	Focus Node: [ <http://example.com/amount> Literal(""30"") ; <http://xmlns.com/foaf/0.1/name> Literal(""Bob Smith"") ; rdf:type rdfs:Resource ]
+	Value Node: Literal(""Bob Smith"")
+	Result Path: foaf:name
+Constraint Violation in NodeKindConstraintComponent (http://www.w3.org/ns/shacl#NodeKindConstraintComponent):
+	Severity: sh:Violation
+	Source Shape: [ sh:nodeKind sh:IRI ; sh:path foaf:name ; sh:pattern Literal("". ."") ]
+	Focus Node: [ <http://example.com/amount> Literal(""20"") ; <http://xmlns.com/foaf/0.1/name> Literal(""Sue Jones"") ; rdf:type rdfs:Resource ]
+	Value Node: Literal(""Sue Jones"")
+	Result Path: foaf:name
+"
+12;a;SPARQL;"at line 47 of <>:
+Bad syntax (Prefix ""foaf:"" not bound) at ^ in:
+""...b'; ];\r\n\r\n      rr:predicateObjectMap [\r\n        rr:predicate '^b'foaf:name ;\r\n        rr:objectMap [\r\n          rr:template ""'..."""
+12;a;SQLServer;"Invalid line (Predicate must be uriref):
+'_:Bob_Smith_30 <http://example.com/amount> ""30""^^<http://www.w3.org/2001/XMLSchema#integer> .'"
+12;b;CSV;False;"Validation Report
+Conforms: False
+Results (2):
+Constraint Violation in NodeKindConstraintComponent (http://www.w3.org/ns/shacl#NodeKindConstraintComponent):
+	Severity: sh:Violation
+	Source Shape: [ sh:nodeKind sh:IRI ; sh:path foaf:name ; sh:pattern Literal("". ."") ]
+	Focus Node: [ <http://example.com/city> Literal(""Madrid"") ; <http://xmlns.com/foaf/0.1/name> Literal(""Sue Jones"") ; rdf:type rdfs:Resource ]
+	Value Node: Literal(""Sue Jones"")
+	Result Path: foaf:name
+Constraint Violation in NodeKindConstraintComponent (http://www.w3.org/ns/shacl#NodeKindConstraintComponent):
+	Severity: sh:Violation
+	Source Shape: [ sh:nodeKind sh:IRI ; sh:path foaf:name ; sh:pattern Literal("". ."") ]
+	Focus Node: [ <http://example.com/city> Literal(""London"") ; <http://xmlns.com/foaf/0.1/name> Literal(""Bob Smith"") ; rdf:type rdfs:Resource ]
+	Value Node: Literal(""Bob Smith"")
+	Result Path: foaf:name
+"
+12;b;XML;False;"Validation Report
+Conforms: False
+Results (2):
+Constraint Violation in NodeKindConstraintComponent (http://www.w3.org/ns/shacl#NodeKindConstraintComponent):
+	Severity: sh:Violation
+	Source Shape: [ sh:nodeKind sh:IRI ; sh:path foaf:name ; sh:pattern Literal("". ."") ]
+	Focus Node: [ <http://example.com/city> Literal(""Madrid"") ; <http://xmlns.com/foaf/0.1/name> Literal(""Sue Jones"") ; rdf:type rdfs:Resource ]
+	Value Node: Literal(""Sue Jones"")
+	Result Path: foaf:name
+Constraint Violation in NodeKindConstraintComponent (http://www.w3.org/ns/shacl#NodeKindConstraintComponent):
+	Severity: sh:Violation
+	Source Shape: [ sh:nodeKind sh:IRI ; sh:path foaf:name ; sh:pattern Literal("". ."") ]
+	Focus Node: [ <http://example.com/city> Literal(""London"") ; <http://xmlns.com/foaf/0.1/name> Literal(""Bob Smith"") ; rdf:type rdfs:Resource ]
+	Value Node: Literal(""Bob Smith"")
+	Result Path: foaf:name
+"
+12;b;MySQL;False;"Validation Report
+Conforms: False
+Results (2):
+Constraint Violation in NodeKindConstraintComponent (http://www.w3.org/ns/shacl#NodeKindConstraintComponent):
+	Severity: sh:Violation
+	Source Shape: [ sh:nodeKind sh:IRI ; sh:path foaf:name ; sh:pattern Literal("". ."") ]
+	Focus Node: [ <http://example.com/city> Literal(""Madrid"") ; <http://xmlns.com/foaf/0.1/name> Literal(""Sue Jones"") ; rdf:type rdfs:Resource ]
+	Value Node: Literal(""Sue Jones"")
+	Result Path: foaf:name
+Constraint Violation in NodeKindConstraintComponent (http://www.w3.org/ns/shacl#NodeKindConstraintComponent):
+	Severity: sh:Violation
+	Source Shape: [ sh:nodeKind sh:IRI ; sh:path foaf:name ; sh:pattern Literal("". ."") ]
+	Focus Node: [ <http://example.com/city> Literal(""London"") ; <http://xmlns.com/foaf/0.1/name> Literal(""Bob Smith"") ; rdf:type rdfs:Resource ]
+	Value Node: Literal(""Bob Smith"")
+	Result Path: foaf:name
+"
+12;b;PostgreSQL;False;"Validation Report
+Conforms: False
+Results (2):
+Constraint Violation in NodeKindConstraintComponent (http://www.w3.org/ns/shacl#NodeKindConstraintComponent):
+	Severity: sh:Violation
+	Source Shape: [ sh:nodeKind sh:IRI ; sh:path foaf:name ; sh:pattern Literal("". ."") ]
+	Focus Node: [ <http://example.com/city> Literal(""Madrid"") ; <http://xmlns.com/foaf/0.1/name> Literal(""Sue Jones"") ; rdf:type rdfs:Resource ]
+	Value Node: Literal(""Sue Jones"")
+	Result Path: foaf:name
+Constraint Violation in NodeKindConstraintComponent (http://www.w3.org/ns/shacl#NodeKindConstraintComponent):
+	Severity: sh:Violation
+	Source Shape: [ sh:nodeKind sh:IRI ; sh:path foaf:name ; sh:pattern Literal("". ."") ]
+	Focus Node: [ <http://example.com/city> Literal(""London"") ; <http://xmlns.com/foaf/0.1/name> Literal(""Bob Smith"") ; rdf:type rdfs:Resource ]
+	Value Node: Literal(""Bob Smith"")
+	Result Path: foaf:name
+"
+12;b;JSON;False;"Validation Report
+Conforms: False
+Results (2):
+Constraint Violation in NodeKindConstraintComponent (http://www.w3.org/ns/shacl#NodeKindConstraintComponent):
+	Severity: sh:Violation
+	Source Shape: [ sh:nodeKind sh:IRI ; sh:path foaf:name ; sh:pattern Literal("". ."") ]
+	Focus Node: [ <http://example.com/city> Literal(""Madrid"") ; <http://xmlns.com/foaf/0.1/name> Literal(""Sue Jones"") ; rdf:type rdfs:Resource ]
+	Value Node: Literal(""Sue Jones"")
+	Result Path: foaf:name
+Constraint Violation in NodeKindConstraintComponent (http://www.w3.org/ns/shacl#NodeKindConstraintComponent):
+	Severity: sh:Violation
+	Source Shape: [ sh:nodeKind sh:IRI ; sh:path foaf:name ; sh:pattern Literal("". ."") ]
+	Focus Node: [ <http://example.com/city> Literal(""London"") ; <http://xmlns.com/foaf/0.1/name> Literal(""Bob Smith"") ; rdf:type rdfs:Resource ]
+	Value Node: Literal(""Bob Smith"")
+	Result Path: foaf:name
+"
+12;b;SPARQL;"at line 12 of <>:
+Bad syntax (Prefix ""sd:"" not bound) at ^ in:
+""...b'berlin.de/suhl/bizer/D2RQ/0.1#> .\r\n\r\n<#InputSPARQL1>\r\n    a '^b'sd:Service ;\r\n    sd:endpoint <http://localhost:PORT/ds1/spa'..."""
+12;b;SQLServer;False;"Validation Report
+Conforms: False
+Results (2):
+Constraint Violation in NodeKindConstraintComponent (http://www.w3.org/ns/shacl#NodeKindConstraintComponent):
+	Severity: sh:Violation
+	Source Shape: [ sh:nodeKind sh:IRI ; sh:path foaf:name ; sh:pattern Literal("". ."") ]
+	Focus Node: [ <http://example.com/city> Literal(""Madrid"") ; <http://xmlns.com/foaf/0.1/name> Literal(""Sue Jones"") ; rdf:type rdfs:Resource ]
+	Value Node: Literal(""Sue Jones"")
+	Result Path: foaf:name
+Constraint Violation in NodeKindConstraintComponent (http://www.w3.org/ns/shacl#NodeKindConstraintComponent):
+	Severity: sh:Violation
+	Source Shape: [ sh:nodeKind sh:IRI ; sh:path foaf:name ; sh:pattern Literal("". ."") ]
+	Focus Node: [ <http://example.com/city> Literal(""London"") ; <http://xmlns.com/foaf/0.1/name> Literal(""Bob Smith"") ; rdf:type rdfs:Resource ]
+	Value Node: Literal(""Bob Smith"")
+	Result Path: foaf:name
+"
+12;c;CSV;'SM'
+12;c;XML;'SM'
+12;c;MySQL;'SM'
+12;c;PostgreSQL;'SM'
+12;c;JSON;'SM'
+12;c;SQLServer;'SM'
+12;e;MySQL;"Invalid line (Predicate must be uriref):
+'_:Bob_Smith_30 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://example.com/base/IOUs> .'"
+12;e;PostgreSQL;"Invalid line (Predicate must be uriref):
+'_:Bob_Smith_30 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://example.com/base/IOUs> .'"
+12;e;SQLServer;"Invalid line (Predicate must be uriref):
+'_:Bob_Smith_30 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://example.com/base/IOUs> .'"
+13;a;MySQL;True;
+13;a;PostgreSQL;True;
+13;a;JSON;True;
+13;a;SQLServer;True;
+14;d;MySQL;True;
+14;d;PostgreSQL;True;
+14;d;SQLServer;True;
+15;a;CSV;False;"Validation Report
+Conforms: False
+Results (8):
+Constraint Violation in LanguageInConstraintComponent (http://www.w3.org/ns/shacl#LanguageInConstraintComponent):
+	Severity: sh:Violation
+	Source Shape: [ sh:languageIn Literal(""es"") ; sh:nodeKind sh:Literal ; sh:path rdfs:label ]
+	Focus Node: <http://example.com/BO>
+	Value Node: Literal(""Bolivia, Plurinational State of"", lang=en)
+	Result Path: rdfs:label
+Constraint Violation in LanguageInConstraintComponent (http://www.w3.org/ns/shacl#LanguageInConstraintComponent):
+	Severity: sh:Violation
+	Source Shape: [ sh:languageIn Literal(""es"") ; sh:nodeKind sh:Literal ; sh:path rdfs:label ]
+	Focus Node: <http://example.com/BO>
+	Value Node: Literal(""Estado Plurinacional de Bolivia"", lang=es)
+	Result Path: rdfs:label
+Constraint Violation in LanguageInConstraintComponent (http://www.w3.org/ns/shacl#LanguageInConstraintComponent):
+	Severity: sh:Violation
+	Source Shape: [ sh:languageIn Literal(""es"") ; sh:nodeKind sh:Literal ; sh:path rdfs:label ]
+	Focus Node: <http://example.com/IE>
+	Value Node: Literal(""Irlanda"", lang=es)
+	Result Path: rdfs:label
+Constraint Violation in LanguageInConstraintComponent (http://www.w3.org/ns/shacl#LanguageInConstraintComponent):
+	Severity: sh:Violation
+	Source Shape: [ sh:languageIn Literal(""es"") ; sh:nodeKind sh:Literal ; sh:path rdfs:label ]
+	Focus Node: <http://example.com/IE>
+	Value Node: Literal(""Ireland"", lang=en)
+	Result Path: rdfs:label
+Constraint Violation in LanguageInConstraintComponent (http://www.w3.org/ns/shacl#LanguageInConstraintComponent):
+	Severity: sh:Violation
+	Source Shape: [ sh:languageIn Literal(""en"") ; sh:nodeKind sh:Literal ; sh:path rdfs:label ]
+	Focus Node: <http://example.com/BO>
+	Value Node: Literal(""Bolivia, Plurinational State of"", lang=en)
+	Result Path: rdfs:label
+Constraint Violation in LanguageInConstraintComponent (http://www.w3.org/ns/shacl#LanguageInConstraintComponent):
+	Severity: sh:Violation
+	Source Shape: [ sh:languageIn Literal(""en"") ; sh:nodeKind sh:Literal ; sh:path rdfs:label ]
+	Focus Node: <http://example.com/BO>
+	Value Node: Literal(""Estado Plurinacional de Bolivia"", lang=es)
+	Result Path: rdfs:label
+Constraint Violation in LanguageInConstraintComponent (http://www.w3.org/ns/shacl#LanguageInConstraintComponent):
+	Severity: sh:Violation
+	Source Shape: [ sh:languageIn Literal(""en"") ; sh:nodeKind sh:Literal ; sh:path rdfs:label ]
+	Focus Node: <http://example.com/IE>
+	Value Node: Literal(""Irlanda"", lang=es)
+	Result Path: rdfs:label
+Constraint Violation in LanguageInConstraintComponent (http://www.w3.org/ns/shacl#LanguageInConstraintComponent):
+	Severity: sh:Violation
+	Source Shape: [ sh:languageIn Literal(""en"") ; sh:nodeKind sh:Literal ; sh:path rdfs:label ]
+	Focus Node: <http://example.com/IE>
+	Value Node: Literal(""Ireland"", lang=en)
+	Result Path: rdfs:label
+"
+15;a;XML;False;"Validation Report
+Conforms: False
+Results (8):
+Constraint Violation in LanguageInConstraintComponent (http://www.w3.org/ns/shacl#LanguageInConstraintComponent):
+	Severity: sh:Violation
+	Source Shape: [ sh:languageIn Literal(""es"") ; sh:nodeKind sh:Literal ; sh:path rdfs:label ]
+	Focus Node: <http://example.com/BO>
+	Value Node: Literal(""Bolivia, Plurinational State of"", lang=en)
+	Result Path: rdfs:label
+Constraint Violation in LanguageInConstraintComponent (http://www.w3.org/ns/shacl#LanguageInConstraintComponent):
+	Severity: sh:Violation
+	Source Shape: [ sh:languageIn Literal(""es"") ; sh:nodeKind sh:Literal ; sh:path rdfs:label ]
+	Focus Node: <http://example.com/BO>
+	Value Node: Literal(""Estado Plurinacional de Bolivia"", lang=es)
+	Result Path: rdfs:label
+Constraint Violation in LanguageInConstraintComponent (http://www.w3.org/ns/shacl#LanguageInConstraintComponent):
+	Severity: sh:Violation
+	Source Shape: [ sh:languageIn Literal(""es"") ; sh:nodeKind sh:Literal ; sh:path rdfs:label ]
+	Focus Node: <http://example.com/IE>
+	Value Node: Literal(""Irlanda"", lang=es)
+	Result Path: rdfs:label
+Constraint Violation in LanguageInConstraintComponent (http://www.w3.org/ns/shacl#LanguageInConstraintComponent):
+	Severity: sh:Violation
+	Source Shape: [ sh:languageIn Literal(""es"") ; sh:nodeKind sh:Literal ; sh:path rdfs:label ]
+	Focus Node: <http://example.com/IE>
+	Value Node: Literal(""Ireland"", lang=en)
+	Result Path: rdfs:label
+Constraint Violation in LanguageInConstraintComponent (http://www.w3.org/ns/shacl#LanguageInConstraintComponent):
+	Severity: sh:Violation
+	Source Shape: [ sh:languageIn Literal(""en"") ; sh:nodeKind sh:Literal ; sh:path rdfs:label ]
+	Focus Node: <http://example.com/BO>
+	Value Node: Literal(""Bolivia, Plurinational State of"", lang=en)
+	Result Path: rdfs:label
+Constraint Violation in LanguageInConstraintComponent (http://www.w3.org/ns/shacl#LanguageInConstraintComponent):
+	Severity: sh:Violation
+	Source Shape: [ sh:languageIn Literal(""en"") ; sh:nodeKind sh:Literal ; sh:path rdfs:label ]
+	Focus Node: <http://example.com/BO>
+	Value Node: Literal(""Estado Plurinacional de Bolivia"", lang=es)
+	Result Path: rdfs:label
+Constraint Violation in LanguageInConstraintComponent (http://www.w3.org/ns/shacl#LanguageInConstraintComponent):
+	Severity: sh:Violation
+	Source Shape: [ sh:languageIn Literal(""en"") ; sh:nodeKind sh:Literal ; sh:path rdfs:label ]
+	Focus Node: <http://example.com/IE>
+	Value Node: Literal(""Irlanda"", lang=es)
+	Result Path: rdfs:label
+Constraint Violation in LanguageInConstraintComponent (http://www.w3.org/ns/shacl#LanguageInConstraintComponent):
+	Severity: sh:Violation
+	Source Shape: [ sh:languageIn Literal(""en"") ; sh:nodeKind sh:Literal ; sh:path rdfs:label ]
+	Focus Node: <http://example.com/IE>
+	Value Node: Literal(""Ireland"", lang=en)
+	Result Path: rdfs:label
+"
+15;a;MySQL;False;"Validation Report
+Conforms: False
+Results (8):
+Constraint Violation in LanguageInConstraintComponent (http://www.w3.org/ns/shacl#LanguageInConstraintComponent):
+	Severity: sh:Violation
+	Source Shape: [ sh:languageIn Literal(""es"") ; sh:nodeKind sh:Literal ; sh:path rdfs:label ]
+	Focus Node: <http://example.com/BO>
+	Value Node: Literal(""Bolivia, Plurinational State of"", lang=en)
+	Result Path: rdfs:label
+Constraint Violation in LanguageInConstraintComponent (http://www.w3.org/ns/shacl#LanguageInConstraintComponent):
+	Severity: sh:Violation
+	Source Shape: [ sh:languageIn Literal(""es"") ; sh:nodeKind sh:Literal ; sh:path rdfs:label ]
+	Focus Node: <http://example.com/BO>
+	Value Node: Literal(""Estado Plurinacional de Bolivia"", lang=es)
+	Result Path: rdfs:label
+Constraint Violation in LanguageInConstraintComponent (http://www.w3.org/ns/shacl#LanguageInConstraintComponent):
+	Severity: sh:Violation
+	Source Shape: [ sh:languageIn Literal(""es"") ; sh:nodeKind sh:Literal ; sh:path rdfs:label ]
+	Focus Node: <http://example.com/IE>
+	Value Node: Literal(""Irlanda"", lang=es)
+	Result Path: rdfs:label
+Constraint Violation in LanguageInConstraintComponent (http://www.w3.org/ns/shacl#LanguageInConstraintComponent):
+	Severity: sh:Violation
+	Source Shape: [ sh:languageIn Literal(""es"") ; sh:nodeKind sh:Literal ; sh:path rdfs:label ]
+	Focus Node: <http://example.com/IE>
+	Value Node: Literal(""Ireland"", lang=en)
+	Result Path: rdfs:label
+Constraint Violation in LanguageInConstraintComponent (http://www.w3.org/ns/shacl#LanguageInConstraintComponent):
+	Severity: sh:Violation
+	Source Shape: [ sh:languageIn Literal(""en"") ; sh:nodeKind sh:Literal ; sh:path rdfs:label ]
+	Focus Node: <http://example.com/BO>
+	Value Node: Literal(""Bolivia, Plurinational State of"", lang=en)
+	Result Path: rdfs:label
+Constraint Violation in LanguageInConstraintComponent (http://www.w3.org/ns/shacl#LanguageInConstraintComponent):
+	Severity: sh:Violation
+	Source Shape: [ sh:languageIn Literal(""en"") ; sh:nodeKind sh:Literal ; sh:path rdfs:label ]
+	Focus Node: <http://example.com/BO>
+	Value Node: Literal(""Estado Plurinacional de Bolivia"", lang=es)
+	Result Path: rdfs:label
+Constraint Violation in LanguageInConstraintComponent (http://www.w3.org/ns/shacl#LanguageInConstraintComponent):
+	Severity: sh:Violation
+	Source Shape: [ sh:languageIn Literal(""en"") ; sh:nodeKind sh:Literal ; sh:path rdfs:label ]
+	Focus Node: <http://example.com/IE>
+	Value Node: Literal(""Irlanda"", lang=es)
+	Result Path: rdfs:label
+Constraint Violation in LanguageInConstraintComponent (http://www.w3.org/ns/shacl#LanguageInConstraintComponent):
+	Severity: sh:Violation
+	Source Shape: [ sh:languageIn Literal(""en"") ; sh:nodeKind sh:Literal ; sh:path rdfs:label ]
+	Focus Node: <http://example.com/IE>
+	Value Node: Literal(""Ireland"", lang=en)
+	Result Path: rdfs:label
+"
+15;a;PostgreSQL;False;"Validation Report
+Conforms: False
+Results (8):
+Constraint Violation in LanguageInConstraintComponent (http://www.w3.org/ns/shacl#LanguageInConstraintComponent):
+	Severity: sh:Violation
+	Source Shape: [ sh:languageIn Literal(""es"") ; sh:nodeKind sh:Literal ; sh:path rdfs:label ]
+	Focus Node: <http://example.com/BO>
+	Value Node: Literal(""Bolivia, Plurinational State of"", lang=en)
+	Result Path: rdfs:label
+Constraint Violation in LanguageInConstraintComponent (http://www.w3.org/ns/shacl#LanguageInConstraintComponent):
+	Severity: sh:Violation
+	Source Shape: [ sh:languageIn Literal(""es"") ; sh:nodeKind sh:Literal ; sh:path rdfs:label ]
+	Focus Node: <http://example.com/BO>
+	Value Node: Literal(""Estado Plurinacional de Bolivia"", lang=es)
+	Result Path: rdfs:label
+Constraint Violation in LanguageInConstraintComponent (http://www.w3.org/ns/shacl#LanguageInConstraintComponent):
+	Severity: sh:Violation
+	Source Shape: [ sh:languageIn Literal(""es"") ; sh:nodeKind sh:Literal ; sh:path rdfs:label ]
+	Focus Node: <http://example.com/IE>
+	Value Node: Literal(""Irlanda"", lang=es)
+	Result Path: rdfs:label
+Constraint Violation in LanguageInConstraintComponent (http://www.w3.org/ns/shacl#LanguageInConstraintComponent):
+	Severity: sh:Violation
+	Source Shape: [ sh:languageIn Literal(""es"") ; sh:nodeKind sh:Literal ; sh:path rdfs:label ]
+	Focus Node: <http://example.com/IE>
+	Value Node: Literal(""Ireland"", lang=en)
+	Result Path: rdfs:label
+Constraint Violation in LanguageInConstraintComponent (http://www.w3.org/ns/shacl#LanguageInConstraintComponent):
+	Severity: sh:Violation
+	Source Shape: [ sh:languageIn Literal(""en"") ; sh:nodeKind sh:Literal ; sh:path rdfs:label ]
+	Focus Node: <http://example.com/BO>
+	Value Node: Literal(""Bolivia, Plurinational State of"", lang=en)
+	Result Path: rdfs:label
+Constraint Violation in LanguageInConstraintComponent (http://www.w3.org/ns/shacl#LanguageInConstraintComponent):
+	Severity: sh:Violation
+	Source Shape: [ sh:languageIn Literal(""en"") ; sh:nodeKind sh:Literal ; sh:path rdfs:label ]
+	Focus Node: <http://example.com/BO>
+	Value Node: Literal(""Estado Plurinacional de Bolivia"", lang=es)
+	Result Path: rdfs:label
+Constraint Violation in LanguageInConstraintComponent (http://www.w3.org/ns/shacl#LanguageInConstraintComponent):
+	Severity: sh:Violation
+	Source Shape: [ sh:languageIn Literal(""en"") ; sh:nodeKind sh:Literal ; sh:path rdfs:label ]
+	Focus Node: <http://example.com/IE>
+	Value Node: Literal(""Irlanda"", lang=es)
+	Result Path: rdfs:label
+Constraint Violation in LanguageInConstraintComponent (http://www.w3.org/ns/shacl#LanguageInConstraintComponent):
+	Severity: sh:Violation
+	Source Shape: [ sh:languageIn Literal(""en"") ; sh:nodeKind sh:Literal ; sh:path rdfs:label ]
+	Focus Node: <http://example.com/IE>
+	Value Node: Literal(""Ireland"", lang=en)
+	Result Path: rdfs:label
+"
+15;a;JSON;False;"Validation Report
+Conforms: False
+Results (8):
+Constraint Violation in LanguageInConstraintComponent (http://www.w3.org/ns/shacl#LanguageInConstraintComponent):
+	Severity: sh:Violation
+	Source Shape: [ sh:languageIn Literal(""es"") ; sh:nodeKind sh:Literal ; sh:path rdfs:label ]
+	Focus Node: <http://example.com/BO>
+	Value Node: Literal(""Bolivia, Plurinational State of"", lang=en)
+	Result Path: rdfs:label
+Constraint Violation in LanguageInConstraintComponent (http://www.w3.org/ns/shacl#LanguageInConstraintComponent):
+	Severity: sh:Violation
+	Source Shape: [ sh:languageIn Literal(""es"") ; sh:nodeKind sh:Literal ; sh:path rdfs:label ]
+	Focus Node: <http://example.com/BO>
+	Value Node: Literal(""Estado Plurinacional de Bolivia"", lang=es)
+	Result Path: rdfs:label
+Constraint Violation in LanguageInConstraintComponent (http://www.w3.org/ns/shacl#LanguageInConstraintComponent):
+	Severity: sh:Violation
+	Source Shape: [ sh:languageIn Literal(""es"") ; sh:nodeKind sh:Literal ; sh:path rdfs:label ]
+	Focus Node: <http://example.com/IE>
+	Value Node: Literal(""Irlanda"", lang=es)
+	Result Path: rdfs:label
+Constraint Violation in LanguageInConstraintComponent (http://www.w3.org/ns/shacl#LanguageInConstraintComponent):
+	Severity: sh:Violation
+	Source Shape: [ sh:languageIn Literal(""es"") ; sh:nodeKind sh:Literal ; sh:path rdfs:label ]
+	Focus Node: <http://example.com/IE>
+	Value Node: Literal(""Ireland"", lang=en)
+	Result Path: rdfs:label
+Constraint Violation in LanguageInConstraintComponent (http://www.w3.org/ns/shacl#LanguageInConstraintComponent):
+	Severity: sh:Violation
+	Source Shape: [ sh:languageIn Literal(""en"") ; sh:nodeKind sh:Literal ; sh:path rdfs:label ]
+	Focus Node: <http://example.com/BO>
+	Value Node: Literal(""Bolivia, Plurinational State of"", lang=en)
+	Result Path: rdfs:label
+Constraint Violation in LanguageInConstraintComponent (http://www.w3.org/ns/shacl#LanguageInConstraintComponent):
+	Severity: sh:Violation
+	Source Shape: [ sh:languageIn Literal(""en"") ; sh:nodeKind sh:Literal ; sh:path rdfs:label ]
+	Focus Node: <http://example.com/BO>
+	Value Node: Literal(""Estado Plurinacional de Bolivia"", lang=es)
+	Result Path: rdfs:label
+Constraint Violation in LanguageInConstraintComponent (http://www.w3.org/ns/shacl#LanguageInConstraintComponent):
+	Severity: sh:Violation
+	Source Shape: [ sh:languageIn Literal(""en"") ; sh:nodeKind sh:Literal ; sh:path rdfs:label ]
+	Focus Node: <http://example.com/IE>
+	Value Node: Literal(""Irlanda"", lang=es)
+	Result Path: rdfs:label
+Constraint Violation in LanguageInConstraintComponent (http://www.w3.org/ns/shacl#LanguageInConstraintComponent):
+	Severity: sh:Violation
+	Source Shape: [ sh:languageIn Literal(""en"") ; sh:nodeKind sh:Literal ; sh:path rdfs:label ]
+	Focus Node: <http://example.com/IE>
+	Value Node: Literal(""Ireland"", lang=en)
+	Result Path: rdfs:label
+"
+15;a;SQLServer;False;"Validation Report
+Conforms: False
+Results (8):
+Constraint Violation in LanguageInConstraintComponent (http://www.w3.org/ns/shacl#LanguageInConstraintComponent):
+	Severity: sh:Violation
+	Source Shape: [ sh:languageIn Literal(""es"") ; sh:nodeKind sh:Literal ; sh:path rdfs:label ]
+	Focus Node: <http://example.com/BO>
+	Value Node: Literal(""Bolivia, Plurinational State of"", lang=en)
+	Result Path: rdfs:label
+Constraint Violation in LanguageInConstraintComponent (http://www.w3.org/ns/shacl#LanguageInConstraintComponent):
+	Severity: sh:Violation
+	Source Shape: [ sh:languageIn Literal(""es"") ; sh:nodeKind sh:Literal ; sh:path rdfs:label ]
+	Focus Node: <http://example.com/BO>
+	Value Node: Literal(""Estado Plurinacional de Bolivia"", lang=es)
+	Result Path: rdfs:label
+Constraint Violation in LanguageInConstraintComponent (http://www.w3.org/ns/shacl#LanguageInConstraintComponent):
+	Severity: sh:Violation
+	Source Shape: [ sh:languageIn Literal(""es"") ; sh:nodeKind sh:Literal ; sh:path rdfs:label ]
+	Focus Node: <http://example.com/IE>
+	Value Node: Literal(""Irlanda"", lang=es)
+	Result Path: rdfs:label
+Constraint Violation in LanguageInConstraintComponent (http://www.w3.org/ns/shacl#LanguageInConstraintComponent):
+	Severity: sh:Violation
+	Source Shape: [ sh:languageIn Literal(""es"") ; sh:nodeKind sh:Literal ; sh:path rdfs:label ]
+	Focus Node: <http://example.com/IE>
+	Value Node: Literal(""Ireland"", lang=en)
+	Result Path: rdfs:label
+Constraint Violation in LanguageInConstraintComponent (http://www.w3.org/ns/shacl#LanguageInConstraintComponent):
+	Severity: sh:Violation
+	Source Shape: [ sh:languageIn Literal(""en"") ; sh:nodeKind sh:Literal ; sh:path rdfs:label ]
+	Focus Node: <http://example.com/BO>
+	Value Node: Literal(""Bolivia, Plurinational State of"", lang=en)
+	Result Path: rdfs:label
+Constraint Violation in LanguageInConstraintComponent (http://www.w3.org/ns/shacl#LanguageInConstraintComponent):
+	Severity: sh:Violation
+	Source Shape: [ sh:languageIn Literal(""en"") ; sh:nodeKind sh:Literal ; sh:path rdfs:label ]
+	Focus Node: <http://example.com/BO>
+	Value Node: Literal(""Estado Plurinacional de Bolivia"", lang=es)
+	Result Path: rdfs:label
+Constraint Violation in LanguageInConstraintComponent (http://www.w3.org/ns/shacl#LanguageInConstraintComponent):
+	Severity: sh:Violation
+	Source Shape: [ sh:languageIn Literal(""en"") ; sh:nodeKind sh:Literal ; sh:path rdfs:label ]
+	Focus Node: <http://example.com/IE>
+	Value Node: Literal(""Irlanda"", lang=es)
+	Result Path: rdfs:label
+Constraint Violation in LanguageInConstraintComponent (http://www.w3.org/ns/shacl#LanguageInConstraintComponent):
+	Severity: sh:Violation
+	Source Shape: [ sh:languageIn Literal(""en"") ; sh:nodeKind sh:Literal ; sh:path rdfs:label ]
+	Focus Node: <http://example.com/IE>
+	Value Node: Literal(""Ireland"", lang=en)
+	Result Path: rdfs:label
+"
+16;a;MySQL;True;
+16;a;PostgreSQL;True;
+16;a;SQLServer;True;
+16;b;MySQL;True;
+16;b;PostgreSQL;True;
+16;b;SQLServer;True;
+16;c;MySQL;True;
+16;c;PostgreSQL;True;
+16;c;SQLServer;True;
+16;d;MySQL;True;
+16;d;PostgreSQL;True;
+16;d;SQLServer;True;
+16;e;MySQL;True;
+16;e;PostgreSQL;True;
+16;e;SQLServer;True;
+18;a;MySQL;True;
+18;a;PostgreSQL;True;
+18;a;SQLServer;True;
+19;a;CSV;True;
+19;a;XML;True;
+19;a;MySQL;True;
+19;a;PostgreSQL;True;
+19;a;JSON;True;
+19;a;SQLServer;True;
+19;b;CSV;True;
+19;b;XML;True;
+19;b;MySQL;True;
+19;b;PostgreSQL;True;
+19;b;JSON;True;
+19;b;SQLServer;True;
+20;a;CSV;True;
+20;a;XML;True;
+20;a;MySQL;True;
+20;a;PostgreSQL;True;
+20;a;JSON;True;
+20;a;SQLServer;True;
+20;b;CSV;True;
+20;b;XML;True;
+20;b;MySQL;True;
+20;b;PostgreSQL;True;
+20;b;JSON;True;
+20;b;SQLServer;True;

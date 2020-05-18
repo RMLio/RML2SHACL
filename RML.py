@@ -1,6 +1,8 @@
 import rdflib
 import pprint
 
+from FilesGitHub import *
+
 class RML:
     def __init__(self):
         self.graph = rdflib.Graph()
@@ -30,36 +32,10 @@ class RML:
         else:
             for stmt in self.graph:
                 pprint.pprint(stmt)
-    def createGraph(self):
-        #self.graph.parse("C:\\Users\\Birte\\Documents\\GitHub\\rml-test-cases\\test-cases\\RMLTC0000-CSV\\mapping.ttl", format="turtle")
-        #self.graph.parse("C:\\Users\\Birte\\Documents\\GitHub\\rml-test-cases\\test-cases\\RMLTC0002a-CSV\\mapping.ttl", format="turtle") #with rr:class
-        #self.graph.parse("C:\\Users\\Birte\\Documents\\GitHub\\rml-test-cases\\test-cases\\RMLTC0004a-CSV\\mapping.ttl", format="turtle")
-        #self.graph.parse("C:\\Users\\Birte\\Documents\\GitHub\\rml-test-cases\\test-cases\\RMLTC0005a-CSV\\mapping.ttl", format="turtle")
-        #constants test
-        #self.graph.parse("C:\\Users\\Birte\\Documents\\GitHub\\rml-test-cases\\test-cases\\RMLTC0006a-CSV\\mapping.ttl", format="turtle")
-
-
-        # #troubles readin this RML file in => template object bad escape
-        #self.graph.parse("C:\\Users\\Birte\\Documents\\GitHub\\rml-test-cases\\test-cases\\RMLTC0010c-CSV\\mapping.ttl", format="turtle")
-
-        #works template
-        #self.graph.parse("C:\\Users\\Birte\\Documents\\GitHub\\rml-test-cases\\test-cases\\RMLTC0011b-CSV\\mapping.ttl", format="turtle")
-        #self.graph.parse("C:\\Users\\Birte\\Documents\\GitHub\\rml-test-cases\\test-cases\\RMLTC0012a-CSV\\mapping.ttl", format="turtle")
-
-        #lang test
-        #self.graph.parse("C:\\Users\\Birte\\Documents\\GitHub\\rml-test-cases\\test-cases\\RMLTC0015a-CSV\\mapping.ttl", format="turtle") #geen rdfs
-        #self.graph.parse("C:\\Users\\Birte\\Documents\\masterproefHelpFiles\\rml15withRDFS.ttl",format="turtle")
-
-        #self.graph.parse("C:\\Users\\Birte\\Documents\\masterproefHelpFiles\\rmlex.ttl",format="turtle")
-        
-        #self.graph.parse("C:\\Users\\Birte\\Documents\\masterproefHelpFiles\\shacleorshape.ttl",format="turtle")
-
-        #parentriplemap test
-        #self.graph.parse("C:\\Users\\Birte\\Documents\\GitHub\\rml-test-cases\\test-cases\\RMLTC0008b-CSV\\mapping.ttl", format="turtle") #geen rdf
-        self.graph.parse("C:\\Users\\Birte\\Documents\\masterproefHelpFiles\\rml8bwithRDFS.ttl",format="turtle") 
-        '''for ns in self.graph.namespaces():
-            print(ns)'''
-        self.printGraph(1)
+    def createGraph(self,number, letter,typeInputFile):
+        fileReadObject = FilesGitHub()
+        filename = fileReadObject.getFile(number,letter,typeInputFile,fileReadObject.Mappingfile)
+        self.graph.parse(filename,format=rdflib.util.guess_format(filename)) 
 
     def removeBlankNodesMultipleMaps(self):
         #loop over all the Triple Maps in the RML input file
@@ -147,9 +123,11 @@ class RML:
                         print(stm)
                 
             
-    def main(self):
-        self.createGraph()
+    def testmain(self):
+        self.createGraph(7,'b',FilesGitHub.CSV)
         #self.removeBlankNodesMultipleMaps()
+if __name__ == '__main__':
+    Rml = RML()
+    Rml.testmain()
 
-Rml = RML()
-Rml.main()
+
