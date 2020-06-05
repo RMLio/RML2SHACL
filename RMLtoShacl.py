@@ -7,53 +7,46 @@ from FilesGitHub import *
 import string
 import csv
 from requests.exceptions import HTTPError
-import time
-from lib2to3.pgen2.parse import ParseError
 
 class RMLtoSHACL:
     def __init__(self):
         self.RML = RML()
         self.readfileObject = FilesGitHub()
-        #self.RML.removeBlankNodes()
         self.shaclNS = rdflib.Namespace('http://www.w3.org/ns/shacl#')
         self.rdfSyntax = rdflib.Namespace('http://www.w3.org/1999/02/22-rdf-syntax-ns#')    
         self.SHACL = SHACL()
         self.sNodeShape = None
         self.propertygraphs = []
-
         
     def createNodeShape(self, graph):
         #start of SHACL shape
-        for s,p,o in graph["TM"]:      #.triples((None,RDF.type,self.RML.tM)):
-            subjectShape = rdflib.URIRef(s+'/shape') #we create a new IRI for the new shape based on the triple map IRI
+        for s,p,o in graph["TM"]:
+            subjectShape = rdflib.URIRef(s+'/shape') 
+            #we create a new IRI for the new shape based on the Triples Map IRI
             self.SHACL.graph.add((subjectShape,p,self.shaclNS.NodeShape))
         self.sNodeShape = subjectShape
     def inferclass(self,graphPOM):
-        namespaceGraphs = []
         for prefix, ns in self.RML.graph.namespaces():
-            graph = rdflib.Graph()
-            try:
-                #we first parse the graphs from all the namespaces from the RML mapping and save those graphs in an array
-                graph.parse(ns,format=rdflib.util.guess_format(ns))
-                namespaceGraphs.append(graph)
-            except:
-                pass
-        #loop over the namespace graphs 
-        for graph in namespaceGraphs:
-            #loop over the Predicate Object Maps only looking at the rr:predicate statements
+        #loop over the Predicate Object Maps only looking at the rr:predicate statements
             for s1,p1,o1 in graphPOM.triples((self.RML.sPOM,self.RML.pPred,None)):
-                #loop over the stmt inside the namespace graph
-                for s,p,o in graph:
-                    #test if we have an rdfs:domain that belongs to to the object of our rr:predicate statement
-                    if p == rdflib.RDFS.domain and s==o1:
-                        #add the domain aka class to the shape as sh:targetClass
-                        self.SHACL.graph.add((self.sNodeShape,self.shaclNS.targetClass,o))
+                if ns in o1:
+                    graph = rdflib.Graph()
+                    try:
+#first parse the graphs from all the namespaces from the RML mapping and save those graphs in an array
+                        graph.parse(ns,format=rdflib.util.guess_format(ns))
+                        for s,p,o in graph:
+#test if we have an rdfs:domain that belongs to the object of our rr:predicate statement
+                            if p == rdflib.RDFS.domain and s==o1:
+#add the domain aka class to the shape as sh:targetClass
+                                self.SHACL.graph.add((self.sNodeShape,self.shaclNS.targetClass,o))
+                    except:
+                        pass
     def subjectTargetOf(self,graph):
         for s,p,o in graph.triples((self.RML.sPOM,self.RML.pPred,None)):
             if o != rdflib.RDF.type:
                 self.SHACL.graph.add((self.sNodeShape,self.shaclNS.targetSubjectsOf,o))
     def targetNode(self,graph):
-        #if there's a constant in the subjectmap we can add this as sh:targetNode for the shape
+#if there's a constant in the subjectmap we can add this as sh:targetNode for the shape
         for s,p,o in graph['SM'].triples((self.RML.sSM,self.RML.pCons,None)):
             self.SHACL.graph.add((self.sNodeShape,self.shaclNS.targetNode,o))
 
@@ -87,8 +80,10 @@ class RMLtoSHACL:
             #Test for when it has a template
             result = self.testIfIRIorLiteral(p,o, graphHelp,propertyBl,graphPOM)
             if not result and p == self.RML.pCons and not rdfType:
-                #we don't have a Literal nor an IRI
-                #if rdfType is True then we have a predicateobject with rdf:type and then we don't have to look at the constant values because it's filled in findClassinPredicateOM()
+            #we don't have a Literal nor an IRI
+            #if rdfType is True then we have a predicateobject with rdf:type 
+            #and then we don't have to look at the constant values 
+            #because it's filled in findClassinPredicateOM()
                 graphHelp.add((propertyBl,self.shaclNS.hasValue, o))
             elif p == self.RML.r2rmlNS.parentTriplesMap:
                 #test in other graphs
@@ -97,14 +92,14 @@ class RMLtoSHACL:
                 self.SHACL.graph.add((self.sNodeShape,newIRIand,andBlankNode))
                 blankNodefirst = rdflib.BNode()
                 blankNoderest = rdflib.BNode()
-                #to create a SHACL list we need first en rest elements from RDFS
+        #to create a SHACL list we need first en rest elements from RDFS
                 self.SHACL.graph.add((andBlankNode, self.rdfSyntax.first, blankNodefirst))
                 self.SHACL.graph.add((andBlankNode, self.rdfSyntax.rest, blankNoderest))
                 self.SHACL.graph.add((blankNoderest,self.rdfSyntax.rest,self.rdfSyntax.nil))
                 blankNodefirstTwo = rdflib.BNode()
                 self.SHACL.graph.add((blankNoderest,self.rdfSyntax.first,blankNodefirstTwo))
                 self.SHACL.graph.add((blankNodefirstTwo,self.shaclNS.node,o+'/shape')) 
-                #plus '/shape' because we took the name for the Triples Map and added shape and we need to refer to the shape now
+        #plus '/shape' because we took the name for the Triples Map and added shape and we need to refer to the shape now
 
                 for graph in self.RML.graphs:
                     for s1,p1,o1 in graph['TM']:
@@ -151,7 +146,8 @@ class RMLtoSHACL:
             if Found == False:
                     self.URIActions(propertyBl,graphHelp)
                     Found = True
-            return Found #we return with the value True when we found an IRI of Literal
+            return Found 
+        #we return with the value True when we found an IRI of Literal False when we didn't
         #test for when it has a Reference
         elif p == self.RML.reference:
             for s1,p1,o1 in graphPOM:
@@ -172,7 +168,6 @@ class RMLtoSHACL:
             blankNodelanguageIn = rdflib.BNode()
             graphHelp.add((propertyBl,self.shaclNS.languageIn,blankNodelanguageIn))
             blankNoderest = rdflib.BNode()
-            
             #to create a SHACL list we need first en rest elements from RDFS
             for i in range (0,len(parts)):
                 if i == len(parts)-1 and i!=0: #when we are at the end of a SHACL list we need rdfs:nil
@@ -188,15 +183,15 @@ class RMLtoSHACL:
                     blanknoderestTwo = rdflib.BNode()
                     self.SHACL.graph.add((blankNoderest, self.rdfSyntax.first, rdflib.Literal(parts[i])))
                     self.SHACL.graph.add((blankNoderest, self.rdfSyntax.rest, blanknoderestTwo))
-                    blankNoderest = blanknoderestTwo
-                   
+                    blankNoderest = blanknoderestTwo        
         #Check for rr:datatype
-        for s,po in graphPOM.triples((self.RML.oM,self.RML.datatype,None)):
+        for s,p,o in graphPOM.triples((self.RML.oM,self.RML.datatype,None)):
             graphHelp.add((propertyBl,self.shaclNS.datatype,o))
     def URIActions(self,propertyBl,graphHelp):
         graphHelp.add((propertyBl,self.shaclNS.nodeKind,self.shaclNS.IRI))
     def createPattern(self,templateString):
         #we want to replace this {word} into a wildcard ='.' 
+        #and '*' means zero or unlimited amount of characters 
         parts = templateString.split('{')
         parts2 = []
         for part in parts:
@@ -210,7 +205,8 @@ class RMLtoSHACL:
             if tel%2 != 0: 
                 string = string + part
             else:
-                string = string + '.*' #wildcard = '.' and '*' means zero or unlimited amount of characters
+                string = string + '.*' 
+            #wildcard = '.' + '*'
             tel += 1
         resultaat = rdflib.Literal(string)
         return resultaat
@@ -221,7 +217,8 @@ class RMLtoSHACL:
         self.propertygraphs.clear()
     def writeShapeToFile(self):
         for prefix, ns in self.RML.graph.namespaces():    
-            self.SHACL.graph.bind(prefix,ns)            #@base is used for <> in the RML ttl graph
+            self.SHACL.graph.bind(prefix,ns)
+             #@base is used for <> in the RML ttl graph
         self.SHACL.graph.bind('sh','http://www.w3.org/ns/shacl#',False)
         self.SHACL.graph.bind('rdfs','http://www.w3.org/1999/02/22-rdf-syntax-ns#')
         filenNameShape = 'outputShape.ttl'
@@ -230,58 +227,56 @@ class RMLtoSHACL:
         number = numberInput
         letter = letterInput
         inputfileType = inputfile 
-        start = time.time()
         self.RML.createGraph(number,letter,inputfileType)
-        print("Create graph finished: " + f'{time.time() - start}')
         self.RML.removeBlankNodesMultipleMaps()
         for graph in self.RML.graphs:
             self.createNodeShape(graph)
             self.findClass(graph)
             self.targetNode(graph)
             length = len(graph)-3
-            #Because the dictionary inside graph has first 'TM', 'LM' and 'SM' as keys we do the length of the dictionary minus 3
-            #we can use this newly calculated length for the indexes used for the possible multiple PredicateObjectsMaps (POM)
+#Because the dictionary inside graph has first 'TM', 'LM' and 'SM' 
+# as keys we do the length of the dictionary minus 3
+# #we can use this newly calculated length for the indexes
+# used for the possible multiple PredicateObjectsMaps (POM)
             for i in range(length):
                     self.subjectTargetOf(graph["POM"+str(i)])
                     self.findClassinPrediacteOM(graph["POM"+str(i)])
                     self.fillinProperty(graph["POM"+str(i)])
         self.finalizeShape()
-        print("Make shape finished: " + f'{time.time() - start}')
         self.writeShapeToFile()
-        print("Write shape to file finished: " + f'{time.time() - start}')
-        #self.SHACL.printGraph(1,self.SHACL.graph)
         filenameOutput = self.readfileObject.getFile(number,letter,inputfileType,FilesGitHub.outputRdfFile)
         graphOutput = rdflib.Graph()
         graphOutput.parse(filenameOutput,format=rdflib.util.guess_format(filenameOutput))
-        print("Write inout RDF to file finished: " + f'{time.time() - start}')
         self.SHACL.Validation(self.SHACL.graph,graphOutput) 
-        print("Validate shape finished: " + f'{time.time() - start}')
 
     def main(self):
-        with open('ResultsFinal.csv','w', newline= '') as file:
+        with open('ResultsFinal3.csv','w', newline= '') as file:
             writer = csv.writer(file, delimiter = ';')
             writer.writerow(['number', 'letter','file type', 'conforms?', 'validation result'])
-            for i in range(1,21): #go over all the possible numbers for the file names
-                for letter in string.ascii_lowercase: #go over all the possible letters for the file names
+            for i in range(1,20):
+            #go over all the possible numbers for the file names
+                for letter in string.ascii_lowercase: 
+                #go over all the possible letters for the file names
                     for filetype in FilesGitHub.FileTypes:
                         filetypeColomnInput = filetype.replace('-','')
                         RtoS = RMLtoSHACL() #create RtoS object again for a fresh start
                         try:
-                            print('Busy: ' + str(i) +''+ letter +''+ filetype) 
                             RtoS.MakeTotalShape(i,letter,filetype)
                             if RtoS.SHACL.conforms:
                                 writer.writerow([i, letter,filetypeColomnInput,RtoS.SHACL.conforms, ''])
                             else:
-                                writer.writerow([i, letter,filetypeColomnInput,RtoS.SHACL.conforms, RtoS.SHACL.results_text])
-                            print('Ready: ' + str(i) +''+ letter +''+ filetype)  
-                        except SyntaxError as error:        #something wrong with the files on GitHub
+                                writer.writerow([i, letter,filetypeColomnInput,RtoS.SHACL.conforms, RtoS.SHACL.results_text]) 
+                        except SyntaxError as error:        
+                            #something wrong with the files on GitHub
                             print(error)
                             writer.writerow([i, letter,filetypeColomnInput ,error])
                             pass
-                        except HTTPError as errorHttp: #files do not exist
+                        except HTTPError as errorHttp: 
+                            #files do not exist
                             print(errorHttp)
                             pass
-                        except Exception as e:        #something wrong with the files on GitHub
+                        except Exception as e: 
+                            #something is wrong with the files on GitHub
                             print(e)
                             writer.writerow([i, letter,filetypeColomnInput ,e])
                             pass
@@ -289,13 +284,6 @@ class RMLtoSHACL:
                     if letter == 'j':
                         break;
 
-    def miniMain(self):
-        letter = 'a'
-        i = 4
-        filetype = FilesGitHub.XML
-        RtoS.MakeTotalShape(i,letter,filetype)
-        print(RtoS.SHACL.results_text)
-
 if __name__ == "__main__":
     RtoS = RMLtoSHACL()
-    RtoS.miniMain()
+    RtoS.main()

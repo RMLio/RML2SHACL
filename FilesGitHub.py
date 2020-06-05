@@ -13,7 +13,7 @@ class FilesGitHub:
     def __init__(self):
       pass
     def getFile(self, number,letter,typeFile, fileNeeded): 
-        #This function makes it possible to get the RML input files with the matching RDF output file from GitHub 
+#This function makes it possible to get the RML input files with the matching RDF output file from GitHub 
         if number <10:
             url = 'https://raw.githubusercontent.com/RMLio/rml-test-cases/master/test-cases/RMLTC000' + str(number) +letter + typeFile + fileNeeded
         else: #one 0 less in the base of the URL
@@ -27,7 +27,6 @@ class FilesGitHub:
         return fileName
 
     def testMain(self):
-        #self.getFile(0,'',self.sparql,self.Mappingfile)
         #self.getFile(1,'a',self.sparql,self.outputRdfFile)
         self.getFile(1,'a',self.js,self.Mappingfile)
         #self.getFile(10,'a',self.js,self.outputRdfFile)
