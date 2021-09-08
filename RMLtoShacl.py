@@ -273,12 +273,18 @@ class RMLtoSHACL:
                 else: 
                     skip_case_dict[row["number"]] = {row["letter"]}
             
+        print(skip_case_dict)
         with open('ResultsFinal3.csv','w', newline= '') as file:
             writer = csv.writer(file, delimiter = ';')
             writer.writerow(['number', 'letter','file type', 'conforms?', 'validation result'])
             for i in range(1,21):
             #go over all the possible numbers for the file names
+                skip_case_dict_key = str(i)
                 for letter in string.ascii_lowercase: 
+                    if skip_case_dict_key in skip_case_dict:
+                        if letter in skip_case_dict[skip_case_dict_key]: 
+                            print(f"Skipped test case RMLTC{str(i).zfill(4)}{letter}")
+                            continue
                 #go over all the possible letters for the file names
                     for filetype in FilesGitHub.FileTypes:
                         filetypeColomnInput = filetype.replace('-','')
