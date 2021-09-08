@@ -258,6 +258,21 @@ class RMLtoSHACL:
         return filenameOutput
 
     def main(self):
+        
+        skip_case_dict = dict() 
+        with open('error_expected.csv', 'r') as file: 
+            csv_dict = csv.DictReader(file) 
+            is_first_line = True 
+            for row in csv_dict: 
+                if is_first_line: 
+                    is_first_line = False
+                    continue 
+                
+                if row["number"] in skip_case_dict: 
+                    skip_case_dict[row["number"]].add(row["letter"]) 
+                else: 
+                    skip_case_dict[row["number"]] = {row["letter"]}
+            
         with open('ResultsFinal3.csv','w', newline= '') as file:
             writer = csv.writer(file, delimiter = ';')
             writer.writerow(['number', 'letter','file type', 'conforms?', 'validation result'])
@@ -274,7 +289,7 @@ class RMLtoSHACL:
                                 writer.writerow([i, letter,filetypeColomnInput,RtoS.SHACL.conforms, ''])
                             else:
                                 writer.writerow([i, letter,filetypeColomnInput,RtoS.SHACL.conforms, RtoS.SHACL.results_text]) 
-                            print("Finished processing file: %s" % (output))
+                            print("Finished processing file: RMLTC%s%s%s" % (str(i).zfill(4), letter, filetype))
                         except SyntaxError as error:        
                             #something wrong with the files on GitHub
                             print(error)
