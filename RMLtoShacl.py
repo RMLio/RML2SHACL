@@ -215,13 +215,20 @@ class RMLtoSHACL:
         for g in self.propertygraphs:
             self.SHACL.graph = self.SHACL.graph + g
         self.propertygraphs.clear()
-    def writeShapeToFile(self):
+    def writeShapeToFile(self, numberInput, letterInput, inputFile):
         for prefix, ns in self.RML.graph.namespaces():    
             self.SHACL.graph.bind(prefix,ns)
              #@base is used for <> in the RML ttl graph
         self.SHACL.graph.bind('sh','http://www.w3.org/ns/shacl#',False)
         self.SHACL.graph.bind('rdfs','http://www.w3.org/1999/02/22-rdf-syntax-ns#')
-        filenNameShape = 'outputShape.ttl'
+
+        if numberInput >= 10: 
+            start = "RMLTC00"
+        else: 
+            start = "RMLTC000"
+
+        filenNameShape = '%s%s%s-%s_outputShape.ttl' % (start, numberInput, letterInput, inputFile) 
+
         self.SHACL.graph.serialize(destination=filenNameShape, format='turtle')
     def MakeTotalShape(self,numberInput,letterInput, inputfile):
         number = numberInput
@@ -243,17 +250,18 @@ class RMLtoSHACL:
                     self.findClassinPrediacteOM(graph["POM"+str(i)])
                     self.fillinProperty(graph["POM"+str(i)])
         self.finalizeShape()
-        self.writeShapeToFile()
+        self.writeShapeToFile(number, letter, inputfileType)
         filenameOutput = self.readfileObject.getFile(number,letter,inputfileType,FilesGitHub.outputRdfFile)
         graphOutput = rdflib.Graph()
         graphOutput.parse(filenameOutput,format=rdflib.util.guess_format(filenameOutput))
         self.SHACL.Validation(self.SHACL.graph,graphOutput) 
+        return filenameOutput
 
     def main(self):
         with open('ResultsFinal3.csv','w', newline= '') as file:
             writer = csv.writer(file, delimiter = ';')
             writer.writerow(['number', 'letter','file type', 'conforms?', 'validation result'])
-            for i in range(1,20):
+            for i in range(1,21):
             #go over all the possible numbers for the file names
                 for letter in string.ascii_lowercase: 
                 #go over all the possible letters for the file names
@@ -261,11 +269,12 @@ class RMLtoSHACL:
                         filetypeColomnInput = filetype.replace('-','')
                         RtoS = RMLtoSHACL() #create RtoS object again for a fresh start
                         try:
-                            RtoS.MakeTotalShape(i,letter,filetype)
+                            output = RtoS.MakeTotalShape(i,letter,filetype)
                             if RtoS.SHACL.conforms:
                                 writer.writerow([i, letter,filetypeColomnInput,RtoS.SHACL.conforms, ''])
                             else:
                                 writer.writerow([i, letter,filetypeColomnInput,RtoS.SHACL.conforms, RtoS.SHACL.results_text]) 
+                            print("Finished processing file: %s" % (output))
                         except SyntaxError as error:        
                             #something wrong with the files on GitHub
                             print(error)
