@@ -82,8 +82,48 @@ class RMLtoSHACL:
                     graphHelp.add((propertyBl, self.shaclNS.path, o))
             else:
                 rdfType = True  # important to give this information to the findObject() function
-            self.findObject(propertyBl, graphHelp, graphPOM, rdfType)
+            self.findObjectBis(propertyBl, graphHelp, graphPOM, rdfType)
             self.propertygraphs.append(graphHelp)
+    
+    def findObjectBis(self, propertyBl, graphHelp, graphPOM, rdfType):
+        # we test if the object is an IRI or a Literal
+        for s, p, o in graphPOM.triples((self.RML.oM, None, None)):
+            # Test for when it has a template
+            result = self.testIfIRIorLiteral(
+                p, o, graphHelp, propertyBl, graphPOM)
+            if not result and p == self.RML.pCons and not rdfType:
+                # we don't have a Literal nor an IRI
+                # if rdfType is True then we have a predicateobject with rdf:type
+                # and then we don't have to look at the constant values
+                # because it's filled in findClassinPredicateOM()
+                graphHelp.add((propertyBl, self.shaclNS.hasValue, o))
+            elif p == self.RML.r2rmlNS.parentTriplesMap:
+        # to create a SHACL list we need first en rest elements from RDFS
+                target_shape = o + "/shape" 
+
+                self.SHACL.graph.add(
+                    (propertyBl, self.shaclNS.node, target_shape))
+
+        # plus '/shape' because we took the name for the Triples Map and added shape and we need to refer to the shape now
+                for graph in self.RML.graphs: 
+                    for s1, _, _ in graph['TM']: 
+                        if s1 == o : 
+                            for s2, p2, o2 in graph['SM']: 
+                                self.testIfIRIorLiteralSubject(
+                                    p2, o2, self.SHACL.graph, target_shape, graph['SM'])
+
+
+
+               # for graph in self.RML.graphs:
+               #     for s1, p1, o1 in graph['TM']:
+               #         if s1 == o:
+               #             for s2, p2, o2 in graph['SM']:
+               #                 self.testIfIRIorLiteralSubject(
+               #                     p2, o2, self.SHACL.graph, blankNodefirst, graph['SM'])
+               # # we also have to add the sh:path inside the sh:and
+               # for s, p, o in graphPOM:
+               #     if p == self.RML.pPred:
+               #         graphHelp.add((blankNodefirst, self.shaclNS.path, o))
 
     def findObject(self, propertyBl, graphHelp, graphPOM, rdfType):
         # we test if the object is an IRI or a Literal
