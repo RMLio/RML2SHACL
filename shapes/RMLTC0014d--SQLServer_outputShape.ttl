@@ -1,0 +1,9 @@
+@prefix ex: <http://example.com/ns#> .
+@prefix sh: <http://www.w3.org/ns/shacl#> .
+
+<http://example.com/base/TriplesMap1/shape> a sh:NodeShape ;
+    sh:property [ sh:nodeKind sh:IRI ;
+            sh:path ex:role ;
+            sh:pattern "http://data.example.com/roles/.*" ] ;
+    sh:targetSubjectsOf ex:role .
+

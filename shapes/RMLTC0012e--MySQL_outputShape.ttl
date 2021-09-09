@@ -1,0 +1,29 @@
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix sh: <http://www.w3.org/ns/shacl#> .
+
+<http://example.com/base/TriplesMap1/shape> a sh:NodeShape ;
+    sh:property [ sh:nodeKind sh:Literal ;
+            sh:path <http://example.com/base/IOUs#fname> ],
+        [ sh:nodeKind sh:Literal ;
+            sh:path <http://example.com/base/IOUs#lname> ],
+        [ sh:nodeKind sh:Literal ;
+            sh:path <http://example.com/base/IOUs#amount> ] ;
+    sh:targetClass <http://example.com/base/IOUs>,
+        rdfs:Resource ;
+    sh:targetSubjectsOf <http://example.com/base/IOUs#amount>,
+        <http://example.com/base/IOUs#fname>,
+        <http://example.com/base/IOUs#lname> .
+
+<http://example.com/base/TriplesMap2/shape> a sh:NodeShape ;
+    sh:property [ sh:nodeKind sh:Literal ;
+            sh:path <http://example.com/base/IOUs#fname> ],
+        [ sh:nodeKind sh:Literal ;
+            sh:path <http://example.com/base/IOUs#lname> ],
+        [ sh:nodeKind sh:Literal ;
+            sh:path <http://example.com/base/IOUs#city> ] ;
+    sh:targetClass <http://example.com/base/Lives>,
+        rdfs:Resource ;
+    sh:targetSubjectsOf <http://example.com/base/IOUs#city>,
+        <http://example.com/base/IOUs#fname>,
+        <http://example.com/base/IOUs#lname> .
+

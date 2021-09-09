@@ -1,0 +1,18 @@
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix rdfs1: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix sh: <http://www.w3.org/ns/shacl#> .
+
+<http://example.com/base/TriplesMap1/shape> a sh:NodeShape ;
+    sh:property [ sh:languageIn ( "en" ) ;
+            sh:nodeKind sh:Literal ;
+            sh:path rdfs:label ] ;
+    sh:targetClass rdfs:Resource ;
+    sh:targetSubjectsOf rdfs:label .
+
+<http://example.com/base/TriplesMap2/shape> a sh:NodeShape ;
+    sh:property [ sh:languageIn ( "es" ) ;
+            sh:nodeKind sh:Literal ;
+            sh:path rdfs:label ] ;
+    sh:targetClass rdfs:Resource ;
+    sh:targetSubjectsOf rdfs:label .
+

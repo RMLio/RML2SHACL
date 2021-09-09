@@ -1,0 +1,14 @@
+@prefix ex: <http://example.com/> .
+@prefix foaf: <http://xmlns.com/foaf/0.1/> .
+@prefix sh: <http://www.w3.org/ns/shacl#> .
+
+<http://example.com/base/TriplesMap1/shape> a sh:NodeShape ;
+    sh:property [ sh:nodeKind sh:Literal ;
+            sh:path foaf:name ;
+            sh:pattern ".* .*" ],
+        [ sh:nodeKind sh:Literal ;
+            sh:path ex:amount ] ;
+    sh:targetClass <http://www.w3.org/2002/07/owl#Thing> ;
+    sh:targetSubjectsOf ex:amount,
+        foaf:name .
+
