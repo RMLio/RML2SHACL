@@ -23,10 +23,16 @@ class RMLtoSHACL:
 
     def createNodeShape(self, graph):
         # start of SHACL shape
+        subjectShape = None
         for s, p, o in graph["TM"]:
             subjectShape = rdflib.URIRef(s+'/shape')
             # we create a new IRI for the new shape based on the Triples Map IRI
             self.SHACL.graph.add((subjectShape, p, self.shaclNS.NodeShape))
+
+        for s2, p2, o2 in graph["SM"]:
+            self.testIfIRIorLiteralSubject(p2, o2, self.SHACL.graph,
+                                           subjectShape, graph["SM"])
+
         self.sNodeShape = subjectShape
 
     def inferclass(self, graphPOM):
