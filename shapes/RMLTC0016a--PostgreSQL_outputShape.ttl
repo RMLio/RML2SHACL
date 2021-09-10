@@ -4,14 +4,16 @@
 @prefix sh: <http://www.w3.org/ns/shacl#> .
 
 <http://example.com/base/TriplesMap1/shape> a sh:NodeShape ;
+    sh:nodeKind sh:IRI ;
+    sh:pattern "http://example.com/Patient/.*" ;
     sh:property [ sh:nodeKind sh:Literal ;
-            sh:path ex:lastName ],
-        [ sh:nodeKind sh:Literal ;
             sh:path ex:gender ],
         [ sh:nodeKind sh:Literal ;
-            sh:path ex:id ],
+            sh:path ex:lastName ],
         [ sh:nodeKind sh:Literal ;
-            sh:path ex:firstName ] ;
+            sh:path ex:firstName ],
+        [ sh:nodeKind sh:Literal ;
+            sh:path ex:id ] ;
     sh:targetClass rdfs:Resource,
         foaf:Person ;
     sh:targetSubjectsOf ex:firstName,

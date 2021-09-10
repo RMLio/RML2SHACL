@@ -1,12 +1,14 @@
 @prefix sh: <http://www.w3.org/ns/shacl#> .
 
 <http://example.com/base/TriplesMap1/shape> a sh:NodeShape ;
+    sh:nodeKind sh:IRI ;
+    sh:pattern ".*_.*" ;
     sh:property [ sh:nodeKind sh:Literal ;
-            sh:path <http://example.com/base/IOUs#fname> ],
+            sh:path <http://example.com/base/IOUs#amount> ],
         [ sh:nodeKind sh:Literal ;
             sh:path <http://example.com/base/IOUs#lname> ],
         [ sh:nodeKind sh:Literal ;
-            sh:path <http://example.com/base/IOUs#amount> ] ;
+            sh:path <http://example.com/base/IOUs#fname> ] ;
     sh:targetClass <http://example.com/base/IOUs> ;
     sh:targetSubjectsOf <http://example.com/base/IOUs#amount>,
         <http://example.com/base/IOUs#fname>,

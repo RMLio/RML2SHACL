@@ -2,6 +2,8 @@
 @prefix sh: <http://www.w3.org/ns/shacl#> .
 
 <http://example.com/base/TriplesMap1/shape> a sh:NodeShape ;
+    sh:nodeKind sh:IRI ;
+    sh:pattern "http://data.example.com/employee/.*" ;
     sh:property [ sh:nodeKind sh:IRI ;
             sh:path ex:role ;
             sh:pattern "http://data.example.com/roles/.*" ] ;

@@ -5,10 +5,12 @@
 @prefix sh: <http://www.w3.org/ns/shacl#> .
 
 <http://example.com/base/TriplesMap1/shape> a sh:NodeShape ;
-    sh:property [ sh:nodeKind sh:Literal ;
-            sh:path foaf:name ],
-        [ sh:node <http://example.com/base/TriplesMap2/shape> ;
+    sh:nodeKind sh:IRI ;
+    sh:pattern "http://example.com/Student/.*/.*" ;
+    sh:property [ sh:node <http://example.com/base/TriplesMap2/shape> ;
             sh:path ex:Sport ],
+        [ sh:nodeKind sh:Literal ;
+            sh:path foaf:name ],
         [ sh:nodeKind sh:Literal ;
             sh:path ex:id ] ;
     sh:targetClass rdfs:Resource,

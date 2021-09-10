@@ -2,10 +2,12 @@
 @prefix sh: <http://www.w3.org/ns/shacl#> .
 
 <http://example.com/base/TriplesMap1/shape> a sh:NodeShape ;
+    sh:nodeKind sh:IRI ;
+    sh:pattern ".*_.*_.*" ;
     sh:property [ sh:nodeKind sh:Literal ;
-            sh:path <http://example.com/base/IOUs#fname> ],
-        [ sh:nodeKind sh:Literal ;
             sh:path <http://example.com/base/IOUs#lname> ],
+        [ sh:nodeKind sh:Literal ;
+            sh:path <http://example.com/base/IOUs#fname> ],
         [ sh:nodeKind sh:Literal ;
             sh:path <http://example.com/base/IOUs#amount> ] ;
     sh:targetClass <http://example.com/base/IOUs>,
@@ -15,6 +17,8 @@
         <http://example.com/base/IOUs#lname> .
 
 <http://example.com/base/TriplesMap2/shape> a sh:NodeShape ;
+    sh:nodeKind sh:IRI ;
+    sh:pattern ".*_.*_.*" ;
     sh:property [ sh:nodeKind sh:Literal ;
             sh:path <http://example.com/base/IOUs#lname> ],
         [ sh:nodeKind sh:Literal ;

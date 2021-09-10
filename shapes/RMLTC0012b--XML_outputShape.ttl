@@ -3,6 +3,8 @@
 @prefix sh: <http://www.w3.org/ns/shacl#> .
 
 <http://example.com/base/TriplesMap1/shape> a sh:NodeShape ;
+    sh:nodeKind sh:IRI ;
+    sh:pattern ".*.*" ;
     sh:property [ sh:nodeKind sh:Literal ;
             sh:path foaf:name ;
             sh:pattern ".* .*" ] ;
@@ -10,6 +12,8 @@
     sh:targetSubjectsOf foaf:name .
 
 <http://example.com/base/TriplesMap2/shape> a sh:NodeShape ;
+    sh:nodeKind sh:IRI ;
+    sh:pattern ".*.*" ;
     sh:property [ sh:nodeKind sh:Literal ;
             sh:path ex:city ] ;
     sh:targetSubjectsOf ex:city .

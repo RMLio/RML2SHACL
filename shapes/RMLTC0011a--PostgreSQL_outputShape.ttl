@@ -2,21 +2,25 @@
 @prefix sh: <http://www.w3.org/ns/shacl#> .
 
 <http://example.com/base/TriplesMap1/shape> a sh:NodeShape ;
-    sh:property [ sh:nodeKind sh:IRI ;
-            sh:path ex:plays ;
-            sh:pattern "http://example.com/.*/.*" ],
+    sh:nodeKind sh:IRI ;
+    sh:pattern "http://example.com/.*/.*;.*" ;
+    sh:property [ sh:nodeKind sh:Literal ;
+            sh:path ex:lastName ],
         [ sh:nodeKind sh:Literal ;
             sh:path ex:firstName ],
         [ sh:nodeKind sh:Literal ;
             sh:path ex:id ],
-        [ sh:nodeKind sh:Literal ;
-            sh:path ex:lastName ] ;
+        [ sh:nodeKind sh:IRI ;
+            sh:path ex:plays ;
+            sh:pattern "http://example.com/.*/.*" ] ;
     sh:targetSubjectsOf ex:firstName,
         ex:id,
         ex:lastName,
         ex:plays .
 
 <http://example.com/base/TriplesMap2/shape> a sh:NodeShape ;
+    sh:nodeKind sh:IRI ;
+    sh:pattern "http://example.com/.*/.*" ;
     sh:property [ sh:nodeKind sh:Literal ;
             sh:path ex:id ] ;
     sh:targetSubjectsOf ex:id .
