@@ -5,9 +5,9 @@
     sh:property [ sh:nodeKind sh:Literal ;
             sh:path <http://example.com/base/IOUs#amount> ],
         [ sh:nodeKind sh:Literal ;
-            sh:path <http://example.com/base/IOUs#lname> ],
+            sh:path <http://example.com/base/IOUs#fname> ],
         [ sh:nodeKind sh:Literal ;
-            sh:path <http://example.com/base/IOUs#fname> ] ;
+            sh:path <http://example.com/base/IOUs#lname> ] ;
     sh:targetClass <http://example.com/base/IOUs>,
         rdfs:Resource ;
     sh:targetSubjectsOf <http://example.com/base/IOUs#amount>,
@@ -16,11 +16,11 @@
 
 <http://example.com/base/TriplesMap2/shape> a sh:NodeShape ;
     sh:property [ sh:nodeKind sh:Literal ;
+            sh:path <http://example.com/base/IOUs#city> ],
+        [ sh:nodeKind sh:Literal ;
             sh:path <http://example.com/base/IOUs#lname> ],
         [ sh:nodeKind sh:Literal ;
-            sh:path <http://example.com/base/IOUs#fname> ],
-        [ sh:nodeKind sh:Literal ;
-            sh:path <http://example.com/base/IOUs#city> ] ;
+            sh:path <http://example.com/base/IOUs#fname> ] ;
     sh:targetClass <http://example.com/base/Lives>,
         rdfs:Resource ;
     sh:targetSubjectsOf <http://example.com/base/IOUs#city>,

@@ -9,17 +9,17 @@
 
 <http://example.com/base/TriplesMap1/shape> a sh:NodeShape ;
     sh:property [ sh:nodeKind sh:Literal ;
-            sh:path ex:lastName ],
+            sh:path ex:firstName ],
         [ sh:nodeKind sh:Literal ;
-            sh:path ex:firstName ] ;
+            sh:path ex:lastName ] ;
     sh:targetSubjectsOf ex:firstName,
         ex:lastName .
 
 <http://example.com/base/TriplesMap2/shape> a sh:NodeShape ;
     sh:property [ sh:nodeKind sh:Literal ;
-            sh:path ex:id ],
+            sh:path ex:description ],
         [ sh:nodeKind sh:Literal ;
-            sh:path ex:description ] ;
+            sh:path ex:id ] ;
     sh:targetSubjectsOf ex:description,
         ex:id .
 

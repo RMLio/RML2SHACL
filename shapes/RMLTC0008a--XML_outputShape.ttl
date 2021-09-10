@@ -5,11 +5,11 @@
 
 <http://example.com/base/TriplesMap1/shape> a sh:NodeShape ;
     sh:property [ sh:nodeKind sh:Literal ;
+            sh:path ex:Sport ],
+        [ sh:nodeKind sh:Literal ;
             sh:path foaf:name ],
         [ sh:nodeKind sh:Literal ;
-            sh:path ex:id ],
-        [ sh:nodeKind sh:Literal ;
-            sh:path ex:Sport ] ;
+            sh:path ex:id ] ;
     sh:targetClass rdfs:Resource,
         <http://www.w3.org/2002/07/owl#Thing>,
         foaf:Person ;

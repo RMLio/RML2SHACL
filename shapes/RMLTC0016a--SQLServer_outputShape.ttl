@@ -5,11 +5,11 @@
 
 <http://example.com/base/TriplesMap1/shape> a sh:NodeShape ;
     sh:property [ sh:nodeKind sh:Literal ;
-            sh:path ex:gender ],
-        [ sh:nodeKind sh:Literal ;
             sh:path ex:lastName ],
         [ sh:nodeKind sh:Literal ;
             sh:path ex:firstName ],
+        [ sh:nodeKind sh:Literal ;
+            sh:path ex:gender ],
         [ sh:nodeKind sh:Literal ;
             sh:path ex:id ] ;
     sh:targetClass rdfs:Resource,
