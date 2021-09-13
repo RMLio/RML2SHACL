@@ -1,4 +1,3 @@
-
 import rdflib
 from rdflib import RDF
 from RML import *
@@ -8,6 +7,7 @@ import string
 import csv
 from pathlib import Path
 from requests.exceptions import HTTPError
+import argparse
 
 
 class RMLtoSHACL:
@@ -297,7 +297,7 @@ class RMLtoSHACL:
             self.SHACL.graph = self.SHACL.graph + g
         self.propertygraphs.clear()
 
-    def writeShapeToFile(self, numberInput, letterInput, inputFile, shape_dir="shapes/"):
+    def writeShapeToFile(self, file_name, shape_dir="shapes/"):
         for prefix, ns in self.RML.graph.namespaces():
             self.SHACL.graph.bind(prefix, ns)
             # @base is used for <> in the RML ttl graph
@@ -305,23 +305,53 @@ class RMLtoSHACL:
         self.SHACL.graph.bind(
             'rdfs', 'http://www.w3.org/1999/02/22-rdf-syntax-ns#')
 
-        if numberInput >= 10:
-            start = "RMLTC00"
-        else:
-            start = "RMLTC000"
-        Path(shape_dir).mkdir(parents=True, exist_ok=True)
-        filenNameShape = '%s%s%s%s-%s_outputShape.ttl' % (
-            shape_dir, start, numberInput, letterInput, inputFile)
+        Path(f"%s%s" % (shape_dir, file_name)).mkdir(
+            parents=True, exist_ok=True)
+
+        filenNameShape = "%s%s" % (shape_dir, file_name)
 
         self.SHACL.graph.serialize(destination=filenNameShape, format='turtle')
 
         return filenNameShape
 
+    def evaluate_file(self, rml_mapping_file):
+        self.RML.parseFile(rml_mapping_file)
+        self.RML.removeBlankNodesMultipleMaps()
+        for graph in self.RML.graphs:
+            self.createNodeShape(graph)
+            self.findClass(graph)
+            self.targetNode(graph)
+            length = len(graph)-3
+# Because the dictionary inside graph has first 'TM', 'LM' and 'SM'
+# as keys we do the length of the dictionary minus 3
+# #we can use this newly calculated length for the indexes
+# used for the possible multiple PredicateObjectsMaps (POM)
+            for i in range(length):
+                self.subjectTargetOf(graph["POM"+str(i)])
+                self.findClassinPrediacteOM(graph["POM"+str(i)])
+                self.fillinProperty(graph["POM"+str(i)])
+        self.finalizeShape()
+
+        outputfileName = f"{rml_mapping_file}-output-shape.ttl"
+        self.writeShapeToFile(outputfileName)
+
+        validation_shape_graph = rdflib.Graph()
+        validation_shape_graph.parse("shacl-shacl.ttl", format="turtle")
+
+        self.SHACL.Validation(validation_shape_graph, self.SHACL.graph)
+
+        print("*" * 100)
+        print("RESULTS")
+        print("="*100)
+        print(self.SHACL.results_text)
+
+        return None
+
     def MakeTotalShape(self, numberInput, letterInput, inputfile):
         number = numberInput
         letter = letterInput
         inputfileType = inputfile
-        self.RML.createGraph(number, letter, inputfileType)
+        self.RML.parseGithubFile(number, letter, inputfileType)
         self.RML.removeBlankNodesMultipleMaps()
 
         for graph in self.RML.graphs:
@@ -338,13 +368,17 @@ class RMLtoSHACL:
                 self.findClassinPrediacteOM(graph["POM"+str(i)])
                 self.fillinProperty(graph["POM"+str(i)])
         self.finalizeShape()
-        shapeFileName = self.writeShapeToFile(number, letter, inputfileType)
+        filenNameShape = 'RMLTC%s%s-%s_outputShape.ttl' % (
+            str(numberInput).zfill(4), letterInput, inputFile)
+        shapeFileName = self.writeShapeToFile(filenNameShape)
         filenameOutput = self.readfileObject.getFile(
             number, letter, inputfileType, FilesGitHub.outputRdfFile)
         graphOutput = rdflib.Graph()
         graphOutput.parse(
             filenameOutput, format=rdflib.util.guess_format(filenameOutput))
         self.SHACL.Validation(self.SHACL.graph, graphOutput)
+
+        print(self.SHACL.results_text)
         return shapeFileName
 
     def main(self):
@@ -425,4 +459,11 @@ class RMLtoSHACL:
 
 if __name__ == "__main__":
     RtoS = RMLtoSHACL()
-    RtoS.main()
+    parser = argparse.ArgumentParser()
+    parser.add_argument("--rml_file", type=str,
+                        help="RML mapping file to be converted into SHACL shapes.")
+    args = parser.parse_args()
+    if args.rml_file is None:
+        RtoS.main()
+    else:
+        RtoS.evaluate_file(args.rml_file)
