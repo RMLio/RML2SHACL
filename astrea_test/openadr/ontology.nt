@@ -1,0 +1,1294 @@
+<https://w3id.org/def/openadr> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Ontology> .
+<https://w3id.org/def/openadr> <http://purl.org/dc/elements/1.1/creator> <http://www.garcia-castro.com/foaf.rdf#me> .
+<https://w3id.org/def/openadr> <http://purl.org/dc/elements/1.1/creator> "Alba Fernández Izquierdo" .
+<https://w3id.org/def/openadr> <http://purl.org/dc/elements/1.1/creator> "Andrea Cimmino" .
+<https://w3id.org/def/openadr> <http://purl.org/dc/terms/license> <http://purl.org/NET/rdflicense/cc-by4.0> .
+<https://w3id.org/def/openadr> <http://purl.org/dc/terms/title> "OpenADR ontology" .
+<https://w3id.org/def/openadr> <http://www.w3.org/2000/01/rdf-schema#comment> "This ontology describes the openADR protocol based on the documentation provided by the openADR Profile B" .
+<https://w3id.org/def/openadr> <http://www.w3.org/2000/01/rdf-schema#comment> "http://purl.org/NET/rdflicense/cc-by4.0" .
+<https://w3id.org/def/openadr> <http://www.w3.org/2002/07/owl#versionInfo> "0.2.2" .
+# 
+# 
+# #################################################################
+# #
+# #    Annotation properties
+# #
+# #################################################################
+# 
+# 
+# http://purl.org/dc/elements/1.1/creator
+<http://purl.org/dc/elements/1.1/creator> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#AnnotationProperty> .
+# 
+# http://purl.org/dc/terms/license
+<http://purl.org/dc/terms/license> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#AnnotationProperty> .
+# 
+# http://purl.org/dc/terms/title
+<http://purl.org/dc/terms/title> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#AnnotationProperty> .
+# 
+# http://purl.org/vocab/vann/preferredNamespaceUri
+<http://purl.org/vocab/vann/preferredNamespaceUri> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#AnnotationProperty> .
+# 
+# http://www.w3.org/2002/07/owl#qualifiedCardinality
+<http://www.w3.org/2002/07/owl#qualifiedCardinality> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#AnnotationProperty> .
+# 
+# 
+# 
+# #################################################################
+# #
+# #    Object Properties
+# #
+# #################################################################
+# 
+# 
+# http://www.opengis.net/ont/geosparql#hasGeometry
+<http://www.opengis.net/ont/geosparql#hasGeometry> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<http://www.opengis.net/ont/geosparql#hasGeometry> <http://www.w3.org/2000/01/rdf-schema#comment> "A spatial representation for a given feature." .
+<http://www.opengis.net/ont/geosparql#hasGeometry> <http://www.w3.org/2000/01/rdf-schema#isDefinedBy> <http://www.opengis.net/spec/geosparql> .
+<http://www.opengis.net/ont/geosparql#hasGeometry> <http://www.w3.org/2000/01/rdf-schema#label> "Geometry" .
+# 
+# http://www.opengis.net/ont/geosparql#sfContains
+<http://www.opengis.net/ont/geosparql#sfContains> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<http://www.opengis.net/ont/geosparql#sfContains> <http://www.w3.org/2002/07/owl#inverseOf> <https://w3id.org/def/openadr#belongsTo> .
+<http://www.opengis.net/ont/geosparql#sfContains> <http://www.w3.org/2000/01/rdf-schema#domain> <http://www.opengis.net/ont/geosparql#SpatialObject> .
+<http://www.opengis.net/ont/geosparql#sfContains> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.opengis.net/ont/geosparql#SpatialObject> .
+<http://www.opengis.net/ont/geosparql#sfContains> <http://www.w3.org/2000/01/rdf-schema#comment> "Exists if the subject SpatialObject spatially contains the object SpatialObject" .
+<http://www.opengis.net/ont/geosparql#sfContains> <http://www.w3.org/2000/01/rdf-schema#isDefinedBy> <http://www.opengis.net/ont/geosparql> .
+<http://www.opengis.net/ont/geosparql#sfContains> <http://www.w3.org/2000/01/rdf-schema#label> "contains" .
+# 
+# http://www.w3.org/2003/01/geo/wgs84_pos#location
+<http://www.w3.org/2003/01/geo/wgs84_pos#location> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+# 
+# https://w3id.org/def/openadr#appliesTo
+<https://w3id.org/def/openadr#appliesTo> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<https://w3id.org/def/openadr#appliesTo> <http://www.w3.org/2000/01/rdf-schema#label> "applies to" .
+# 
+# https://w3id.org/def/openadr#belongsTo
+<https://w3id.org/def/openadr#belongsTo> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<https://w3id.org/def/openadr#belongsTo> <http://www.w3.org/2000/01/rdf-schema#comment> "Relationship between a VE, Resource or Asset with the Group of targets associated" .
+<https://w3id.org/def/openadr#belongsTo> <http://www.w3.org/2000/01/rdf-schema#label> "belongs to" .
+# 
+# https://w3id.org/def/openadr#cancels
+<https://w3id.org/def/openadr#cancels> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<https://w3id.org/def/openadr#cancels> <http://www.w3.org/2000/01/rdf-schema#comment> "Relationship to cancel a report" .
+<https://w3id.org/def/openadr#cancels> <http://www.w3.org/2000/01/rdf-schema#label> "cancels" .
+# 
+# https://w3id.org/def/openadr#contains
+<https://w3id.org/def/openadr#contains> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<https://w3id.org/def/openadr#contains> <http://www.w3.org/2000/01/rdf-schema#comment> "Relation between a target and its components" .
+<https://w3id.org/def/openadr#contains> <http://www.w3.org/2000/01/rdf-schema#label> "contains" .
+# 
+# https://w3id.org/def/openadr#containsAsset
+<https://w3id.org/def/openadr#containsAsset> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<https://w3id.org/def/openadr#containsAsset> <http://www.w3.org/2000/01/rdf-schema#subPropertyOf> <https://w3id.org/def/openadr#contains> .
+<https://w3id.org/def/openadr#containsAsset> <http://www.w3.org/2000/01/rdf-schema#label> "Relation between a target and the asset it contains" .
+<https://w3id.org/def/openadr#containsAsset> <http://www.w3.org/2000/01/rdf-schema#label> "contains asset" .
+# 
+# https://w3id.org/def/openadr#containsResource
+<https://w3id.org/def/openadr#containsResource> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<https://w3id.org/def/openadr#containsResource> <http://www.w3.org/2000/01/rdf-schema#subPropertyOf> <https://w3id.org/def/openadr#contains> .
+<https://w3id.org/def/openadr#containsResource> <http://www.w3.org/2000/01/rdf-schema#label> "Relation between a target and the resource it contains" .
+<https://w3id.org/def/openadr#containsResource> <http://www.w3.org/2000/01/rdf-schema#label> "contains resource" .
+# 
+# https://w3id.org/def/openadr#containsVEN
+<https://w3id.org/def/openadr#containsVEN> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<https://w3id.org/def/openadr#containsVEN> <http://www.w3.org/2000/01/rdf-schema#subPropertyOf> <https://w3id.org/def/openadr#contains> .
+<https://w3id.org/def/openadr#containsVEN> <http://www.w3.org/2000/01/rdf-schema#label> "Relation between a target and the VEN it contains" .
+<https://w3id.org/def/openadr#containsVEN> <http://www.w3.org/2000/01/rdf-schema#label> "contains VEN" .
+# 
+# https://w3id.org/def/openadr#eventDescriptor
+<https://w3id.org/def/openadr#eventDescriptor> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<https://w3id.org/def/openadr#eventDescriptor> <http://www.w3.org/2000/01/rdf-schema#domain> <https://w3id.org/def/openadr#Event> .
+<https://w3id.org/def/openadr#eventDescriptor> <http://www.w3.org/2000/01/rdf-schema#range> <https://w3id.org/def/openadr#EventDescriptor> .
+<https://w3id.org/def/openadr#eventDescriptor> <http://www.w3.org/2000/01/rdf-schema#comment> "Relation between an event and its metadata" .
+<https://w3id.org/def/openadr#eventDescriptor> <http://www.w3.org/2000/01/rdf-schema#label> "event descriptor" .
+# 
+# https://w3id.org/def/openadr#expectedResponse
+<https://w3id.org/def/openadr#expectedResponse> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<https://w3id.org/def/openadr#expectedResponse> <http://www.w3.org/2000/01/rdf-schema#label> "expected response" .
+# 
+# https://w3id.org/def/openadr#hasAreaTarget
+<https://w3id.org/def/openadr#hasAreaTarget> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<https://w3id.org/def/openadr#hasAreaTarget> <http://www.w3.org/2000/01/rdf-schema#subPropertyOf> <https://w3id.org/def/openadr#hasTarget> .
+<https://w3id.org/def/openadr#hasAreaTarget> <http://www.w3.org/2000/01/rdf-schema#domain> <https://w3id.org/def/openadr#Event> .
+<https://w3id.org/def/openadr#hasAreaTarget> <http://www.w3.org/2000/01/rdf-schema#range> <https://w3id.org/def/openadr#ServiceArea> .
+<https://w3id.org/def/openadr#hasAreaTarget> <http://www.w3.org/2000/01/rdf-schema#comment> "Relation between an entity and its service area target" .
+<https://w3id.org/def/openadr#hasAreaTarget> <http://www.w3.org/2000/01/rdf-schema#label> "has area target" .
+# 
+# https://w3id.org/def/openadr#hasDuration
+<https://w3id.org/def/openadr#hasDuration> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<https://w3id.org/def/openadr#hasDuration> <http://www.w3.org/2000/01/rdf-schema#comment> "Duration of an event" .
+<https://w3id.org/def/openadr#hasDuration> <http://www.w3.org/2000/01/rdf-schema#label> "has duration" .
+# 
+# https://w3id.org/def/openadr#hasEventStatus
+<https://w3id.org/def/openadr#hasEventStatus> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<https://w3id.org/def/openadr#hasEventStatus> <http://www.w3.org/2000/01/rdf-schema#domain> <https://w3id.org/def/openadr#Event> .
+<https://w3id.org/def/openadr#hasEventStatus> <http://www.w3.org/2000/01/rdf-schema#range> <https://w3id.org/def/openadr#EventStatus> .
+<https://w3id.org/def/openadr#hasEventStatus> <http://www.w3.org/2000/01/rdf-schema#comment> "Link between an event and its status" .
+<https://w3id.org/def/openadr#hasEventStatus> <http://www.w3.org/2000/01/rdf-schema#label> "has event status" .
+# 
+# https://w3id.org/def/openadr#hasGranularity
+<https://w3id.org/def/openadr#hasGranularity> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<https://w3id.org/def/openadr#hasGranularity> <http://www.w3.org/2000/01/rdf-schema#comment> "This is the time interval between sampled data in a report request" .
+<https://w3id.org/def/openadr#hasGranularity> <http://www.w3.org/2000/01/rdf-schema#label> "has granularity" .
+# 
+# https://w3id.org/def/openadr#hasGroupTarget
+<https://w3id.org/def/openadr#hasGroupTarget> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<https://w3id.org/def/openadr#hasGroupTarget> <http://www.w3.org/2000/01/rdf-schema#subPropertyOf> <https://w3id.org/def/openadr#hasTarget> .
+<https://w3id.org/def/openadr#hasGroupTarget> <http://www.w3.org/2000/01/rdf-schema#domain> <https://w3id.org/def/openadr#Event> .
+<https://w3id.org/def/openadr#hasGroupTarget> <http://www.w3.org/2000/01/rdf-schema#range> <https://w3id.org/def/openadr#Group> .
+<https://w3id.org/def/openadr#hasGroupTarget> <http://www.w3.org/2000/01/rdf-schema#comment> "Relation between an entity and its group target" .
+<https://w3id.org/def/openadr#hasGroupTarget> <http://www.w3.org/2000/01/rdf-schema#label> "has group target" .
+# 
+# https://w3id.org/def/openadr#hasItemBase
+<https://w3id.org/def/openadr#hasItemBase> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<https://w3id.org/def/openadr#hasItemBase> <http://www.w3.org/2000/01/rdf-schema#range> <https://w3id.org/def/openadr#Item> .
+<https://w3id.org/def/openadr#hasItemBase> <http://www.w3.org/2000/01/rdf-schema#label> "has item base" .
+# 
+# https://w3id.org/def/openadr#hasLoadControlState
+<https://w3id.org/def/openadr#hasLoadControlState> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<https://w3id.org/def/openadr#hasLoadControlState> <http://www.w3.org/2000/01/rdf-schema#domain> <https://w3id.org/def/openadr#Report> .
+<https://w3id.org/def/openadr#hasLoadControlState> <http://www.w3.org/2000/01/rdf-schema#range> <https://w3id.org/def/openadr#LoadControlState> .
+<https://w3id.org/def/openadr#hasLoadControlState> <http://www.w3.org/2000/01/rdf-schema#comment> "Relation between a report and the load control state  to enable a VEN to report on its load control state that corresponds to a LOAD_CONTROL signal that might be sent to a VEN." .
+<https://w3id.org/def/openadr#hasLoadControlState> <http://www.w3.org/2000/01/rdf-schema#label> "has load control state" .
+# 
+# https://w3id.org/def/openadr#hasMaxPeriod
+<https://w3id.org/def/openadr#hasMaxPeriod> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<https://w3id.org/def/openadr#hasMaxPeriod> <http://www.w3.org/2000/01/rdf-schema#comment> "Maximum period of time" .
+<https://w3id.org/def/openadr#hasMaxPeriod> <http://www.w3.org/2000/01/rdf-schema#label> "has max period" .
+# 
+# https://w3id.org/def/openadr#hasMinPeriod
+<https://w3id.org/def/openadr#hasMinPeriod> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<https://w3id.org/def/openadr#hasMinPeriod> <http://www.w3.org/2000/01/rdf-schema#comment> "Minimum period of time" .
+<https://w3id.org/def/openadr#hasMinPeriod> <http://www.w3.org/2000/01/rdf-schema#label> "has min period" .
+# 
+# https://w3id.org/def/openadr#hasPayload
+<https://w3id.org/def/openadr#hasPayload> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<https://w3id.org/def/openadr#hasPayload> <http://www.w3.org/2000/01/rdf-schema#isDefinedBy> "Link between a report and its payload" .
+<https://w3id.org/def/openadr#hasPayload> <http://www.w3.org/2000/01/rdf-schema#label> "has payload" .
+# 
+# https://w3id.org/def/openadr#hasReportBackDuration
+<https://w3id.org/def/openadr#hasReportBackDuration> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<https://w3id.org/def/openadr#hasReportBackDuration> <http://www.w3.org/2000/01/rdf-schema#label> "has report back duration" .
+# 
+# https://w3id.org/def/openadr#hasReportPayload
+<https://w3id.org/def/openadr#hasReportPayload> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<https://w3id.org/def/openadr#hasReportPayload> <http://www.w3.org/2000/01/rdf-schema#subPropertyOf> <https://w3id.org/def/openadr#hasPayload> .
+<https://w3id.org/def/openadr#hasReportPayload> <http://www.w3.org/2000/01/rdf-schema#domain> <https://w3id.org/def/openadr#Report> .
+<https://w3id.org/def/openadr#hasReportPayload> <http://www.w3.org/2000/01/rdf-schema#range> <https://w3id.org/def/openadr#ReportPayload> .
+<https://w3id.org/def/openadr#hasReportPayload> <http://www.w3.org/2000/01/rdf-schema#comment> "Relation between a report and its payload" .
+<https://w3id.org/def/openadr#hasReportPayload> <http://www.w3.org/2000/01/rdf-schema#label> "has report payload" .
+# 
+# https://w3id.org/def/openadr#hasSamplingRate
+<https://w3id.org/def/openadr#hasSamplingRate> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<https://w3id.org/def/openadr#hasSamplingRate> <http://www.w3.org/2000/01/rdf-schema#comment> "Indicates the sampling rate of a report" .
+<https://w3id.org/def/openadr#hasSamplingRate> <http://www.w3.org/2000/01/rdf-schema#label> "has sampling rate" .
+# 
+# https://w3id.org/def/openadr#hasSignalIntervalDuration
+<https://w3id.org/def/openadr#hasSignalIntervalDuration> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<https://w3id.org/def/openadr#hasSignalIntervalDuration> <http://www.w3.org/2000/01/rdf-schema#comment> "Duration of a signal interval" .
+<https://w3id.org/def/openadr#hasSignalIntervalDuration> <http://www.w3.org/2000/01/rdf-schema#label> "interval duration" .
+# 
+# https://w3id.org/def/openadr#hasSignalPayload
+<https://w3id.org/def/openadr#hasSignalPayload> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<https://w3id.org/def/openadr#hasSignalPayload> <http://www.w3.org/2000/01/rdf-schema#subPropertyOf> <https://w3id.org/def/openadr#hasPayload> .
+<https://w3id.org/def/openadr#hasSignalPayload> <http://www.w3.org/2000/01/rdf-schema#domain> <https://w3id.org/def/openadr#Signal> .
+<https://w3id.org/def/openadr#hasSignalPayload> <http://www.w3.org/2000/01/rdf-schema#comment> "Relation between a signal and its payload" .
+<https://w3id.org/def/openadr#hasSignalPayload> <http://www.w3.org/2000/01/rdf-schema#label> "has signal payload" .
+# 
+# https://w3id.org/def/openadr#hasSignalType
+<https://w3id.org/def/openadr#hasSignalType> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<https://w3id.org/def/openadr#hasSignalType> <http://www.w3.org/2000/01/rdf-schema#comment> "Relationship between a signal and its signal type" .
+<https://w3id.org/def/openadr#hasSignalType> <http://www.w3.org/2000/01/rdf-schema#label> "has signal type" .
+# 
+# https://w3id.org/def/openadr#hasTarget
+<https://w3id.org/def/openadr#hasTarget> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<https://w3id.org/def/openadr#hasTarget> <http://www.w3.org/2000/01/rdf-schema#comment> "Relation between an entity and its target" .
+<https://w3id.org/def/openadr#hasTarget> <http://www.w3.org/2000/01/rdf-schema#label> "has target" .
+# 
+# https://w3id.org/def/openadr#hasTypicalValue
+<https://w3id.org/def/openadr#hasTypicalValue> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<https://w3id.org/def/openadr#hasTypicalValue> <http://www.w3.org/2000/01/rdf-schema#comment> "Typical value of an interval" .
+<https://w3id.org/def/openadr#hasTypicalValue> <http://www.w3.org/2000/01/rdf-schema#label> "has typical value" .
+# 
+# https://w3id.org/def/openadr#includesMeasurement
+<https://w3id.org/def/openadr#includesMeasurement> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<https://w3id.org/def/openadr#includesMeasurement> <http://www.w3.org/2000/01/rdf-schema#domain> <https://w3id.org/def/openadr#ReportDataPayload> .
+<https://w3id.org/def/openadr#includesMeasurement> <http://www.w3.org/2000/01/rdf-schema#comment> "Link between a report and the measurement included in the payload" .
+<https://w3id.org/def/openadr#includesMeasurement> <http://www.w3.org/2000/01/rdf-schema#label> "includes measurement" .
+# 
+# https://w3id.org/def/openadr#includesSignal
+<https://w3id.org/def/openadr#includesSignal> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<https://w3id.org/def/openadr#includesSignal> <http://www.w3.org/2000/01/rdf-schema#comment> "Relation between an entity and its signal" .
+<https://w3id.org/def/openadr#includesSignal> <http://www.w3.org/2000/01/rdf-schema#label> "has signal" .
+# 
+# https://w3id.org/def/openadr#involvesSubject
+<https://w3id.org/def/openadr#involvesSubject> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<https://w3id.org/def/openadr#involvesSubject> <http://www.w3.org/2000/01/rdf-schema#comment> "Relation between the report and its subject" .
+<https://w3id.org/def/openadr#involvesSubject> <http://www.w3.org/2000/01/rdf-schema#label> "involves subject" .
+# 
+# https://w3id.org/def/openadr#isActiveDuringPeriod
+<https://w3id.org/def/openadr#isActiveDuringPeriod> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<https://w3id.org/def/openadr#isActiveDuringPeriod> <http://www.w3.org/2000/01/rdf-schema#comment> "Relation between an entity an its active period" .
+<https://w3id.org/def/openadr#isActiveDuringPeriod> <http://www.w3.org/2000/01/rdf-schema#label> "has active period" .
+# 
+# https://w3id.org/def/openadr#isAssociatedToItem
+<https://w3id.org/def/openadr#isAssociatedToItem> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<https://w3id.org/def/openadr#isAssociatedToItem> <http://www.w3.org/2000/01/rdf-schema#comment> "Linked between a report and the properties it measure" .
+<https://w3id.org/def/openadr#isAssociatedToItem> <http://www.w3.org/2000/01/rdf-schema#label> "is associated to property" .
+# 
+# https://w3id.org/def/openadr#isAvailableDuring
+<https://w3id.org/def/openadr#isAvailableDuring> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<https://w3id.org/def/openadr#isAvailableDuring> <http://www.w3.org/2000/01/rdf-schema#comment> "Availability of a target" .
+<https://w3id.org/def/openadr#isAvailableDuring> <http://www.w3.org/2000/01/rdf-schema#label> "is available during" .
+# 
+# https://w3id.org/def/openadr#isDefinedIn
+<https://w3id.org/def/openadr#isDefinedIn> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<https://w3id.org/def/openadr#isDefinedIn> <http://www.w3.org/2000/01/rdf-schema#range> <https://w3id.org/def/openadr#SignalInterval> .
+<https://w3id.org/def/openadr#isDefinedIn> <http://www.w3.org/2000/01/rdf-schema#comment> "Link between a signal and the  interval where it is active" .
+<https://w3id.org/def/openadr#isDefinedIn> <http://www.w3.org/2000/01/rdf-schema#label> "has interval" .
+# 
+# https://w3id.org/def/openadr#isDescribedIn
+<https://w3id.org/def/openadr#isDescribedIn> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<https://w3id.org/def/openadr#isDescribedIn> <http://www.w3.org/2000/01/rdf-schema#domain> <https://w3id.org/def/openadr#ReportPayload> .
+<https://w3id.org/def/openadr#isDescribedIn> <http://www.w3.org/2000/01/rdf-schema#range> <https://w3id.org/def/openadr#ReportDescriptor> .
+<https://w3id.org/def/openadr#isDescribedIn> <http://www.w3.org/2000/01/rdf-schema#comment> "Relation between a payload and its descriptor" .
+<https://w3id.org/def/openadr#isDescribedIn> <http://www.w3.org/2000/01/rdf-schema#label> "is described in" .
+# 
+# https://w3id.org/def/openadr#isManagedBy
+<https://w3id.org/def/openadr#isManagedBy> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<https://w3id.org/def/openadr#isManagedBy> <http://www.w3.org/2002/07/owl#inverseOf> <https://w3id.org/def/openadr#manages> .
+<https://w3id.org/def/openadr#isManagedBy> <http://www.w3.org/2000/01/rdf-schema#comment> "Relation between a Resource and a VEN" .
+<https://w3id.org/def/openadr#isManagedBy> <http://www.w3.org/2000/01/rdf-schema#label> "is managed by" .
+# 
+# https://w3id.org/def/openadr#isReportedDuringInterval
+<https://w3id.org/def/openadr#isReportedDuringInterval> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<https://w3id.org/def/openadr#isReportedDuringInterval> <http://www.w3.org/2000/01/rdf-schema#comment> "Reporting interval of a report" .
+<https://w3id.org/def/openadr#isReportedDuringInterval> <http://www.w3.org/2000/01/rdf-schema#label> "is reported during interval" .
+# 
+# https://w3id.org/def/openadr#isScheduleOf
+<https://w3id.org/def/openadr#isScheduleOf> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<https://w3id.org/def/openadr#isScheduleOf> <http://www.w3.org/2000/01/rdf-schema#domain> <https://w3id.org/def/openadr#Schedule> .
+<https://w3id.org/def/openadr#isScheduleOf> <http://www.w3.org/2000/01/rdf-schema#comment> "Relationship between a schedule and a target" .
+<https://w3id.org/def/openadr#isScheduleOf> <http://www.w3.org/2000/01/rdf-schema#label> "is schedule of" .
+# 
+# https://w3id.org/def/openadr#isSpecifiedIn
+<https://w3id.org/def/openadr#isSpecifiedIn> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<https://w3id.org/def/openadr#isSpecifiedIn> <http://www.w3.org/2000/01/rdf-schema#domain> <https://w3id.org/def/openadr#DataReport> .
+<https://w3id.org/def/openadr#isSpecifiedIn> <http://www.w3.org/2000/01/rdf-schema#range> <https://w3id.org/def/openadr#MetadataReport> .
+<https://w3id.org/def/openadr#isSpecifiedIn> <http://www.w3.org/2000/01/rdf-schema#comment> "Relationship between reports" .
+<https://w3id.org/def/openadr#isSpecifiedIn> <http://www.w3.org/2000/01/rdf-schema#label> "is specifier in" .
+# 
+# https://w3id.org/def/openadr#isUnavailableDuring
+<https://w3id.org/def/openadr#isUnavailableDuring> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<https://w3id.org/def/openadr#isUnavailableDuring> <http://www.w3.org/2000/01/rdf-schema#label> "Unavailability of a target" .
+<https://w3id.org/def/openadr#isUnavailableDuring> <http://www.w3.org/2000/01/rdf-schema#label> "is unavailable during" .
+# 
+# https://w3id.org/def/openadr#manages
+<https://w3id.org/def/openadr#manages> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<https://w3id.org/def/openadr#manages> <http://www.w3.org/2000/01/rdf-schema#comment> "Relation between a VEN and a Resource" .
+<https://w3id.org/def/openadr#manages> <http://www.w3.org/2000/01/rdf-schema#label> "manages" .
+# 
+# https://w3id.org/def/openadr#plans
+<https://w3id.org/def/openadr#plans> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<https://w3id.org/def/openadr#plans> <http://www.w3.org/2000/01/rdf-schema#comment> "Relation between Opt and the planification of a target" .
+<https://w3id.org/def/openadr#plans> <http://www.w3.org/2000/01/rdf-schema#label> "plans" .
+# 
+# https://w3id.org/def/openadr#ramp_up
+<https://w3id.org/def/openadr#ramp_up> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<https://w3id.org/def/openadr#ramp_up> <http://www.w3.org/2000/01/rdf-schema#label> "ramp up" .
+# 
+# https://w3id.org/def/openadr#receives
+<https://w3id.org/def/openadr#receives> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<https://w3id.org/def/openadr#receives> <http://www.w3.org/2000/01/rdf-schema#domain> <https://w3id.org/def/openadr#Node> .
+<https://w3id.org/def/openadr#receives> <http://www.w3.org/2000/01/rdf-schema#comment> "Relation between the node and an object  it receives" .
+<https://w3id.org/def/openadr#receives> <http://www.w3.org/2000/01/rdf-schema#label> "receives" .
+# 
+# https://w3id.org/def/openadr#recovery
+<https://w3id.org/def/openadr#recovery> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<https://w3id.org/def/openadr#recovery> <http://www.w3.org/2000/01/rdf-schema#label> "recovery" .
+# 
+# https://w3id.org/def/openadr#refersToTarget
+<https://w3id.org/def/openadr#refersToTarget> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<https://w3id.org/def/openadr#refersToTarget> <http://www.w3.org/2000/01/rdf-schema#comment> "Relation between a target and its availability" .
+<https://w3id.org/def/openadr#refersToTarget> <http://www.w3.org/2000/01/rdf-schema#label> "refers to target" .
+# 
+# https://w3id.org/def/openadr#reportDataSource
+<https://w3id.org/def/openadr#reportDataSource> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<https://w3id.org/def/openadr#reportDataSource> <http://www.w3.org/2000/01/rdf-schema#domain> <https://w3id.org/def/openadr#Report> .
+<https://w3id.org/def/openadr#reportDataSource> <http://www.w3.org/2000/01/rdf-schema#range> <https://w3id.org/def/openadr#Group> .
+<https://w3id.org/def/openadr#reportDataSource> <http://www.w3.org/2000/01/rdf-schema#comment> "Link to the source of a report" .
+<https://w3id.org/def/openadr#reportDataSource> <http://www.w3.org/2000/01/rdf-schema#label> "report data source" .
+# 
+# https://w3id.org/def/openadr#reportDescriptor
+<https://w3id.org/def/openadr#reportDescriptor> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<https://w3id.org/def/openadr#reportDescriptor> <http://www.w3.org/2000/01/rdf-schema#domain> <https://w3id.org/def/openadr#MetadataReport> .
+<https://w3id.org/def/openadr#reportDescriptor> <http://www.w3.org/2000/01/rdf-schema#range> <https://w3id.org/def/openadr#ReportDescriptor> .
+<https://w3id.org/def/openadr#reportDescriptor> <http://www.w3.org/2000/01/rdf-schema#comment> "Relation between a report and its metadata" .
+<https://w3id.org/def/openadr#reportDescriptor> <http://www.w3.org/2000/01/rdf-schema#label> "report descriptor" .
+# 
+# https://w3id.org/def/openadr#reportSubject
+<https://w3id.org/def/openadr#reportSubject> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<https://w3id.org/def/openadr#reportSubject> <http://www.w3.org/2000/01/rdf-schema#domain> <https://w3id.org/def/openadr#Report> .
+<https://w3id.org/def/openadr#reportSubject> <http://www.w3.org/2000/01/rdf-schema#comment> "Subject of a report" .
+<https://w3id.org/def/openadr#reportSubject> <http://www.w3.org/2000/01/rdf-schema#label> "report subject" .
+# 
+# https://w3id.org/def/openadr#requests
+<https://w3id.org/def/openadr#requests> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<https://w3id.org/def/openadr#requests> <http://www.w3.org/2000/01/rdf-schema#comment> "Relationship between the node and the report it requests" .
+<https://w3id.org/def/openadr#requests> <http://www.w3.org/2000/01/rdf-schema#label> "requests" .
+# 
+# https://w3id.org/def/openadr#requires
+<https://w3id.org/def/openadr#requires> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<https://w3id.org/def/openadr#requires> <http://www.w3.org/2000/01/rdf-schema#domain> <https://w3id.org/def/openadr#Node> .
+<https://w3id.org/def/openadr#requires> <http://www.w3.org/2000/01/rdf-schema#comment> "Relation between a node and an object it requires" .
+<https://w3id.org/def/openadr#requires> <http://www.w3.org/2000/01/rdf-schema#label> "requires" .
+# 
+# https://w3id.org/def/openadr#sends
+<https://w3id.org/def/openadr#sends> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<https://w3id.org/def/openadr#sends> <http://www.w3.org/2000/01/rdf-schema#comment> "A link between a node and the objects it sends" .
+<https://w3id.org/def/openadr#sends> <http://www.w3.org/2000/01/rdf-schema#label> "sends" .
+# 
+# https://w3id.org/def/openadr#sendsEvent
+<https://w3id.org/def/openadr#sendsEvent> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<https://w3id.org/def/openadr#sendsEvent> <http://www.w3.org/2000/01/rdf-schema#subPropertyOf> <https://w3id.org/def/openadr#sends> .
+<https://w3id.org/def/openadr#sendsEvent> <http://www.w3.org/2000/01/rdf-schema#domain> <https://w3id.org/def/openadr#Node> .
+<https://w3id.org/def/openadr#sendsEvent> <http://www.w3.org/2000/01/rdf-schema#range> <https://w3id.org/def/openadr#Event> .
+<https://w3id.org/def/openadr#sendsEvent> <http://www.w3.org/2000/01/rdf-schema#comment> "A link between a node and the event it sends" .
+<https://w3id.org/def/openadr#sendsEvent> <http://www.w3.org/2000/01/rdf-schema#label> "sends event" .
+# 
+# https://w3id.org/def/openadr#sendsOpt
+<https://w3id.org/def/openadr#sendsOpt> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<https://w3id.org/def/openadr#sendsOpt> <http://www.w3.org/2000/01/rdf-schema#subPropertyOf> <https://w3id.org/def/openadr#sends> .
+<https://w3id.org/def/openadr#sendsOpt> <http://www.w3.org/2000/01/rdf-schema#domain> <https://w3id.org/def/openadr#Node> .
+<https://w3id.org/def/openadr#sendsOpt> <http://www.w3.org/2000/01/rdf-schema#range> <https://w3id.org/def/openadr#Opt> .
+<https://w3id.org/def/openadr#sendsOpt> <http://www.w3.org/2000/01/rdf-schema#comment> "A link between a node and the opt it sends" .
+<https://w3id.org/def/openadr#sendsOpt> <http://www.w3.org/2000/01/rdf-schema#label> "sends opt" .
+# 
+# https://w3id.org/def/openadr#sendsReport
+<https://w3id.org/def/openadr#sendsReport> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<https://w3id.org/def/openadr#sendsReport> <http://www.w3.org/2000/01/rdf-schema#subPropertyOf> <https://w3id.org/def/openadr#sends> .
+<https://w3id.org/def/openadr#sendsReport> <http://www.w3.org/2000/01/rdf-schema#domain> <https://w3id.org/def/openadr#Node> .
+<https://w3id.org/def/openadr#sendsReport> <http://www.w3.org/2000/01/rdf-schema#range> <https://w3id.org/def/openadr#Report> .
+<https://w3id.org/def/openadr#sendsReport> <http://www.w3.org/2000/01/rdf-schema#comment> "A link between a node and the report it sends" .
+<https://w3id.org/def/openadr#sendsReport> <http://www.w3.org/2000/01/rdf-schema#label> "sends report" .
+# 
+# https://w3id.org/def/openadr#specifiesReport
+<https://w3id.org/def/openadr#specifiesReport> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<https://w3id.org/def/openadr#specifiesReport> <http://www.w3.org/2000/01/rdf-schema#domain> <https://w3id.org/def/openadr#DataReport> .
+<https://w3id.org/def/openadr#specifiesReport> <http://www.w3.org/2000/01/rdf-schema#label> "relation between the report and its specification" .
+<https://w3id.org/def/openadr#specifiesReport> <http://www.w3.org/2000/01/rdf-schema#label> "specifies report" .
+# 
+# 
+# 
+# #################################################################
+# #
+# #    Data properties
+# #
+# #################################################################
+# 
+# 
+# https://w3id.org/def/openadr#comment
+<https://w3id.org/def/openadr#comment> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#DatatypeProperty> .
+<https://w3id.org/def/openadr#comment> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.w3.org/2001/XMLSchema#string> .
+<https://w3id.org/def/openadr#comment> <http://www.w3.org/2000/01/rdf-schema#label> "comment" .
+# 
+# https://w3id.org/def/openadr#hasAccuracy
+<https://w3id.org/def/openadr#hasAccuracy> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#DatatypeProperty> .
+<https://w3id.org/def/openadr#hasAccuracy> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.w3.org/2001/XMLSchema#string> .
+<https://w3id.org/def/openadr#hasAccuracy> <http://www.w3.org/2000/01/rdf-schema#comment> "Indicates the likely variability of the prediction and the  error of a reading" .
+<https://w3id.org/def/openadr#hasAccuracy> <http://www.w3.org/2000/01/rdf-schema#label> "has accuracy" .
+# 
+# https://w3id.org/def/openadr#hasCapacity
+<https://w3id.org/def/openadr#hasCapacity> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#DatatypeProperty> .
+<https://w3id.org/def/openadr#hasCapacity> <http://www.w3.org/2000/01/rdf-schema#domain> <https://w3id.org/def/openadr#LoadControlState> .
+<https://w3id.org/def/openadr#hasCapacity> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.w3.org/2000/01/rdf-schema#Literal> .
+<https://w3id.org/def/openadr#hasCapacity> <http://www.w3.org/2000/01/rdf-schema#label> "has capacity" .
+# 
+# https://w3id.org/def/openadr#hasConfidence
+<https://w3id.org/def/openadr#hasConfidence> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#DatatypeProperty> .
+<https://w3id.org/def/openadr#hasConfidence> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.w3.org/2001/XMLSchema#string> .
+<https://w3id.org/def/openadr#hasConfidence> <http://www.w3.org/2000/01/rdf-schema#comment> "A statistical probability that a reported data point is accurate" .
+<https://w3id.org/def/openadr#hasConfidence> <http://www.w3.org/2000/01/rdf-schema#label> "has confidence" .
+# 
+# https://w3id.org/def/openadr#hasCreatedDateTime
+<https://w3id.org/def/openadr#hasCreatedDateTime> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#DatatypeProperty> .
+<https://w3id.org/def/openadr#hasCreatedDateTime> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.w3.org/2001/XMLSchema#dateTimeStamp> .
+<https://w3id.org/def/openadr#hasCreatedDateTime> <http://www.w3.org/2000/01/rdf-schema#label> "has created date time" .
+# 
+# https://w3id.org/def/openadr#hasDataQuality
+<https://w3id.org/def/openadr#hasDataQuality> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#DatatypeProperty> .
+<https://w3id.org/def/openadr#hasDataQuality> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.w3.org/2001/XMLSchema#string> .
+<https://w3id.org/def/openadr#hasDataQuality> <http://www.w3.org/2000/01/rdf-schema#label> "data quality" .
+# 
+# https://w3id.org/def/openadr#hasEventName
+<https://w3id.org/def/openadr#hasEventName> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#DatatypeProperty> .
+<https://w3id.org/def/openadr#hasEventName> <http://www.w3.org/2000/01/rdf-schema#domain> <https://w3id.org/def/openadr#Event> .
+<https://w3id.org/def/openadr#hasEventName> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.w3.org/2002/07/owl#rational> .
+<https://w3id.org/def/openadr#hasEventName> <http://www.w3.org/2000/01/rdf-schema#comment> "Name fo an event" .
+<https://w3id.org/def/openadr#hasEventName> <http://www.w3.org/2000/01/rdf-schema#label> "has event name" .
+# 
+# https://w3id.org/def/openadr#hasGroupName
+<https://w3id.org/def/openadr#hasGroupName> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#DatatypeProperty> .
+<https://w3id.org/def/openadr#hasGroupName> <http://www.w3.org/2000/01/rdf-schema#subPropertyOf> <http://www.w3.org/2002/07/owl#topDataProperty> .
+<https://w3id.org/def/openadr#hasGroupName> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.w3.org/2001/XMLSchema#string> .
+<https://w3id.org/def/openadr#hasGroupName> <http://www.w3.org/2000/01/rdf-schema#label> "group name" .
+# 
+# https://w3id.org/def/openadr#hasItemDescription
+<https://w3id.org/def/openadr#hasItemDescription> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#DatatypeProperty> .
+<https://w3id.org/def/openadr#hasItemDescription> <http://www.w3.org/2000/01/rdf-schema#domain> <https://w3id.org/def/openadr#Item> .
+<https://w3id.org/def/openadr#hasItemDescription> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.w3.org/2001/XMLSchema#string> .
+<https://w3id.org/def/openadr#hasItemDescription> <http://www.w3.org/2000/01/rdf-schema#label> "has item description" .
+# 
+# https://w3id.org/def/openadr#hasLevelOffset
+<https://w3id.org/def/openadr#hasLevelOffset> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#DatatypeProperty> .
+<https://w3id.org/def/openadr#hasLevelOffset> <http://www.w3.org/2000/01/rdf-schema#domain> <https://w3id.org/def/openadr#LoadControlState> .
+<https://w3id.org/def/openadr#hasLevelOffset> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.w3.org/2000/01/rdf-schema#Literal> .
+<https://w3id.org/def/openadr#hasLevelOffset> <http://www.w3.org/2000/01/rdf-schema#label> "has level offset" .
+# 
+# https://w3id.org/def/openadr#hasMarketContext
+<https://w3id.org/def/openadr#hasMarketContext> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#DatatypeProperty> .
+<https://w3id.org/def/openadr#hasMarketContext> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.w3.org/2001/XMLSchema#anyURI> .
+<https://w3id.org/def/openadr#hasMarketContext> <http://www.w3.org/2000/01/rdf-schema#comment> "A URI identifying a DR Program" .
+<https://w3id.org/def/openadr#hasMarketContext> <http://www.w3.org/2000/01/rdf-schema#label> "market context" .
+# 
+# https://w3id.org/def/openadr#hasModificationDateTime
+<https://w3id.org/def/openadr#hasModificationDateTime> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#DatatypeProperty> .
+<https://w3id.org/def/openadr#hasModificationDateTime> <http://www.w3.org/2000/01/rdf-schema#domain> <https://w3id.org/def/openadr#EventDescriptor> .
+<https://w3id.org/def/openadr#hasModificationDateTime> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.w3.org/2001/XMLSchema#dateTimeStamp> .
+<https://w3id.org/def/openadr#hasModificationDateTime> <http://www.w3.org/2000/01/rdf-schema#comment> "Time of modification of an event" .
+<https://w3id.org/def/openadr#hasModificationDateTime> <http://www.w3.org/2000/01/rdf-schema#label> "has modification date time" .
+# 
+# https://w3id.org/def/openadr#hasModificationNumber
+<https://w3id.org/def/openadr#hasModificationNumber> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#DatatypeProperty> .
+<https://w3id.org/def/openadr#hasModificationNumber> <http://www.w3.org/2000/01/rdf-schema#domain> <https://w3id.org/def/openadr#EventDescriptor> .
+<https://w3id.org/def/openadr#hasModificationNumber> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.w3.org/2001/XMLSchema#integer> .
+<https://w3id.org/def/openadr#hasModificationNumber> <http://www.w3.org/2000/01/rdf-schema#comment> "Number which is incremented each time an event is modified." .
+<https://w3id.org/def/openadr#hasModificationNumber> <http://www.w3.org/2000/01/rdf-schema#label> "has modification number" .
+# 
+# https://w3id.org/def/openadr#hasModificationReason
+<https://w3id.org/def/openadr#hasModificationReason> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#DatatypeProperty> .
+<https://w3id.org/def/openadr#hasModificationReason> <http://www.w3.org/2000/01/rdf-schema#domain> <https://w3id.org/def/openadr#EventDescriptor> .
+<https://w3id.org/def/openadr#hasModificationReason> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.w3.org/2001/XMLSchema#string> .
+<https://w3id.org/def/openadr#hasModificationReason> <http://www.w3.org/2000/01/rdf-schema#comment> "It indicates why an event was modified" .
+<https://w3id.org/def/openadr#hasModificationReason> <http://www.w3.org/2000/01/rdf-schema#label> "has modification reason" .
+# 
+# https://w3id.org/def/openadr#hasNodeName
+<https://w3id.org/def/openadr#hasNodeName> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#DatatypeProperty> .
+<https://w3id.org/def/openadr#hasNodeName> <http://www.w3.org/2000/01/rdf-schema#domain> <https://w3id.org/def/openadr#Node> .
+<https://w3id.org/def/openadr#hasNodeName> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.w3.org/2002/07/owl#rational> .
+<https://w3id.org/def/openadr#hasNodeName> <http://www.w3.org/2000/01/rdf-schema#label> "has node name" .
+# 
+# https://w3id.org/def/openadr#hasPercentageOffset
+<https://w3id.org/def/openadr#hasPercentageOffset> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#DatatypeProperty> .
+<https://w3id.org/def/openadr#hasPercentageOffset> <http://www.w3.org/2000/01/rdf-schema#domain> <https://w3id.org/def/openadr#LoadControlState> .
+<https://w3id.org/def/openadr#hasPercentageOffset> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.w3.org/2000/01/rdf-schema#Literal> .
+<https://w3id.org/def/openadr#hasPercentageOffset> <http://www.w3.org/2000/01/rdf-schema#label> "has percentage offset" .
+# 
+# https://w3id.org/def/openadr#hasPriority
+<https://w3id.org/def/openadr#hasPriority> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#DatatypeProperty> .
+<https://w3id.org/def/openadr#hasPriority> <http://www.w3.org/2000/01/rdf-schema#domain> <https://w3id.org/def/openadr#EventDescriptor> .
+<https://w3id.org/def/openadr#hasPriority> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.w3.org/2001/XMLSchema#integer> .
+<https://w3id.org/def/openadr#hasPriority> <http://www.w3.org/2000/01/rdf-schema#comment> "The priority of the event in relation to other events (The lower the number\nhigher the priority. A value of zero (0) indicates no priority, which is the lowest priority by default)." .
+<https://w3id.org/def/openadr#hasPriority> <http://www.w3.org/2000/01/rdf-schema#label> "has priority" .
+# 
+# https://w3id.org/def/openadr#hasProfileName
+<https://w3id.org/def/openadr#hasProfileName> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#DatatypeProperty> .
+<https://w3id.org/def/openadr#hasProfileName> <http://www.w3.org/2000/01/rdf-schema#domain> <https://w3id.org/def/openadr#Node> .
+<https://w3id.org/def/openadr#hasProfileName> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.w3.org/2001/XMLSchema#string> .
+<https://w3id.org/def/openadr#hasProfileName> <http://www.w3.org/2000/01/rdf-schema#label> "has profile name" .
+# 
+# https://w3id.org/def/openadr#hasRandomization
+<https://w3id.org/def/openadr#hasRandomization> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#DatatypeProperty> .
+<https://w3id.org/def/openadr#hasRandomization> <http://www.w3.org/2000/01/rdf-schema#domain> <https://w3id.org/def/openadr#EventDescriptor> .
+<https://w3id.org/def/openadr#hasRandomization> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.w3.org/2001/XMLSchema#string> .
+<https://w3id.org/def/openadr#hasRandomization> <http://www.w3.org/2000/01/rdf-schema#label> "has randomization" .
+# 
+# https://w3id.org/def/openadr#hasReadingType
+<https://w3id.org/def/openadr#hasReadingType> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#DatatypeProperty> .
+<https://w3id.org/def/openadr#hasReadingType> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.w3.org/2001/XMLSchema#string> .
+<https://w3id.org/def/openadr#hasReadingType> <http://www.w3.org/2000/01/rdf-schema#comment> "Metadata about the Readings, such as mean or derived" .
+<https://w3id.org/def/openadr#hasReadingType> <http://www.w3.org/2000/01/rdf-schema#label> "reading type" .
+# 
+# https://w3id.org/def/openadr#hasRegistrationNumber
+<https://w3id.org/def/openadr#hasRegistrationNumber> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#DatatypeProperty> .
+<https://w3id.org/def/openadr#hasRegistrationNumber> <http://www.w3.org/2000/01/rdf-schema#domain> <https://w3id.org/def/openadr#Node> .
+<https://w3id.org/def/openadr#hasRegistrationNumber> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.w3.org/2001/XMLSchema#string> .
+<https://w3id.org/def/openadr#hasRegistrationNumber> <http://www.w3.org/2000/01/rdf-schema#label> "has registration number" .
+# 
+# https://w3id.org/def/openadr#hasReportId
+<https://w3id.org/def/openadr#hasReportId> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#DatatypeProperty> .
+<https://w3id.org/def/openadr#hasReportId> <http://www.w3.org/2000/01/rdf-schema#label> "has report identifier" .
+# 
+# https://w3id.org/def/openadr#hasReportName
+<https://w3id.org/def/openadr#hasReportName> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#DatatypeProperty> .
+<https://w3id.org/def/openadr#hasReportName> <http://www.w3.org/2000/01/rdf-schema#domain> <https://w3id.org/def/openadr#Report> .
+<https://w3id.org/def/openadr#hasReportName> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.w3.org/2001/XMLSchema#string> .
+<https://w3id.org/def/openadr#hasReportName> <http://www.w3.org/2000/01/rdf-schema#label> "has report name" .
+# 
+# https://w3id.org/def/openadr#hasReportOnly
+<https://w3id.org/def/openadr#hasReportOnly> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#DatatypeProperty> .
+<https://w3id.org/def/openadr#hasReportOnly> <http://www.w3.org/2000/01/rdf-schema#label> "has report only" .
+# 
+# https://w3id.org/def/openadr#hasReportType
+<https://w3id.org/def/openadr#hasReportType> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#DatatypeProperty> .
+<https://w3id.org/def/openadr#hasReportType> <http://www.w3.org/2000/01/rdf-schema#label> "has report type" .
+# 
+# https://w3id.org/def/openadr#hasRequestId
+<https://w3id.org/def/openadr#hasRequestId> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#DatatypeProperty> .
+<https://w3id.org/def/openadr#hasRequestId> <http://www.w3.org/2000/01/rdf-schema#label> "has request identifier" .
+# 
+# https://w3id.org/def/openadr#hasScaleCode
+<https://w3id.org/def/openadr#hasScaleCode> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#DatatypeProperty> .
+<https://w3id.org/def/openadr#hasScaleCode> <http://www.w3.org/2000/01/rdf-schema#domain> <https://w3id.org/def/openadr#Item> .
+<https://w3id.org/def/openadr#hasScaleCode> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.w3.org/2001/XMLSchema#string> .
+<https://w3id.org/def/openadr#hasScaleCode> <http://www.w3.org/2000/01/rdf-schema#comment> "A scaling factor for the base unit of measure for a report" .
+<https://w3id.org/def/openadr#hasScaleCode> <http://www.w3.org/2000/01/rdf-schema#label> "has scale code" .
+# 
+# https://w3id.org/def/openadr#hasSetPoint
+<https://w3id.org/def/openadr#hasSetPoint> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#DatatypeProperty> .
+<https://w3id.org/def/openadr#hasSetPoint> <http://www.w3.org/2000/01/rdf-schema#domain> <https://w3id.org/def/openadr#LoadControlState> .
+<https://w3id.org/def/openadr#hasSetPoint> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.w3.org/2000/01/rdf-schema#Literal> .
+<https://w3id.org/def/openadr#hasSetPoint> <http://www.w3.org/2000/01/rdf-schema#label> "has set point" .
+# 
+# https://w3id.org/def/openadr#hasSignalName
+<https://w3id.org/def/openadr#hasSignalName> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#DatatypeProperty> .
+<https://w3id.org/def/openadr#hasSignalName> <http://www.w3.org/2000/01/rdf-schema#domain> <https://w3id.org/def/openadr#Signal> .
+<https://w3id.org/def/openadr#hasSignalName> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.w3.org/2000/01/rdf-schema#Literal> .
+<https://w3id.org/def/openadr#hasSignalName> <http://www.w3.org/2000/01/rdf-schema#comment> "Name of a signal" .
+<https://w3id.org/def/openadr#hasSignalName> <http://www.w3.org/2000/01/rdf-schema#label> "has signal name" .
+# 
+# https://w3id.org/def/openadr#hasTransportName
+<https://w3id.org/def/openadr#hasTransportName> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#DatatypeProperty> .
+<https://w3id.org/def/openadr#hasTransportName> <http://www.w3.org/2000/01/rdf-schema#domain> <https://w3id.org/def/openadr#Node> .
+<https://w3id.org/def/openadr#hasTransportName> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.w3.org/2001/XMLSchema#string> .
+<https://w3id.org/def/openadr#hasTransportName> <http://www.w3.org/2000/01/rdf-schema#label> "has transport name" .
+# 
+# https://w3id.org/def/openadr#hasVersion
+<https://w3id.org/def/openadr#hasVersion> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#DatatypeProperty> .
+<https://w3id.org/def/openadr#hasVersion> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.w3.org/2001/XMLSchema#string> .
+<https://w3id.org/def/openadr#hasVersion> <http://www.w3.org/2000/01/rdf-schema#label> "has version" .
+# 
+# https://w3id.org/def/openadr#hasXMLsignature
+<https://w3id.org/def/openadr#hasXMLsignature> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#DatatypeProperty> .
+<https://w3id.org/def/openadr#hasXMLsignature> <http://www.w3.org/2000/01/rdf-schema#label> "has XML signature" .
+# 
+# https://w3id.org/def/openadr#isManualOverride
+<https://w3id.org/def/openadr#isManualOverride> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#DatatypeProperty> .
+<https://w3id.org/def/openadr#isManualOverride> <http://www.w3.org/2000/01/rdf-schema#domain> <https://w3id.org/def/openadr#ReportStatusPayload> .
+<https://w3id.org/def/openadr#isManualOverride> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.w3.org/2001/XMLSchema#boolean> .
+<https://w3id.org/def/openadr#isManualOverride> <http://www.w3.org/2000/01/rdf-schema#label> "is manual override" .
+# 
+# https://w3id.org/def/openadr#isOnChange
+<https://w3id.org/def/openadr#isOnChange> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#DatatypeProperty> .
+<https://w3id.org/def/openadr#isOnChange> <http://www.w3.org/2000/01/rdf-schema#domain> <https://w3id.org/def/openadr#SamplingRate> .
+<https://w3id.org/def/openadr#isOnChange> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.w3.org/2001/XMLSchema#boolean> .
+<https://w3id.org/def/openadr#isOnChange> <http://www.w3.org/2000/01/rdf-schema#comment> "Attribute to determine whether or not data is sampled as it changes" .
+<https://w3id.org/def/openadr#isOnChange> <http://www.w3.org/2000/01/rdf-schema#label> "is on change" .
+# 
+# https://w3id.org/def/openadr#isOnline
+<https://w3id.org/def/openadr#isOnline> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#DatatypeProperty> .
+<https://w3id.org/def/openadr#isOnline> <http://www.w3.org/2000/01/rdf-schema#domain> <https://w3id.org/def/openadr#ReportStatusPayload> .
+<https://w3id.org/def/openadr#isOnline> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.w3.org/2001/XMLSchema#boolean> .
+<https://w3id.org/def/openadr#isOnline> <http://www.w3.org/2000/01/rdf-schema#comment> "Indicates whether the payload is online" .
+<https://w3id.org/def/openadr#isOnline> <http://www.w3.org/2000/01/rdf-schema#label> "is online" .
+# 
+# https://w3id.org/def/openadr#isResponseRequired
+<https://w3id.org/def/openadr#isResponseRequired> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#DatatypeProperty> .
+<https://w3id.org/def/openadr#isResponseRequired> <http://www.w3.org/2000/01/rdf-schema#domain> <https://w3id.org/def/openadr#EventDescriptor> .
+<https://w3id.org/def/openadr#isResponseRequired> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.w3.org/2001/XMLSchema#boolean> .
+<https://w3id.org/def/openadr#isResponseRequired> <http://www.w3.org/2000/01/rdf-schema#comment> "Attribute to indicate if a response is required to acknowledge the object" .
+<https://w3id.org/def/openadr#isResponseRequired> <http://www.w3.org/2000/01/rdf-schema#label> "is response required" .
+# 
+# https://w3id.org/def/openadr#isTestEvent
+<https://w3id.org/def/openadr#isTestEvent> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#DatatypeProperty> .
+<https://w3id.org/def/openadr#isTestEvent> <http://www.w3.org/2000/01/rdf-schema#domain> <https://w3id.org/def/openadr#EventDescriptor> .
+<https://w3id.org/def/openadr#isTestEvent> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.w3.org/2001/XMLSchema#boolean> .
+<https://w3id.org/def/openadr#isTestEvent> <http://www.w3.org/2000/01/rdf-schema#comment> "Attribute to indicate if the event is for testing purposes" .
+<https://w3id.org/def/openadr#isTestEvent> <http://www.w3.org/2000/01/rdf-schema#label> "is test event" .
+# 
+# https://w3id.org/def/openadr#starts
+<https://w3id.org/def/openadr#starts> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#DatatypeProperty> .
+<https://w3id.org/def/openadr#starts> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.w3.org/2001/XMLSchema#dateTimeStamp> .
+<https://w3id.org/def/openadr#starts> <http://www.w3.org/2000/01/rdf-schema#comment> "The starting time for the activity, data, or state change" .
+<https://w3id.org/def/openadr#starts> <http://www.w3.org/2000/01/rdf-schema#label> "starts" .
+# 
+# 
+# 
+# #################################################################
+# #
+# #    Classes
+# #
+# #################################################################
+# 
+# 
+# http://www.opengis.net/ont/geosparql#Feature
+<http://www.opengis.net/ont/geosparql#Feature> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<http://www.opengis.net/ont/geosparql#Feature> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <http://www.opengis.net/ont/geosparql#SpatialObject> .
+<http://www.opengis.net/ont/geosparql#Feature> <http://www.w3.org/2000/01/rdf-schema#subClassOf> _:genid1 .
+_:genid1 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Restriction> .
+_:genid1 <http://www.w3.org/2002/07/owl#onProperty> <http://www.opengis.net/ont/geosparql#hasGeometry> .
+_:genid1 <http://www.w3.org/2002/07/owl#allValuesFrom> <http://www.opengis.net/ont/geosparql#Geometry> .
+<http://www.opengis.net/ont/geosparql#Feature> <http://www.w3.org/2002/07/owl#disjointWith> <http://www.opengis.net/ont/geosparql#Geometry> .
+<http://www.opengis.net/ont/geosparql#Feature> <http://www.w3.org/2000/01/rdf-schema#comment> "This class represents the top-level feature type. This class is equivalent to GFI_Feature defined in ISO 19156:2011, and it is superclass of all feature types" .
+<http://www.opengis.net/ont/geosparql#Feature> <http://www.w3.org/2000/01/rdf-schema#isDefinedBy> <http://www.opengis.net/ont/geosparql> .
+<http://www.opengis.net/ont/geosparql#Feature> <http://www.w3.org/2000/01/rdf-schema#label> "Feature" .
+# 
+# http://www.opengis.net/ont/geosparql#Geometry
+<http://www.opengis.net/ont/geosparql#Geometry> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<http://www.opengis.net/ont/geosparql#Geometry> <http://www.w3.org/2000/01/rdf-schema#comment> "The class represents the top-level geometry type. This class is equivalent to the UML class GM_Object defined in ISO 19107, and it is superclass of all geometry types." .
+<http://www.opengis.net/ont/geosparql#Geometry> <http://www.w3.org/2000/01/rdf-schema#isDefinedBy> "http://www.opengis.net/ont/geosparql" .
+<http://www.opengis.net/ont/geosparql#Geometry> <http://www.w3.org/2000/01/rdf-schema#label> "Geometry" .
+# 
+# http://www.opengis.net/ont/geosparql#SpatialObject
+<http://www.opengis.net/ont/geosparql#SpatialObject> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<http://www.opengis.net/ont/geosparql#SpatialObject> <http://www.w3.org/2000/01/rdf-schema#subClassOf> _:genid2 .
+_:genid2 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Restriction> .
+_:genid2 <http://www.w3.org/2002/07/owl#onProperty> <http://www.opengis.net/ont/geosparql#sfContains> .
+_:genid2 <http://www.w3.org/2002/07/owl#allValuesFrom> <http://www.opengis.net/ont/geosparql#SpatialObject> .
+<http://www.opengis.net/ont/geosparql#SpatialObject> <http://www.w3.org/2000/01/rdf-schema#subClassOf> _:genid3 .
+_:genid3 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Restriction> .
+_:genid3 <http://www.w3.org/2002/07/owl#onProperty> <http://www.w3.org/2003/01/geo/wgs84_pos#location> .
+_:genid3 <http://www.w3.org/2002/07/owl#allValuesFrom> <http://www.w3.org/2003/01/geo/wgs84_pos#Point> .
+<http://www.opengis.net/ont/geosparql#SpatialObject> <http://www.w3.org/2000/01/rdf-schema#comment> "The class spatial-object represents everything that can have a spatial representation. It is superclass of feature and geometry." .
+<http://www.opengis.net/ont/geosparql#SpatialObject> <http://www.w3.org/2000/01/rdf-schema#isDefinedBy> <http://www.opengis.net/ont/geosparql> .
+<http://www.opengis.net/ont/geosparql#SpatialObject> <http://www.w3.org/2000/01/rdf-schema#label> "SpatialObject" .
+# 
+# http://www.w3.org/2003/01/geo/wgs84_pos#Point
+<http://www.w3.org/2003/01/geo/wgs84_pos#Point> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<http://www.w3.org/2003/01/geo/wgs84_pos#Point> <http://www.w3.org/2000/01/rdf-schema#comment> "A point, typically described using a coordinate system relative to Earth, such as WGS84." .
+<http://www.w3.org/2003/01/geo/wgs84_pos#Point> <http://www.w3.org/2000/01/rdf-schema#isDefinedBy> "http://www.w3.org/2003/01/geo/wgs84_pos#" .
+<http://www.w3.org/2003/01/geo/wgs84_pos#Point> <http://www.w3.org/2000/01/rdf-schema#label> "Point" .
+# 
+# http://www.w3.org/2003/01/geo/wgs84_pos#SpatialThing
+<http://www.w3.org/2003/01/geo/wgs84_pos#SpatialThing> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<http://www.w3.org/2003/01/geo/wgs84_pos#SpatialThing> <http://www.w3.org/2000/01/rdf-schema#comment> "Anything with spatial extent, i.e. size, shape, or position. e.g. people, places, bowling balls, as well as abstract areas like cubes" .
+<http://www.w3.org/2003/01/geo/wgs84_pos#SpatialThing> <http://www.w3.org/2000/01/rdf-schema#isDefinedBy> <http://www.w3.org/2003/01/geo/wgs84_pos#> .
+<http://www.w3.org/2003/01/geo/wgs84_pos#SpatialThing> <http://www.w3.org/2000/01/rdf-schema#label> "Spatial thing" .
+# 
+# http://www.w3.org/2006/time#Duration
+<http://www.w3.org/2006/time#Duration> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<http://www.w3.org/2006/time#Duration> <http://www.w3.org/2000/01/rdf-schema#comment> "Duration of a temporal extent expressed as a number scaled by a temporal unit" .
+<http://www.w3.org/2006/time#Duration> <http://www.w3.org/2000/01/rdf-schema#label> "Time duration" .
+# 
+# http://www.w3.org/2006/time#Instant
+<http://www.w3.org/2006/time#Instant> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<http://www.w3.org/2006/time#Instant> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <http://www.w3.org/2006/time#TemporalEntity> .
+<http://www.w3.org/2006/time#Instant> <http://www.w3.org/2000/01/rdf-schema#comment> "A temporal entity with zero extent or duration" .
+<http://www.w3.org/2006/time#Instant> <http://www.w3.org/2000/01/rdf-schema#isDefinedBy> <http://www.w3.org/2006/time> .
+<http://www.w3.org/2006/time#Instant> <http://www.w3.org/2000/01/rdf-schema#label> "Instant" .
+# 
+# http://www.w3.org/2006/time#Interval
+<http://www.w3.org/2006/time#Interval> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<http://www.w3.org/2006/time#Interval> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <http://www.w3.org/2006/time#TemporalEntity> .
+<http://www.w3.org/2006/time#Interval> <http://www.w3.org/2000/01/rdf-schema#comment> "A temporal entity with non-zero extent or duration, for which the value of the beginning and end are different" .
+<http://www.w3.org/2006/time#Interval> <http://www.w3.org/2000/01/rdf-schema#isDefinedBy> <http://www.w3.org/2006/time> .
+<http://www.w3.org/2006/time#Interval> <http://www.w3.org/2000/01/rdf-schema#label> "Interval" .
+# 
+# http://www.w3.org/2006/time#TemporalEntity
+<http://www.w3.org/2006/time#TemporalEntity> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<http://www.w3.org/2006/time#TemporalEntity> <http://www.w3.org/2000/01/rdf-schema#comment> "A temporal entity with zero extent or duration" .
+<http://www.w3.org/2006/time#TemporalEntity> <http://www.w3.org/2000/01/rdf-schema#isDefinedBy> <http://www.w3.org/2006/time> .
+<http://www.w3.org/2006/time#TemporalEntity> <http://www.w3.org/2000/01/rdf-schema#label> "Temporal Entity" .
+# 
+# http://www.wurvoc.org/vocabularies/om-1.8/Unit_of_measure
+<http://www.wurvoc.org/vocabularies/om-1.8/Unit_of_measure> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<http://www.wurvoc.org/vocabularies/om-1.8/Unit_of_measure> <http://www.w3.org/2000/01/rdf-schema#comment> "A unit of measure is a definite magnitude of a quantity, defined and adopted by convention and/or by law. It is used as a standard for measurement of the same quantity, where any other value of the quantity can be expressed as a simple multiple of the unit of measure. For example, length is a quantity; the metre is a unit of length that represents a definite predetermined length. When we say 10 metre (or 10 m), we actually mean 10 times the definite predetermined length called \"metre\"." .
+<http://www.wurvoc.org/vocabularies/om-1.8/Unit_of_measure> <http://www.w3.org/2000/01/rdf-schema#label> <http://www.wurvoc.org/vocabularies/om-1.8/> .
+<http://www.wurvoc.org/vocabularies/om-1.8/Unit_of_measure> <http://www.w3.org/2000/01/rdf-schema#label> "unit of measure" .
+# 
+# https://w3id.org/def/openadr#BidEnergySetpointSignal
+<https://w3id.org/def/openadr#BidEnergySetpointSignal> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<https://w3id.org/def/openadr#BidEnergySetpointSignal> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <https://w3id.org/def/openadr#BidEnergySignal> .
+<https://w3id.org/def/openadr#BidEnergySetpointSignal> <http://www.w3.org/2000/01/rdf-schema#comment> "This is the amount of energy from a resource that was bid into a program" .
+<https://w3id.org/def/openadr#BidEnergySetpointSignal> <http://www.w3.org/2000/01/rdf-schema#label> "Bid energy setpoint signal" .
+# 
+# https://w3id.org/def/openadr#BidEnergySignal
+<https://w3id.org/def/openadr#BidEnergySignal> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<https://w3id.org/def/openadr#BidEnergySignal> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <https://w3id.org/def/openadr#Signal> .
+<https://w3id.org/def/openadr#BidEnergySignal> <http://www.w3.org/2000/01/rdf-schema#comment> "Signal that represents the price that was bid by the resource" .
+<https://w3id.org/def/openadr#BidEnergySignal> <http://www.w3.org/2000/01/rdf-schema#label> "Bid energy signal" .
+# 
+# https://w3id.org/def/openadr#BidLoadSetpointSignal
+<https://w3id.org/def/openadr#BidLoadSetpointSignal> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<https://w3id.org/def/openadr#BidLoadSetpointSignal> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <https://w3id.org/def/openadr#BidLoadSignal> .
+<https://w3id.org/def/openadr#BidLoadSetpointSignal> <http://www.w3.org/2000/01/rdf-schema#comment> "This is the amount of load that was bid by a resource into a program" .
+<https://w3id.org/def/openadr#BidLoadSetpointSignal> <http://www.w3.org/2000/01/rdf-schema#label> "Bid load setpoint signal" .
+# 
+# https://w3id.org/def/openadr#BidLoadSignal
+<https://w3id.org/def/openadr#BidLoadSignal> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<https://w3id.org/def/openadr#BidLoadSignal> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <https://w3id.org/def/openadr#Signal> .
+<https://w3id.org/def/openadr#BidLoadSignal> <http://www.w3.org/2000/01/rdf-schema#comment> "Signal that represents the amount of load that was bid by a resource into a program" .
+<https://w3id.org/def/openadr#BidLoadSignal> <http://www.w3.org/2000/01/rdf-schema#label> "Bid load signal" .
+# 
+# https://w3id.org/def/openadr#BidPriceAbsoluteSignal
+<https://w3id.org/def/openadr#BidPriceAbsoluteSignal> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<https://w3id.org/def/openadr#BidPriceAbsoluteSignal> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <https://w3id.org/def/openadr#BidPricesignal> .
+<https://w3id.org/def/openadr#BidPriceAbsoluteSignal> <http://www.w3.org/2000/01/rdf-schema#comment> "This is the price that was bid by the resource" .
+<https://w3id.org/def/openadr#BidPriceAbsoluteSignal> <http://www.w3.org/2000/01/rdf-schema#label> "Bid absolute price" .
+# 
+# https://w3id.org/def/openadr#BidPricesignal
+<https://w3id.org/def/openadr#BidPricesignal> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<https://w3id.org/def/openadr#BidPricesignal> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <https://w3id.org/def/openadr#Signal> .
+<https://w3id.org/def/openadr#BidPricesignal> <http://www.w3.org/2000/01/rdf-schema#comment> "Signal that represents the price that was bid by the resource" .
+<https://w3id.org/def/openadr#BidPricesignal> <http://www.w3.org/2000/01/rdf-schema#label> "Bid price signal" .
+# 
+# https://w3id.org/def/openadr#ChargeStateDeltaSignal
+<https://w3id.org/def/openadr#ChargeStateDeltaSignal> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<https://w3id.org/def/openadr#ChargeStateDeltaSignal> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <https://w3id.org/def/openadr#ChargeStateSignal> .
+<https://w3id.org/def/openadr#ChargeStateDeltaSignal> <http://www.w3.org/2000/01/rdf-schema#comment> "This is the delta amount of energy that should be contained in a storage resource from where it currently is." .
+<https://w3id.org/def/openadr#ChargeStateDeltaSignal> <http://www.w3.org/2000/01/rdf-schema#label> "Charge state delta signal" .
+# 
+# https://w3id.org/def/openadr#ChargeStateMultiplierSignal
+<https://w3id.org/def/openadr#ChargeStateMultiplierSignal> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<https://w3id.org/def/openadr#ChargeStateMultiplierSignal> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <https://w3id.org/def/openadr#ChargeStateSignal> .
+<https://w3id.org/def/openadr#ChargeStateMultiplierSignal> <http://www.w3.org/2000/01/rdf-schema#comment> "This is the percentage of full charge that the storage resource should be at." .
+<https://w3id.org/def/openadr#ChargeStateMultiplierSignal> <http://www.w3.org/2000/01/rdf-schema#label> "Charge state multiplier signal" .
+# 
+# https://w3id.org/def/openadr#ChargeStateSetpointSignal
+<https://w3id.org/def/openadr#ChargeStateSetpointSignal> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<https://w3id.org/def/openadr#ChargeStateSetpointSignal> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <https://w3id.org/def/openadr#ChargeStateSignal> .
+<https://w3id.org/def/openadr#ChargeStateSetpointSignal> <http://www.w3.org/2000/01/rdf-schema#comment> "This is used to either charge or discharge a certain amount of energy from a storage resource until its charge state reaches a certain level." .
+<https://w3id.org/def/openadr#ChargeStateSetpointSignal> <http://www.w3.org/2000/01/rdf-schema#label> "Charge state setpoint signal" .
+# 
+# https://w3id.org/def/openadr#ChargeStateSignal
+<https://w3id.org/def/openadr#ChargeStateSignal> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<https://w3id.org/def/openadr#ChargeStateSignal> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <https://w3id.org/def/openadr#Signal> .
+<https://w3id.org/def/openadr#ChargeStateSignal> <http://www.w3.org/2000/01/rdf-schema#comment> "Signal used  to dispatch storage resources" .
+<https://w3id.org/def/openadr#ChargeStateSignal> <http://www.w3.org/2000/01/rdf-schema#label> "Charge state signal" .
+# 
+# https://w3id.org/def/openadr#DataReport
+<https://w3id.org/def/openadr#DataReport> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<https://w3id.org/def/openadr#DataReport> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <https://w3id.org/def/openadr#Report> .
+<https://w3id.org/def/openadr#DataReport> <http://www.w3.org/2000/01/rdf-schema#subClassOf> _:genid4 .
+_:genid4 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Restriction> .
+_:genid4 <http://www.w3.org/2002/07/owl#onProperty> <https://w3id.org/def/openadr#isDescribedIn> .
+_:genid4 <http://www.w3.org/2002/07/owl#allValuesFrom> <https://w3id.org/def/openadr#MetadataReport> .
+<https://w3id.org/def/openadr#DataReport> <http://www.w3.org/2000/01/rdf-schema#comment> "These reports are used to report actual data that may be measured or calculated." .
+<https://w3id.org/def/openadr#DataReport> <http://www.w3.org/2000/01/rdf-schema#isDefinedBy> "OpenADR 2.0 Demand Response Specification Profile B" .
+<https://w3id.org/def/openadr#DataReport> <http://www.w3.org/2000/01/rdf-schema#label> "Data report" .
+# 
+# https://w3id.org/def/openadr#DemandChargePriceAbsoluteSignal
+<https://w3id.org/def/openadr#DemandChargePriceAbsoluteSignal> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<https://w3id.org/def/openadr#DemandChargePriceAbsoluteSignal> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <https://w3id.org/def/openadr#DemandChargeSignal> .
+<https://w3id.org/def/openadr#DemandChargePriceAbsoluteSignal> <http://www.w3.org/2000/01/rdf-schema#comment> "This is the demand charge expressed in absolute terms" .
+<https://w3id.org/def/openadr#DemandChargePriceAbsoluteSignal> <http://www.w3.org/2000/01/rdf-schema#label> "Demand charge absolute price signal" .
+# 
+# https://w3id.org/def/openadr#DemandChargePriceMultiplierSignal
+<https://w3id.org/def/openadr#DemandChargePriceMultiplierSignal> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<https://w3id.org/def/openadr#DemandChargePriceMultiplierSignal> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <https://w3id.org/def/openadr#DemandChargeSignal> .
+<https://w3id.org/def/openadr#DemandChargePriceMultiplierSignal> <http://www.w3.org/2000/01/rdf-schema#comment> "This is a multiplier to the existing demand charge" .
+<https://w3id.org/def/openadr#DemandChargePriceMultiplierSignal> <http://www.w3.org/2000/01/rdf-schema#label> "Demand charge multiplier price signal" .
+# 
+# https://w3id.org/def/openadr#DemandChargePriceRelativeSignal
+<https://w3id.org/def/openadr#DemandChargePriceRelativeSignal> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<https://w3id.org/def/openadr#DemandChargePriceRelativeSignal> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <https://w3id.org/def/openadr#DemandChargeSignal> .
+<https://w3id.org/def/openadr#DemandChargePriceRelativeSignal> <http://www.w3.org/2000/01/rdf-schema#comment> "This is a delta change to the existing demand charge" .
+<https://w3id.org/def/openadr#DemandChargePriceRelativeSignal> <http://www.w3.org/2000/01/rdf-schema#label> "Demand charge relative price signal" .
+# 
+# https://w3id.org/def/openadr#DemandChargeSignal
+<https://w3id.org/def/openadr#DemandChargeSignal> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<https://w3id.org/def/openadr#DemandChargeSignal> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <https://w3id.org/def/openadr#Signal> .
+<https://w3id.org/def/openadr#DemandChargeSignal> <http://www.w3.org/2000/01/rdf-schema#comment> "Signal for the demand charge" .
+<https://w3id.org/def/openadr#DemandChargeSignal> <http://www.w3.org/2000/01/rdf-schema#label> "Demand charge signal" .
+# 
+# https://w3id.org/def/openadr#ElectricityPriceAbsoluteSignal
+<https://w3id.org/def/openadr#ElectricityPriceAbsoluteSignal> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<https://w3id.org/def/openadr#ElectricityPriceAbsoluteSignal> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <https://w3id.org/def/openadr#ElectricityPriceSignal> .
+<https://w3id.org/def/openadr#ElectricityPriceAbsoluteSignal> <http://www.w3.org/2000/01/rdf-schema#comment> "This is the cost of electricity  expressed in absolute terms" .
+<https://w3id.org/def/openadr#ElectricityPriceAbsoluteSignal> <http://www.w3.org/2000/01/rdf-schema#label> "Electicity absolute price signal" .
+# 
+# https://w3id.org/def/openadr#ElectricityPriceMultiplierSignal
+<https://w3id.org/def/openadr#ElectricityPriceMultiplierSignal> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<https://w3id.org/def/openadr#ElectricityPriceMultiplierSignal> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <https://w3id.org/def/openadr#ElectricityPriceSignal> .
+<https://w3id.org/def/openadr#ElectricityPriceMultiplierSignal> <http://www.w3.org/2000/01/rdf-schema#comment> "This is a multiplier to the existing cost of electricity" .
+<https://w3id.org/def/openadr#ElectricityPriceMultiplierSignal> <http://www.w3.org/2000/01/rdf-schema#label> "Electricity multiplier price signal" .
+# 
+# https://w3id.org/def/openadr#ElectricityPriceRelativeSignal
+<https://w3id.org/def/openadr#ElectricityPriceRelativeSignal> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<https://w3id.org/def/openadr#ElectricityPriceRelativeSignal> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <https://w3id.org/def/openadr#ElectricityPriceSignal> .
+<https://w3id.org/def/openadr#ElectricityPriceRelativeSignal> <http://www.w3.org/2000/01/rdf-schema#comment> "This is a delta change to the existing price of electricity" .
+<https://w3id.org/def/openadr#ElectricityPriceRelativeSignal> <http://www.w3.org/2000/01/rdf-schema#label> "Electricity  relative price signal" .
+# 
+# https://w3id.org/def/openadr#ElectricityPriceSignal
+<https://w3id.org/def/openadr#ElectricityPriceSignal> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<https://w3id.org/def/openadr#ElectricityPriceSignal> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <https://w3id.org/def/openadr#Signal> .
+<https://w3id.org/def/openadr#ElectricityPriceSignal> <http://www.w3.org/2000/01/rdf-schema#comment> "Signal for the price of electricity" .
+<https://w3id.org/def/openadr#ElectricityPriceSignal> <http://www.w3.org/2000/01/rdf-schema#label> "Electricity price signal" .
+# 
+# https://w3id.org/def/openadr#EnergyPriceAbsolutePriceSignal
+<https://w3id.org/def/openadr#EnergyPriceAbsolutePriceSignal> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<https://w3id.org/def/openadr#EnergyPriceAbsolutePriceSignal> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <https://w3id.org/def/openadr#EnergyPriceSignal> .
+<https://w3id.org/def/openadr#EnergyPriceAbsolutePriceSignal> <http://www.w3.org/2000/01/rdf-schema#comment> "This is the cost of energy expressed in absolute terms" .
+<https://w3id.org/def/openadr#EnergyPriceAbsolutePriceSignal> <http://www.w3.org/2000/01/rdf-schema#label> "Energy absolute price signal" .
+# 
+# https://w3id.org/def/openadr#EnergyPriceMultiplierSignal
+<https://w3id.org/def/openadr#EnergyPriceMultiplierSignal> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<https://w3id.org/def/openadr#EnergyPriceMultiplierSignal> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <https://w3id.org/def/openadr#EnergyPriceSignal> .
+<https://w3id.org/def/openadr#EnergyPriceMultiplierSignal> <http://www.w3.org/2000/01/rdf-schema#comment> "This is a multiplier to the existing cost of energy" .
+<https://w3id.org/def/openadr#EnergyPriceMultiplierSignal> <http://www.w3.org/2000/01/rdf-schema#label> "Energy multiplier price signal" .
+# 
+# https://w3id.org/def/openadr#EnergyPriceRelativeSignal
+<https://w3id.org/def/openadr#EnergyPriceRelativeSignal> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<https://w3id.org/def/openadr#EnergyPriceRelativeSignal> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <https://w3id.org/def/openadr#EnergyPriceSignal> .
+<https://w3id.org/def/openadr#EnergyPriceRelativeSignal> <http://www.w3.org/2000/01/rdf-schema#comment> "This is a delta change to the existing price of energy" .
+<https://w3id.org/def/openadr#EnergyPriceRelativeSignal> <http://www.w3.org/2000/01/rdf-schema#label> "Energy relative price signal" .
+# 
+# https://w3id.org/def/openadr#EnergyPriceSignal
+<https://w3id.org/def/openadr#EnergyPriceSignal> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<https://w3id.org/def/openadr#EnergyPriceSignal> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <https://w3id.org/def/openadr#Signal> .
+<https://w3id.org/def/openadr#EnergyPriceSignal> <http://www.w3.org/2000/01/rdf-schema#label> "Energy price signal" .
+<https://w3id.org/def/openadr#EnergyPriceSignal> <http://www.w3.org/2000/01/rdf-schema#label> "Signal for the price of energy" .
+# 
+# https://w3id.org/def/openadr#Event
+<https://w3id.org/def/openadr#Event> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<https://w3id.org/def/openadr#Event> <http://www.w3.org/2000/01/rdf-schema#subClassOf> _:genid5 .
+_:genid5 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Restriction> .
+_:genid5 <http://www.w3.org/2002/07/owl#onProperty> <https://w3id.org/def/openadr#eventDescriptor> .
+_:genid5 <http://www.w3.org/2002/07/owl#someValuesFrom> <https://w3id.org/def/openadr#EventDescriptor> .
+<https://w3id.org/def/openadr#Event> <http://www.w3.org/2000/01/rdf-schema#subClassOf> _:genid6 .
+_:genid6 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Restriction> .
+_:genid6 <http://www.w3.org/2002/07/owl#onProperty> <https://w3id.org/def/openadr#expectedResponse> .
+_:genid6 <http://www.w3.org/2002/07/owl#someValuesFrom> <https://w3id.org/def/openadr#Opt> .
+<https://w3id.org/def/openadr#Event> <http://www.w3.org/2000/01/rdf-schema#subClassOf> _:genid7 .
+_:genid7 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Restriction> .
+_:genid7 <http://www.w3.org/2002/07/owl#onProperty> <https://w3id.org/def/openadr#includesSignal> .
+_:genid7 <http://www.w3.org/2002/07/owl#someValuesFrom> <https://w3id.org/def/openadr#Signal> .
+<https://w3id.org/def/openadr#Event> <http://www.w3.org/2000/01/rdf-schema#subClassOf> _:genid8 .
+_:genid8 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Restriction> .
+_:genid8 <http://www.w3.org/2002/07/owl#onProperty> <https://w3id.org/def/openadr#ramp_up> .
+_:genid8 <http://www.w3.org/2002/07/owl#someValuesFrom> <http://www.w3.org/2006/time#Duration> .
+<https://w3id.org/def/openadr#Event> <http://www.w3.org/2000/01/rdf-schema#subClassOf> _:genid9 .
+_:genid9 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Restriction> .
+_:genid9 <http://www.w3.org/2002/07/owl#onProperty> <https://w3id.org/def/openadr#recovery> .
+_:genid9 <http://www.w3.org/2002/07/owl#someValuesFrom> <http://www.w3.org/2006/time#Duration> .
+<https://w3id.org/def/openadr#Event> <http://www.w3.org/2000/01/rdf-schema#subClassOf> _:genid10 .
+_:genid10 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Restriction> .
+_:genid10 <http://www.w3.org/2002/07/owl#onProperty> <https://w3id.org/def/openadr#hasCreatedDateTime> .
+_:genid10 <http://www.w3.org/2002/07/owl#someValuesFrom> <http://www.w3.org/2001/XMLSchema#dateTimeStamp> .
+<https://w3id.org/def/openadr#Event> <http://www.w3.org/2000/01/rdf-schema#subClassOf> _:genid11 .
+_:genid11 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Restriction> .
+_:genid11 <http://www.w3.org/2002/07/owl#onProperty> <https://w3id.org/def/openadr#hasVersion> .
+_:genid11 <http://www.w3.org/2002/07/owl#allValuesFrom> <http://www.w3.org/2001/XMLSchema#string> .
+<https://w3id.org/def/openadr#Event> <http://www.w3.org/2000/01/rdf-schema#comment> "An event is a notification from the utility to demand side resources requesting load shed starting at a specific time, over a specified duration, and may include targeting information designating specific resources that should participate in the event" .
+<https://w3id.org/def/openadr#Event> <http://www.w3.org/2000/01/rdf-schema#isDefinedBy> "OpenADR 2.0 Demand Response Program Implementation Guide" .
+<https://w3id.org/def/openadr#Event> <http://www.w3.org/2000/01/rdf-schema#label> "Event" .
+# 
+# https://w3id.org/def/openadr#EventDescriptor
+<https://w3id.org/def/openadr#EventDescriptor> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<https://w3id.org/def/openadr#EventDescriptor> <http://www.w3.org/2000/01/rdf-schema#comment> "Part of the OpenADR event object that describes metadata about the event, such as program name and event priority" .
+<https://w3id.org/def/openadr#EventDescriptor> <http://www.w3.org/2000/01/rdf-schema#isDefinedBy> "OpenADR 2.0 Demand Response Program Implementation Guide" .
+<https://w3id.org/def/openadr#EventDescriptor> <http://www.w3.org/2000/01/rdf-schema#label> "Event descriptor" .
+# 
+# https://w3id.org/def/openadr#EventStatus
+<https://w3id.org/def/openadr#EventStatus> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<https://w3id.org/def/openadr#EventStatus> <http://www.w3.org/2000/01/rdf-schema#comment> "Status of an OpenADR event" .
+<https://w3id.org/def/openadr#EventStatus> <http://www.w3.org/2000/01/rdf-schema#isDefinedBy> "OpenADR 2.0 Demand Response Program Implementation Guide" .
+<https://w3id.org/def/openadr#EventStatus> <http://www.w3.org/2000/01/rdf-schema#label> "Event status" .
+# 
+# https://w3id.org/def/openadr#GreenButtonReport
+<https://w3id.org/def/openadr#GreenButtonReport> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<https://w3id.org/def/openadr#GreenButtonReport> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <https://w3id.org/def/openadr#HistoryReport> .
+<https://w3id.org/def/openadr#GreenButtonReport> <http://www.w3.org/2000/01/rdf-schema#comment> "This is usage history that can be transmitted using the well known GREEN BUTTON standard payloads" .
+<https://w3id.org/def/openadr#GreenButtonReport> <http://www.w3.org/2000/01/rdf-schema#isDefinedBy> "OpenADR 2.0 Demand Response Specification Profile B" .
+<https://w3id.org/def/openadr#GreenButtonReport> <http://www.w3.org/2000/01/rdf-schema#label> "Green button report" .
+# 
+# https://w3id.org/def/openadr#Group
+<https://w3id.org/def/openadr#Group> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<https://w3id.org/def/openadr#Group> <http://www.w3.org/2000/01/rdf-schema#subClassOf> _:genid12 .
+_:genid12 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Restriction> .
+_:genid12 <http://www.w3.org/2002/07/owl#onProperty> <https://w3id.org/def/openadr#appliesTo> .
+_:genid12 <http://www.w3.org/2002/07/owl#someValuesFrom> <https://w3id.org/def/openadr#ServiceArea> .
+<https://w3id.org/def/openadr#Group> <http://www.w3.org/2000/01/rdf-schema#isDefinedBy> "Target of a signal or event" .
+<https://w3id.org/def/openadr#Group> <http://www.w3.org/2000/01/rdf-schema#label> "Group" .
+# 
+# https://w3id.org/def/openadr#HistoryReport
+<https://w3id.org/def/openadr#HistoryReport> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<https://w3id.org/def/openadr#HistoryReport> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <https://w3id.org/def/openadr#DataReport> .
+<https://w3id.org/def/openadr#HistoryReport> <http://www.w3.org/2000/01/rdf-schema#comment> "This is a type of data report in which the history of the data point values is logged and can be subsequently requested" .
+<https://w3id.org/def/openadr#HistoryReport> <http://www.w3.org/2000/01/rdf-schema#isDefinedBy> "OpenADR 2.0 Demand Response Specification Profile B" .
+<https://w3id.org/def/openadr#HistoryReport> <http://www.w3.org/2000/01/rdf-schema#label> "History report" .
+# 
+# https://w3id.org/def/openadr#HistoryUsageReport
+<https://w3id.org/def/openadr#HistoryUsageReport> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<https://w3id.org/def/openadr#HistoryUsageReport> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <https://w3id.org/def/openadr#HistoryReport> .
+<https://w3id.org/def/openadr#HistoryUsageReport> <http://www.w3.org/2000/01/rdf-schema#comment> "These are logs of usage data that are typically logged by VEN’s and can be queried by the VTN" .
+<https://w3id.org/def/openadr#HistoryUsageReport> <http://www.w3.org/2000/01/rdf-schema#isDefinedBy> "OpenADR 2.0 Demand Response Specification Profile B" .
+<https://w3id.org/def/openadr#HistoryUsageReport> <http://www.w3.org/2000/01/rdf-schema#label> "History usage report" .
+# 
+# https://w3id.org/def/openadr#Item
+<https://w3id.org/def/openadr#Item> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<https://w3id.org/def/openadr#Item> <http://www.w3.org/2000/01/rdf-schema#comment> "Units for the data in the report" .
+<https://w3id.org/def/openadr#Item> <http://www.w3.org/2000/01/rdf-schema#isDefinedBy> "OASIS Energy Market Information Exchange (eMIX) standard" .
+<https://w3id.org/def/openadr#Item> <http://www.w3.org/2000/01/rdf-schema#label> "Item" .
+# 
+# https://w3id.org/def/openadr#LoadControlCapacitySignal
+<https://w3id.org/def/openadr#LoadControlCapacitySignal> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<https://w3id.org/def/openadr#LoadControlCapacitySignal> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <https://w3id.org/def/openadr#LoadControlSignal> .
+<https://w3id.org/def/openadr#LoadControlCapacitySignal> <http://www.w3.org/2000/01/rdf-schema#comment> "This is an instruction for the load controller to operate at a level that is some percentage of its maximum load consumption capacity. This can be mapped to specific load controllers to do things like duty cycling. Note that 1.0 refers to 100% consumption. In the case of simple ON/OFF type devices then 0 = OFF and 1 = ON." .
+<https://w3id.org/def/openadr#LoadControlCapacitySignal> <http://www.w3.org/2000/01/rdf-schema#label> "Load control capacity signal" .
+# 
+# https://w3id.org/def/openadr#LoadControlLevelOffsetSignal
+<https://w3id.org/def/openadr#LoadControlLevelOffsetSignal> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<https://w3id.org/def/openadr#LoadControlLevelOffsetSignal> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <https://w3id.org/def/openadr#LoadControlSignal> .
+<https://w3id.org/def/openadr#LoadControlLevelOffsetSignal> <http://www.w3.org/2000/01/rdf-schema#comment> "Discrete integer levels that are relative to normal operations where 0 is normal operations. There is no requirement to link the setpoints to specific load consumption values, but the intention is that the higher the setpoint the less load is consumed. Note that these are controller set points that can be mapped at the VEN side to something as simple as thermostat temperature set point offsets." .
+<https://w3id.org/def/openadr#LoadControlLevelOffsetSignal> <http://www.w3.org/2000/01/rdf-schema#label> "Load control level offset  signal" .
+# 
+# https://w3id.org/def/openadr#LoadControlPercentOffset
+<https://w3id.org/def/openadr#LoadControlPercentOffset> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<https://w3id.org/def/openadr#LoadControlPercentOffset> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <https://w3id.org/def/openadr#LoadControlSignal> .
+<https://w3id.org/def/openadr#LoadControlPercentOffset> <http://www.w3.org/2000/01/rdf-schema#comment> "Percentage change from normal operations. The percentage does not refer to specific load consumptions values, but to load control operation levels. The lower the percentage the less load is consumed." .
+<https://w3id.org/def/openadr#LoadControlPercentOffset> <http://www.w3.org/2000/01/rdf-schema#label> "Load control percent offset signal" .
+# 
+# https://w3id.org/def/openadr#LoadControlSetpointSignal
+<https://w3id.org/def/openadr#LoadControlSetpointSignal> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<https://w3id.org/def/openadr#LoadControlSetpointSignal> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <https://w3id.org/def/openadr#LoadControlSignal> .
+<https://w3id.org/def/openadr#LoadControlSetpointSignal> <http://www.w3.org/2000/01/rdf-schema#comment> "Load controller set points. There is no requirement to link the setpoints to specific load consumption values. Note that these are generic controller set points and can be mapped at the VEN side to something as simple as specific thermostat temperature set points." .
+<https://w3id.org/def/openadr#LoadControlSetpointSignal> <http://www.w3.org/2000/01/rdf-schema#label> "Load control setpoint signal" .
+# 
+# https://w3id.org/def/openadr#LoadControlSignal
+<https://w3id.org/def/openadr#LoadControlSignal> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<https://w3id.org/def/openadr#LoadControlSignal> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <https://w3id.org/def/openadr#Signal> .
+<https://w3id.org/def/openadr#LoadControlSignal> <http://www.w3.org/2000/01/rdf-schema#label> "Load control signal" .
+<https://w3id.org/def/openadr#LoadControlSignal> <http://www.w3.org/2000/01/rdf-schema#label> "Signal for to set the load control to values that are relative to the load controller and its output capacity." .
+# 
+# https://w3id.org/def/openadr#LoadControlState
+<https://w3id.org/def/openadr#LoadControlState> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<https://w3id.org/def/openadr#LoadControlState> <http://www.w3.org/2000/01/rdf-schema#comment> "The LoadControlState attributes are meant to mirror the LOAD_CONTROL signal attributes meaning that for each LOAD_CONTROL signal type there is a corresponding attribute in the LoadControlState of a report." .
+<https://w3id.org/def/openadr#LoadControlState> <http://www.w3.org/2000/01/rdf-schema#label> "Load control state" .
+# 
+# https://w3id.org/def/openadr#LoadDispatchDeltaSignal
+<https://w3id.org/def/openadr#LoadDispatchDeltaSignal> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<https://w3id.org/def/openadr#LoadDispatchDeltaSignal> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <https://w3id.org/def/openadr#LoadDispatchSignal> .
+<https://w3id.org/def/openadr#LoadDispatchDeltaSignal> <http://www.w3.org/2000/01/rdf-schema#comment> "This is used to dispatch loads to some offset from an agreed upon baseline. Note that the baseline may be the current power consumption." .
+<https://w3id.org/def/openadr#LoadDispatchDeltaSignal> <http://www.w3.org/2000/01/rdf-schema#label> "Load dispatch delta signal" .
+# 
+# https://w3id.org/def/openadr#LoadDispatchLevelSignal
+<https://w3id.org/def/openadr#LoadDispatchLevelSignal> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<https://w3id.org/def/openadr#LoadDispatchLevelSignal> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <https://w3id.org/def/openadr#LoadDispatchSignal> .
+<https://w3id.org/def/openadr#LoadDispatchLevelSignal> <http://www.w3.org/2000/01/rdf-schema#comment> "This is used to specify the load in terms of discrete levels." .
+<https://w3id.org/def/openadr#LoadDispatchLevelSignal> <http://www.w3.org/2000/01/rdf-schema#label> "Load dispatch level signal" .
+# 
+# https://w3id.org/def/openadr#LoadDispatchMultiplier
+<https://w3id.org/def/openadr#LoadDispatchMultiplier> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<https://w3id.org/def/openadr#LoadDispatchMultiplier> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <https://w3id.org/def/openadr#LoadDispatchSignal> .
+<https://w3id.org/def/openadr#LoadDispatchMultiplier> <http://www.w3.org/2000/01/rdf-schema#comment> "This is used to dispatch loads as some multiple of power against some agreed upon baseline. Note that the baseline may be the current power consumption." .
+<https://w3id.org/def/openadr#LoadDispatchMultiplier> <http://www.w3.org/2000/01/rdf-schema#label> "Load dispatch multiplier signal" .
+# 
+# https://w3id.org/def/openadr#LoadDispatchSetpointSignal
+<https://w3id.org/def/openadr#LoadDispatchSetpointSignal> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<https://w3id.org/def/openadr#LoadDispatchSetpointSignal> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <https://w3id.org/def/openadr#LoadDispatchSignal> .
+<https://w3id.org/def/openadr#LoadDispatchSetpointSignal> <http://www.w3.org/2000/01/rdf-schema#comment> "This is used to dispatch loads to a specific amount" .
+<https://w3id.org/def/openadr#LoadDispatchSetpointSignal> <http://www.w3.org/2000/01/rdf-schema#label> "Load dispatch setpoint signal" .
+# 
+# https://w3id.org/def/openadr#LoadDispatchSignal
+<https://w3id.org/def/openadr#LoadDispatchSignal> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<https://w3id.org/def/openadr#LoadDispatchSignal> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <https://w3id.org/def/openadr#Signal> .
+<https://w3id.org/def/openadr#LoadDispatchSignal> <http://www.w3.org/2000/01/rdf-schema#comment> "Instructions are used to set the load  values that can be expressed in terms of the desired load" .
+<https://w3id.org/def/openadr#LoadDispatchSignal> <http://www.w3.org/2000/01/rdf-schema#label> "Load dispatch signal" .
+# 
+# https://w3id.org/def/openadr#MetadataReport
+<https://w3id.org/def/openadr#MetadataReport> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<https://w3id.org/def/openadr#MetadataReport> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <https://w3id.org/def/openadr#Report> .
+<https://w3id.org/def/openadr#MetadataReport> <http://www.w3.org/2000/01/rdf-schema#isDefinedBy> "OpenADR 2.0 Demand Response Specification Profile B" .
+<https://w3id.org/def/openadr#MetadataReport> <http://www.w3.org/2000/01/rdf-schema#isDefinedBy> "The metadata report can contain a specification for one or more type of reports, each report having its own set of report descriptors and specifications" .
+<https://w3id.org/def/openadr#MetadataReport> <http://www.w3.org/2000/01/rdf-schema#label> "Metadata report" .
+# 
+# https://w3id.org/def/openadr#Node
+<https://w3id.org/def/openadr#Node> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<https://w3id.org/def/openadr#Node> <http://www.w3.org/2000/01/rdf-schema#subClassOf> _:genid13 .
+_:genid13 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Restriction> .
+_:genid13 <http://www.w3.org/2002/07/owl#onProperty> <https://w3id.org/def/openadr#sendsOpt> .
+_:genid13 <http://www.w3.org/2002/07/owl#someValuesFrom> <https://w3id.org/def/openadr#Opt> .
+<https://w3id.org/def/openadr#Node> <http://www.w3.org/2000/01/rdf-schema#subClassOf> _:genid14 .
+_:genid14 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Restriction> .
+_:genid14 <http://www.w3.org/2002/07/owl#onProperty> <https://w3id.org/def/openadr#sendsReport> .
+_:genid14 <http://www.w3.org/2002/07/owl#someValuesFrom> <https://w3id.org/def/openadr#Report> .
+<https://w3id.org/def/openadr#Node> <http://www.w3.org/2000/01/rdf-schema#comment> "Element that interacts with resources in the environment" .
+<https://w3id.org/def/openadr#Node> <http://www.w3.org/2000/01/rdf-schema#label> "Node" .
+# 
+# https://w3id.org/def/openadr#Opt
+<https://w3id.org/def/openadr#Opt> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<https://w3id.org/def/openadr#Opt> <http://www.w3.org/2000/01/rdf-schema#subClassOf> _:genid15 .
+_:genid15 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Restriction> .
+_:genid15 <http://www.w3.org/2002/07/owl#onProperty> <https://w3id.org/def/openadr#plans> .
+_:genid15 <http://www.w3.org/2002/07/owl#someValuesFrom> <https://w3id.org/def/openadr#Schedule> .
+<https://w3id.org/def/openadr#Opt> <http://www.w3.org/2000/01/rdf-schema#subClassOf> _:genid16 .
+_:genid16 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Restriction> .
+_:genid16 <http://www.w3.org/2002/07/owl#onProperty> <https://w3id.org/def/openadr#hasMarketContext> .
+_:genid16 <http://www.w3.org/2002/07/owl#someValuesFrom> <http://www.w3.org/2001/XMLSchema#anyURI> .
+<https://w3id.org/def/openadr#Opt> <http://www.w3.org/2000/01/rdf-schema#comment> "The expected response from the demand side resource owner upon receipt of an event." .
+<https://w3id.org/def/openadr#Opt> <http://www.w3.org/2000/01/rdf-schema#isDefinedBy> "OpenADR 2.0 Demand Response Program Implementation Guide" .
+<https://w3id.org/def/openadr#Opt> <http://www.w3.org/2000/01/rdf-schema#label> "Opt" .
+# 
+# https://w3id.org/def/openadr#OptIn
+<https://w3id.org/def/openadr#OptIn> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<https://w3id.org/def/openadr#OptIn> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <https://w3id.org/def/openadr#Opt> .
+<https://w3id.org/def/openadr#OptIn> <http://www.w3.org/2000/01/rdf-schema#isDefinedBy> "OpenADR 2.0 Demand Response Profile B" .
+<https://w3id.org/def/openadr#OptIn> <http://www.w3.org/2000/01/rdf-schema#label> "Opt In" .
+# 
+# https://w3id.org/def/openadr#OptOut
+<https://w3id.org/def/openadr#OptOut> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<https://w3id.org/def/openadr#OptOut> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <https://w3id.org/def/openadr#Opt> .
+<https://w3id.org/def/openadr#OptOut> <http://www.w3.org/2000/01/rdf-schema#isDefinedBy> "OpenADR 2.0 Demand Response Profile B" .
+<https://w3id.org/def/openadr#OptOut> <http://www.w3.org/2000/01/rdf-schema#label> "Opt Out" .
+# 
+# https://w3id.org/def/openadr#Report
+<https://w3id.org/def/openadr#Report> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<https://w3id.org/def/openadr#Report> <http://www.w3.org/2000/01/rdf-schema#subClassOf> _:genid17 .
+_:genid17 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Restriction> .
+_:genid17 <http://www.w3.org/2002/07/owl#onProperty> <https://w3id.org/def/openadr#isActiveDuringPeriod> .
+_:genid17 <http://www.w3.org/2002/07/owl#someValuesFrom> <http://www.w3.org/2006/time#Interval> .
+<https://w3id.org/def/openadr#Report> <http://www.w3.org/2000/01/rdf-schema#subClassOf> _:genid18 .
+_:genid18 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Restriction> .
+_:genid18 <http://www.w3.org/2002/07/owl#onProperty> <https://w3id.org/def/openadr#hasDuration> .
+_:genid18 <http://www.w3.org/2002/07/owl#allValuesFrom> <http://www.w3.org/2006/time#TemporalEntity> .
+<https://w3id.org/def/openadr#Report> <http://www.w3.org/2000/01/rdf-schema#subClassOf> _:genid19 .
+_:genid19 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Restriction> .
+_:genid19 <http://www.w3.org/2002/07/owl#onProperty> <https://w3id.org/def/openadr#hasCreatedDateTime> .
+_:genid19 <http://www.w3.org/2002/07/owl#someValuesFrom> <http://www.w3.org/2001/XMLSchema#dateTimeStamp> .
+<https://w3id.org/def/openadr#Report> <http://www.w3.org/2000/01/rdf-schema#subClassOf> _:genid20 .
+_:genid20 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Restriction> .
+_:genid20 <http://www.w3.org/2002/07/owl#onProperty> <https://w3id.org/def/openadr#hasReportId> .
+_:genid20 <http://www.w3.org/2002/07/owl#someValuesFrom> <http://www.w3.org/2000/01/rdf-schema#Literal> .
+<https://w3id.org/def/openadr#Report> <http://www.w3.org/2000/01/rdf-schema#subClassOf> _:genid21 .
+_:genid21 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Restriction> .
+_:genid21 <http://www.w3.org/2002/07/owl#onProperty> <https://w3id.org/def/openadr#hasReportType> .
+_:genid21 <http://www.w3.org/2002/07/owl#someValuesFrom> <http://www.w3.org/2000/01/rdf-schema#Literal> .
+<https://w3id.org/def/openadr#Report> <http://www.w3.org/2000/01/rdf-schema#subClassOf> _:genid22 .
+_:genid22 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Restriction> .
+_:genid22 <http://www.w3.org/2002/07/owl#onProperty> <https://w3id.org/def/openadr#starts> .
+_:genid22 <http://www.w3.org/2002/07/owl#someValuesFrom> <http://www.w3.org/2001/XMLSchema#dateTimeStamp> .
+<https://w3id.org/def/openadr#Report> <http://www.w3.org/2000/01/rdf-schema#comment> "Report sent from a VEN to a VTN to report the energy consumption or the status of Resources connected to the VEN" .
+<https://w3id.org/def/openadr#Report> <http://www.w3.org/2000/01/rdf-schema#isDefinedBy> "OpenADR 2.0 Demand Response Specification Profile B" .
+<https://w3id.org/def/openadr#Report> <http://www.w3.org/2000/01/rdf-schema#label> "Report" .
+# 
+# https://w3id.org/def/openadr#ReportDataDescriptor
+<https://w3id.org/def/openadr#ReportDataDescriptor> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<https://w3id.org/def/openadr#ReportDataDescriptor> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <https://w3id.org/def/openadr#ReportDescriptor> .
+<https://w3id.org/def/openadr#ReportDataDescriptor> <http://www.w3.org/2000/01/rdf-schema#comment> "Part of the OpenADR report object that describes the data included in the descriptor report" .
+<https://w3id.org/def/openadr#ReportDataDescriptor> <http://www.w3.org/2000/01/rdf-schema#label> "Report data descriptor" .
+# 
+# https://w3id.org/def/openadr#ReportDataPayload
+<https://w3id.org/def/openadr#ReportDataPayload> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<https://w3id.org/def/openadr#ReportDataPayload> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <https://w3id.org/def/openadr#ReportPayload> .
+<https://w3id.org/def/openadr#ReportDataPayload> <http://www.w3.org/2000/01/rdf-schema#comment> "Part of the OpenADR report object that includes the data sent to a node" .
+<https://w3id.org/def/openadr#ReportDataPayload> <http://www.w3.org/2000/01/rdf-schema#label> "Report data payload" .
+# 
+# https://w3id.org/def/openadr#ReportDescriptor
+<https://w3id.org/def/openadr#ReportDescriptor> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<https://w3id.org/def/openadr#ReportDescriptor> <http://www.w3.org/2000/01/rdf-schema#subClassOf> _:genid23 .
+_:genid23 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Restriction> .
+_:genid23 <http://www.w3.org/2002/07/owl#onProperty> <https://w3id.org/def/openadr#involvesSubject> .
+_:genid23 <http://www.w3.org/2002/07/owl#someValuesFrom> <https://w3id.org/def/openadr#Group> .
+<https://w3id.org/def/openadr#ReportDescriptor> <http://www.w3.org/2000/01/rdf-schema#subClassOf> _:genid24 .
+_:genid24 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Restriction> .
+_:genid24 <http://www.w3.org/2002/07/owl#onProperty> <https://w3id.org/def/openadr#hasSamplingRate> .
+_:genid24 <http://www.w3.org/2002/07/owl#allValuesFrom> <https://w3id.org/def/openadr#SamplingRate> .
+<https://w3id.org/def/openadr#ReportDescriptor> <http://www.w3.org/2000/01/rdf-schema#comment> "Part of the OpenADR report object that describes metadata about the report" .
+<https://w3id.org/def/openadr#ReportDescriptor> <http://www.w3.org/2000/01/rdf-schema#isDefinedBy> "OpenADR 2.0 Demand Response Program Implementation Guide" .
+<https://w3id.org/def/openadr#ReportDescriptor> <http://www.w3.org/2000/01/rdf-schema#label> "Report descriptor" .
+# 
+# https://w3id.org/def/openadr#ReportPayload
+<https://w3id.org/def/openadr#ReportPayload> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<https://w3id.org/def/openadr#ReportPayload> <http://www.w3.org/2000/01/rdf-schema#subClassOf> _:genid25 .
+_:genid25 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Restriction> .
+_:genid25 <http://www.w3.org/2002/07/owl#onProperty> <https://w3id.org/def/openadr#hasAccuracy> .
+_:genid25 <http://www.w3.org/2002/07/owl#someValuesFrom> <http://www.w3.org/2001/XMLSchema#string> .
+<https://w3id.org/def/openadr#ReportPayload> <http://www.w3.org/2000/01/rdf-schema#subClassOf> _:genid26 .
+_:genid26 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Restriction> .
+_:genid26 <http://www.w3.org/2002/07/owl#onProperty> <https://w3id.org/def/openadr#hasDataQuality> .
+_:genid26 <http://www.w3.org/2002/07/owl#someValuesFrom> <http://www.w3.org/2001/XMLSchema#string> .
+<https://w3id.org/def/openadr#ReportPayload> <http://www.w3.org/2000/01/rdf-schema#comment> "Payload associated to every report" .
+<https://w3id.org/def/openadr#ReportPayload> <http://www.w3.org/2000/01/rdf-schema#label> "Report payload" .
+# 
+# https://w3id.org/def/openadr#ReportStatusDescriptor
+<https://w3id.org/def/openadr#ReportStatusDescriptor> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<https://w3id.org/def/openadr#ReportStatusDescriptor> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <https://w3id.org/def/openadr#ReportDescriptor> .
+<https://w3id.org/def/openadr#ReportStatusDescriptor> <http://www.w3.org/2000/01/rdf-schema#comment> "Part of the OpenADR report object that describes the status of the descriptor report" .
+<https://w3id.org/def/openadr#ReportStatusDescriptor> <http://www.w3.org/2000/01/rdf-schema#label> "Report status descriptor" .
+# 
+# https://w3id.org/def/openadr#ReportStatusPayload
+<https://w3id.org/def/openadr#ReportStatusPayload> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<https://w3id.org/def/openadr#ReportStatusPayload> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <https://w3id.org/def/openadr#ReportPayload> .
+<https://w3id.org/def/openadr#ReportStatusPayload> <http://www.w3.org/2000/01/rdf-schema#comment> "Part of the OpenADR report object that includes the status  of the payload report" .
+<https://w3id.org/def/openadr#ReportStatusPayload> <http://www.w3.org/2000/01/rdf-schema#label> "Report status payload" .
+# 
+# https://w3id.org/def/openadr#Resource
+<https://w3id.org/def/openadr#Resource> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<https://w3id.org/def/openadr#Resource> <http://www.w3.org/2000/01/rdf-schema#comment> "Entity that is enrolled in the DR Programs and is capable of delivering some sort of change to their load profile in response to receiving a DR signal from a VTN." .
+<https://w3id.org/def/openadr#Resource> <http://www.w3.org/2000/01/rdf-schema#isDefinedBy> "OpenADR 2.0 Demand Response Program Implementation Guide" .
+<https://w3id.org/def/openadr#Resource> <http://www.w3.org/2000/01/rdf-schema#label> "Resource" .
+# 
+# https://w3id.org/def/openadr#SamplingRate
+<https://w3id.org/def/openadr#SamplingRate> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<https://w3id.org/def/openadr#SamplingRate> <http://www.w3.org/2000/01/rdf-schema#subClassOf> _:genid27 .
+_:genid27 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Restriction> .
+_:genid27 <http://www.w3.org/2002/07/owl#onProperty> <https://w3id.org/def/openadr#hasItemBase> .
+_:genid27 <http://www.w3.org/2002/07/owl#someValuesFrom> <https://w3id.org/def/openadr#Item> .
+<https://w3id.org/def/openadr#SamplingRate> <http://www.w3.org/2000/01/rdf-schema#subClassOf> _:genid28 .
+_:genid28 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Restriction> .
+_:genid28 <http://www.w3.org/2002/07/owl#onProperty> <https://w3id.org/def/openadr#hasMaxPeriod> .
+_:genid28 <http://www.w3.org/2002/07/owl#allValuesFrom> <http://www.w3.org/2006/time#TemporalEntity> .
+<https://w3id.org/def/openadr#SamplingRate> <http://www.w3.org/2000/01/rdf-schema#subClassOf> _:genid29 .
+_:genid29 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Restriction> .
+_:genid29 <http://www.w3.org/2002/07/owl#onProperty> <https://w3id.org/def/openadr#hasMinPeriod> .
+_:genid29 <http://www.w3.org/2002/07/owl#allValuesFrom> <http://www.w3.org/2006/time#TemporalEntity> .
+<https://w3id.org/def/openadr#SamplingRate> <http://www.w3.org/2000/01/rdf-schema#subClassOf> _:genid30 .
+_:genid30 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Restriction> .
+_:genid30 <http://www.w3.org/2002/07/owl#onProperty> <https://w3id.org/def/openadr#isOnChange> .
+_:genid30 <http://www.w3.org/2002/07/owl#someValuesFrom> <http://www.w3.org/2001/XMLSchema#boolean> .
+<https://w3id.org/def/openadr#SamplingRate> <http://www.w3.org/2000/01/rdf-schema#comment> "The average number of samples obtained in one second" .
+<https://w3id.org/def/openadr#SamplingRate> <http://www.w3.org/2000/01/rdf-schema#label> "Sampling rate" .
+# 
+# https://w3id.org/def/openadr#Schedule
+<https://w3id.org/def/openadr#Schedule> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<https://w3id.org/def/openadr#Schedule> <http://www.w3.org/2000/01/rdf-schema#subClassOf> _:genid31 .
+_:genid31 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Restriction> .
+_:genid31 <http://www.w3.org/2002/07/owl#onProperty> <https://w3id.org/def/openadr#isAvailableDuring> .
+_:genid31 <http://www.w3.org/2002/07/owl#someValuesFrom> <http://www.w3.org/2006/time#Interval> .
+<https://w3id.org/def/openadr#Schedule> <http://www.w3.org/2000/01/rdf-schema#subClassOf> _:genid32 .
+_:genid32 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Restriction> .
+_:genid32 <http://www.w3.org/2002/07/owl#onProperty> <https://w3id.org/def/openadr#isUnavailableDuring> .
+_:genid32 <http://www.w3.org/2002/07/owl#someValuesFrom> <http://www.w3.org/2006/time#Interval> .
+<https://w3id.org/def/openadr#Schedule> <http://www.w3.org/2000/01/rdf-schema#subClassOf> _:genid33 .
+_:genid33 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Restriction> .
+_:genid33 <http://www.w3.org/2002/07/owl#onProperty> <https://w3id.org/def/openadr#refersToTarget> .
+_:genid33 <http://www.w3.org/2002/07/owl#someValuesFrom> <https://w3id.org/def/openadr#Group> .
+<https://w3id.org/def/openadr#Schedule> <http://www.w3.org/2000/01/rdf-schema#comment> "Schedule of a target" .
+<https://w3id.org/def/openadr#Schedule> <http://www.w3.org/2000/01/rdf-schema#label> "Schedule" .
+# 
+# https://w3id.org/def/openadr#ServiceArea
+<https://w3id.org/def/openadr#ServiceArea> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<https://w3id.org/def/openadr#ServiceArea> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <http://www.opengis.net/ont/geosparql#Feature> .
+<https://w3id.org/def/openadr#ServiceArea> <http://www.w3.org/2000/01/rdf-schema#comment> "The Service Area expresses locations or geographic regions relevant to price communication" .
+<https://w3id.org/def/openadr#ServiceArea> <http://www.w3.org/2000/01/rdf-schema#isDefinedBy> "OASIS Energy Market Information Exchange (EMIX)" .
+<https://w3id.org/def/openadr#ServiceArea> <http://www.w3.org/2000/01/rdf-schema#label> "Service Area" .
+# 
+# https://w3id.org/def/openadr#Signal
+<https://w3id.org/def/openadr#Signal> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<https://w3id.org/def/openadr#Signal> <http://www.w3.org/2000/01/rdf-schema#subClassOf> _:genid34 .
+_:genid34 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Restriction> .
+_:genid34 <http://www.w3.org/2002/07/owl#onProperty> <https://w3id.org/def/openadr#hasSignalType> .
+_:genid34 <http://www.w3.org/2002/07/owl#someValuesFrom> <https://w3id.org/def/openadr#SignalType> .
+<https://w3id.org/def/openadr#Signal> <http://www.w3.org/2000/01/rdf-schema#subClassOf> _:genid35 .
+_:genid35 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Restriction> .
+_:genid35 <http://www.w3.org/2002/07/owl#onProperty> <https://w3id.org/def/openadr#hasTarget> .
+_:genid35 <http://www.w3.org/2002/07/owl#someValuesFrom> <https://w3id.org/def/openadr#Group> .
+<https://w3id.org/def/openadr#Signal> <http://www.w3.org/2000/01/rdf-schema#subClassOf> _:genid36 .
+_:genid36 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Restriction> .
+_:genid36 <http://www.w3.org/2002/07/owl#onProperty> <https://w3id.org/def/openadr#isDefinedIn> .
+_:genid36 <http://www.w3.org/2002/07/owl#someValuesFrom> <https://w3id.org/def/openadr#SignalInterval> .
+<https://w3id.org/def/openadr#Signal> <http://www.w3.org/2000/01/rdf-schema#comment> "The actionable information contained in an event such as electricity pricing or specific levels of load shed requested that typically trigger some preprogrammed load shed behavior by the recipient of the event." .
+<https://w3id.org/def/openadr#Signal> <http://www.w3.org/2000/01/rdf-schema#isDefinedBy> "OpenADR 2.0 Demand Response Program Implementation Guide" .
+<https://w3id.org/def/openadr#Signal> <http://www.w3.org/2000/01/rdf-schema#label> "Signal" .
+# 
+# https://w3id.org/def/openadr#SignalInterval
+<https://w3id.org/def/openadr#SignalInterval> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<https://w3id.org/def/openadr#SignalInterval> <http://www.w3.org/2000/01/rdf-schema#comment> "Interval of time where a signal is active" .
+<https://w3id.org/def/openadr#SignalInterval> <http://www.w3.org/2000/01/rdf-schema#label> "Signal Interval" .
+# 
+# https://w3id.org/def/openadr#SignalType
+<https://w3id.org/def/openadr#SignalType> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<https://w3id.org/def/openadr#SignalType> <http://www.w3.org/2000/01/rdf-schema#comment> "Type of a signal" .
+<https://w3id.org/def/openadr#SignalType> <http://www.w3.org/2000/01/rdf-schema#label> "Signal Type" .
+# 
+# https://w3id.org/def/openadr#SimpleSignal
+<https://w3id.org/def/openadr#SimpleSignal> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<https://w3id.org/def/openadr#SimpleSignal> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <https://w3id.org/def/openadr#Signal> .
+<https://w3id.org/def/openadr#SimpleSignal> <http://www.w3.org/2000/01/rdf-schema#comment> "Signal for signal levels" .
+<https://w3id.org/def/openadr#SimpleSignal> <http://www.w3.org/2000/01/rdf-schema#label> "Simple signal" .
+# 
+# https://w3id.org/def/openadr#TelemetryReport
+<https://w3id.org/def/openadr#TelemetryReport> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<https://w3id.org/def/openadr#TelemetryReport> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <https://w3id.org/def/openadr#DataReport> .
+<https://w3id.org/def/openadr#TelemetryReport> <http://www.w3.org/2000/01/rdf-schema#subClassOf> _:genid37 .
+_:genid37 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Restriction> .
+_:genid37 <http://www.w3.org/2002/07/owl#onProperty> <https://w3id.org/def/openadr#hasLoadControlState> .
+_:genid37 <http://www.w3.org/2002/07/owl#someValuesFrom> <https://w3id.org/def/openadr#LoadControlState> .
+<https://w3id.org/def/openadr#TelemetryReport> <http://www.w3.org/2000/01/rdf-schema#comment> "The term telemetry in the context of OpenADR refers to data that is reported periodically in real time" .
+<https://w3id.org/def/openadr#TelemetryReport> <http://www.w3.org/2000/01/rdf-schema#isDefinedBy> "OpenADR 2.0 Demand Response Specification Profile B" .
+<https://w3id.org/def/openadr#TelemetryReport> <http://www.w3.org/2000/01/rdf-schema#label> "Telemetry report" .
+# 
+# https://w3id.org/def/openadr#TelemetryStatusReport
+<https://w3id.org/def/openadr#TelemetryStatusReport> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<https://w3id.org/def/openadr#TelemetryStatusReport> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <https://w3id.org/def/openadr#TelemetryReport> .
+<https://w3id.org/def/openadr#TelemetryStatusReport> <http://www.w3.org/2000/01/rdf-schema#comment> "This is usage data that is periodically reported from the VEN to the VTN in real time" .
+<https://w3id.org/def/openadr#TelemetryStatusReport> <http://www.w3.org/2000/01/rdf-schema#isDefinedBy> "OpenADR 2.0 Demand Response Specification Profile B" .
+<https://w3id.org/def/openadr#TelemetryStatusReport> <http://www.w3.org/2000/01/rdf-schema#label> "Telemetry status report" .
+# 
+# https://w3id.org/def/openadr#TelemetryUsageReport
+<https://w3id.org/def/openadr#TelemetryUsageReport> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<https://w3id.org/def/openadr#TelemetryUsageReport> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <https://w3id.org/def/openadr#TelemetryReport> .
+<https://w3id.org/def/openadr#TelemetryUsageReport> <http://www.w3.org/2000/01/rdf-schema#comment> "This is the status of a resource, which may be periodically reported from the VEN to the VTN" .
+<https://w3id.org/def/openadr#TelemetryUsageReport> <http://www.w3.org/2000/01/rdf-schema#isDefinedBy> "OpenADR 2.0 Demand Response Specification Profile B" .
+<https://w3id.org/def/openadr#TelemetryUsageReport> <http://www.w3.org/2000/01/rdf-schema#label> "Telemetry usage report" .
+# 
+# https://w3id.org/def/openadr#VEN
+<https://w3id.org/def/openadr#VEN> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<https://w3id.org/def/openadr#VEN> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <https://w3id.org/def/openadr#Node> .
+<https://w3id.org/def/openadr#VEN> <http://www.w3.org/2000/01/rdf-schema#subClassOf> _:genid38 .
+_:genid38 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Restriction> .
+_:genid38 <http://www.w3.org/2002/07/owl#onProperty> <https://w3id.org/def/openadr#manages> .
+_:genid38 <http://www.w3.org/2002/07/owl#someValuesFrom> <https://w3id.org/def/openadr#Resource> .
+<https://w3id.org/def/openadr#VEN> <http://www.w3.org/2000/01/rdf-schema#comment> "This is the OpenADR Virtual End Node that is used to interact with the VTN" .
+<https://w3id.org/def/openadr#VEN> <http://www.w3.org/2000/01/rdf-schema#isDefinedBy> "OpenADR 2.0 Demand Response Program Implementation Guide" .
+<https://w3id.org/def/openadr#VEN> <http://www.w3.org/2000/01/rdf-schema#label> "Virtual End Node (VEN)" .
+# 
+# https://w3id.org/def/openadr#VTN
+<https://w3id.org/def/openadr#VTN> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<https://w3id.org/def/openadr#VTN> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <https://w3id.org/def/openadr#Node> .
+<https://w3id.org/def/openadr#VTN> <http://www.w3.org/2000/01/rdf-schema#subClassOf> _:genid39 .
+_:genid39 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Restriction> .
+_:genid39 <http://www.w3.org/2002/07/owl#onProperty> <https://w3id.org/def/openadr#sendsEvent> .
+_:genid39 <http://www.w3.org/2002/07/owl#someValuesFrom> <https://w3id.org/def/openadr#Event> .
+<https://w3id.org/def/openadr#VTN> <http://www.w3.org/2000/01/rdf-schema#comment> "This is the OpenADR Virtual Top Node that is used to interact with the Resources enrolled in the DR Programs." .
+<https://w3id.org/def/openadr#VTN> <http://www.w3.org/2000/01/rdf-schema#isDefinedBy> "OpenADR 2.0 Demand Response Program Implementation Guide" .
+<https://w3id.org/def/openadr#VTN> <http://www.w3.org/2000/01/rdf-schema#label> "Virtual Top Node (VTN)" .
+# 
+# 
+# 
+# #################################################################
+# #
+# #    Individuals
+# #
+# #################################################################
+# 
+# 
+# https://w3id.org/def/openadr#Active
+<https://w3id.org/def/openadr#Active> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#NamedIndividual> .
+<https://w3id.org/def/openadr#Active> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <https://w3id.org/def/openadr#EventStatus> .
+<https://w3id.org/def/openadr#Active> <http://www.w3.org/2000/01/rdf-schema#comment> "Active status" .
+<https://w3id.org/def/openadr#Active> <http://www.w3.org/2000/01/rdf-schema#label> "Active" .
+# 
+# https://w3id.org/def/openadr#Canceled
+<https://w3id.org/def/openadr#Canceled> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#NamedIndividual> .
+<https://w3id.org/def/openadr#Canceled> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <https://w3id.org/def/openadr#EventStatus> .
+<https://w3id.org/def/openadr#Canceled> <http://www.w3.org/2000/01/rdf-schema#comment> "Canceled status" .
+<https://w3id.org/def/openadr#Canceled> <http://www.w3.org/2000/01/rdf-schema#label> "Canceled" .
+# 
+# https://w3id.org/def/openadr#Completed
+<https://w3id.org/def/openadr#Completed> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#NamedIndividual> .
+<https://w3id.org/def/openadr#Completed> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <https://w3id.org/def/openadr#EventStatus> .
+<https://w3id.org/def/openadr#Completed> <http://www.w3.org/2000/01/rdf-schema#comment> "Completed status" .
+<https://w3id.org/def/openadr#Completed> <http://www.w3.org/2000/01/rdf-schema#label> "Completed" .
+# 
+# https://w3id.org/def/openadr#Far
+<https://w3id.org/def/openadr#Far> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#NamedIndividual> .
+<https://w3id.org/def/openadr#Far> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <https://w3id.org/def/openadr#EventStatus> .
+<https://w3id.org/def/openadr#Far> <http://www.w3.org/2000/01/rdf-schema#comment> "Far status" .
+<https://w3id.org/def/openadr#Far> <http://www.w3.org/2000/01/rdf-schema#label> "Far" .
+# 
+# https://w3id.org/def/openadr#Near
+<https://w3id.org/def/openadr#Near> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#NamedIndividual> .
+<https://w3id.org/def/openadr#Near> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <https://w3id.org/def/openadr#EventStatus> .
+<https://w3id.org/def/openadr#Near> <http://www.w3.org/2000/01/rdf-schema#comment> "Near status" .
+<https://w3id.org/def/openadr#Near> <http://www.w3.org/2000/01/rdf-schema#label> "Near" .
+# 
+# https://w3id.org/def/openadr#None
+<https://w3id.org/def/openadr#None> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#NamedIndividual> .
+<https://w3id.org/def/openadr#None> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <https://w3id.org/def/openadr#EventStatus> .
+<https://w3id.org/def/openadr#None> <http://www.w3.org/2000/01/rdf-schema#comment> "None status" .
+<https://w3id.org/def/openadr#None> <http://www.w3.org/2000/01/rdf-schema#label> "None" .
+# 
+_:genid40 <http://www.w3.org/2002/07/owl#qualifiedCardinality> "1"^^<http://www.w3.org/2001/XMLSchema#nonNegativeInteger> .
+# Generated by the OWL API (version 5.1.14) https://github.com/owlcs/owlapi/

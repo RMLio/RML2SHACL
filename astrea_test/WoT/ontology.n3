@@ -1,0 +1,137 @@
+<http://iot.linkeddata.es/def/wot-mappings#hasAccessMapping> <http://www.w3.org/2000/01/rdf-schema#label> "has access mapping"@en .
+<http://iot.linkeddata.es/def/wot-mappings#hasAccessMapping> <http://www.w3.org/2000/01/rdf-schema#comment> "Link between a thing description and the access mapping that can be used to access the information provided in the endpoints exposes by such thing description. This class acts as an n-ary pattern linking the enpoints with the spedific mappings."@en .
+<http://iot.linkeddata.es/def/wot-mappings#hasAccessMapping> <http://www.w3.org/2000/01/rdf-schema#range> <http://iot.linkeddata.es/def/wot-mappings#AccessMapping> .
+<http://iot.linkeddata.es/def/wot-mappings#hasAccessMapping> <http://www.w3.org/2000/01/rdf-schema#domain> <http://iot.linkeddata.es/def/core#ThingDescription> .
+<http://iot.linkeddata.es/def/wot-mappings#hasAccessMapping> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<http://iot.linkeddata.es/def/wot-mappings#hasMapping> <http://www.w3.org/2000/01/rdf-schema#label> "has mapping"@en .
+<http://iot.linkeddata.es/def/wot-mappings#hasMapping> <http://www.w3.org/2000/01/rdf-schema#comment> "Link between the access mappings to specific mappings."@en .
+<http://iot.linkeddata.es/def/wot-mappings#hasMapping> <http://www.w3.org/2000/01/rdf-schema#range> <http://iot.linkeddata.es/def/wot-mappings#Mapping> .
+<http://iot.linkeddata.es/def/wot-mappings#hasMapping> <http://www.w3.org/2000/01/rdf-schema#domain> <http://iot.linkeddata.es/def/wot-mappings#AccessMapping> .
+<http://iot.linkeddata.es/def/wot-mappings#hasMapping> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<http://iot.linkeddata.es/def/wot-mappings#targetDatatype> <http://www.w3.org/2000/01/rdf-schema#label> "target datatype"@en .
+<http://iot.linkeddata.es/def/wot-mappings#targetDatatype> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.w3.org/2000/01/rdf-schema#Datatype> .
+<http://iot.linkeddata.es/def/wot-mappings#targetDatatype> <http://www.w3.org/2000/01/rdf-schema#domain> <http://iot.linkeddata.es/def/wot-mappings#DatatypePropertyMapping> .
+<http://iot.linkeddata.es/def/wot-mappings#targetDatatype> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<http://iot.linkeddata.es/def/wot-mappings#AccessMapping> <http://www.w3.org/2000/01/rdf-schema#label> "Access mapping"@en .
+<http://iot.linkeddata.es/def/wot-mappings#AccessMapping> <http://www.w3.org/2000/01/rdf-schema#comment> "This class allows the linking between one or more mappings that are executed against a given endpoint." .
+<http://iot.linkeddata.es/def/wot-mappings#AccessMapping> <http://www.w3.org/2000/01/rdf-schema#subClassOf> _:A2418f3e3X3aX15bed0cbf56X3aXX2dX7ffb .
+<http://iot.linkeddata.es/def/wot-mappings#AccessMapping> <http://www.w3.org/2000/01/rdf-schema#subClassOf> _:A2418f3e3X3aX15bed0cbf56X3aXX2dX7ffc .
+<http://iot.linkeddata.es/def/wot-mappings#AccessMapping> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<http://purl.org/dc/terms/contributor> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#AnnotationProperty> .
+<http://iot.linkeddata.es/def/wot-mappings#predicate> <http://www.w3.org/2000/01/rdf-schema#label> "predicate"@en .
+<http://iot.linkeddata.es/def/wot-mappings#predicate> <http://www.w3.org/2000/01/rdf-schema#comment> "Link from a mapping an the property or properties to which the key should be mapped to. The property could be RDF properties or OWL object or datatype properties."@en .
+<http://iot.linkeddata.es/def/wot-mappings#predicate> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<http://iot.linkeddata.es/def/wot-mappings#key> <http://www.w3.org/2000/01/rdf-schema#label> "key"@en .
+<http://iot.linkeddata.es/def/wot-mappings#key> <http://www.w3.org/2000/01/rdf-schema#comment> "Field to be mapped from the endpoint"@en .
+<http://iot.linkeddata.es/def/wot-mappings#key> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.w3.org/2001/XMLSchema#string> .
+<http://iot.linkeddata.es/def/wot-mappings#key> <http://www.w3.org/2000/01/rdf-schema#domain> <http://iot.linkeddata.es/def/wot-mappings#Mapping> .
+<http://iot.linkeddata.es/def/wot-mappings#key> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#DatatypeProperty> .
+_:A2418f3e3X3aX15bed0cbf56X3aXX2dX7ff5 <http://www.w3.org/2002/07/owl#onClass> <http://www.w3.org/1999/02/22-rdf-syntax-ns#Property> .
+_:A2418f3e3X3aX15bed0cbf56X3aXX2dX7ff5 <http://www.w3.org/2002/07/owl#minQualifiedCardinality> "1"^^<http://www.w3.org/2001/XMLSchema#nonNegativeInteger> .
+_:A2418f3e3X3aX15bed0cbf56X3aXX2dX7ff5 <http://www.w3.org/2002/07/owl#onProperty> <http://iot.linkeddata.es/def/wot-mappings#predicate> .
+_:A2418f3e3X3aX15bed0cbf56X3aXX2dX7ff5 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Restriction> .
+<http://www.w3.org/1999/02/22-rdf-syntax-ns#Property> <http://www.w3.org/2000/01/rdf-schema#isDefinedBy> <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+<http://www.w3.org/1999/02/22-rdf-syntax-ns#Property> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<http://iot.linkeddata.es/def/wot-mappings#targetClass> <http://www.w3.org/2000/01/rdf-schema#label> "target class"@en .
+<http://iot.linkeddata.es/def/wot-mappings#targetClass> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.w3.org/2002/07/owl#Class> .
+<http://iot.linkeddata.es/def/wot-mappings#targetClass> <http://www.w3.org/2000/01/rdf-schema#domain> <http://iot.linkeddata.es/def/wot-mappings#ObjectPropertyMapping> .
+<http://iot.linkeddata.es/def/wot-mappings#targetClass> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<http://iot.linkeddata.es/def/wot-mappings#DatatypePropertyMapping> <http://www.w3.org/2000/01/rdf-schema#label> "Datatype property mapping"@en .
+<http://iot.linkeddata.es/def/wot-mappings#DatatypePropertyMapping> <http://www.w3.org/2000/01/rdf-schema#comment> "An entity specialized from Mapping than indicates the relation between a given key (provided as structure data in an online resource) and the OWL datatype property to which the values should be mapped and optionally the rdfs datatype in which the values are expressed."@en .
+<http://iot.linkeddata.es/def/wot-mappings#DatatypePropertyMapping> <http://www.w3.org/2000/01/rdf-schema#subClassOf> _:A2418f3e3X3aX15bed0cbf56X3aXX2dX7ff9 .
+<http://iot.linkeddata.es/def/wot-mappings#DatatypePropertyMapping> <http://www.w3.org/2000/01/rdf-schema#subClassOf> _:A2418f3e3X3aX15bed0cbf56X3aXX2dX7ffa .
+<http://iot.linkeddata.es/def/wot-mappings#DatatypePropertyMapping> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <http://iot.linkeddata.es/def/wot-mappings#Mapping> .
+<http://iot.linkeddata.es/def/wot-mappings#DatatypePropertyMapping> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<http://iot.linkeddata.es/def/wot-mappings#exposes> <http://www.w3.org/2000/01/rdf-schema#label> "exposes"@en .
+<http://iot.linkeddata.es/def/wot-mappings#exposes> <http://www.w3.org/2000/01/rdf-schema#comment> "Link from a thing description to the endpoints in which it exposes information"@en .
+<http://iot.linkeddata.es/def/wot-mappings#exposes> <http://www.w3.org/2000/01/rdf-schema#range> <http://iot.linkeddata.es/def/wot#Endpoint> .
+<http://iot.linkeddata.es/def/wot-mappings#exposes> <http://www.w3.org/2000/01/rdf-schema#domain> <http://iot.linkeddata.es/def/core#ThingDescription> .
+<http://iot.linkeddata.es/def/wot-mappings#exposes> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<http://www.w3.org/2002/07/owl#DatatypeProperty> <http://www.w3.org/2000/01/rdf-schema#isDefinedBy> <http://www.w3.org/2002/07/owl#> .
+<http://www.w3.org/2002/07/owl#DatatypeProperty> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <http://www.w3.org/1999/02/22-rdf-syntax-ns#Property> .
+<http://www.w3.org/2002/07/owl#DatatypeProperty> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<http://www.w3.org/2002/07/owl#ObjectProperty> <http://www.w3.org/2000/01/rdf-schema#isDefinedBy> <http://www.w3.org/2002/07/owl#> .
+<http://www.w3.org/2002/07/owl#ObjectProperty> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <http://www.w3.org/1999/02/22-rdf-syntax-ns#Property> .
+<http://www.w3.org/2002/07/owl#ObjectProperty> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<http://iot.linkeddata.es/def/wot-mappings#ObjectPropertyMapping> <http://www.w3.org/2000/01/rdf-schema#label> "Object property mapping"@en .
+<http://iot.linkeddata.es/def/wot-mappings#ObjectPropertyMapping> <http://www.w3.org/2000/01/rdf-schema#comment> "An entity specialized from Mapping than indicates the relation between a given key (provided as structure data in an online resource) and the OWL object property to which the values should be mapped and optionally the rdfs class or classes that the target instances belong to."@en .
+<http://iot.linkeddata.es/def/wot-mappings#ObjectPropertyMapping> <http://www.w3.org/2000/01/rdf-schema#subClassOf> _:A2418f3e3X3aX15bed0cbf56X3aXX2dX7ff1 .
+<http://iot.linkeddata.es/def/wot-mappings#ObjectPropertyMapping> <http://www.w3.org/2000/01/rdf-schema#subClassOf> _:A2418f3e3X3aX15bed0cbf56X3aXX2dX7ff2 .
+<http://iot.linkeddata.es/def/wot-mappings#ObjectPropertyMapping> <http://www.w3.org/2000/01/rdf-schema#subClassOf> _:A2418f3e3X3aX15bed0cbf56X3aXX2dX7ff3 .
+<http://iot.linkeddata.es/def/wot-mappings#ObjectPropertyMapping> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <http://iot.linkeddata.es/def/wot-mappings#Mapping> .
+<http://iot.linkeddata.es/def/wot-mappings#ObjectPropertyMapping> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+_:A2418f3e3X3aX15bed0cbf56X3aXX2dX7ff4 <http://www.w3.org/2002/07/owl#someValuesFrom> <http://www.w3.org/2001/XMLSchema#string> .
+_:A2418f3e3X3aX15bed0cbf56X3aXX2dX7ff4 <http://www.w3.org/2002/07/owl#onProperty> <http://iot.linkeddata.es/def/wot-mappings#key> .
+_:A2418f3e3X3aX15bed0cbf56X3aXX2dX7ff4 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Restriction> .
+<http://www.w3.org/2000/01/rdf-schema#Datatype> <http://www.w3.org/2000/01/rdf-schema#isDefinedBy> <http://www.w3.org/2000/01/rdf-schema#> .
+<http://www.w3.org/2000/01/rdf-schema#Datatype> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<http://iot.linkeddata.es/def/wot-mappings#> <http://www.w3.org/2002/07/owl#imports> <http://iot.linkeddata.es/def/wot#> .
+<http://iot.linkeddata.es/def/wot-mappings#> <http://purl.org/vocab/vann/preferredNamespacePrefix> "vcnt-map" .
+<http://iot.linkeddata.es/def/wot-mappings#> <http://www.w3.org/2002/07/owl#versionInfo> "0.0.3" .
+<http://iot.linkeddata.es/def/wot-mappings#> <http://purl.org/dc/elements/1.1/title> "Vicinity WoT mappings model"@en .
+<http://iot.linkeddata.es/def/wot-mappings#> <http://purl.org/dc/terms/license> <http://purl.org/NET/rdflicense/cc-by4.0> .
+<http://iot.linkeddata.es/def/wot-mappings#> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Ontology> .
+<http://iot.linkeddata.es/def/wot-mappings#> <http://www.w3.org/2000/01/rdf-schema#comment> "This ontology represent the mapping definitionts between WoT to allow interoperability in an IoT context based on VICINITY technological solutions."@en .
+<http://iot.linkeddata.es/def/wot-mappings#> <http://purl.org/dc/elements/1.1/publisher> <http://www.oeg-upm.net/> .
+<http://iot.linkeddata.es/def/wot-mappings#> <http://www.w3.org/2002/07/owl#imports> <http://iot.linkeddata.es/def/core#> .
+<http://iot.linkeddata.es/def/wot-mappings#> <http://purl.org/vocab/vann/preferredNamespaceUri> "http://iot.linkeddata.es/def/wot-mappings" .
+<http://iot.linkeddata.es/def/wot-mappings#> <http://purl.org/dc/terms/creator> <http://www.garcia-castro.com/foaf.rdf#me> .
+<http://iot.linkeddata.es/def/wot-mappings#> <http://purl.org/dc/terms/creator> <http://purl.org/net/mpoveda> .
+<http://iot.linkeddata.es/def/wot-mappings#> <http://purl.org/dc/terms/contributor> <http://www.oeg-upm.net/index.php/en/universitystaff/402-fserena/> .
+<http://iot.linkeddata.es/def/wot-mappings#jsonPath> <http://www.w3.org/2000/01/rdf-schema#label> "JSON path"@en .
+<http://iot.linkeddata.es/def/wot-mappings#jsonPath> <http://www.w3.org/2000/01/rdf-schema#comment> "Express a pattern to select a set of efements of interest in a JSON document."@en .
+<http://iot.linkeddata.es/def/wot-mappings#jsonPath> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.w3.org/2001/XMLSchema#string> .
+<http://iot.linkeddata.es/def/wot-mappings#jsonPath> <http://www.w3.org/2000/01/rdf-schema#domain> <http://iot.linkeddata.es/def/wot-mappings#Mapping> .
+<http://iot.linkeddata.es/def/wot-mappings#jsonPath> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#DatatypeProperty> .
+<http://www.w3.org/2003/06/sw-vocab-status/ns#term_status> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#AnnotationProperty> .
+<http://www.w3.org/2002/07/owl#Class> <http://www.w3.org/2000/01/rdf-schema#isDefinedBy> "http://www.w3.org/2002/07/owl#" .
+<http://www.w3.org/2002/07/owl#Class> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+_:A2418f3e3X3aX15bed0cbf56X3aXX2dX7ff3 <http://www.w3.org/2002/07/owl#allValuesFrom> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+_:A2418f3e3X3aX15bed0cbf56X3aXX2dX7ff3 <http://www.w3.org/2002/07/owl#onProperty> <http://iot.linkeddata.es/def/wot-mappings#predicate> .
+_:A2418f3e3X3aX15bed0cbf56X3aXX2dX7ff3 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Restriction> .
+_:A2418f3e3X3aX15bed0cbf56X3aXX2dX7ff9 <http://www.w3.org/2002/07/owl#allValuesFrom> <http://www.w3.org/2000/01/rdf-schema#Datatype> .
+_:A2418f3e3X3aX15bed0cbf56X3aXX2dX7ff9 <http://www.w3.org/2002/07/owl#onProperty> <http://iot.linkeddata.es/def/wot-mappings#targetDatatype> .
+_:A2418f3e3X3aX15bed0cbf56X3aXX2dX7ff9 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Restriction> .
+<http://iot.linkeddata.es/def/wot#Endpoint> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<http://iot.linkeddata.es/def/wot-mappings#isExecutedAfter> <http://www.w3.org/2000/01/rdf-schema#label> "is executed after"@en .
+<http://iot.linkeddata.es/def/wot-mappings#isExecutedAfter> <http://www.w3.org/2000/01/rdf-schema#comment> "Indicates which access mappings should be excuted before the one being subject of this property." .
+<http://iot.linkeddata.es/def/wot-mappings#isExecutedAfter> <http://www.w3.org/2000/01/rdf-schema#range> <http://iot.linkeddata.es/def/wot-mappings#AccessMapping> .
+<http://iot.linkeddata.es/def/wot-mappings#isExecutedAfter> <http://www.w3.org/2000/01/rdf-schema#domain> <http://iot.linkeddata.es/def/wot-mappings#AccessMapping> .
+<http://iot.linkeddata.es/def/wot-mappings#isExecutedAfter> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+_:A2418f3e3X3aX15bed0cbf56X3aXX2dX7ffc <http://www.w3.org/2002/07/owl#allValuesFrom> <http://iot.linkeddata.es/def/wot-mappings#Mapping> .
+_:A2418f3e3X3aX15bed0cbf56X3aXX2dX7ffc <http://www.w3.org/2002/07/owl#onProperty> <http://iot.linkeddata.es/def/wot-mappings#hasMapping> .
+_:A2418f3e3X3aX15bed0cbf56X3aXX2dX7ffc <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Restriction> .
+<http://iot.linkeddata.es/def/wot-mappings#mapsResourcesFrom> <http://www.w3.org/2000/01/rdf-schema#label> "maps resources from"@en .
+<http://iot.linkeddata.es/def/wot-mappings#mapsResourcesFrom> <http://www.w3.org/2000/01/rdf-schema#comment> "Link from the access mapping to the specific endpoint in which the mappings (see hasMapping) indicated by the access mapping instance can be applied."@en .
+<http://iot.linkeddata.es/def/wot-mappings#mapsResourcesFrom> <http://www.w3.org/2000/01/rdf-schema#range> <http://iot.linkeddata.es/def/wot#Endpoint> .
+<http://iot.linkeddata.es/def/wot-mappings#mapsResourcesFrom> <http://www.w3.org/2000/01/rdf-schema#domain> <http://iot.linkeddata.es/def/wot-mappings#AccessMapping> .
+<http://iot.linkeddata.es/def/wot-mappings#mapsResourcesFrom> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#FunctionalProperty> .
+<http://iot.linkeddata.es/def/wot-mappings#mapsResourcesFrom> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+_:A2418f3e3X3aX15bed0cbf56X3aXX2dX7ff2 <http://www.w3.org/2002/07/owl#allValuesFrom> <http://www.w3.org/2002/07/owl#Class> .
+_:A2418f3e3X3aX15bed0cbf56X3aXX2dX7ff2 <http://www.w3.org/2002/07/owl#onProperty> <http://iot.linkeddata.es/def/wot-mappings#targetClass> .
+_:A2418f3e3X3aX15bed0cbf56X3aXX2dX7ff2 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Restriction> .
+_:A2418f3e3X3aX15bed0cbf56X3aXX2dX7ff8 <http://www.w3.org/2002/07/owl#unionOf> _:A2418f3e3X3aX15bed0cbf56X3aXX2dX7ff7 .
+_:A2418f3e3X3aX15bed0cbf56X3aXX2dX7ff8 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+_:A2418f3e3X3aX15bed0cbf56X3aXX2dX7ffb <http://www.w3.org/2002/07/owl#onClass> <http://iot.linkeddata.es/def/wot#Endpoint> .
+_:A2418f3e3X3aX15bed0cbf56X3aXX2dX7ffb <http://www.w3.org/2002/07/owl#qualifiedCardinality> "1"^^<http://www.w3.org/2001/XMLSchema#nonNegativeInteger> .
+_:A2418f3e3X3aX15bed0cbf56X3aXX2dX7ffb <http://www.w3.org/2002/07/owl#onProperty> <http://iot.linkeddata.es/def/wot-mappings#mapsResourcesFrom> .
+_:A2418f3e3X3aX15bed0cbf56X3aXX2dX7ffb <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Restriction> .
+_:A2418f3e3X3aX15bed0cbf56X3aXX2dX7ff1 <http://www.w3.org/2002/07/owl#onClass> <http://iot.linkeddata.es/def/core#ThingDescription> .
+_:A2418f3e3X3aX15bed0cbf56X3aXX2dX7ff1 <http://www.w3.org/2002/07/owl#maxQualifiedCardinality> "1"^^<http://www.w3.org/2001/XMLSchema#nonNegativeInteger> .
+_:A2418f3e3X3aX15bed0cbf56X3aXX2dX7ff1 <http://www.w3.org/2002/07/owl#onProperty> <http://iot.linkeddata.es/def/wot-mappings#valuesTransformedBy> .
+_:A2418f3e3X3aX15bed0cbf56X3aXX2dX7ff1 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Restriction> .
+_:A2418f3e3X3aX15bed0cbf56X3aXX2dX7ff7 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> _:A2418f3e3X3aX15bed0cbf56X3aXX2dX7ff6 .
+_:A2418f3e3X3aX15bed0cbf56X3aXX2dX7ff7 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <http://iot.linkeddata.es/def/wot-mappings#DatatypePropertyMapping> .
+<http://iot.linkeddata.es/def/wot-mappings#valuesTransformedBy> <http://www.w3.org/2000/01/rdf-schema#label> "values transformed by"@en .
+<http://iot.linkeddata.es/def/wot-mappings#valuesTransformedBy> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+_:A2418f3e3X3aX15bed0cbf56X3aXX2dX7ffa <http://www.w3.org/2002/07/owl#allValuesFrom> <http://www.w3.org/2002/07/owl#DatatypeProperty> .
+_:A2418f3e3X3aX15bed0cbf56X3aXX2dX7ffa <http://www.w3.org/2002/07/owl#onProperty> <http://iot.linkeddata.es/def/wot-mappings#predicate> .
+_:A2418f3e3X3aX15bed0cbf56X3aXX2dX7ffa <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Restriction> .
+_:A2418f3e3X3aX15bed0cbf56X3aXX2dX7ff6 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> <http://www.w3.org/1999/02/22-rdf-syntax-ns#nil> .
+_:A2418f3e3X3aX15bed0cbf56X3aXX2dX7ff6 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <http://iot.linkeddata.es/def/wot-mappings#ObjectPropertyMapping> .
+<http://iot.linkeddata.es/def/wot-mappings#Mapping> <http://www.w3.org/2000/01/rdf-schema#label> "Mapping"@en .
+<http://iot.linkeddata.es/def/wot-mappings#Mapping> <http://www.w3.org/2000/01/rdf-schema#comment> "An entity that indicates the relation between a given key (provided as structure data in an online resource) and the RDF property to which the values should be mapped and the target type of object. The RDF properties could be OWL object or datatype properties. The target object might be RDFS classes or datatypes."@en .
+<http://iot.linkeddata.es/def/wot-mappings#Mapping> <http://www.w3.org/2000/01/rdf-schema#subClassOf> _:A2418f3e3X3aX15bed0cbf56X3aXX2dX7ff4 .
+<http://iot.linkeddata.es/def/wot-mappings#Mapping> <http://www.w3.org/2000/01/rdf-schema#subClassOf> _:A2418f3e3X3aX15bed0cbf56X3aXX2dX7ff5 .
+<http://iot.linkeddata.es/def/wot-mappings#Mapping> <http://www.w3.org/2002/07/owl#equivalentClass> _:A2418f3e3X3aX15bed0cbf56X3aXX2dX7ff8 .
+<http://iot.linkeddata.es/def/wot-mappings#Mapping> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .

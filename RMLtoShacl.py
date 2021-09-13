@@ -1,3 +1,4 @@
+import os
 import rdflib
 from rdflib import RDF
 from RML import *
@@ -93,10 +94,12 @@ class RMLtoSHACL:
 
             graphHelp.add((self.sNodeShape, self.shaclNS.property, propertyBl))
             if p == self.RML.pPred:
+                print("Inside if branch of rr:predicate")
                 graphHelp.add((propertyBl, self.shaclNS.path, o))
                 self.findObjectBis(propertyBl, graphHelp, graphPOM, rdfType)
                 propertyBl = rdflib.BNode()
             else:
+                print("else branch of rr:predicate")
                 self.findObjectBis(propertyBl, graphHelp, graphPOM, rdfType)
             print("----" * 20)
 
@@ -111,6 +114,7 @@ class RMLtoSHACL:
             print(f"{s}, {p}, {o}")
             result = self.testIfIRIorLiteral(
                 p, o, graphHelp, propertyBl, graphPOM)
+            print(result)
             if not result and p == self.RML.pCons and not rdfType:
                 # we don't have a Literal nor an IRI
                 # if rdfType is True then we have a predicateobject with rdf:type
@@ -305,7 +309,9 @@ class RMLtoSHACL:
         self.SHACL.graph.bind(
             'rdfs', 'http://www.w3.org/1999/02/22-rdf-syntax-ns#')
 
-        Path(f"%s%s" % (shape_dir, file_name)).mkdir(
+        parent_folder = os.path.dirname(file_name)
+
+        Path(f"%s%s" % (shape_dir, parent_folder)).mkdir(
             parents=True, exist_ok=True)
 
         filenNameShape = "%s%s" % (shape_dir, file_name)

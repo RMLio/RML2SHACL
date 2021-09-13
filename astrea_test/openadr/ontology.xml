@@ -1,0 +1,2327 @@
+<?xml version="1.0"?>
+<rdf:RDF xmlns="https://w3id.org/def/openadr#"
+     xml:base="https://w3id.org/def/openadr"
+     xmlns:dc="http://purl.org/dc/elements/1.1/"
+     xmlns:owl="http://www.w3.org/2002/07/owl#"
+     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+     xmlns:xml="http://www.w3.org/XML/1998/namespace"
+     xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+     xmlns:vann="http://purl.org/vocab/vann/"
+     xmlns:terms="http://purl.org/dc/terms/">
+    <owl:Ontology rdf:about="https://w3id.org/def/openadr">
+        <dc:creator rdf:resource="http://www.garcia-castro.com/foaf.rdf#me"/>
+        <dc:creator>Alba Fernández Izquierdo</dc:creator>
+        <dc:creator>Andrea Cimmino</dc:creator>
+        <terms:license rdf:resource="http://purl.org/NET/rdflicense/cc-by4.0"/>
+        <terms:title>OpenADR ontology</terms:title>
+        <rdfs:comment>This ontology describes the openADR protocol based on the documentation provided by the openADR Profile B</rdfs:comment>
+        <rdfs:comment>http://purl.org/NET/rdflicense/cc-by4.0</rdfs:comment>
+        <owl:versionInfo>0.2.2</owl:versionInfo>
+    </owl:Ontology>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Annotation properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+
+    
+
+
+    <!-- http://purl.org/dc/elements/1.1/creator -->
+
+
+    <owl:AnnotationProperty rdf:about="http://purl.org/dc/elements/1.1/creator"/>
+    
+
+
+    <!-- http://purl.org/dc/terms/license -->
+
+
+    <owl:AnnotationProperty rdf:about="http://purl.org/dc/terms/license"/>
+    
+
+
+    <!-- http://purl.org/dc/terms/title -->
+
+
+    <owl:AnnotationProperty rdf:about="http://purl.org/dc/terms/title"/>
+    
+
+
+    <!-- http://purl.org/vocab/vann/preferredNamespaceUri -->
+
+
+    <owl:AnnotationProperty rdf:about="http://purl.org/vocab/vann/preferredNamespaceUri"/>
+    
+
+
+    <!-- http://www.w3.org/2002/07/owl#qualifiedCardinality -->
+
+
+    <owl:AnnotationProperty rdf:about="http://www.w3.org/2002/07/owl#qualifiedCardinality"/>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Object Properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+
+    
+
+
+    <!-- http://www.opengis.net/ont/geosparql#hasGeometry -->
+
+
+    <owl:ObjectProperty rdf:about="http://www.opengis.net/ont/geosparql#hasGeometry">
+        <rdfs:comment>A spatial representation for a given feature.</rdfs:comment>
+        <rdfs:isDefinedBy rdf:resource="http://www.opengis.net/spec/geosparql"/>
+        <rdfs:label>Geometry</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.opengis.net/ont/geosparql#sfContains -->
+
+
+    <owl:ObjectProperty rdf:about="http://www.opengis.net/ont/geosparql#sfContains">
+        <owl:inverseOf rdf:resource="https://w3id.org/def/openadr#belongsTo"/>
+        <rdfs:domain rdf:resource="http://www.opengis.net/ont/geosparql#SpatialObject"/>
+        <rdfs:range rdf:resource="http://www.opengis.net/ont/geosparql#SpatialObject"/>
+        <rdfs:comment>Exists if the subject SpatialObject spatially contains the object SpatialObject</rdfs:comment>
+        <rdfs:isDefinedBy rdf:resource="http://www.opengis.net/ont/geosparql"/>
+        <rdfs:label>contains</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.w3.org/2003/01/geo/wgs84_pos#location -->
+
+
+    <owl:ObjectProperty rdf:about="http://www.w3.org/2003/01/geo/wgs84_pos#location"/>
+    
+
+
+    <!-- https://w3id.org/def/openadr#appliesTo -->
+
+
+    <owl:ObjectProperty rdf:about="https://w3id.org/def/openadr#appliesTo">
+        <rdfs:label>applies to</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://w3id.org/def/openadr#belongsTo -->
+
+
+    <owl:ObjectProperty rdf:about="https://w3id.org/def/openadr#belongsTo">
+        <rdfs:comment>Relationship between a VE, Resource or Asset with the Group of targets associated</rdfs:comment>
+        <rdfs:label>belongs to</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://w3id.org/def/openadr#cancels -->
+
+
+    <owl:ObjectProperty rdf:about="https://w3id.org/def/openadr#cancels">
+        <rdfs:comment>Relationship to cancel a report</rdfs:comment>
+        <rdfs:label>cancels</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://w3id.org/def/openadr#contains -->
+
+
+    <owl:ObjectProperty rdf:about="https://w3id.org/def/openadr#contains">
+        <rdfs:comment>Relation between a target and its components</rdfs:comment>
+        <rdfs:label>contains</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://w3id.org/def/openadr#containsAsset -->
+
+
+    <owl:ObjectProperty rdf:about="https://w3id.org/def/openadr#containsAsset">
+        <rdfs:subPropertyOf rdf:resource="https://w3id.org/def/openadr#contains"/>
+        <rdfs:label>Relation between a target and the asset it contains</rdfs:label>
+        <rdfs:label>contains asset</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://w3id.org/def/openadr#containsResource -->
+
+
+    <owl:ObjectProperty rdf:about="https://w3id.org/def/openadr#containsResource">
+        <rdfs:subPropertyOf rdf:resource="https://w3id.org/def/openadr#contains"/>
+        <rdfs:label>Relation between a target and the resource it contains</rdfs:label>
+        <rdfs:label>contains resource</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://w3id.org/def/openadr#containsVEN -->
+
+
+    <owl:ObjectProperty rdf:about="https://w3id.org/def/openadr#containsVEN">
+        <rdfs:subPropertyOf rdf:resource="https://w3id.org/def/openadr#contains"/>
+        <rdfs:label>Relation between a target and the VEN it contains</rdfs:label>
+        <rdfs:label>contains VEN</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://w3id.org/def/openadr#eventDescriptor -->
+
+
+    <owl:ObjectProperty rdf:about="https://w3id.org/def/openadr#eventDescriptor">
+        <rdfs:domain rdf:resource="https://w3id.org/def/openadr#Event"/>
+        <rdfs:range rdf:resource="https://w3id.org/def/openadr#EventDescriptor"/>
+        <rdfs:comment>Relation between an event and its metadata</rdfs:comment>
+        <rdfs:label>event descriptor</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://w3id.org/def/openadr#expectedResponse -->
+
+
+    <owl:ObjectProperty rdf:about="https://w3id.org/def/openadr#expectedResponse">
+        <rdfs:label>expected response</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://w3id.org/def/openadr#hasAreaTarget -->
+
+
+    <owl:ObjectProperty rdf:about="https://w3id.org/def/openadr#hasAreaTarget">
+        <rdfs:subPropertyOf rdf:resource="https://w3id.org/def/openadr#hasTarget"/>
+        <rdfs:domain rdf:resource="https://w3id.org/def/openadr#Event"/>
+        <rdfs:range rdf:resource="https://w3id.org/def/openadr#ServiceArea"/>
+        <rdfs:comment>Relation between an entity and its service area target</rdfs:comment>
+        <rdfs:label>has area target</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://w3id.org/def/openadr#hasDuration -->
+
+
+    <owl:ObjectProperty rdf:about="https://w3id.org/def/openadr#hasDuration">
+        <rdfs:comment>Duration of an event</rdfs:comment>
+        <rdfs:label>has duration</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://w3id.org/def/openadr#hasEventStatus -->
+
+
+    <owl:ObjectProperty rdf:about="https://w3id.org/def/openadr#hasEventStatus">
+        <rdfs:domain rdf:resource="https://w3id.org/def/openadr#Event"/>
+        <rdfs:range rdf:resource="https://w3id.org/def/openadr#EventStatus"/>
+        <rdfs:comment>Link between an event and its status</rdfs:comment>
+        <rdfs:label>has event status</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://w3id.org/def/openadr#hasGranularity -->
+
+
+    <owl:ObjectProperty rdf:about="https://w3id.org/def/openadr#hasGranularity">
+        <rdfs:comment>This is the time interval between sampled data in a report request</rdfs:comment>
+        <rdfs:label>has granularity</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://w3id.org/def/openadr#hasGroupTarget -->
+
+
+    <owl:ObjectProperty rdf:about="https://w3id.org/def/openadr#hasGroupTarget">
+        <rdfs:subPropertyOf rdf:resource="https://w3id.org/def/openadr#hasTarget"/>
+        <rdfs:domain rdf:resource="https://w3id.org/def/openadr#Event"/>
+        <rdfs:range rdf:resource="https://w3id.org/def/openadr#Group"/>
+        <rdfs:comment>Relation between an entity and its group target</rdfs:comment>
+        <rdfs:label>has group target</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://w3id.org/def/openadr#hasItemBase -->
+
+
+    <owl:ObjectProperty rdf:about="https://w3id.org/def/openadr#hasItemBase">
+        <rdfs:range rdf:resource="https://w3id.org/def/openadr#Item"/>
+        <rdfs:label>has item base</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://w3id.org/def/openadr#hasLoadControlState -->
+
+
+    <owl:ObjectProperty rdf:about="https://w3id.org/def/openadr#hasLoadControlState">
+        <rdfs:domain rdf:resource="https://w3id.org/def/openadr#Report"/>
+        <rdfs:range rdf:resource="https://w3id.org/def/openadr#LoadControlState"/>
+        <rdfs:comment>Relation between a report and the load control state  to enable a VEN to report on its load control state that corresponds to a LOAD_CONTROL signal that might be sent to a VEN.</rdfs:comment>
+        <rdfs:label>has load control state</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://w3id.org/def/openadr#hasMaxPeriod -->
+
+
+    <owl:ObjectProperty rdf:about="https://w3id.org/def/openadr#hasMaxPeriod">
+        <rdfs:comment>Maximum period of time</rdfs:comment>
+        <rdfs:label>has max period</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://w3id.org/def/openadr#hasMinPeriod -->
+
+
+    <owl:ObjectProperty rdf:about="https://w3id.org/def/openadr#hasMinPeriod">
+        <rdfs:comment>Minimum period of time</rdfs:comment>
+        <rdfs:label>has min period</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://w3id.org/def/openadr#hasPayload -->
+
+
+    <owl:ObjectProperty rdf:about="https://w3id.org/def/openadr#hasPayload">
+        <rdfs:isDefinedBy>Link between a report and its payload</rdfs:isDefinedBy>
+        <rdfs:label>has payload</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://w3id.org/def/openadr#hasReportBackDuration -->
+
+
+    <owl:ObjectProperty rdf:about="https://w3id.org/def/openadr#hasReportBackDuration">
+        <rdfs:label>has report back duration</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://w3id.org/def/openadr#hasReportPayload -->
+
+
+    <owl:ObjectProperty rdf:about="https://w3id.org/def/openadr#hasReportPayload">
+        <rdfs:subPropertyOf rdf:resource="https://w3id.org/def/openadr#hasPayload"/>
+        <rdfs:domain rdf:resource="https://w3id.org/def/openadr#Report"/>
+        <rdfs:range rdf:resource="https://w3id.org/def/openadr#ReportPayload"/>
+        <rdfs:comment>Relation between a report and its payload</rdfs:comment>
+        <rdfs:label>has report payload</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://w3id.org/def/openadr#hasSamplingRate -->
+
+
+    <owl:ObjectProperty rdf:about="https://w3id.org/def/openadr#hasSamplingRate">
+        <rdfs:comment>Indicates the sampling rate of a report</rdfs:comment>
+        <rdfs:label>has sampling rate</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://w3id.org/def/openadr#hasSignalIntervalDuration -->
+
+
+    <owl:ObjectProperty rdf:about="https://w3id.org/def/openadr#hasSignalIntervalDuration">
+        <rdfs:comment>Duration of a signal interval</rdfs:comment>
+        <rdfs:label>interval duration</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://w3id.org/def/openadr#hasSignalPayload -->
+
+
+    <owl:ObjectProperty rdf:about="https://w3id.org/def/openadr#hasSignalPayload">
+        <rdfs:subPropertyOf rdf:resource="https://w3id.org/def/openadr#hasPayload"/>
+        <rdfs:domain rdf:resource="https://w3id.org/def/openadr#Signal"/>
+        <rdfs:comment>Relation between a signal and its payload</rdfs:comment>
+        <rdfs:label>has signal payload</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://w3id.org/def/openadr#hasSignalType -->
+
+
+    <owl:ObjectProperty rdf:about="https://w3id.org/def/openadr#hasSignalType">
+        <rdfs:comment>Relationship between a signal and its signal type</rdfs:comment>
+        <rdfs:label>has signal type</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://w3id.org/def/openadr#hasTarget -->
+
+
+    <owl:ObjectProperty rdf:about="https://w3id.org/def/openadr#hasTarget">
+        <rdfs:comment>Relation between an entity and its target</rdfs:comment>
+        <rdfs:label>has target</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://w3id.org/def/openadr#hasTypicalValue -->
+
+
+    <owl:ObjectProperty rdf:about="https://w3id.org/def/openadr#hasTypicalValue">
+        <rdfs:comment>Typical value of an interval</rdfs:comment>
+        <rdfs:label>has typical value</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://w3id.org/def/openadr#includesMeasurement -->
+
+
+    <owl:ObjectProperty rdf:about="https://w3id.org/def/openadr#includesMeasurement">
+        <rdfs:domain rdf:resource="https://w3id.org/def/openadr#ReportDataPayload"/>
+        <rdfs:comment>Link between a report and the measurement included in the payload</rdfs:comment>
+        <rdfs:label>includes measurement</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://w3id.org/def/openadr#includesSignal -->
+
+
+    <owl:ObjectProperty rdf:about="https://w3id.org/def/openadr#includesSignal">
+        <rdfs:comment>Relation between an entity and its signal</rdfs:comment>
+        <rdfs:label>has signal</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://w3id.org/def/openadr#involvesSubject -->
+
+
+    <owl:ObjectProperty rdf:about="https://w3id.org/def/openadr#involvesSubject">
+        <rdfs:comment>Relation between the report and its subject</rdfs:comment>
+        <rdfs:label>involves subject</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://w3id.org/def/openadr#isActiveDuringPeriod -->
+
+
+    <owl:ObjectProperty rdf:about="https://w3id.org/def/openadr#isActiveDuringPeriod">
+        <rdfs:comment>Relation between an entity an its active period</rdfs:comment>
+        <rdfs:label>has active period</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://w3id.org/def/openadr#isAssociatedToItem -->
+
+
+    <owl:ObjectProperty rdf:about="https://w3id.org/def/openadr#isAssociatedToItem">
+        <rdfs:comment>Linked between a report and the properties it measure</rdfs:comment>
+        <rdfs:label>is associated to property</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://w3id.org/def/openadr#isAvailableDuring -->
+
+
+    <owl:ObjectProperty rdf:about="https://w3id.org/def/openadr#isAvailableDuring">
+        <rdfs:comment>Availability of a target</rdfs:comment>
+        <rdfs:label>is available during</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://w3id.org/def/openadr#isDefinedIn -->
+
+
+    <owl:ObjectProperty rdf:about="https://w3id.org/def/openadr#isDefinedIn">
+        <rdfs:range rdf:resource="https://w3id.org/def/openadr#SignalInterval"/>
+        <rdfs:comment>Link between a signal and the  interval where it is active</rdfs:comment>
+        <rdfs:label>has interval</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://w3id.org/def/openadr#isDescribedIn -->
+
+
+    <owl:ObjectProperty rdf:about="https://w3id.org/def/openadr#isDescribedIn">
+        <rdfs:domain rdf:resource="https://w3id.org/def/openadr#ReportPayload"/>
+        <rdfs:range rdf:resource="https://w3id.org/def/openadr#ReportDescriptor"/>
+        <rdfs:comment>Relation between a payload and its descriptor</rdfs:comment>
+        <rdfs:label>is described in</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://w3id.org/def/openadr#isManagedBy -->
+
+
+    <owl:ObjectProperty rdf:about="https://w3id.org/def/openadr#isManagedBy">
+        <owl:inverseOf rdf:resource="https://w3id.org/def/openadr#manages"/>
+        <rdfs:comment>Relation between a Resource and a VEN</rdfs:comment>
+        <rdfs:label>is managed by</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://w3id.org/def/openadr#isReportedDuringInterval -->
+
+
+    <owl:ObjectProperty rdf:about="https://w3id.org/def/openadr#isReportedDuringInterval">
+        <rdfs:comment>Reporting interval of a report</rdfs:comment>
+        <rdfs:label>is reported during interval</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://w3id.org/def/openadr#isScheduleOf -->
+
+
+    <owl:ObjectProperty rdf:about="https://w3id.org/def/openadr#isScheduleOf">
+        <rdfs:domain rdf:resource="https://w3id.org/def/openadr#Schedule"/>
+        <rdfs:comment>Relationship between a schedule and a target</rdfs:comment>
+        <rdfs:label>is schedule of</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://w3id.org/def/openadr#isSpecifiedIn -->
+
+
+    <owl:ObjectProperty rdf:about="https://w3id.org/def/openadr#isSpecifiedIn">
+        <rdfs:domain rdf:resource="https://w3id.org/def/openadr#DataReport"/>
+        <rdfs:range rdf:resource="https://w3id.org/def/openadr#MetadataReport"/>
+        <rdfs:comment>Relationship between reports</rdfs:comment>
+        <rdfs:label>is specifier in</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://w3id.org/def/openadr#isUnavailableDuring -->
+
+
+    <owl:ObjectProperty rdf:about="https://w3id.org/def/openadr#isUnavailableDuring">
+        <rdfs:label>Unavailability of a target</rdfs:label>
+        <rdfs:label>is unavailable during</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://w3id.org/def/openadr#manages -->
+
+
+    <owl:ObjectProperty rdf:about="https://w3id.org/def/openadr#manages">
+        <rdfs:comment>Relation between a VEN and a Resource</rdfs:comment>
+        <rdfs:label>manages</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://w3id.org/def/openadr#plans -->
+
+
+    <owl:ObjectProperty rdf:about="https://w3id.org/def/openadr#plans">
+        <rdfs:comment>Relation between Opt and the planification of a target</rdfs:comment>
+        <rdfs:label>plans</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://w3id.org/def/openadr#ramp_up -->
+
+
+    <owl:ObjectProperty rdf:about="https://w3id.org/def/openadr#ramp_up">
+        <rdfs:label>ramp up</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://w3id.org/def/openadr#receives -->
+
+
+    <owl:ObjectProperty rdf:about="https://w3id.org/def/openadr#receives">
+        <rdfs:domain rdf:resource="https://w3id.org/def/openadr#Node"/>
+        <rdfs:comment>Relation between the node and an object  it receives</rdfs:comment>
+        <rdfs:label>receives</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://w3id.org/def/openadr#recovery -->
+
+
+    <owl:ObjectProperty rdf:about="https://w3id.org/def/openadr#recovery">
+        <rdfs:label>recovery</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://w3id.org/def/openadr#refersToTarget -->
+
+
+    <owl:ObjectProperty rdf:about="https://w3id.org/def/openadr#refersToTarget">
+        <rdfs:comment>Relation between a target and its availability</rdfs:comment>
+        <rdfs:label>refers to target</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://w3id.org/def/openadr#reportDataSource -->
+
+
+    <owl:ObjectProperty rdf:about="https://w3id.org/def/openadr#reportDataSource">
+        <rdfs:domain rdf:resource="https://w3id.org/def/openadr#Report"/>
+        <rdfs:range rdf:resource="https://w3id.org/def/openadr#Group"/>
+        <rdfs:comment>Link to the source of a report</rdfs:comment>
+        <rdfs:label>report data source</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://w3id.org/def/openadr#reportDescriptor -->
+
+
+    <owl:ObjectProperty rdf:about="https://w3id.org/def/openadr#reportDescriptor">
+        <rdfs:domain rdf:resource="https://w3id.org/def/openadr#MetadataReport"/>
+        <rdfs:range rdf:resource="https://w3id.org/def/openadr#ReportDescriptor"/>
+        <rdfs:comment>Relation between a report and its metadata</rdfs:comment>
+        <rdfs:label>report descriptor</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://w3id.org/def/openadr#reportSubject -->
+
+
+    <owl:ObjectProperty rdf:about="https://w3id.org/def/openadr#reportSubject">
+        <rdfs:domain rdf:resource="https://w3id.org/def/openadr#Report"/>
+        <rdfs:comment>Subject of a report</rdfs:comment>
+        <rdfs:label>report subject</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://w3id.org/def/openadr#requests -->
+
+
+    <owl:ObjectProperty rdf:about="https://w3id.org/def/openadr#requests">
+        <rdfs:comment>Relationship between the node and the report it requests</rdfs:comment>
+        <rdfs:label>requests</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://w3id.org/def/openadr#requires -->
+
+
+    <owl:ObjectProperty rdf:about="https://w3id.org/def/openadr#requires">
+        <rdfs:domain rdf:resource="https://w3id.org/def/openadr#Node"/>
+        <rdfs:comment>Relation between a node and an object it requires</rdfs:comment>
+        <rdfs:label>requires</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://w3id.org/def/openadr#sends -->
+
+
+    <owl:ObjectProperty rdf:about="https://w3id.org/def/openadr#sends">
+        <rdfs:comment>A link between a node and the objects it sends</rdfs:comment>
+        <rdfs:label>sends</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://w3id.org/def/openadr#sendsEvent -->
+
+
+    <owl:ObjectProperty rdf:about="https://w3id.org/def/openadr#sendsEvent">
+        <rdfs:subPropertyOf rdf:resource="https://w3id.org/def/openadr#sends"/>
+        <rdfs:domain rdf:resource="https://w3id.org/def/openadr#Node"/>
+        <rdfs:range rdf:resource="https://w3id.org/def/openadr#Event"/>
+        <rdfs:comment>A link between a node and the event it sends</rdfs:comment>
+        <rdfs:label>sends event</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://w3id.org/def/openadr#sendsOpt -->
+
+
+    <owl:ObjectProperty rdf:about="https://w3id.org/def/openadr#sendsOpt">
+        <rdfs:subPropertyOf rdf:resource="https://w3id.org/def/openadr#sends"/>
+        <rdfs:domain rdf:resource="https://w3id.org/def/openadr#Node"/>
+        <rdfs:range rdf:resource="https://w3id.org/def/openadr#Opt"/>
+        <rdfs:comment>A link between a node and the opt it sends</rdfs:comment>
+        <rdfs:label>sends opt</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://w3id.org/def/openadr#sendsReport -->
+
+
+    <owl:ObjectProperty rdf:about="https://w3id.org/def/openadr#sendsReport">
+        <rdfs:subPropertyOf rdf:resource="https://w3id.org/def/openadr#sends"/>
+        <rdfs:domain rdf:resource="https://w3id.org/def/openadr#Node"/>
+        <rdfs:range rdf:resource="https://w3id.org/def/openadr#Report"/>
+        <rdfs:comment>A link between a node and the report it sends</rdfs:comment>
+        <rdfs:label>sends report</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://w3id.org/def/openadr#specifiesReport -->
+
+
+    <owl:ObjectProperty rdf:about="https://w3id.org/def/openadr#specifiesReport">
+        <rdfs:domain rdf:resource="https://w3id.org/def/openadr#DataReport"/>
+        <rdfs:label>relation between the report and its specification</rdfs:label>
+        <rdfs:label>specifies report</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Data properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+
+    
+
+
+    <!-- https://w3id.org/def/openadr#comment -->
+
+
+    <owl:DatatypeProperty rdf:about="https://w3id.org/def/openadr#comment">
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+        <rdfs:label>comment</rdfs:label>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- https://w3id.org/def/openadr#hasAccuracy -->
+
+
+    <owl:DatatypeProperty rdf:about="https://w3id.org/def/openadr#hasAccuracy">
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+        <rdfs:comment>Indicates the likely variability of the prediction and the  error of a reading</rdfs:comment>
+        <rdfs:label>has accuracy</rdfs:label>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- https://w3id.org/def/openadr#hasCapacity -->
+
+
+    <owl:DatatypeProperty rdf:about="https://w3id.org/def/openadr#hasCapacity">
+        <rdfs:domain rdf:resource="https://w3id.org/def/openadr#LoadControlState"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2000/01/rdf-schema#Literal"/>
+        <rdfs:label>has capacity</rdfs:label>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- https://w3id.org/def/openadr#hasConfidence -->
+
+
+    <owl:DatatypeProperty rdf:about="https://w3id.org/def/openadr#hasConfidence">
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+        <rdfs:comment>A statistical probability that a reported data point is accurate</rdfs:comment>
+        <rdfs:label>has confidence</rdfs:label>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- https://w3id.org/def/openadr#hasCreatedDateTime -->
+
+
+    <owl:DatatypeProperty rdf:about="https://w3id.org/def/openadr#hasCreatedDateTime">
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#dateTimeStamp"/>
+        <rdfs:label>has created date time</rdfs:label>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- https://w3id.org/def/openadr#hasDataQuality -->
+
+
+    <owl:DatatypeProperty rdf:about="https://w3id.org/def/openadr#hasDataQuality">
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+        <rdfs:label>data quality</rdfs:label>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- https://w3id.org/def/openadr#hasEventName -->
+
+
+    <owl:DatatypeProperty rdf:about="https://w3id.org/def/openadr#hasEventName">
+        <rdfs:domain rdf:resource="https://w3id.org/def/openadr#Event"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2002/07/owl#rational"/>
+        <rdfs:comment>Name fo an event</rdfs:comment>
+        <rdfs:label>has event name</rdfs:label>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- https://w3id.org/def/openadr#hasGroupName -->
+
+
+    <owl:DatatypeProperty rdf:about="https://w3id.org/def/openadr#hasGroupName">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topDataProperty"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+        <rdfs:label>group name</rdfs:label>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- https://w3id.org/def/openadr#hasItemDescription -->
+
+
+    <owl:DatatypeProperty rdf:about="https://w3id.org/def/openadr#hasItemDescription">
+        <rdfs:domain rdf:resource="https://w3id.org/def/openadr#Item"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+        <rdfs:label>has item description</rdfs:label>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- https://w3id.org/def/openadr#hasLevelOffset -->
+
+
+    <owl:DatatypeProperty rdf:about="https://w3id.org/def/openadr#hasLevelOffset">
+        <rdfs:domain rdf:resource="https://w3id.org/def/openadr#LoadControlState"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2000/01/rdf-schema#Literal"/>
+        <rdfs:label>has level offset</rdfs:label>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- https://w3id.org/def/openadr#hasMarketContext -->
+
+
+    <owl:DatatypeProperty rdf:about="https://w3id.org/def/openadr#hasMarketContext">
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#anyURI"/>
+        <rdfs:comment>A URI identifying a DR Program</rdfs:comment>
+        <rdfs:label>market context</rdfs:label>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- https://w3id.org/def/openadr#hasModificationDateTime -->
+
+
+    <owl:DatatypeProperty rdf:about="https://w3id.org/def/openadr#hasModificationDateTime">
+        <rdfs:domain rdf:resource="https://w3id.org/def/openadr#EventDescriptor"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#dateTimeStamp"/>
+        <rdfs:comment>Time of modification of an event</rdfs:comment>
+        <rdfs:label>has modification date time</rdfs:label>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- https://w3id.org/def/openadr#hasModificationNumber -->
+
+
+    <owl:DatatypeProperty rdf:about="https://w3id.org/def/openadr#hasModificationNumber">
+        <rdfs:domain rdf:resource="https://w3id.org/def/openadr#EventDescriptor"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#integer"/>
+        <rdfs:comment>Number which is incremented each time an event is modified.</rdfs:comment>
+        <rdfs:label>has modification number</rdfs:label>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- https://w3id.org/def/openadr#hasModificationReason -->
+
+
+    <owl:DatatypeProperty rdf:about="https://w3id.org/def/openadr#hasModificationReason">
+        <rdfs:domain rdf:resource="https://w3id.org/def/openadr#EventDescriptor"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+        <rdfs:comment>It indicates why an event was modified</rdfs:comment>
+        <rdfs:label>has modification reason</rdfs:label>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- https://w3id.org/def/openadr#hasNodeName -->
+
+
+    <owl:DatatypeProperty rdf:about="https://w3id.org/def/openadr#hasNodeName">
+        <rdfs:domain rdf:resource="https://w3id.org/def/openadr#Node"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2002/07/owl#rational"/>
+        <rdfs:label>has node name</rdfs:label>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- https://w3id.org/def/openadr#hasPercentageOffset -->
+
+
+    <owl:DatatypeProperty rdf:about="https://w3id.org/def/openadr#hasPercentageOffset">
+        <rdfs:domain rdf:resource="https://w3id.org/def/openadr#LoadControlState"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2000/01/rdf-schema#Literal"/>
+        <rdfs:label>has percentage offset</rdfs:label>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- https://w3id.org/def/openadr#hasPriority -->
+
+
+    <owl:DatatypeProperty rdf:about="https://w3id.org/def/openadr#hasPriority">
+        <rdfs:domain rdf:resource="https://w3id.org/def/openadr#EventDescriptor"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#integer"/>
+        <rdfs:comment>The priority of the event in relation to other events (The lower the number
+higher the priority. A value of zero (0) indicates no priority, which is the lowest priority by default).</rdfs:comment>
+        <rdfs:label>has priority</rdfs:label>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- https://w3id.org/def/openadr#hasProfileName -->
+
+
+    <owl:DatatypeProperty rdf:about="https://w3id.org/def/openadr#hasProfileName">
+        <rdfs:domain rdf:resource="https://w3id.org/def/openadr#Node"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+        <rdfs:label>has profile name</rdfs:label>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- https://w3id.org/def/openadr#hasRandomization -->
+
+
+    <owl:DatatypeProperty rdf:about="https://w3id.org/def/openadr#hasRandomization">
+        <rdfs:domain rdf:resource="https://w3id.org/def/openadr#EventDescriptor"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+        <rdfs:label>has randomization</rdfs:label>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- https://w3id.org/def/openadr#hasReadingType -->
+
+
+    <owl:DatatypeProperty rdf:about="https://w3id.org/def/openadr#hasReadingType">
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+        <rdfs:comment>Metadata about the Readings, such as mean or derived</rdfs:comment>
+        <rdfs:label>reading type</rdfs:label>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- https://w3id.org/def/openadr#hasRegistrationNumber -->
+
+
+    <owl:DatatypeProperty rdf:about="https://w3id.org/def/openadr#hasRegistrationNumber">
+        <rdfs:domain rdf:resource="https://w3id.org/def/openadr#Node"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+        <rdfs:label>has registration number</rdfs:label>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- https://w3id.org/def/openadr#hasReportId -->
+
+
+    <owl:DatatypeProperty rdf:about="https://w3id.org/def/openadr#hasReportId">
+        <rdfs:label>has report identifier</rdfs:label>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- https://w3id.org/def/openadr#hasReportName -->
+
+
+    <owl:DatatypeProperty rdf:about="https://w3id.org/def/openadr#hasReportName">
+        <rdfs:domain rdf:resource="https://w3id.org/def/openadr#Report"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+        <rdfs:label>has report name</rdfs:label>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- https://w3id.org/def/openadr#hasReportOnly -->
+
+
+    <owl:DatatypeProperty rdf:about="https://w3id.org/def/openadr#hasReportOnly">
+        <rdfs:label>has report only</rdfs:label>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- https://w3id.org/def/openadr#hasReportType -->
+
+
+    <owl:DatatypeProperty rdf:about="https://w3id.org/def/openadr#hasReportType">
+        <rdfs:label>has report type</rdfs:label>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- https://w3id.org/def/openadr#hasRequestId -->
+
+
+    <owl:DatatypeProperty rdf:about="https://w3id.org/def/openadr#hasRequestId">
+        <rdfs:label>has request identifier</rdfs:label>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- https://w3id.org/def/openadr#hasScaleCode -->
+
+
+    <owl:DatatypeProperty rdf:about="https://w3id.org/def/openadr#hasScaleCode">
+        <rdfs:domain rdf:resource="https://w3id.org/def/openadr#Item"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+        <rdfs:comment>A scaling factor for the base unit of measure for a report</rdfs:comment>
+        <rdfs:label>has scale code</rdfs:label>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- https://w3id.org/def/openadr#hasSetPoint -->
+
+
+    <owl:DatatypeProperty rdf:about="https://w3id.org/def/openadr#hasSetPoint">
+        <rdfs:domain rdf:resource="https://w3id.org/def/openadr#LoadControlState"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2000/01/rdf-schema#Literal"/>
+        <rdfs:label>has set point</rdfs:label>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- https://w3id.org/def/openadr#hasSignalName -->
+
+
+    <owl:DatatypeProperty rdf:about="https://w3id.org/def/openadr#hasSignalName">
+        <rdfs:domain rdf:resource="https://w3id.org/def/openadr#Signal"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2000/01/rdf-schema#Literal"/>
+        <rdfs:comment>Name of a signal</rdfs:comment>
+        <rdfs:label>has signal name</rdfs:label>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- https://w3id.org/def/openadr#hasTransportName -->
+
+
+    <owl:DatatypeProperty rdf:about="https://w3id.org/def/openadr#hasTransportName">
+        <rdfs:domain rdf:resource="https://w3id.org/def/openadr#Node"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+        <rdfs:label>has transport name</rdfs:label>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- https://w3id.org/def/openadr#hasVersion -->
+
+
+    <owl:DatatypeProperty rdf:about="https://w3id.org/def/openadr#hasVersion">
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+        <rdfs:label>has version</rdfs:label>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- https://w3id.org/def/openadr#hasXMLsignature -->
+
+
+    <owl:DatatypeProperty rdf:about="https://w3id.org/def/openadr#hasXMLsignature">
+        <rdfs:label>has XML signature</rdfs:label>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- https://w3id.org/def/openadr#isManualOverride -->
+
+
+    <owl:DatatypeProperty rdf:about="https://w3id.org/def/openadr#isManualOverride">
+        <rdfs:domain rdf:resource="https://w3id.org/def/openadr#ReportStatusPayload"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#boolean"/>
+        <rdfs:label>is manual override</rdfs:label>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- https://w3id.org/def/openadr#isOnChange -->
+
+
+    <owl:DatatypeProperty rdf:about="https://w3id.org/def/openadr#isOnChange">
+        <rdfs:domain rdf:resource="https://w3id.org/def/openadr#SamplingRate"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#boolean"/>
+        <rdfs:comment>Attribute to determine whether or not data is sampled as it changes</rdfs:comment>
+        <rdfs:label>is on change</rdfs:label>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- https://w3id.org/def/openadr#isOnline -->
+
+
+    <owl:DatatypeProperty rdf:about="https://w3id.org/def/openadr#isOnline">
+        <rdfs:domain rdf:resource="https://w3id.org/def/openadr#ReportStatusPayload"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#boolean"/>
+        <rdfs:comment>Indicates whether the payload is online</rdfs:comment>
+        <rdfs:label>is online</rdfs:label>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- https://w3id.org/def/openadr#isResponseRequired -->
+
+
+    <owl:DatatypeProperty rdf:about="https://w3id.org/def/openadr#isResponseRequired">
+        <rdfs:domain rdf:resource="https://w3id.org/def/openadr#EventDescriptor"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#boolean"/>
+        <rdfs:comment>Attribute to indicate if a response is required to acknowledge the object</rdfs:comment>
+        <rdfs:label>is response required</rdfs:label>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- https://w3id.org/def/openadr#isTestEvent -->
+
+
+    <owl:DatatypeProperty rdf:about="https://w3id.org/def/openadr#isTestEvent">
+        <rdfs:domain rdf:resource="https://w3id.org/def/openadr#EventDescriptor"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#boolean"/>
+        <rdfs:comment>Attribute to indicate if the event is for testing purposes</rdfs:comment>
+        <rdfs:label>is test event</rdfs:label>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- https://w3id.org/def/openadr#starts -->
+
+
+    <owl:DatatypeProperty rdf:about="https://w3id.org/def/openadr#starts">
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#dateTimeStamp"/>
+        <rdfs:comment>The starting time for the activity, data, or state change</rdfs:comment>
+        <rdfs:label>starts</rdfs:label>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Classes
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+
+    
+
+
+    <!-- http://www.opengis.net/ont/geosparql#Feature -->
+
+
+    <owl:Class rdf:about="http://www.opengis.net/ont/geosparql#Feature">
+        <rdfs:subClassOf rdf:resource="http://www.opengis.net/ont/geosparql#SpatialObject"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.opengis.net/ont/geosparql#hasGeometry"/>
+                <owl:allValuesFrom rdf:resource="http://www.opengis.net/ont/geosparql#Geometry"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <owl:disjointWith rdf:resource="http://www.opengis.net/ont/geosparql#Geometry"/>
+        <rdfs:comment>This class represents the top-level feature type. This class is equivalent to GFI_Feature defined in ISO 19156:2011, and it is superclass of all feature types</rdfs:comment>
+        <rdfs:isDefinedBy rdf:resource="http://www.opengis.net/ont/geosparql"/>
+        <rdfs:label>Feature</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://www.opengis.net/ont/geosparql#Geometry -->
+
+
+    <owl:Class rdf:about="http://www.opengis.net/ont/geosparql#Geometry">
+        <rdfs:comment>The class represents the top-level geometry type. This class is equivalent to the UML class GM_Object defined in ISO 19107, and it is superclass of all geometry types.</rdfs:comment>
+        <rdfs:isDefinedBy>http://www.opengis.net/ont/geosparql</rdfs:isDefinedBy>
+        <rdfs:label>Geometry</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://www.opengis.net/ont/geosparql#SpatialObject -->
+
+
+    <owl:Class rdf:about="http://www.opengis.net/ont/geosparql#SpatialObject">
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.opengis.net/ont/geosparql#sfContains"/>
+                <owl:allValuesFrom rdf:resource="http://www.opengis.net/ont/geosparql#SpatialObject"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.w3.org/2003/01/geo/wgs84_pos#location"/>
+                <owl:allValuesFrom rdf:resource="http://www.w3.org/2003/01/geo/wgs84_pos#Point"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:comment>The class spatial-object represents everything that can have a spatial representation. It is superclass of feature and geometry.</rdfs:comment>
+        <rdfs:isDefinedBy rdf:resource="http://www.opengis.net/ont/geosparql"/>
+        <rdfs:label>SpatialObject</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://www.w3.org/2003/01/geo/wgs84_pos#Point -->
+
+
+    <owl:Class rdf:about="http://www.w3.org/2003/01/geo/wgs84_pos#Point">
+        <rdfs:comment>A point, typically described using a coordinate system relative to Earth, such as WGS84.</rdfs:comment>
+        <rdfs:isDefinedBy>http://www.w3.org/2003/01/geo/wgs84_pos#</rdfs:isDefinedBy>
+        <rdfs:label>Point</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://www.w3.org/2003/01/geo/wgs84_pos#SpatialThing -->
+
+
+    <owl:Class rdf:about="http://www.w3.org/2003/01/geo/wgs84_pos#SpatialThing">
+        <rdfs:comment>Anything with spatial extent, i.e. size, shape, or position. e.g. people, places, bowling balls, as well as abstract areas like cubes</rdfs:comment>
+        <rdfs:isDefinedBy rdf:resource="http://www.w3.org/2003/01/geo/wgs84_pos#"/>
+        <rdfs:label>Spatial thing</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://www.w3.org/2006/time#Duration -->
+
+
+    <owl:Class rdf:about="http://www.w3.org/2006/time#Duration">
+        <rdfs:comment>Duration of a temporal extent expressed as a number scaled by a temporal unit</rdfs:comment>
+        <rdfs:label>Time duration</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://www.w3.org/2006/time#Instant -->
+
+
+    <owl:Class rdf:about="http://www.w3.org/2006/time#Instant">
+        <rdfs:subClassOf rdf:resource="http://www.w3.org/2006/time#TemporalEntity"/>
+        <rdfs:comment>A temporal entity with zero extent or duration</rdfs:comment>
+        <rdfs:isDefinedBy rdf:resource="http://www.w3.org/2006/time"/>
+        <rdfs:label>Instant</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://www.w3.org/2006/time#Interval -->
+
+
+    <owl:Class rdf:about="http://www.w3.org/2006/time#Interval">
+        <rdfs:subClassOf rdf:resource="http://www.w3.org/2006/time#TemporalEntity"/>
+        <rdfs:comment>A temporal entity with non-zero extent or duration, for which the value of the beginning and end are different</rdfs:comment>
+        <rdfs:isDefinedBy rdf:resource="http://www.w3.org/2006/time"/>
+        <rdfs:label>Interval</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://www.w3.org/2006/time#TemporalEntity -->
+
+
+    <owl:Class rdf:about="http://www.w3.org/2006/time#TemporalEntity">
+        <rdfs:comment>A temporal entity with zero extent or duration</rdfs:comment>
+        <rdfs:isDefinedBy rdf:resource="http://www.w3.org/2006/time"/>
+        <rdfs:label>Temporal Entity</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://www.wurvoc.org/vocabularies/om-1.8/Unit_of_measure -->
+
+
+    <owl:Class rdf:about="http://www.wurvoc.org/vocabularies/om-1.8/Unit_of_measure">
+        <rdfs:comment>A unit of measure is a definite magnitude of a quantity, defined and adopted by convention and/or by law. It is used as a standard for measurement of the same quantity, where any other value of the quantity can be expressed as a simple multiple of the unit of measure. For example, length is a quantity; the metre is a unit of length that represents a definite predetermined length. When we say 10 metre (or 10 m), we actually mean 10 times the definite predetermined length called &quot;metre&quot;.</rdfs:comment>
+        <rdfs:label rdf:resource="http://www.wurvoc.org/vocabularies/om-1.8/"/>
+        <rdfs:label>unit of measure</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/def/openadr#BidEnergySetpointSignal -->
+
+
+    <owl:Class rdf:about="https://w3id.org/def/openadr#BidEnergySetpointSignal">
+        <rdfs:subClassOf rdf:resource="https://w3id.org/def/openadr#BidEnergySignal"/>
+        <rdfs:comment>This is the amount of energy from a resource that was bid into a program</rdfs:comment>
+        <rdfs:label>Bid energy setpoint signal</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/def/openadr#BidEnergySignal -->
+
+
+    <owl:Class rdf:about="https://w3id.org/def/openadr#BidEnergySignal">
+        <rdfs:subClassOf rdf:resource="https://w3id.org/def/openadr#Signal"/>
+        <rdfs:comment>Signal that represents the price that was bid by the resource</rdfs:comment>
+        <rdfs:label>Bid energy signal</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/def/openadr#BidLoadSetpointSignal -->
+
+
+    <owl:Class rdf:about="https://w3id.org/def/openadr#BidLoadSetpointSignal">
+        <rdfs:subClassOf rdf:resource="https://w3id.org/def/openadr#BidLoadSignal"/>
+        <rdfs:comment>This is the amount of load that was bid by a resource into a program</rdfs:comment>
+        <rdfs:label>Bid load setpoint signal</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/def/openadr#BidLoadSignal -->
+
+
+    <owl:Class rdf:about="https://w3id.org/def/openadr#BidLoadSignal">
+        <rdfs:subClassOf rdf:resource="https://w3id.org/def/openadr#Signal"/>
+        <rdfs:comment>Signal that represents the amount of load that was bid by a resource into a program</rdfs:comment>
+        <rdfs:label>Bid load signal</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/def/openadr#BidPriceAbsoluteSignal -->
+
+
+    <owl:Class rdf:about="https://w3id.org/def/openadr#BidPriceAbsoluteSignal">
+        <rdfs:subClassOf rdf:resource="https://w3id.org/def/openadr#BidPricesignal"/>
+        <rdfs:comment>This is the price that was bid by the resource</rdfs:comment>
+        <rdfs:label>Bid absolute price</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/def/openadr#BidPricesignal -->
+
+
+    <owl:Class rdf:about="https://w3id.org/def/openadr#BidPricesignal">
+        <rdfs:subClassOf rdf:resource="https://w3id.org/def/openadr#Signal"/>
+        <rdfs:comment>Signal that represents the price that was bid by the resource</rdfs:comment>
+        <rdfs:label>Bid price signal</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/def/openadr#ChargeStateDeltaSignal -->
+
+
+    <owl:Class rdf:about="https://w3id.org/def/openadr#ChargeStateDeltaSignal">
+        <rdfs:subClassOf rdf:resource="https://w3id.org/def/openadr#ChargeStateSignal"/>
+        <rdfs:comment>This is the delta amount of energy that should be contained in a storage resource from where it currently is.</rdfs:comment>
+        <rdfs:label>Charge state delta signal</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/def/openadr#ChargeStateMultiplierSignal -->
+
+
+    <owl:Class rdf:about="https://w3id.org/def/openadr#ChargeStateMultiplierSignal">
+        <rdfs:subClassOf rdf:resource="https://w3id.org/def/openadr#ChargeStateSignal"/>
+        <rdfs:comment>This is the percentage of full charge that the storage resource should be at.</rdfs:comment>
+        <rdfs:label>Charge state multiplier signal</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/def/openadr#ChargeStateSetpointSignal -->
+
+
+    <owl:Class rdf:about="https://w3id.org/def/openadr#ChargeStateSetpointSignal">
+        <rdfs:subClassOf rdf:resource="https://w3id.org/def/openadr#ChargeStateSignal"/>
+        <rdfs:comment>This is used to either charge or discharge a certain amount of energy from a storage resource until its charge state reaches a certain level.</rdfs:comment>
+        <rdfs:label>Charge state setpoint signal</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/def/openadr#ChargeStateSignal -->
+
+
+    <owl:Class rdf:about="https://w3id.org/def/openadr#ChargeStateSignal">
+        <rdfs:subClassOf rdf:resource="https://w3id.org/def/openadr#Signal"/>
+        <rdfs:comment>Signal used  to dispatch storage resources</rdfs:comment>
+        <rdfs:label>Charge state signal</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/def/openadr#DataReport -->
+
+
+    <owl:Class rdf:about="https://w3id.org/def/openadr#DataReport">
+        <rdfs:subClassOf rdf:resource="https://w3id.org/def/openadr#Report"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/def/openadr#isDescribedIn"/>
+                <owl:allValuesFrom rdf:resource="https://w3id.org/def/openadr#MetadataReport"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:comment>These reports are used to report actual data that may be measured or calculated.</rdfs:comment>
+        <rdfs:isDefinedBy>OpenADR 2.0 Demand Response Specification Profile B</rdfs:isDefinedBy>
+        <rdfs:label>Data report</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/def/openadr#DemandChargePriceAbsoluteSignal -->
+
+
+    <owl:Class rdf:about="https://w3id.org/def/openadr#DemandChargePriceAbsoluteSignal">
+        <rdfs:subClassOf rdf:resource="https://w3id.org/def/openadr#DemandChargeSignal"/>
+        <rdfs:comment>This is the demand charge expressed in absolute terms</rdfs:comment>
+        <rdfs:label>Demand charge absolute price signal</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/def/openadr#DemandChargePriceMultiplierSignal -->
+
+
+    <owl:Class rdf:about="https://w3id.org/def/openadr#DemandChargePriceMultiplierSignal">
+        <rdfs:subClassOf rdf:resource="https://w3id.org/def/openadr#DemandChargeSignal"/>
+        <rdfs:comment>This is a multiplier to the existing demand charge</rdfs:comment>
+        <rdfs:label>Demand charge multiplier price signal</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/def/openadr#DemandChargePriceRelativeSignal -->
+
+
+    <owl:Class rdf:about="https://w3id.org/def/openadr#DemandChargePriceRelativeSignal">
+        <rdfs:subClassOf rdf:resource="https://w3id.org/def/openadr#DemandChargeSignal"/>
+        <rdfs:comment>This is a delta change to the existing demand charge</rdfs:comment>
+        <rdfs:label>Demand charge relative price signal</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/def/openadr#DemandChargeSignal -->
+
+
+    <owl:Class rdf:about="https://w3id.org/def/openadr#DemandChargeSignal">
+        <rdfs:subClassOf rdf:resource="https://w3id.org/def/openadr#Signal"/>
+        <rdfs:comment>Signal for the demand charge</rdfs:comment>
+        <rdfs:label>Demand charge signal</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/def/openadr#ElectricityPriceAbsoluteSignal -->
+
+
+    <owl:Class rdf:about="https://w3id.org/def/openadr#ElectricityPriceAbsoluteSignal">
+        <rdfs:subClassOf rdf:resource="https://w3id.org/def/openadr#ElectricityPriceSignal"/>
+        <rdfs:comment>This is the cost of electricity  expressed in absolute terms</rdfs:comment>
+        <rdfs:label>Electicity absolute price signal</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/def/openadr#ElectricityPriceMultiplierSignal -->
+
+
+    <owl:Class rdf:about="https://w3id.org/def/openadr#ElectricityPriceMultiplierSignal">
+        <rdfs:subClassOf rdf:resource="https://w3id.org/def/openadr#ElectricityPriceSignal"/>
+        <rdfs:comment>This is a multiplier to the existing cost of electricity</rdfs:comment>
+        <rdfs:label>Electricity multiplier price signal</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/def/openadr#ElectricityPriceRelativeSignal -->
+
+
+    <owl:Class rdf:about="https://w3id.org/def/openadr#ElectricityPriceRelativeSignal">
+        <rdfs:subClassOf rdf:resource="https://w3id.org/def/openadr#ElectricityPriceSignal"/>
+        <rdfs:comment>This is a delta change to the existing price of electricity</rdfs:comment>
+        <rdfs:label>Electricity  relative price signal</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/def/openadr#ElectricityPriceSignal -->
+
+
+    <owl:Class rdf:about="https://w3id.org/def/openadr#ElectricityPriceSignal">
+        <rdfs:subClassOf rdf:resource="https://w3id.org/def/openadr#Signal"/>
+        <rdfs:comment>Signal for the price of electricity</rdfs:comment>
+        <rdfs:label>Electricity price signal</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/def/openadr#EnergyPriceAbsolutePriceSignal -->
+
+
+    <owl:Class rdf:about="https://w3id.org/def/openadr#EnergyPriceAbsolutePriceSignal">
+        <rdfs:subClassOf rdf:resource="https://w3id.org/def/openadr#EnergyPriceSignal"/>
+        <rdfs:comment>This is the cost of energy expressed in absolute terms</rdfs:comment>
+        <rdfs:label>Energy absolute price signal</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/def/openadr#EnergyPriceMultiplierSignal -->
+
+
+    <owl:Class rdf:about="https://w3id.org/def/openadr#EnergyPriceMultiplierSignal">
+        <rdfs:subClassOf rdf:resource="https://w3id.org/def/openadr#EnergyPriceSignal"/>
+        <rdfs:comment>This is a multiplier to the existing cost of energy</rdfs:comment>
+        <rdfs:label>Energy multiplier price signal</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/def/openadr#EnergyPriceRelativeSignal -->
+
+
+    <owl:Class rdf:about="https://w3id.org/def/openadr#EnergyPriceRelativeSignal">
+        <rdfs:subClassOf rdf:resource="https://w3id.org/def/openadr#EnergyPriceSignal"/>
+        <rdfs:comment>This is a delta change to the existing price of energy</rdfs:comment>
+        <rdfs:label>Energy relative price signal</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/def/openadr#EnergyPriceSignal -->
+
+
+    <owl:Class rdf:about="https://w3id.org/def/openadr#EnergyPriceSignal">
+        <rdfs:subClassOf rdf:resource="https://w3id.org/def/openadr#Signal"/>
+        <rdfs:label>Energy price signal</rdfs:label>
+        <rdfs:label>Signal for the price of energy</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/def/openadr#Event -->
+
+
+    <owl:Class rdf:about="https://w3id.org/def/openadr#Event">
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/def/openadr#eventDescriptor"/>
+                <owl:someValuesFrom rdf:resource="https://w3id.org/def/openadr#EventDescriptor"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/def/openadr#expectedResponse"/>
+                <owl:someValuesFrom rdf:resource="https://w3id.org/def/openadr#Opt"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/def/openadr#includesSignal"/>
+                <owl:someValuesFrom rdf:resource="https://w3id.org/def/openadr#Signal"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/def/openadr#ramp_up"/>
+                <owl:someValuesFrom rdf:resource="http://www.w3.org/2006/time#Duration"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/def/openadr#recovery"/>
+                <owl:someValuesFrom rdf:resource="http://www.w3.org/2006/time#Duration"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/def/openadr#hasCreatedDateTime"/>
+                <owl:someValuesFrom rdf:resource="http://www.w3.org/2001/XMLSchema#dateTimeStamp"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/def/openadr#hasVersion"/>
+                <owl:allValuesFrom rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:comment>An event is a notification from the utility to demand side resources requesting load shed starting at a specific time, over a specified duration, and may include targeting information designating specific resources that should participate in the event</rdfs:comment>
+        <rdfs:isDefinedBy>OpenADR 2.0 Demand Response Program Implementation Guide</rdfs:isDefinedBy>
+        <rdfs:label>Event</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/def/openadr#EventDescriptor -->
+
+
+    <owl:Class rdf:about="https://w3id.org/def/openadr#EventDescriptor">
+        <rdfs:comment>Part of the OpenADR event object that describes metadata about the event, such as program name and event priority</rdfs:comment>
+        <rdfs:isDefinedBy>OpenADR 2.0 Demand Response Program Implementation Guide</rdfs:isDefinedBy>
+        <rdfs:label>Event descriptor</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/def/openadr#EventStatus -->
+
+
+    <owl:Class rdf:about="https://w3id.org/def/openadr#EventStatus">
+        <rdfs:comment>Status of an OpenADR event</rdfs:comment>
+        <rdfs:isDefinedBy>OpenADR 2.0 Demand Response Program Implementation Guide</rdfs:isDefinedBy>
+        <rdfs:label>Event status</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/def/openadr#GreenButtonReport -->
+
+
+    <owl:Class rdf:about="https://w3id.org/def/openadr#GreenButtonReport">
+        <rdfs:subClassOf rdf:resource="https://w3id.org/def/openadr#HistoryReport"/>
+        <rdfs:comment>This is usage history that can be transmitted using the well known GREEN BUTTON standard payloads</rdfs:comment>
+        <rdfs:isDefinedBy>OpenADR 2.0 Demand Response Specification Profile B</rdfs:isDefinedBy>
+        <rdfs:label>Green button report</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/def/openadr#Group -->
+
+
+    <owl:Class rdf:about="https://w3id.org/def/openadr#Group">
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/def/openadr#appliesTo"/>
+                <owl:someValuesFrom rdf:resource="https://w3id.org/def/openadr#ServiceArea"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:isDefinedBy>Target of a signal or event</rdfs:isDefinedBy>
+        <rdfs:label>Group</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/def/openadr#HistoryReport -->
+
+
+    <owl:Class rdf:about="https://w3id.org/def/openadr#HistoryReport">
+        <rdfs:subClassOf rdf:resource="https://w3id.org/def/openadr#DataReport"/>
+        <rdfs:comment>This is a type of data report in which the history of the data point values is logged and can be subsequently requested</rdfs:comment>
+        <rdfs:isDefinedBy>OpenADR 2.0 Demand Response Specification Profile B</rdfs:isDefinedBy>
+        <rdfs:label>History report</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/def/openadr#HistoryUsageReport -->
+
+
+    <owl:Class rdf:about="https://w3id.org/def/openadr#HistoryUsageReport">
+        <rdfs:subClassOf rdf:resource="https://w3id.org/def/openadr#HistoryReport"/>
+        <rdfs:comment>These are logs of usage data that are typically logged by VEN’s and can be queried by the VTN</rdfs:comment>
+        <rdfs:isDefinedBy>OpenADR 2.0 Demand Response Specification Profile B</rdfs:isDefinedBy>
+        <rdfs:label>History usage report</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/def/openadr#Item -->
+
+
+    <owl:Class rdf:about="https://w3id.org/def/openadr#Item">
+        <rdfs:comment>Units for the data in the report</rdfs:comment>
+        <rdfs:isDefinedBy>OASIS Energy Market Information Exchange (eMIX) standard</rdfs:isDefinedBy>
+        <rdfs:label>Item</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/def/openadr#LoadControlCapacitySignal -->
+
+
+    <owl:Class rdf:about="https://w3id.org/def/openadr#LoadControlCapacitySignal">
+        <rdfs:subClassOf rdf:resource="https://w3id.org/def/openadr#LoadControlSignal"/>
+        <rdfs:comment>This is an instruction for the load controller to operate at a level that is some percentage of its maximum load consumption capacity. This can be mapped to specific load controllers to do things like duty cycling. Note that 1.0 refers to 100% consumption. In the case of simple ON/OFF type devices then 0 = OFF and 1 = ON.</rdfs:comment>
+        <rdfs:label>Load control capacity signal</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/def/openadr#LoadControlLevelOffsetSignal -->
+
+
+    <owl:Class rdf:about="https://w3id.org/def/openadr#LoadControlLevelOffsetSignal">
+        <rdfs:subClassOf rdf:resource="https://w3id.org/def/openadr#LoadControlSignal"/>
+        <rdfs:comment>Discrete integer levels that are relative to normal operations where 0 is normal operations. There is no requirement to link the setpoints to specific load consumption values, but the intention is that the higher the setpoint the less load is consumed. Note that these are controller set points that can be mapped at the VEN side to something as simple as thermostat temperature set point offsets.</rdfs:comment>
+        <rdfs:label>Load control level offset  signal</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/def/openadr#LoadControlPercentOffset -->
+
+
+    <owl:Class rdf:about="https://w3id.org/def/openadr#LoadControlPercentOffset">
+        <rdfs:subClassOf rdf:resource="https://w3id.org/def/openadr#LoadControlSignal"/>
+        <rdfs:comment>Percentage change from normal operations. The percentage does not refer to specific load consumptions values, but to load control operation levels. The lower the percentage the less load is consumed.</rdfs:comment>
+        <rdfs:label>Load control percent offset signal</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/def/openadr#LoadControlSetpointSignal -->
+
+
+    <owl:Class rdf:about="https://w3id.org/def/openadr#LoadControlSetpointSignal">
+        <rdfs:subClassOf rdf:resource="https://w3id.org/def/openadr#LoadControlSignal"/>
+        <rdfs:comment>Load controller set points. There is no requirement to link the setpoints to specific load consumption values. Note that these are generic controller set points and can be mapped at the VEN side to something as simple as specific thermostat temperature set points.</rdfs:comment>
+        <rdfs:label>Load control setpoint signal</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/def/openadr#LoadControlSignal -->
+
+
+    <owl:Class rdf:about="https://w3id.org/def/openadr#LoadControlSignal">
+        <rdfs:subClassOf rdf:resource="https://w3id.org/def/openadr#Signal"/>
+        <rdfs:label>Load control signal</rdfs:label>
+        <rdfs:label>Signal for to set the load control to values that are relative to the load controller and its output capacity.</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/def/openadr#LoadControlState -->
+
+
+    <owl:Class rdf:about="https://w3id.org/def/openadr#LoadControlState">
+        <rdfs:comment>The LoadControlState attributes are meant to mirror the LOAD_CONTROL signal attributes meaning that for each LOAD_CONTROL signal type there is a corresponding attribute in the LoadControlState of a report.</rdfs:comment>
+        <rdfs:label>Load control state</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/def/openadr#LoadDispatchDeltaSignal -->
+
+
+    <owl:Class rdf:about="https://w3id.org/def/openadr#LoadDispatchDeltaSignal">
+        <rdfs:subClassOf rdf:resource="https://w3id.org/def/openadr#LoadDispatchSignal"/>
+        <rdfs:comment>This is used to dispatch loads to some offset from an agreed upon baseline. Note that the baseline may be the current power consumption.</rdfs:comment>
+        <rdfs:label>Load dispatch delta signal</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/def/openadr#LoadDispatchLevelSignal -->
+
+
+    <owl:Class rdf:about="https://w3id.org/def/openadr#LoadDispatchLevelSignal">
+        <rdfs:subClassOf rdf:resource="https://w3id.org/def/openadr#LoadDispatchSignal"/>
+        <rdfs:comment>This is used to specify the load in terms of discrete levels.</rdfs:comment>
+        <rdfs:label>Load dispatch level signal</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/def/openadr#LoadDispatchMultiplier -->
+
+
+    <owl:Class rdf:about="https://w3id.org/def/openadr#LoadDispatchMultiplier">
+        <rdfs:subClassOf rdf:resource="https://w3id.org/def/openadr#LoadDispatchSignal"/>
+        <rdfs:comment>This is used to dispatch loads as some multiple of power against some agreed upon baseline. Note that the baseline may be the current power consumption.</rdfs:comment>
+        <rdfs:label>Load dispatch multiplier signal</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/def/openadr#LoadDispatchSetpointSignal -->
+
+
+    <owl:Class rdf:about="https://w3id.org/def/openadr#LoadDispatchSetpointSignal">
+        <rdfs:subClassOf rdf:resource="https://w3id.org/def/openadr#LoadDispatchSignal"/>
+        <rdfs:comment>This is used to dispatch loads to a specific amount</rdfs:comment>
+        <rdfs:label>Load dispatch setpoint signal</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/def/openadr#LoadDispatchSignal -->
+
+
+    <owl:Class rdf:about="https://w3id.org/def/openadr#LoadDispatchSignal">
+        <rdfs:subClassOf rdf:resource="https://w3id.org/def/openadr#Signal"/>
+        <rdfs:comment>Instructions are used to set the load  values that can be expressed in terms of the desired load</rdfs:comment>
+        <rdfs:label>Load dispatch signal</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/def/openadr#MetadataReport -->
+
+
+    <owl:Class rdf:about="https://w3id.org/def/openadr#MetadataReport">
+        <rdfs:subClassOf rdf:resource="https://w3id.org/def/openadr#Report"/>
+        <rdfs:isDefinedBy>OpenADR 2.0 Demand Response Specification Profile B</rdfs:isDefinedBy>
+        <rdfs:isDefinedBy>The metadata report can contain a specification for one or more type of reports, each report having its own set of report descriptors and specifications</rdfs:isDefinedBy>
+        <rdfs:label>Metadata report</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/def/openadr#Node -->
+
+
+    <owl:Class rdf:about="https://w3id.org/def/openadr#Node">
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/def/openadr#sendsOpt"/>
+                <owl:someValuesFrom rdf:resource="https://w3id.org/def/openadr#Opt"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/def/openadr#sendsReport"/>
+                <owl:someValuesFrom rdf:resource="https://w3id.org/def/openadr#Report"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:comment>Element that interacts with resources in the environment</rdfs:comment>
+        <rdfs:label>Node</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/def/openadr#Opt -->
+
+
+    <owl:Class rdf:about="https://w3id.org/def/openadr#Opt">
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/def/openadr#plans"/>
+                <owl:someValuesFrom rdf:resource="https://w3id.org/def/openadr#Schedule"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/def/openadr#hasMarketContext"/>
+                <owl:someValuesFrom rdf:resource="http://www.w3.org/2001/XMLSchema#anyURI"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:comment>The expected response from the demand side resource owner upon receipt of an event.</rdfs:comment>
+        <rdfs:isDefinedBy>OpenADR 2.0 Demand Response Program Implementation Guide</rdfs:isDefinedBy>
+        <rdfs:label>Opt</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/def/openadr#OptIn -->
+
+
+    <owl:Class rdf:about="https://w3id.org/def/openadr#OptIn">
+        <rdfs:subClassOf rdf:resource="https://w3id.org/def/openadr#Opt"/>
+        <rdfs:isDefinedBy>OpenADR 2.0 Demand Response Profile B</rdfs:isDefinedBy>
+        <rdfs:label>Opt In</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/def/openadr#OptOut -->
+
+
+    <owl:Class rdf:about="https://w3id.org/def/openadr#OptOut">
+        <rdfs:subClassOf rdf:resource="https://w3id.org/def/openadr#Opt"/>
+        <rdfs:isDefinedBy>OpenADR 2.0 Demand Response Profile B</rdfs:isDefinedBy>
+        <rdfs:label>Opt Out</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/def/openadr#Report -->
+
+
+    <owl:Class rdf:about="https://w3id.org/def/openadr#Report">
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/def/openadr#isActiveDuringPeriod"/>
+                <owl:someValuesFrom rdf:resource="http://www.w3.org/2006/time#Interval"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/def/openadr#hasDuration"/>
+                <owl:allValuesFrom rdf:resource="http://www.w3.org/2006/time#TemporalEntity"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/def/openadr#hasCreatedDateTime"/>
+                <owl:someValuesFrom rdf:resource="http://www.w3.org/2001/XMLSchema#dateTimeStamp"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/def/openadr#hasReportId"/>
+                <owl:someValuesFrom rdf:resource="http://www.w3.org/2000/01/rdf-schema#Literal"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/def/openadr#hasReportType"/>
+                <owl:someValuesFrom rdf:resource="http://www.w3.org/2000/01/rdf-schema#Literal"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/def/openadr#starts"/>
+                <owl:someValuesFrom rdf:resource="http://www.w3.org/2001/XMLSchema#dateTimeStamp"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:comment>Report sent from a VEN to a VTN to report the energy consumption or the status of Resources connected to the VEN</rdfs:comment>
+        <rdfs:isDefinedBy>OpenADR 2.0 Demand Response Specification Profile B</rdfs:isDefinedBy>
+        <rdfs:label>Report</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/def/openadr#ReportDataDescriptor -->
+
+
+    <owl:Class rdf:about="https://w3id.org/def/openadr#ReportDataDescriptor">
+        <rdfs:subClassOf rdf:resource="https://w3id.org/def/openadr#ReportDescriptor"/>
+        <rdfs:comment>Part of the OpenADR report object that describes the data included in the descriptor report</rdfs:comment>
+        <rdfs:label>Report data descriptor</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/def/openadr#ReportDataPayload -->
+
+
+    <owl:Class rdf:about="https://w3id.org/def/openadr#ReportDataPayload">
+        <rdfs:subClassOf rdf:resource="https://w3id.org/def/openadr#ReportPayload"/>
+        <rdfs:comment>Part of the OpenADR report object that includes the data sent to a node</rdfs:comment>
+        <rdfs:label>Report data payload</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/def/openadr#ReportDescriptor -->
+
+
+    <owl:Class rdf:about="https://w3id.org/def/openadr#ReportDescriptor">
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/def/openadr#involvesSubject"/>
+                <owl:someValuesFrom rdf:resource="https://w3id.org/def/openadr#Group"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/def/openadr#hasSamplingRate"/>
+                <owl:allValuesFrom rdf:resource="https://w3id.org/def/openadr#SamplingRate"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:comment>Part of the OpenADR report object that describes metadata about the report</rdfs:comment>
+        <rdfs:isDefinedBy>OpenADR 2.0 Demand Response Program Implementation Guide</rdfs:isDefinedBy>
+        <rdfs:label>Report descriptor</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/def/openadr#ReportPayload -->
+
+
+    <owl:Class rdf:about="https://w3id.org/def/openadr#ReportPayload">
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/def/openadr#hasAccuracy"/>
+                <owl:someValuesFrom rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/def/openadr#hasDataQuality"/>
+                <owl:someValuesFrom rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:comment>Payload associated to every report</rdfs:comment>
+        <rdfs:label>Report payload</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/def/openadr#ReportStatusDescriptor -->
+
+
+    <owl:Class rdf:about="https://w3id.org/def/openadr#ReportStatusDescriptor">
+        <rdfs:subClassOf rdf:resource="https://w3id.org/def/openadr#ReportDescriptor"/>
+        <rdfs:comment>Part of the OpenADR report object that describes the status of the descriptor report</rdfs:comment>
+        <rdfs:label>Report status descriptor</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/def/openadr#ReportStatusPayload -->
+
+
+    <owl:Class rdf:about="https://w3id.org/def/openadr#ReportStatusPayload">
+        <rdfs:subClassOf rdf:resource="https://w3id.org/def/openadr#ReportPayload"/>
+        <rdfs:comment>Part of the OpenADR report object that includes the status  of the payload report</rdfs:comment>
+        <rdfs:label>Report status payload</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/def/openadr#Resource -->
+
+
+    <owl:Class rdf:about="https://w3id.org/def/openadr#Resource">
+        <rdfs:comment>Entity that is enrolled in the DR Programs and is capable of delivering some sort of change to their load profile in response to receiving a DR signal from a VTN.</rdfs:comment>
+        <rdfs:isDefinedBy>OpenADR 2.0 Demand Response Program Implementation Guide</rdfs:isDefinedBy>
+        <rdfs:label>Resource</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/def/openadr#SamplingRate -->
+
+
+    <owl:Class rdf:about="https://w3id.org/def/openadr#SamplingRate">
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/def/openadr#hasItemBase"/>
+                <owl:someValuesFrom rdf:resource="https://w3id.org/def/openadr#Item"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/def/openadr#hasMaxPeriod"/>
+                <owl:allValuesFrom rdf:resource="http://www.w3.org/2006/time#TemporalEntity"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/def/openadr#hasMinPeriod"/>
+                <owl:allValuesFrom rdf:resource="http://www.w3.org/2006/time#TemporalEntity"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/def/openadr#isOnChange"/>
+                <owl:someValuesFrom rdf:resource="http://www.w3.org/2001/XMLSchema#boolean"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:comment>The average number of samples obtained in one second</rdfs:comment>
+        <rdfs:label>Sampling rate</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/def/openadr#Schedule -->
+
+
+    <owl:Class rdf:about="https://w3id.org/def/openadr#Schedule">
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/def/openadr#isAvailableDuring"/>
+                <owl:someValuesFrom rdf:resource="http://www.w3.org/2006/time#Interval"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/def/openadr#isUnavailableDuring"/>
+                <owl:someValuesFrom rdf:resource="http://www.w3.org/2006/time#Interval"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/def/openadr#refersToTarget"/>
+                <owl:someValuesFrom rdf:resource="https://w3id.org/def/openadr#Group"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:comment>Schedule of a target</rdfs:comment>
+        <rdfs:label>Schedule</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/def/openadr#ServiceArea -->
+
+
+    <owl:Class rdf:about="https://w3id.org/def/openadr#ServiceArea">
+        <rdfs:subClassOf rdf:resource="http://www.opengis.net/ont/geosparql#Feature"/>
+        <rdfs:comment>The Service Area expresses locations or geographic regions relevant to price communication</rdfs:comment>
+        <rdfs:isDefinedBy>OASIS Energy Market Information Exchange (EMIX)</rdfs:isDefinedBy>
+        <rdfs:label>Service Area</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/def/openadr#Signal -->
+
+
+    <owl:Class rdf:about="https://w3id.org/def/openadr#Signal">
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/def/openadr#hasSignalType"/>
+                <owl:someValuesFrom rdf:resource="https://w3id.org/def/openadr#SignalType"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/def/openadr#hasTarget"/>
+                <owl:someValuesFrom rdf:resource="https://w3id.org/def/openadr#Group"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/def/openadr#isDefinedIn"/>
+                <owl:someValuesFrom rdf:resource="https://w3id.org/def/openadr#SignalInterval"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:comment>The actionable information contained in an event such as electricity pricing or specific levels of load shed requested that typically trigger some preprogrammed load shed behavior by the recipient of the event.</rdfs:comment>
+        <rdfs:isDefinedBy>OpenADR 2.0 Demand Response Program Implementation Guide</rdfs:isDefinedBy>
+        <rdfs:label>Signal</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/def/openadr#SignalInterval -->
+
+
+    <owl:Class rdf:about="https://w3id.org/def/openadr#SignalInterval">
+        <rdfs:comment>Interval of time where a signal is active</rdfs:comment>
+        <rdfs:label>Signal Interval</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/def/openadr#SignalType -->
+
+
+    <owl:Class rdf:about="https://w3id.org/def/openadr#SignalType">
+        <rdfs:comment>Type of a signal</rdfs:comment>
+        <rdfs:label>Signal Type</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/def/openadr#SimpleSignal -->
+
+
+    <owl:Class rdf:about="https://w3id.org/def/openadr#SimpleSignal">
+        <rdfs:subClassOf rdf:resource="https://w3id.org/def/openadr#Signal"/>
+        <rdfs:comment>Signal for signal levels</rdfs:comment>
+        <rdfs:label>Simple signal</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/def/openadr#TelemetryReport -->
+
+
+    <owl:Class rdf:about="https://w3id.org/def/openadr#TelemetryReport">
+        <rdfs:subClassOf rdf:resource="https://w3id.org/def/openadr#DataReport"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/def/openadr#hasLoadControlState"/>
+                <owl:someValuesFrom rdf:resource="https://w3id.org/def/openadr#LoadControlState"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:comment>The term telemetry in the context of OpenADR refers to data that is reported periodically in real time</rdfs:comment>
+        <rdfs:isDefinedBy>OpenADR 2.0 Demand Response Specification Profile B</rdfs:isDefinedBy>
+        <rdfs:label>Telemetry report</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/def/openadr#TelemetryStatusReport -->
+
+
+    <owl:Class rdf:about="https://w3id.org/def/openadr#TelemetryStatusReport">
+        <rdfs:subClassOf rdf:resource="https://w3id.org/def/openadr#TelemetryReport"/>
+        <rdfs:comment>This is usage data that is periodically reported from the VEN to the VTN in real time</rdfs:comment>
+        <rdfs:isDefinedBy>OpenADR 2.0 Demand Response Specification Profile B</rdfs:isDefinedBy>
+        <rdfs:label>Telemetry status report</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/def/openadr#TelemetryUsageReport -->
+
+
+    <owl:Class rdf:about="https://w3id.org/def/openadr#TelemetryUsageReport">
+        <rdfs:subClassOf rdf:resource="https://w3id.org/def/openadr#TelemetryReport"/>
+        <rdfs:comment>This is the status of a resource, which may be periodically reported from the VEN to the VTN</rdfs:comment>
+        <rdfs:isDefinedBy>OpenADR 2.0 Demand Response Specification Profile B</rdfs:isDefinedBy>
+        <rdfs:label>Telemetry usage report</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/def/openadr#VEN -->
+
+
+    <owl:Class rdf:about="https://w3id.org/def/openadr#VEN">
+        <rdfs:subClassOf rdf:resource="https://w3id.org/def/openadr#Node"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/def/openadr#manages"/>
+                <owl:someValuesFrom rdf:resource="https://w3id.org/def/openadr#Resource"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:comment>This is the OpenADR Virtual End Node that is used to interact with the VTN</rdfs:comment>
+        <rdfs:isDefinedBy>OpenADR 2.0 Demand Response Program Implementation Guide</rdfs:isDefinedBy>
+        <rdfs:label>Virtual End Node (VEN)</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/def/openadr#VTN -->
+
+
+    <owl:Class rdf:about="https://w3id.org/def/openadr#VTN">
+        <rdfs:subClassOf rdf:resource="https://w3id.org/def/openadr#Node"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/def/openadr#sendsEvent"/>
+                <owl:someValuesFrom rdf:resource="https://w3id.org/def/openadr#Event"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:comment>This is the OpenADR Virtual Top Node that is used to interact with the Resources enrolled in the DR Programs.</rdfs:comment>
+        <rdfs:isDefinedBy>OpenADR 2.0 Demand Response Program Implementation Guide</rdfs:isDefinedBy>
+        <rdfs:label>Virtual Top Node (VTN)</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Individuals
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+
+    
+
+
+    <!-- https://w3id.org/def/openadr#Active -->
+
+
+    <owl:NamedIndividual rdf:about="https://w3id.org/def/openadr#Active">
+        <rdf:type rdf:resource="https://w3id.org/def/openadr#EventStatus"/>
+        <rdfs:comment>Active status</rdfs:comment>
+        <rdfs:label>Active</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://w3id.org/def/openadr#Canceled -->
+
+
+    <owl:NamedIndividual rdf:about="https://w3id.org/def/openadr#Canceled">
+        <rdf:type rdf:resource="https://w3id.org/def/openadr#EventStatus"/>
+        <rdfs:comment>Canceled status</rdfs:comment>
+        <rdfs:label>Canceled</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://w3id.org/def/openadr#Completed -->
+
+
+    <owl:NamedIndividual rdf:about="https://w3id.org/def/openadr#Completed">
+        <rdf:type rdf:resource="https://w3id.org/def/openadr#EventStatus"/>
+        <rdfs:comment>Completed status</rdfs:comment>
+        <rdfs:label>Completed</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://w3id.org/def/openadr#Far -->
+
+
+    <owl:NamedIndividual rdf:about="https://w3id.org/def/openadr#Far">
+        <rdf:type rdf:resource="https://w3id.org/def/openadr#EventStatus"/>
+        <rdfs:comment>Far status</rdfs:comment>
+        <rdfs:label>Far</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://w3id.org/def/openadr#Near -->
+
+
+    <owl:NamedIndividual rdf:about="https://w3id.org/def/openadr#Near">
+        <rdf:type rdf:resource="https://w3id.org/def/openadr#EventStatus"/>
+        <rdfs:comment>Near status</rdfs:comment>
+        <rdfs:label>Near</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://w3id.org/def/openadr#None -->
+
+
+    <owl:NamedIndividual rdf:about="https://w3id.org/def/openadr#None">
+        <rdf:type rdf:resource="https://w3id.org/def/openadr#EventStatus"/>
+        <rdfs:comment>None status</rdfs:comment>
+        <rdfs:label>None</rdfs:label>
+    </owl:NamedIndividual>
+    <rdf:Description>
+        <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
+    </rdf:Description>
+</rdf:RDF>
+
+
+
+<!-- Generated by the OWL API (version 5.1.14) https://github.com/owlcs/owlapi/ -->
+
+

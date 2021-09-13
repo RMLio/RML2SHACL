@@ -1,0 +1,1441 @@
+@prefix :      <http://iot.linkeddata.es/def/core#> .
+@prefix sh:    <http://www.w3.org/ns/shacl#> .
+@prefix rdf:   <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix owl:   <http://www.w3.org/2002/07/owl#> .
+@prefix xml:   <http://www.w3.org/XML/1998/namespace> .
+@prefix afn:   <http://jena.apache.org/ARQ/function#> .
+@prefix xsd:   <http://www.w3.org/2001/XMLSchema#> .
+@prefix rdfs:  <http://www.w3.org/2000/01/rdf-schema#> .
+
+<https://astrea.linkeddata.es/shapes#467f9b0187d4c9cb09e9552fd853c424>
+        a                 sh:PropertyShape ;
+        rdfs:isDefinedBy  <http://www.opengis.net/ont/geosparql> ;
+        rdfs:label        "within"@en , "Exists if the subject SpatialObject is spatially within the object SpatialObject. DE-9IM: T*F**F***"@en ;
+        sh:class          <http://www.opengis.net/ont/geosparql#SpatialObject> ;
+        sh:description    "Exists if the subject SpatialObject is spatially within the object SpatialObject. DE-9IM: T*F**F***"@en ;
+        sh:name           "within"@en ;
+        sh:nodeKind       sh:BlankNodeOrIRI ;
+        sh:path           <http://www.opengis.net/ont/geosparql#sfWithin> .
+
+<https://astrea.linkeddata.es/shapes#3bd717a2c16f80229abc5c4c3804abf3>
+        a               sh:NodeShape ;
+        rdfs:label      "Device"@en ;
+        rdfs:seeAlso    "ISO/IEC CC 30141. Information technology - Internet of Things Reference architecutre (IoT RA)"@en ;
+        sh:description  "An IoT device is a digital entity which bridges between real-world physical entities and the other digital entities of an IoT system. IoT device interacts one or more networks through which interactions are made with other entities. IoT device exposes one or more endpoints by which interactions are made. (definition taken from ISO/IEC 11404:2007)"@en ;
+        sh:name         "Device"@en ;
+        sh:nodeKind     sh:IRI ;
+        sh:property     <https://astrea.linkeddata.es/shapes#bd4409f558e91d0c7018614483f32a04> , <https://astrea.linkeddata.es/shapes#b7476a1dfe70f55108d6182bf7f01ef4> , <https://astrea.linkeddata.es/shapes#9c48cc64167af7e0259b811278ba66f5> , <https://astrea.linkeddata.es/shapes#082140bd5472b140a283064d6cd6975a> , <https://astrea.linkeddata.es/shapes#75bd83b02ce82720035527b2b4c6629a> , <https://astrea.linkeddata.es/shapes#d394f6abafb754273266454d723f136c> , <https://astrea.linkeddata.es/shapes#b416dd5c2d9f67483669606210b170a2> ;
+        sh:targetClass  :Device .
+
+<https://astrea.linkeddata.es/shapes#36920dd9110f3211265c5276fad0c96a>
+        a                 sh:PropertyShape ;
+        rdfs:isDefinedBy  "http://purl.oclc.org/NET/ssnx/ssn" ;
+        rdfs:label        "has survival property" , "Relation from a SurvivalRange to a Property describing the survial range of a system.  For example, to the temperature extreme that a system can withstand before being considered damaged." ;
+        rdfs:seeAlso      "http://www.w3.org/2005/Incubator/ssn/wiki/SSN_Deploy#OperatingRestriction" ;
+        sh:description    "Relation from a SurvivalRange to a Property describing the survial range of a system.  For example, to the temperature extreme that a system can withstand before being considered damaged." ;
+        sh:name           "has survival property" ;
+        sh:nodeKind       sh:BlankNodeOrIRI ;
+        sh:path           <http://www.w3.org/ns/ssn/systems/hasSurvivalProperty> .
+
+<https://astrea.linkeddata.es/shapes#191739ec1f75624e4dc4b80c710ff0bc>
+        a               sh:NodeShape ;
+        rdfs:label      "Building"@en ;
+        rdfs:seeAlso    <https://w3id.org/ifc/IFC4_ADD1#IfcBuilding> ;
+        sh:description  "A building represents a structure that provides shelter for its occupants or contents and stands in one place. The building is also used to provide a basic element within the spatial structure hierarchy for the components of a building project (together with site, storey, and space)."@en ;
+        sh:name         "Building"@en ;
+        sh:nodeKind     sh:IRI ;
+        sh:property     <https://astrea.linkeddata.es/shapes#6377ec8bf178cbed1015579677bd9ea1> ;
+        sh:targetClass  <https://w3id.org/def/saref4bldg#Building> .
+
+<https://astrea.linkeddata.es/shapes#798b30dcccd3c570da21a81eb00ab057>
+        a                 sh:NodeShape ;
+        rdfs:isDefinedBy  <https://w3id.org/saref#> ;
+        rdfs:label        "Service"@en ;
+        sh:description    "A service is a representation of a function to a network that makes the function discoverable, registerable, remotely controllable by other devices in the network. A service can represent one or more functions. A Service is offered by a device that wants (a certain set of) its function(s) to be discoverable, registerable, remotely controllable by other devices in the network. A Service must specify the device that is offering the service, the function(s) to be represented, and the (input and output) parameters necessary to operate the service."@en ;
+        sh:name           "Service"@en ;
+        sh:nodeKind       sh:IRI ;
+        sh:targetClass    <https://w3id.org/saref#Service> .
+
+<https://astrea.linkeddata.es/shapes#e463f02d214be54ab0a681b4787a00c3>
+        a               sh:PropertyShape ;
+        rdfs:label      "requested service"@en , "Service requested in the contract"@en ;
+        sh:description  "Service requested in the contract"@en ;
+        sh:name         "requested service"@en ;
+        sh:nodeKind     sh:BlankNodeOrIRI ;
+        sh:path         :requestedService .
+
+<https://astrea.linkeddata.es/shapes#63128467a5c43b5c79d02ce860a25a35>
+        a                 sh:PropertyShape ;
+        rdfs:isDefinedBy  "http://purl.oclc.org/NET/ssnx/ssn" ;
+        rdfs:label        "has operating property" , "Relation from an OperatingRange to a Property.  For example, to a battery lifetime." ;
+        rdfs:seeAlso      "http://www.w3.org/2005/Incubator/ssn/wiki/SSN_Deploy#OperatingRestriction" ;
+        sh:description    "Relation from an OperatingRange to a Property.  For example, to a battery lifetime." ;
+        sh:name           "has operating property" ;
+        sh:nodeKind       sh:BlankNodeOrIRI ;
+        sh:path           <http://www.w3.org/ns/ssn/systems/hasOperatingProperty> .
+
+<https://astrea.linkeddata.es/shapes#e7929688d1eb164b8e14b2892279ac15>
+        a               sh:NodeShape ;
+        sh:nodeKind     sh:IRI ;
+        sh:targetClass  <http://www.w3.org/ns/ssn/Deployment> .
+
+<https://astrea.linkeddata.es/shapes#7af19746f3127ec83e76e897f04b250e>
+        a               sh:PropertyShape ;
+        rdfs:label      "petitioner item involved"@en , "Devices or services belonging to the contract petitioner that are involved in the contract  to use the requested service."@en ;
+        sh:description  "Devices or services belonging to the contract petitioner that are involved in the contract  to use the requested service."@en ;
+        sh:name         "petitioner item involved"@en ;
+        sh:nodeKind     sh:BlankNodeOrIRI ;
+        sh:path         :petitionerItemInvolved .
+
+<https://astrea.linkeddata.es/shapes#da81b166f9f7102bc8818aa0b7ad5ed2>
+        a               sh:PropertyShape ;
+        rdfs:label      "acts on feature property"@en , "Auxiliary property created for the n-ary class core:FeatureProperty. This property links devices (sensor or actuators) or interaction patterns to instances of the n-ary class which will be the ones linking to the properties and features of interest which the device or interaction pattern acts on."@en ;
+        sh:class        :FeatureProperty ;
+        sh:description  "Auxiliary property created for the n-ary class core:FeatureProperty. This property links devices (sensor or actuators) or interaction patterns to instances of the n-ary class which will be the ones linking to the properties and features of interest which the device or interaction pattern acts on."@en ;
+        sh:name         "acts on feature property"@en ;
+        sh:nodeKind     sh:BlankNodeOrIRI ;
+        sh:path         :actsOnFeatureProperty .
+
+<https://astrea.linkeddata.es/shapes#bb43473fb734d46b18a3a3c5dd9396ef>
+        a            sh:PropertyShape ;
+        sh:class     <http://www.w3.org/ns/ssn/Property> ;
+        sh:nodeKind  sh:IRIOrLiteral ;
+        sh:path      <http://www.w3.org/ns/ssn/forProperty> .
+
+<https://astrea.linkeddata.es/shapes#a01f561d199b11dc33fac8036a6e3f52>
+        a                 sh:NodeShape ;
+        rdfs:isDefinedBy  <https://w3id.org/def/saref4bldg#> ;
+        rdfs:label        "Building space"@en ;
+        sh:description    "An entity used to define the physical spaces of the building. A building space contains devices or building objects."@en ;
+        sh:name           "Building space"@en ;
+        sh:nodeKind       sh:IRI ;
+        sh:or             ( [ sh:class  <https://w3id.org/def/saref4bldg#Building> ;
+                              sh:path   <https://w3id.org/def/saref4bldg#isSpaceOf>
+                            ]
+                            [ sh:class  <https://w3id.org/def/saref4bldg#BuildingSpace> ;
+                              sh:path   <https://w3id.org/def/saref4bldg#isSpaceOf>
+                            ]
+                          ) ;
+        sh:property       <https://astrea.linkeddata.es/shapes#10a35ac17fa93035edd1f5cb97ec6657> , <https://astrea.linkeddata.es/shapes#78d9cedde82883eca96c93f724d70bf1> , <https://astrea.linkeddata.es/shapes#68a746f6dc16e2257545c6ad50317a4a> ;
+        sh:targetClass    <https://w3id.org/def/saref4bldg#BuildingSpace> .
+
+<https://astrea.linkeddata.es/shapes#8df76fe0b54a45992921b0f881bc2919>
+        a            sh:PropertyShape ;
+        sh:class     <http://iot.linkeddata.es/def/wot#Property> ;
+        sh:nodeKind  sh:IRIOrLiteral ;
+        sh:path      <http://www.w3.org/ns/sosa/observes> .
+
+<https://astrea.linkeddata.es/shapes#1fe104196d554727617b03d79d728d7f>
+        a                       sh:PropertyShape ;
+        sh:nodeKind             sh:IRIOrLiteral ;
+        sh:path                 :requestedService ;
+        sh:qualifiedMaxCount    "1"^^xsd:nonNegativeInteger ;
+        sh:qualifiedValueShape  [ sh:class  :Service ] .
+
+<https://astrea.linkeddata.es/shapes#60659d75b2ed5c9c029ee6d55c2ca468>
+        a            sh:PropertyShape ;
+        sh:nodeKind  sh:IRIOrLiteral ;
+        sh:path      :isDescribedBy .
+
+<https://astrea.linkeddata.es/shapes#07fe8d090dee52aa25cacf9ba01c537d>
+        a            sh:PropertyShape ;
+        sh:nodeKind  sh:BlankNodeOrIRI ;
+        sh:path      <http://xmlns.com/foaf/0.1/depiction> .
+
+<https://astrea.linkeddata.es/shapes#7f769f7d67049c32139623b2acc48136>
+        a               sh:PropertyShape ;
+        rdfs:label      "service version"@en ;
+        sh:datatype     xsd:string ;
+        sh:description  "service version"@en ;
+        sh:nodeKind     sh:Literal ;
+        sh:path         :serviceVersion ;
+        sh:pattern      ".*" .
+
+<https://astrea.linkeddata.es/shapes#ee1e25d05ac997f066419ef1e479566d>
+        a            sh:PropertyShape ;
+        sh:class     <http://www.w3.org/ns/sosa/FeatureOfInterest> ;
+        sh:nodeKind  sh:IRIOrLiteral ;
+        sh:path      <http://www.w3.org/ns/ssn/isPropertyOf> .
+
+<https://astrea.linkeddata.es/shapes#498ecea4906de70915739bdbdf3d1bc0>
+        a                 sh:NodeShape ;
+        rdfs:isDefinedBy  <http://www.opengis.net/ont/geosparql> ;
+        rdfs:label        "SpatialObject"@en ;
+        sh:description    "The class spatial-object represents everything that can have a spatial representation. It is superclass of feature and geometry."@en ;
+        sh:name           "SpatialObject"@en ;
+        sh:nodeKind       sh:IRI ;
+        sh:property       <https://astrea.linkeddata.es/shapes#561d7681316bbbc7f832f6f814fa96dd> , <https://astrea.linkeddata.es/shapes#467f9b0187d4c9cb09e9552fd853c424> , <https://astrea.linkeddata.es/shapes#e7b516b5764ab14aac9d4b2dcbe92e80> , <https://astrea.linkeddata.es/shapes#8355820918b8f052e2489eb782a08ab2> ;
+        sh:targetClass    <http://www.opengis.net/ont/geosparql#SpatialObject> .
+
+<https://astrea.linkeddata.es/shapes#b105c6441ae96edd15078e5560745c01>
+        a            sh:PropertyShape ;
+        sh:class     <http://iot.linkeddata.es/def/wot#Property> ;
+        sh:nodeKind  sh:IRIOrLiteral ;
+        sh:path      <http://www.w3.org/ns/ssn/forProperty> .
+
+<https://astrea.linkeddata.es/shapes#2953a17d848434cedc56f032e955b71c>
+        a                 sh:NodeShape ;
+        rdfs:isDefinedBy  "http://purl.oclc.org/NET/ssnx/ssn" ;
+        rdfs:label        "Operating Range" ;
+        rdfs:seeAlso      "http://www.w3.org/2005/Incubator/ssn/wiki/SSN_Deploy#OperatingRestriction" ;
+        sh:description    "The environmental conditions and characteristics of a system/sensor's normal operating environment.  Can be used to specify for example the standard environmental conditions in which the sensor is expected to operate (a Condition with no OperatingProperty), or how the environmental and other operating properties relate: i.e., that the maintenance schedule or power requirements differ according to the conditions." ;
+        sh:name           "Operating Range" ;
+        sh:nodeKind       sh:IRI ;
+        sh:property       <https://astrea.linkeddata.es/shapes#8726f48c0392de344bd442462a3d2b44> , <https://astrea.linkeddata.es/shapes#295bafc6527baf4c75da23610623b103> ;
+        sh:targetClass    <http://www.w3.org/ns/ssn/systems/OperatingRange> .
+
+<https://astrea.linkeddata.es/shapes#fc098eb973b87bce1bd4115744551b86>
+        a                 sh:PropertyShape ;
+        rdfs:isDefinedBy  "A link between two organizations who are in a partnership relation. A partnership is established between organizations, only 2 organizations."@en ;
+        rdfs:label        "hasPartnershipWith"@en ;
+        sh:class          <http://www.w3.org/ns/org#Organization> ;
+        sh:name           "hasPartnershipWith"@en ;
+        sh:nodeKind       sh:BlankNodeOrIRI ;
+        sh:path           :hasPartnershipWith .
+
+<https://astrea.linkeddata.es/shapes#49c08fc6f10ed3e010052a45d4af3b83>
+        a                 sh:PropertyShape ;
+        rdfs:isDefinedBy  "http://purl.oclc.org/NET/ssnx/ssn" ;
+        rdfs:label        "has operating range" , "Relation from a System to an OperatingRange describing the normal operating environment of the System." ;
+        rdfs:seeAlso      "http://www.w3.org/2005/Incubator/ssn/wiki/SSN_Deploy#OperatingRestriction" ;
+        sh:description    "Relation from a System to an OperatingRange describing the normal operating environment of the System." ;
+        sh:name           "has operating range" ;
+        sh:nodeKind       sh:BlankNodeOrIRI ;
+        sh:path           <http://www.w3.org/ns/ssn/systems/hasOperatingRange> .
+
+<https://astrea.linkeddata.es/shapes#8c9f0a3ef50fe390869f7c693885d425>
+        a                 sh:NodeShape ;
+        rdfs:isDefinedBy  <http://www.opengis.net/ont/geosparql> ;
+        rdfs:label        "Feature"@en ;
+        sh:description    "This class represents the top-level feature type. This class is equivalent to GFI_Feature defined in ISO 19156:2011, and it is superclass of all feature types."@en ;
+        sh:name           "Feature"@en ;
+        sh:nodeKind       sh:IRI ;
+        sh:not            <https://astrea.linkeddata.es/shapes#16b639b6c59786f5c650e18b0080386b> ;
+        sh:property       <https://astrea.linkeddata.es/shapes#3f6891594ac2d163a004bec00f8db48a> ;
+        sh:targetClass    <http://www.opengis.net/ont/geosparql#Feature> .
+
+<https://astrea.linkeddata.es/shapes#f4ee5382beb062723a5e12fe9675b0fb>
+        a               sh:PropertyShape ;
+        rdfs:label      "service identifier"@en , "Unique dentifier of the service"@en ;
+        sh:datatype     xsd:string ;
+        sh:description  "Unique dentifier of the service"@en ;
+        sh:name         "service identifier"@en ;
+        sh:nodeKind     sh:Literal ;
+        sh:path         :serviceId ;
+        sh:pattern      ".*" .
+
+<https://astrea.linkeddata.es/shapes#a14a4beb8c823141b04ecdcd544c6c24>
+        a                 sh:NodeShape ;
+        rdfs:isDefinedBy  "http://purl.oclc.org/NET/ssnx/ssn" ;
+        rdfs:label        "Drift" ;
+        rdfs:seeAlso      "http://www.w3.org/2005/Incubator/ssn/wiki/SSN_Sensor#MeasuringCapability" ;
+        sh:description    "A, continuous or incremental, change in the reported values of observations over time for an unchanging quality." ;
+        sh:name           "Drift" ;
+        sh:nodeKind       sh:IRI ;
+        sh:targetClass    <http://www.w3.org/ns/ssn/systems/Drift> .
+
+<https://astrea.linkeddata.es/shapes#8726f48c0392de344bd442462a3d2b44>
+        a            sh:PropertyShape ;
+        sh:class     <http://www.w3.org/ns/ssn/systems/OperatingProperty> ;
+        sh:nodeKind  sh:IRIOrLiteral ;
+        sh:path      <http://www.w3.org/ns/ssn/systems/hasOperatingProperty> .
+
+<https://astrea.linkeddata.es/shapes#3379a444505260c2b9cfb1c6a60d72a6>
+        a            sh:PropertyShape ;
+        sh:nodeKind  sh:BlankNodeOrIRI ;
+        sh:path      <http://www.w3.org/ns/ssn/forProperty> .
+
+<https://astrea.linkeddata.es/shapes#53fe5f47be58878f5ee21334e78bd29b>
+        a               sh:PropertyShape ;
+        rdfs:label      "avatar"@en , "A link from an entity to the image identifying it in a social network or system."@en ;
+        sh:description  "A link from an entity to the image identifying it in a social network or system."@en ;
+        sh:name         "avatar"@en ;
+        sh:nodeKind     sh:BlankNodeOrIRI ;
+        sh:path         :avatar .
+
+<https://astrea.linkeddata.es/shapes#d394f6abafb754273266454d723f136c>
+        a               sh:PropertyShape ;
+        rdfs:label      "device name"@en , "Name of a device" ;
+        sh:datatype     xsd:string ;
+        sh:description  "Name of a device" ;
+        sh:name         "device name"@en ;
+        sh:nodeKind     sh:Literal ;
+        sh:path         :deviceName ;
+        sh:pattern      ".*" .
+
+<https://astrea.linkeddata.es/shapes#67751df10d92b009e5f81fbb5fe5381b>
+        a               sh:PropertyShape ;
+        rdfs:label      "service petitioner"@en , "Agent who request access to a service by a contract"@en ;
+        sh:description  "Agent who request access to a service by a contract"@en ;
+        sh:name         "service petitioner"@en ;
+        sh:nodeKind     sh:BlankNodeOrIRI ;
+        sh:path         :servicePetitioner .
+
+<https://astrea.linkeddata.es/shapes#c98dd15453f01b309997b9df0840890a>
+        a               sh:PropertyShape ;
+        rdfs:label      "service name"@en , "Name of a service" ;
+        sh:datatype     xsd:string ;
+        sh:description  "Name of a service" ;
+        sh:name         "service name"@en ;
+        sh:nodeKind     sh:Literal ;
+        sh:path         :serviceName ;
+        sh:pattern      ".*" .
+
+<https://astrea.linkeddata.es/shapes#6fbcd2235e6d9ddfba9b4ffd13e6011a>
+        a               sh:NodeShape ;
+        rdfs:label      "Virtual thing"@en ;
+        rdfs:seeAlso    "ISO/IEC CC 30141. Information technology - Internet of Things Reference architecutre (ioT RA)"@en ;
+        sh:description  "A virtual entity is a digital representation of a physical entity, contained within a service. A virtual entity interacts through an endpoint. A virtual entity represents a physical entity.\n\n(Definition taken from \nISO/IEC CC 30141. Information technology - Internet of Things Reference architecutre (IoT RA))"@en ;
+        sh:name         "Virtual thing"@en ;
+        sh:nodeKind     sh:IRI ;
+        sh:property     <https://astrea.linkeddata.es/shapes#ecf032bb4de629b3d38a760939fd8399> , <https://astrea.linkeddata.es/shapes#49ed4b7392b70371fd7355a3cb723985> ;
+        sh:targetClass  :VirtualThing .
+
+<https://astrea.linkeddata.es/shapes#55c717bc8ac74dd482cacdc961be1ed8>
+        a            sh:PropertyShape ;
+        sh:class     <http://www.w3.org/ns/ssn/System> ;
+        sh:nodeKind  sh:IRIOrLiteral ;
+        sh:path      <http://www.w3.org/ns/ssn/hasSubSystem> .
+
+<https://astrea.linkeddata.es/shapes#9729101e06843ef8782157f878647544>
+        a               sh:NodeShape ;
+        sh:property     <https://astrea.linkeddata.es/shapes#2ab095097de7557c92ecfec4b3fe224c> ;
+        sh:targetClass  <http://iot.linkeddata.es/def/wot#InteractionPattern> .
+
+<https://astrea.linkeddata.es/shapes#25b994690194193caeeb130fadea31a3>
+        a            sh:PropertyShape ;
+        sh:nodeKind  sh:IRIOrLiteral ;
+        sh:path      :petitionerItemInvolved .
+
+<https://astrea.linkeddata.es/shapes#811ef72b6ccea344721cf0bcfa6618ba>
+        a                 sh:PropertyShape ;
+        rdfs:isDefinedBy  "http://purl.oclc.org/NET/ssnx/ssn" ;
+        rdfs:isDefinedBy  <http://www.w3.org/ns/ssn/> ;
+        rdfs:label        "has property" , "has property"@en , "Relation between an entity and a Property of that entity."@en , "A relation between a FeatureOfInterest and a Property of that feature." ;
+        rdfs:seeAlso      "http://www.w3.org/2005/Incubator/ssn/wiki/SSN_Skeleton#Skeleton" ;
+        sh:description    "Relation between an entity and a Property of that entity."@en , "A relation between a FeatureOfInterest and a Property of that feature." ;
+        sh:name           "has property" , "has property"@en ;
+        sh:nodeKind       sh:BlankNodeOrIRI ;
+        sh:path           <http://www.w3.org/ns/ssn/hasProperty> .
+
+<https://astrea.linkeddata.es/shapes#6377ec8bf178cbed1015579677bd9ea1>
+        a            sh:PropertyShape ;
+        sh:class     <https://w3id.org/def/saref4bldg#BuildingSpace> ;
+        sh:nodeKind  sh:IRIOrLiteral ;
+        sh:path      <https://w3id.org/def/saref4bldg#hasSpace> .
+
+<https://astrea.linkeddata.es/shapes#92d180b14bc7896853a4e8ac2cefaadb>
+        a            sh:PropertyShape ;
+        sh:nodeKind  sh:IRIOrLiteral ;
+        sh:path      :timeStamp .
+
+<https://astrea.linkeddata.es/shapes#394d1c7c8107cb1afaf71a2bda36f37f>
+        a               sh:NodeShape ;
+        rdfs:label      "Application"@en ;
+        rdfs:seeAlso    "ISO/IEC CC 30141. Information technology - Internet of Things Reference architecutre (IoT RA)"@en ;
+        sh:description  "An application is a software entity or system that offers a collection of functions with which a user can perform a task or achieve a business objective. An application typically uses services. The functions of an application may be presented as services. (definition taken from ISO/IEC 11404:2007)"@en ;
+        sh:name         "Application"@en ;
+        sh:nodeKind     sh:IRI ;
+        sh:targetClass  :Application .
+
+<https://astrea.linkeddata.es/shapes#2c38d2b4ba0e389ec7f23745c79846a1>
+        a                 sh:NodeShape ;
+        rdfs:isDefinedBy  "http://purl.oclc.org/NET/ssnx/ssn" ;
+        rdfs:label        "Maintenance Schedule" ;
+        rdfs:seeAlso      "http://www.w3.org/2005/Incubator/ssn/wiki/SSN_Deploy#OperatingRestriction" ;
+        sh:description    "Schedule of maintenance for a system/sensor in the specified conditions." ;
+        sh:name           "Maintenance Schedule" ;
+        sh:nodeKind       sh:IRI ;
+        sh:targetClass    <http://www.w3.org/ns/ssn/systems/MaintenanceSchedule> .
+
+<https://astrea.linkeddata.es/shapes#448f7c63455693274c0c7968c8d8a627>
+        a                 sh:PropertyShape ;
+        rdfs:isDefinedBy  "Link from a device to its vendor or manufacturer or producer."@en ;
+        rdfs:label        "has vendor"@en , "has producer"@en ;
+        sh:name           "has vendor"@en , "has producer"@en ;
+        sh:nodeKind       sh:BlankNodeOrIRI ;
+        sh:path           :hasVendor .
+
+<https://astrea.linkeddata.es/shapes#36f77b9e64541d3191dee5bb37978259>
+        a                 sh:NodeShape ;
+        rdfs:isDefinedBy  "http://purl.oclc.org/NET/ssnx/ssn" ;
+        rdfs:label        "Operating Property" ;
+        rdfs:seeAlso      "http://www.w3.org/2005/Incubator/ssn/wiki/SSN_Deploy#OperatingRestriction" ;
+        sh:description    "An identifiable characteristic of the environmental and other conditions in which the sensor is intended to operate.  May include power ranges, power sources, standard configurations, attachments and the like." ;
+        sh:name           "Operating Property" ;
+        sh:nodeKind       sh:IRI ;
+        sh:targetClass    <http://www.w3.org/ns/ssn/systems/OperatingProperty> .
+
+<https://astrea.linkeddata.es/shapes#ad83efcf74312d4ccf90a5d48dc240e1>
+        a            sh:PropertyShape ;
+        sh:class     :Application ;
+        sh:nodeKind  sh:IRIOrLiteral ;
+        sh:path      :interactsUsing .
+
+<https://astrea.linkeddata.es/shapes#b7476a1dfe70f55108d6182bf7f01ef4>
+        a               sh:PropertyShape ;
+        rdfs:label      "serialNumber"@en , "Device serial number" ;
+        sh:datatype     xsd:string ;
+        sh:description  "Device serial number" ;
+        sh:name         "serialNumber"@en ;
+        sh:nodeKind     sh:Literal ;
+        sh:path         :serialNumber ;
+        sh:pattern      ".*" .
+
+<https://astrea.linkeddata.es/shapes#313650b55a348b28923039c3536456a0>
+        a                 sh:PropertyShape ;
+        rdfs:isDefinedBy  "Linkg between an agent and the virtual thing it interatcs with."@en ;
+        rdfs:label        "interacts using"@en ;
+        rdfs:seeAlso      "ISO/IEC CC 30141. Information technology - Internet of Things Reference architecutre (IoT RA)" ;
+        sh:name           "interacts using"@en ;
+        sh:nodeKind       sh:BlankNodeOrIRI ;
+        sh:path           :interactsUsing .
+
+<https://astrea.linkeddata.es/shapes#222daa0383ea33da50259d76dd1bce6d>
+        a            sh:PropertyShape ;
+        sh:nodeKind  sh:BlankNodeOrIRI ;
+        sh:path      <http://www.w3.org/ns/ssn/systems/inCondition> .
+
+<https://astrea.linkeddata.es/shapes#972354b89431251ff4c61bd0d1207f31>
+        a                 sh:NodeShape ;
+        rdfs:isDefinedBy  "http://purl.oclc.org/NET/ssnx/ssn" ;
+        rdfs:label        "Latency" ;
+        rdfs:seeAlso      "http://www.w3.org/2005/Incubator/ssn/wiki/SSN_Sensor#MeasuringCapability" ;
+        sh:description    "The time between a request for an observation and the sensor providing a result." ;
+        sh:name           "Latency" ;
+        sh:nodeKind       sh:IRI ;
+        sh:targetClass    <http://www.w3.org/ns/ssn/systems/Latency> .
+
+<https://astrea.linkeddata.es/shapes#9c48cc64167af7e0259b811278ba66f5>
+        a               sh:PropertyShape ;
+        rdfs:label      "Software version"@en , "Software version, equivalent to \"sv\" field in \"(IoT) DIS 30118-1 - Text for ISO/IEC DIS 30118-1, Information technology — Open Connectivity Foundation — Part 1: Core specification\""@en ;
+        sh:datatype     xsd:string ;
+        sh:description  "Software version, equivalent to \"sv\" field in \"(IoT) DIS 30118-1 - Text for ISO/IEC DIS 30118-1, Information technology — Open Connectivity Foundation — Part 1: Core specification\""@en ;
+        sh:name         "Software version"@en ;
+        sh:nodeKind     sh:Literal ;
+        sh:path         :softwareVersion ;
+        sh:pattern      ".*" .
+
+<https://astrea.linkeddata.es/shapes#8d253e82e0f3dd51b65e0655f8629183>
+        a            sh:PropertyShape ;
+        sh:nodeKind  sh:BlankNodeOrIRI ;
+        sh:path      <https://w3id.org/def/saref4bldg#isSpaceOf> .
+
+<https://astrea.linkeddata.es/shapes#378884c9a8a498df70f2e193093df0af>
+        a                 sh:NodeShape ;
+        rdfs:isDefinedBy  <http://www.w3.org/ns/ssn/> ;
+        rdfs:label        "System"@en ;
+        sh:description    "System is a unit of abstraction for pieces of infrastructure that implements Procedures. A System may have components, its subsystems, which are other systems."@en ;
+        sh:name           "System"@en ;
+        sh:nodeKind       sh:IRI ;
+        sh:property       <https://astrea.linkeddata.es/shapes#cd81dab8bce8117c90b05fbcf8d606bb> , <https://astrea.linkeddata.es/shapes#42d6396ea70fc1eb0ab385315cd1b78e> , <https://astrea.linkeddata.es/shapes#55c717bc8ac74dd482cacdc961be1ed8> , <https://astrea.linkeddata.es/shapes#fcf319f0451bc10f3362d90ee1f989dd> ;
+        sh:targetClass    <http://www.w3.org/ns/ssn/System> .
+
+<https://astrea.linkeddata.es/shapes#2667661929df0b00be11cd95494858a0>
+        a                 sh:NodeShape ;
+        rdfs:isDefinedBy  "http://purl.oclc.org/NET/ssnx/ssn" ;
+        rdfs:label        "Accuracy" ;
+        rdfs:seeAlso      "http://www.w3.org/2005/Incubator/ssn/wiki/SSN_Sensor#MeasuringCapability" ;
+        sh:description    "The closeness of agreement between the value of an observation and the true value of the observed quality." ;
+        sh:name           "Accuracy" ;
+        sh:nodeKind       sh:IRI ;
+        sh:targetClass    <http://www.w3.org/ns/ssn/systems/Accuracy> .
+
+<https://astrea.linkeddata.es/shapes#b46aa853be72764a8deac87048c3f360>
+        a                 sh:PropertyShape ;
+        rdfs:isDefinedBy  "http://purl.oclc.org/NET/ssnx/ssn" ;
+        rdfs:label        "quality of observation" , "Relation linking an Observation to the adjudged quality of the result.  This is of course complimentary to the MeasurementCapability information recorded for the Sensor that made the Observation." ;
+        rdfs:seeAlso      "http://www.w3.org/2005/Incubator/ssn/wiki/SSN_Observation#Observation" ;
+        sh:description    "Relation linking an Observation to the adjudged quality of the result.  This is of course complimentary to the MeasurementCapability information recorded for the Sensor that made the Observation." ;
+        sh:name           "quality of observation" ;
+        sh:nodeKind       sh:BlankNodeOrIRI ;
+        sh:path           <http://www.w3.org/ns/ssn/systems/qualityOfObservation> .
+
+<https://astrea.linkeddata.es/shapes#6a12c5fe507b3ce7cc406dce123144f9>
+        a                 sh:NodeShape ;
+        rdfs:isDefinedBy  "http://purl.oclc.org/NET/ssnx/ssn" ;
+        rdfs:label        "Resolution" ;
+        rdfs:seeAlso      "http://www.w3.org/2005/Incubator/ssn/wiki/SSN_Sensor#MeasuringCapability" ;
+        sh:description    "The smallest difference in the value of a quality being observed that would result in perceptably different values of observation results." ;
+        sh:name           "Resolution" ;
+        sh:nodeKind       sh:IRI ;
+        sh:targetClass    <http://www.w3.org/ns/ssn/systems/Resolution> .
+
+<https://astrea.linkeddata.es/shapes#561d7681316bbbc7f832f6f814fa96dd>
+        a            sh:PropertyShape ;
+        sh:class     <http://www.w3.org/2003/01/geo/wgs84_pos#Point> ;
+        sh:nodeKind  sh:IRIOrLiteral ;
+        sh:path      <http://www.w3.org/2003/01/geo/wgs84_pos#location> .
+
+<https://astrea.linkeddata.es/shapes#210b9abbeda5f0743e7c8a7993d663d6>
+        a               sh:NodeShape ;
+        rdfs:label      "Sensor"@en ;
+        rdfs:seeAlso    "ISO/IEC CC 30141. Information technology - Internet of Things Reference architecutre (IoT RA)"@en ;
+        sh:description  "A sensor is a device that detects and responds to some type of input from the physical environment and outputs digital data that can be transmitted over a network. A sensor is a specialization of an IoT device. A sensor monitors a physical entity. The output digital data may only be distantly related to the input from the physical environment and may be output with a significant time delay, depending on processing of the data within the device, for example, the recognition of the identity of a person from a surveillance camera device. (definition taken from ISO/IEC 11404:2007)"@en ;
+        sh:name         "Sensor"@en ;
+        sh:nodeKind     sh:IRI ;
+        sh:property     <https://astrea.linkeddata.es/shapes#8df76fe0b54a45992921b0f881bc2919> , <https://astrea.linkeddata.es/shapes#d457d6fd01c83b1389c8a2758bdf427f> ;
+        sh:targetClass  :Sensor .
+
+<https://astrea.linkeddata.es/shapes#a05ac7cca03788c77c76098d7e8bf0eb>
+        a                 sh:NodeShape ;
+        rdfs:isDefinedBy  "http://purl.oclc.org/NET/ssnx/ssn" ;
+        rdfs:label        "Response time" ;
+        rdfs:seeAlso      "http://www.w3.org/2005/Incubator/ssn/wiki/SSN_Sensor#MeasuringCapability" ;
+        sh:description    "The time between a (step) change inthe value of an observed quality and a sensor (possibly with specified error) 'settling' on an observed value." ;
+        sh:name           "Response time" ;
+        sh:nodeKind       sh:IRI ;
+        sh:targetClass    <http://www.w3.org/ns/ssn/systems/ResponseTime> .
+
+<https://astrea.linkeddata.es/shapes#659a020ca486578d2e60e11803d71282>
+        a               sh:NodeShape ;
+        rdfs:label      "Thing ecosystem description"@en ;
+        sh:description  "A digital representation that encapsulates an ecosystem taht is accessible via Web services" ;
+        sh:name         "Thing ecosystem description"@en ;
+        sh:nodeKind     sh:IRI ;
+        sh:property     <https://astrea.linkeddata.es/shapes#881895cbd12617d2c2f719f60a5f57bc> ;
+        sh:targetClass  :ThingEcosystemDescription .
+
+<https://astrea.linkeddata.es/shapes#74b49bc808dec30741e3e1eb1ed53d1a>
+        a               sh:NodeShape ;
+        sh:property     <https://astrea.linkeddata.es/shapes#db56d7dc90fdea72d99e49058b10023d> , <https://astrea.linkeddata.es/shapes#2ab095097de7557c92ecfec4b3fe224c> ;
+        sh:targetClass  <http://iot.linkeddata.es/def/wot#Thing> .
+
+<https://astrea.linkeddata.es/shapes#668f84c2bad0bfece3a5aa042089c335>
+        a               sh:PropertyShape ;
+        rdfs:label      "Indicates wether there are read and writes rigths over the service involved in the contrat."@en , "Read and write rights"@en ;
+        sh:datatype     xsd:boolean ;
+        sh:description  "Read and write rights"@en , "Indicates wether there are read and writes rigths over the service involved in the contrat."@en ;
+        sh:maxCount     1 ;
+        sh:nodeKind     sh:IRIOrLiteral , sh:Literal ;
+        sh:path         :readWrite ;
+        sh:pattern      "true|false|0|1" .
+
+<https://astrea.linkeddata.es/shapes#42d6396ea70fc1eb0ab385315cd1b78e>
+        a            sh:PropertyShape ;
+        sh:class     <http://www.w3.org/ns/ssn/Deployment> ;
+        sh:nodeKind  sh:IRIOrLiteral ;
+        sh:path      <http://www.w3.org/ns/ssn/hasDeployment> .
+
+<https://astrea.linkeddata.es/shapes#fd268784d770a61cc9487f7932e3e9ec>
+        a            sh:PropertyShape ;
+        sh:nodeKind  sh:BlankNodeOrIRI ;
+        sh:path      <http://www.w3.org/ns/ssn/hasSubSystem> .
+
+<https://astrea.linkeddata.es/shapes#0ced22d67d360566fe2a1d5fa6f8002d>
+        a               sh:NodeShape ;
+        rdfs:label      "Relative endpoint"@en ;
+        sh:description  "An endpoint which is relative (its href is composed by a relative path and an absolute one given by another endpoint) to an endpoint which can not be relative."@en ;
+        sh:name         "Relative endpoint"@en ;
+        sh:nodeKind     sh:IRI ;
+        sh:property     <https://astrea.linkeddata.es/shapes#e413508de78af1e9d3c584e9b5deedb8> , <https://astrea.linkeddata.es/shapes#e6a6bc12eed27f1cd1eb3a06d7fd88fe> ;
+        sh:targetClass  :RelativeEndpoint .
+
+<https://astrea.linkeddata.es/shapes#ee5eaa3db9eb84eaade340d0218f7b6e>
+        a               sh:PropertyShape ;
+        rdfs:label      "is composed by"@en , "A property between a thing and its components. For example, virtual things can contain virtual things while physical things can contain physicial or virtual things."@en ;
+        sh:class        owl:Thing ;
+        sh:description  "A property between a thing and its components. For example, virtual things can contain virtual things while physical things can contain physicial or virtual things."@en ;
+        sh:name         "is composed by"@en ;
+        sh:nodeKind     sh:BlankNodeOrIRI ;
+        sh:path         :isComposedBy .
+
+<https://astrea.linkeddata.es/shapes#6b5b5846f1b1eedf6e723871e5f7bba1>
+        a                       sh:PropertyShape ;
+        sh:nodeKind             sh:IRIOrLiteral ;
+        sh:path                 :serviceOwner ;
+        sh:qualifiedMaxCount    "1"^^xsd:nonNegativeInteger ;
+        sh:qualifiedValueShape  [ sh:class  :Agent ] .
+
+<https://astrea.linkeddata.es/shapes#3348f96caa15fb50d86f0a2231585642>
+        a            sh:PropertyShape ;
+        sh:nodeKind  sh:BlankNodeOrIRI ;
+        sh:path      <http://www.opengis.net/ont/geosparql#hasGeometry> .
+
+<https://astrea.linkeddata.es/shapes#a7e354952e6e2e49ec1f7af4ce494f82>
+        a                 sh:NodeShape ;
+        rdfs:isDefinedBy  "http://purl.oclc.org/NET/ssnx/ssn" ;
+        rdfs:label        "Sensitivity" ;
+        rdfs:seeAlso      "http://www.w3.org/2005/Incubator/ssn/wiki/SSN_Sensor#MeasuringCapability" ;
+        sh:description    "Sensitivity is the quotient of the change in a result of sensor and the corresponding change in a value of a quality being observed." ;
+        sh:name           "Sensitivity" ;
+        sh:nodeKind       sh:IRI ;
+        sh:targetClass    <http://www.w3.org/ns/ssn/systems/Sensitivity> .
+
+<https://astrea.linkeddata.es/shapes#b4be9f54ec27ccaa47ace88ee0c96e3d>
+        a                 sh:NodeShape ;
+        rdfs:isDefinedBy  "http://purl.oclc.org/NET/ssnx/ssn" ;
+        rdfs:label        "Selectivity" ;
+        rdfs:seeAlso      "http://www.w3.org/2005/Incubator/ssn/wiki/SSN_Sensor#MeasuringCapability" ;
+        sh:description    "Selectivity is a property of a sensor whereby it provides observed values for one or more qualities such that the values of each quality are independent of other qualities in the phenomenon, body, or substance being investigated." ;
+        sh:name           "Selectivity" ;
+        sh:nodeKind       sh:IRI ;
+        sh:targetClass    <http://www.w3.org/ns/ssn/systems/Selectivity> .
+
+<https://astrea.linkeddata.es/shapes#78d9cedde82883eca96c93f724d70bf1>
+        a            sh:PropertyShape ;
+        sh:class     <https://w3id.org/def/saref4bldg#PhysicalObject> ;
+        sh:nodeKind  sh:IRIOrLiteral ;
+        sh:path      <https://w3id.org/def/saref4bldg#contains> .
+
+<https://astrea.linkeddata.es/shapes#ffa627c90b2f93431bad38fc95750b9e>
+        a            sh:PropertyShape ;
+        sh:nodeKind  sh:BlankNodeOrIRI ;
+        sh:path      <http://www.w3.org/2003/01/geo/wgs84_pos#location> .
+
+<https://astrea.linkeddata.es/shapes#67ea73d79f4830cf4b727192e28b3589>
+        a                 sh:NodeShape ;
+        rdfs:isDefinedBy  "http://purl.oclc.org/NET/ssnx/ssn" ;
+        rdfs:label        "Measurement  Property" ;
+        rdfs:seeAlso      "http://www.w3.org/2005/Incubator/ssn/wiki/SSN_Sensor#MeasuringCapability" ;
+        sh:description    "An identifiable and observable characteristic of a sensor's observations or ability to make observations." ;
+        sh:name           "Measurement  Property" ;
+        sh:nodeKind       sh:IRI ;
+        sh:targetClass    <http://www.w3.org/ns/ssn/systems/SystemProperty> .
+
+<https://astrea.linkeddata.es/shapes#24f9b7100e0fee87b0fc250296cea84d>
+        a               sh:NodeShape ;
+        rdfs:label      "Thing description"@en ;
+        sh:description  "A digital representation encapsulates a physical object accessible via Web services"@en ;
+        sh:name         "Thing description"@en ;
+        sh:nodeKind     sh:IRI ;
+        sh:property     <https://astrea.linkeddata.es/shapes#90eb45cf7ec9659c41ad5c93851b0e30> ;
+        sh:targetClass  :ThingDescription .
+
+<https://astrea.linkeddata.es/shapes#0077371fb6a0f0a5a979f5555e6fc112>
+        a            sh:PropertyShape ;
+        sh:class     :FeatureProperty ;
+        sh:nodeKind  sh:IRIOrLiteral ;
+        sh:path      :actsOnFeatureProperty .
+
+<https://astrea.linkeddata.es/shapes#709f9751e8d8e1c2ffb4985824f89532>
+        a                 sh:PropertyShape ;
+        rdfs:isDefinedBy  "Link between an entity like a service or a device and its owners or providers."@en ;
+        rdfs:label        "has provider"@en , "has owner"@en ;
+        sh:name           "has provider"@en , "has owner"@en ;
+        sh:nodeKind       sh:BlankNodeOrIRI ;
+        sh:path           :hasOwner .
+
+<https://astrea.linkeddata.es/shapes#68a746f6dc16e2257545c6ad50317a4a>
+        a            sh:PropertyShape ;
+        sh:class     <https://w3id.org/def/saref4bldg#BuildingSpace> ;
+        sh:nodeKind  sh:IRIOrLiteral ;
+        sh:path      <https://w3id.org/def/saref4bldg#hasSpace> .
+
+<https://astrea.linkeddata.es/shapes#b416dd5c2d9f67483669606210b170a2>
+        a               sh:PropertyShape ;
+        rdfs:label      "Data model version"@en , "Data model version, equivalent to \"dmv\" field in \"(IoT) DIS 30118-1 - Text for ISO/IEC DIS 30118-1, Information technology — Open Connectivity Foundation — Part 1: Core specification\""@en ;
+        sh:datatype     xsd:string ;
+        sh:description  "Data model version, equivalent to \"dmv\" field in \"(IoT) DIS 30118-1 - Text for ISO/IEC DIS 30118-1, Information technology — Open Connectivity Foundation — Part 1: Core specification\""@en ;
+        sh:name         "Data model version"@en ;
+        sh:nodeKind     sh:Literal ;
+        sh:path         :dataModelVersion ;
+        sh:pattern      ".*" .
+
+<https://astrea.linkeddata.es/shapes#d1a268fdb4c9f57a25cb32cc4d1ebba4>
+        a               sh:PropertyShape ;
+        rdfs:label      "time stamp"@en , "Time stamp in which a phenomenon takes place, for example when value has been taken."@en ;
+        sh:datatype     xsd:dateTime ;
+        sh:description  "Time stamp in which a phenomenon takes place, for example when value has been taken."@en ;
+        sh:maxCount     1 ;
+        sh:name         "time stamp"@en ;
+        sh:nodeKind     sh:Literal , sh:IRIOrLiteral ;
+        sh:path         :timeStamp ;
+        sh:pattern      "-?([1-9][0-9]{3,}|0[0-9]{3})-(0[1-9]|1[0-2])-(0[1-9]|[12][0-9]|3[01])T(([01][0-9]|2[0-3]):[0-5][0-9]:[0-5][0-9](\\.[0-9]+)?|(24:00:00(\\.0+)?))(Z|(\\+|-)((0[0-9]|1[0-3]):[0-5][0-9]|14:00))?" .
+
+<https://astrea.linkeddata.es/shapes#369ed15e1b028ca2ecadb2ecd80ab23c>
+        a                 sh:NodeShape ;
+        rdfs:isDefinedBy  "http://purl.oclc.org/NET/ssnx/ssn" ;
+        rdfs:label        "detection limit" ;
+        rdfs:seeAlso      "http://www.w3.org/2005/Incubator/ssn/wiki/SSN_Sensor#MeasuringCapability" ;
+        sh:description    "An observed value for which the probability of falsely claiming the absence of a component in a material is Î², given a probability Î± of falsely claiming its presence." ;
+        sh:name           "detection limit" ;
+        sh:nodeKind       sh:IRI ;
+        sh:targetClass    <http://www.w3.org/ns/ssn/systems/DetectionLimit> .
+
+<https://astrea.linkeddata.es/shapes#863f7f3e57c7300e5384838039c7e2fa>
+        a               sh:PropertyShape ;
+        rdfs:label      "is relative to"@en , "Link from a relative endpoint to the (non relative) endpoint to which it is relative."@en ;
+        sh:description  "Link from a relative endpoint to the (non relative) endpoint to which it is relative."@en ;
+        sh:name         "is relative to"@en ;
+        sh:nodeKind     sh:BlankNodeOrIRI ;
+        sh:path         :isRelativeTo .
+
+<https://astrea.linkeddata.es/shapes#91a7c530154bb9f06d42f0702ff01892>
+        a                 sh:NodeShape ;
+        rdfs:isDefinedBy  "http://purl.oclc.org/NET/ssnx/ssn" ;
+        rdfs:label        "Survival Property" ;
+        rdfs:seeAlso      "http://www.w3.org/2005/Incubator/ssn/wiki/SSN_Deploy#OperatingRestriction" ;
+        sh:description    "An identifiable characteristic that represents the extent of the sensors useful life.  Might include for example total battery life or number of recharges, or, for sensors that are used only a fixed number of times, the number of observations that can be made before the sensing capability is depleted." ;
+        sh:name           "Survival Property" ;
+        sh:nodeKind       sh:IRI ;
+        sh:targetClass    <http://www.w3.org/ns/ssn/systems/SurvivalProperty> .
+
+<https://astrea.linkeddata.es/shapes#c981b5bfc79b00828dad54baa568a542>
+        a                 sh:PropertyShape ;
+        rdfs:isDefinedBy  "A link between a neighbourhood and all the agents involved in it."@en ;
+        rdfs:label        "involves"@en ;
+        sh:name           "involves"@en ;
+        sh:nodeKind       sh:BlankNodeOrIRI ;
+        sh:path           :involves .
+
+<https://astrea.linkeddata.es/shapes#0bb36baab099e9baf5b5708e4889ca55>
+        a            sh:PropertyShape ;
+        rdfs:label   "service owner"@en , "Indicates the organization that owns the service involved in the contract"@en ;
+        sh:name      "service owner"@en , "Indicates the organization that owns the service involved in the contract"@en ;
+        sh:nodeKind  sh:BlankNodeOrIRI ;
+        sh:path      :serviceOwner .
+
+<https://astrea.linkeddata.es/shapes#5fc7a4cfd9da5f757ace9f3060926114>
+        a            sh:PropertyShape ;
+        sh:nodeKind  sh:IRIOrLiteral ;
+        sh:path      :isLocatedAt .
+
+<https://astrea.linkeddata.es/shapes#db56d7dc90fdea72d99e49058b10023d>
+        a               sh:PropertyShape ;
+        rdfs:label      "relation between a wot:Thing and the virtual or phyisical thing it represents"@en , "represents"@en ;
+        sh:class        owl:Thing ;
+        sh:description  "relation between a wot:Thing and the virtual or phyisical thing it represents"@en ;
+        sh:maxCount     1 ;
+        sh:name         "represents"@en ;
+        sh:nodeKind     sh:IRIOrLiteral , sh:BlankNodeOrIRI ;
+        sh:path         :represents .
+
+<https://astrea.linkeddata.es/shapes#e413508de78af1e9d3c584e9b5deedb8>
+        a            sh:PropertyShape ;
+        rdfs:label   "relative href"@en ;
+        sh:datatype  xsd:string ;
+        sh:name      "relative href"@en ;
+        sh:nodeKind  sh:Literal ;
+        sh:path      :relativeHref ;
+        sh:pattern   ".*" .
+
+<https://astrea.linkeddata.es/shapes#745c0ece789dcdda40d4bc802025ba3b>
+        a               sh:NodeShape ;
+        rdfs:label      "Ecosystem"@en ;
+        sh:description  "Collection of things that co-exist in a given environment."@en ;
+        sh:name         "Ecosystem"@en ;
+        sh:nodeKind     sh:IRI ;
+        sh:property     <https://astrea.linkeddata.es/shapes#60659d75b2ed5c9c029ee6d55c2ca468> ;
+        sh:targetClass  :Ecosystem .
+
+<https://astrea.linkeddata.es/shapes#ee5b34c718349b650a0dd49295222143>
+        a                 sh:PropertyShape ;
+        rdfs:isDefinedBy  rdf: ;
+        rdfs:label        "value" , "Idiomatic property used for structured values." ;
+        sh:class          rdfs:Resource ;
+        sh:description    "Idiomatic property used for structured values." ;
+        sh:name           "value" ;
+        sh:nodeKind       sh:BlankNodeOrIRI ;
+        sh:path           rdf:value .
+
+<https://astrea.linkeddata.es/shapes#5e18b9d000e04093ffb62afcb5ba52b0>
+        a                       sh:PropertyShape ;
+        sh:nodeKind             sh:IRIOrLiteral ;
+        sh:path                 :isComposedBy ;
+        sh:qualifiedMinCount    1 ;
+        sh:qualifiedValueShape  [ sh:class  <http://iot.linkeddata.es/def/wot#Thing> ] .
+
+<https://astrea.linkeddata.es/shapes#16b639b6c59786f5c650e18b0080386b>
+        a         sh:PropertyShape ;
+        sh:class  <http://www.opengis.net/ont/geosparql#Geometry> .
+
+<https://astrea.linkeddata.es/shapes#34858377112945ba92f88f9b4c5cca80>
+        a            sh:PropertyShape ;
+        sh:class     <http://iot.linkeddata.es/def/wot#DataSchema> ;
+        sh:nodeKind  sh:IRIOrLiteral ;
+        sh:path      :expressedInFormat .
+
+<https://astrea.linkeddata.es/shapes#75bd83b02ce82720035527b2b4c6629a>
+        a               sh:PropertyShape ;
+        rdfs:label      "Protocol independent ID"@en , "Protocol independent ID, equivalent to \"piid\" field in \"(IoT) DIS 30118-1 - Text for ISO/IEC DIS 30118-1, Information technology — Open Connectivity Foundation — Part 1: Core specification\""@en ;
+        sh:datatype     xsd:string ;
+        sh:description  "Protocol independent ID, equivalent to \"piid\" field in \"(IoT) DIS 30118-1 - Text for ISO/IEC DIS 30118-1, Information technology — Open Connectivity Foundation — Part 1: Core specification\""@en ;
+        sh:name         "Protocol independent ID"@en ;
+        sh:nodeKind     sh:Literal ;
+        sh:path         :protocolIndependentId ;
+        sh:pattern      ".*" .
+
+<https://astrea.linkeddata.es/shapes#9e81a8547fd8cabc79752e243c8d2b67>
+        a               sh:NodeShape ;
+        sh:nodeKind     sh:IRI ;
+        sh:targetClass  <http://www.opengis.net/ont/geosparql#Geometry> .
+
+<https://astrea.linkeddata.es/shapes#8355820918b8f052e2489eb782a08ab2>
+        a                 sh:PropertyShape ;
+        rdfs:isDefinedBy  <http://www.opengis.net/ont/geosparql> ;
+        rdfs:label        "contains"@en , "Exists if the subject SpatialObject spatially contains the object SpatialObject. DE-9IM: T*****FF*"@en ;
+        sh:class          <http://www.opengis.net/ont/geosparql#SpatialObject> ;
+        sh:description    "Exists if the subject SpatialObject spatially contains the object SpatialObject. DE-9IM: T*****FF*"@en ;
+        sh:name           "contains"@en ;
+        sh:nodeKind       sh:BlankNodeOrIRI ;
+        sh:path           <http://www.opengis.net/ont/geosparql#sfContains> .
+
+<https://astrea.linkeddata.es/shapes#49ed4b7392b70371fd7355a3cb723985>
+        a            sh:PropertyShape ;
+        sh:class     :VirtualThing ;
+        sh:nodeKind  sh:IRIOrLiteral ;
+        sh:path      :isComposedBy .
+
+<https://astrea.linkeddata.es/shapes#18d6af67e312c01aa54c26562f644a74>
+        a               sh:PropertyShape ;
+        rdfs:label      "is described by"@en , "Relation from a thing to its thing descriptions"@en ;
+        sh:description  "Relation from a thing to its thing descriptions"@en ;
+        sh:name         "is described by"@en ;
+        sh:nodeKind     sh:BlankNodeOrIRI ;
+        sh:path         :isDescribedBy .
+
+<https://astrea.linkeddata.es/shapes#4a244230c2eeedc952356babf0654f74>
+        a               sh:NodeShape ;
+        rdfs:label      "Digital user"@en ;
+        rdfs:seeAlso    "ISO/IEC CC 30141. Information technology - Internet of Things Reference architecutre (IoT RA)"@en ;
+        sh:description  "A digital user is a digital entity which uses an IoT system. A digital user is a specialization of an IoT-User. A digital user interacts with one or more services offered by the IoT system across the network. (definition taken from ISO/IEC 11404:2007)"@en ;
+        sh:name         "Digital user"@en ;
+        sh:nodeKind     sh:IRI ;
+        sh:property     <https://astrea.linkeddata.es/shapes#fb17299845ed0b956d6270a7adb94108> ;
+        sh:targetClass  :DigitalUser .
+
+<https://astrea.linkeddata.es/shapes#661ff1df69b4fc2fe8af0fa4b82f9baa>
+        a                 sh:PropertyShape ;
+        rdfs:isDefinedBy  "http://purl.oclc.org/NET/ssnx/ssn" ;
+        rdfs:label        "has survival range" , "A Relation from a System to a SurvivalRange." ;
+        rdfs:seeAlso      "http://www.w3.org/2005/Incubator/ssn/wiki/SSN_Deploy#OperatingRestriction" ;
+        sh:description    "A Relation from a System to a SurvivalRange." ;
+        sh:name           "has survival range" ;
+        sh:nodeKind       sh:BlankNodeOrIRI ;
+        sh:path           <http://www.w3.org/ns/ssn/systems/hasSurvivalRange> .
+
+<https://astrea.linkeddata.es/shapes#b35d3c375cf8a56d4d543d98062c3d6b>
+        a               sh:PropertyShape ;
+        rdfs:label      "about property"@en , "Auxiliary property created for the n-ary class core:FeatureProperty to link instances of such class to the (ssn) proeprty it is about."@en ;
+        sh:description  "Auxiliary property created for the n-ary class core:FeatureProperty to link instances of such class to the (ssn) proeprty it is about."@en ;
+        sh:maxCount     1 ;
+        sh:name         "about property"@en ;
+        sh:nodeKind     sh:IRIOrLiteral , sh:BlankNodeOrIRI ;
+        sh:path         :aboutProperty .
+
+<https://astrea.linkeddata.es/shapes#18957d70cb7254aab0c859892dba8bc8>
+        a               sh:NodeShape ;
+        rdfs:label      "Value"@en ;
+        sh:description  "Class representing values provided by an interaction pattern in a given time stamp. It might also indicated the data format in which the value is expressed. It can be also be used to express operating property or measurement capability values for a given device."@en ;
+        sh:name         "Value"@en ;
+        sh:nodeKind     sh:IRI ;
+        sh:property     <https://astrea.linkeddata.es/shapes#e0a13f1d762170a08e493c5e4e114142> , <https://astrea.linkeddata.es/shapes#92d180b14bc7896853a4e8ac2cefaadb> , <https://astrea.linkeddata.es/shapes#5cd4aea43d61c4ea76cbc595132c4a03> , <https://astrea.linkeddata.es/shapes#34858377112945ba92f88f9b4c5cca80> , <https://astrea.linkeddata.es/shapes#74c8ba370d287532fc344537bb184032> ;
+        sh:targetClass  :Value .
+
+<https://astrea.linkeddata.es/shapes#2dad84f12a64b52855c7830343c4f58f>
+        a               sh:NodeShape ;
+        sh:nodeKind     sh:IRI ;
+        sh:targetClass  <https://w3id.org/def/saref4bldg#PhysicalObject> .
+
+<https://astrea.linkeddata.es/shapes#a95a8281f2a2ad9d1c17d5860d1928d7>
+        a                 sh:NodeShape ;
+        rdfs:isDefinedBy  "http://purl.oclc.org/NET/ssnx/ssn" ;
+        rdfs:label        "Survival Range" ;
+        rdfs:seeAlso      "http://www.w3.org/2005/Incubator/ssn/wiki/SSN_Deploy#OperatingRestriction" ;
+        sh:description    "The conditions a sensor can be exposed to without damage: i.e., the sensor continues to operate as defined using MeasurementCapability.  If, however, the SurvivalRange is exceeded, the sensor is 'damaged' and MeasurementCapability specifications may no longer hold." ;
+        sh:name           "Survival Range" ;
+        sh:nodeKind       sh:IRI ;
+        sh:property       <https://astrea.linkeddata.es/shapes#dc5b454f9e470e5b2674ad9849eb56a7> , <https://astrea.linkeddata.es/shapes#c1aa36bd078df44bc90b7e68a15a67b8> ;
+        sh:targetClass    <http://www.w3.org/ns/ssn/systems/SurvivalRange> .
+
+<https://astrea.linkeddata.es/shapes#fd48dc61e1a964de2b609d8845d37e57>
+        a               sh:PropertyShape ;
+        rdfs:label      "service description"@en , "Natural language description of a service."@en ;
+        sh:datatype     xsd:string ;
+        sh:description  "Natural language description of a service."@en ;
+        sh:name         "service description"@en ;
+        sh:nodeKind     sh:Literal ;
+        sh:path         :serviceDescription ;
+        sh:pattern      ".*" .
+
+<https://astrea.linkeddata.es/shapes#74ac90c9c816d92423aaedea3c4d9dd8>
+        a               sh:NodeShape ;
+        sh:property     <https://astrea.linkeddata.es/shapes#fc098eb973b87bce1bd4115744551b86> ;
+        sh:targetClass  <http://www.w3.org/ns/org#Organization> .
+
+<https://astrea.linkeddata.es/shapes#6cb58f928b2705cae90d521db9dc2197>
+        a               sh:NodeShape ;
+        rdfs:label      "Actuator"@en ;
+        rdfs:seeAlso    "ISO/IEC CC 30141. Information technology - Internet of Things Reference architecutre (IoT RA)"@en ;
+        sh:description  "An actuator is a device that accepts digital inputs and which acts on (changes) one or more properties of a physical entity on the basis of those inputs. An actuator is a specialization of an IoT device. An actuator acts on a physical entity. (definition taken from ISO/IEC 11404:2007)"@en ;
+        sh:name         "Actuator"@en ;
+        sh:nodeKind     sh:IRI ;
+        sh:property     <https://astrea.linkeddata.es/shapes#b105c6441ae96edd15078e5560745c01> , <https://astrea.linkeddata.es/shapes#0077371fb6a0f0a5a979f5555e6fc112> ;
+        sh:targetClass  :Actuator .
+
+<https://astrea.linkeddata.es/shapes#a15184644180c5907019579e4f164aaf>
+        a               sh:PropertyShape ;
+        rdfs:label      "describes ecosystem"@en , "Link between a thing ecosystem description and the ecosystem being described."@en ;
+        sh:description  "Link between a thing ecosystem description and the ecosystem being described."@en ;
+        sh:maxCount     1 ;
+        sh:name         "describes ecosystem"@en ;
+        sh:nodeKind     sh:IRIOrLiteral , sh:BlankNodeOrIRI ;
+        sh:path         :describesEcosystem .
+
+<http://astrea.linkeddata.es/report>
+        a       <https://w3id.org/def/astrea#ShapeReport> ;
+        <https://w3id.org/def/astrea#contains>
+                <https://astrea.linkeddata.es/shapes#ee5b34c718349b650a0dd49295222143> , <https://astrea.linkeddata.es/shapes#55c717bc8ac74dd482cacdc961be1ed8> , <https://astrea.linkeddata.es/shapes#36f77b9e64541d3191dee5bb37978259> , <https://astrea.linkeddata.es/shapes#d457d6fd01c83b1389c8a2758bdf427f> , <https://astrea.linkeddata.es/shapes#fa3fbf899100648ac5f6280353133740> , <https://astrea.linkeddata.es/shapes#191739ec1f75624e4dc4b80c710ff0bc> , <https://astrea.linkeddata.es/shapes#91a7c530154bb9f06d42f0702ff01892> , <https://astrea.linkeddata.es/shapes#313650b55a348b28923039c3536456a0> , <https://astrea.linkeddata.es/shapes#6d203d49bbe2bbf0bdb2857348ac587c> , <https://astrea.linkeddata.es/shapes#2416f66cc5ede3ffadad51113f1a379b> , <https://astrea.linkeddata.es/shapes#74c8ba370d287532fc344537bb184032> , <https://astrea.linkeddata.es/shapes#db56d7dc90fdea72d99e49058b10023d> , <https://astrea.linkeddata.es/shapes#3f60eb32eba87d209c0ebbbdb6a336d7> , <https://astrea.linkeddata.es/shapes#972354b89431251ff4c61bd0d1207f31> , <https://astrea.linkeddata.es/shapes#8d253e82e0f3dd51b65e0655f8629183> , <https://astrea.linkeddata.es/shapes#709f9751e8d8e1c2ffb4985824f89532> , <https://astrea.linkeddata.es/shapes#b9dbb2c284f4cb79845ad8a25b434c68> , <https://astrea.linkeddata.es/shapes#1e1c84a4355cdba295d2b4c0c193c0bc> , <https://astrea.linkeddata.es/shapes#210b9abbeda5f0743e7c8a7993d663d6> , <https://astrea.linkeddata.es/shapes#b7476a1dfe70f55108d6182bf7f01ef4> , <https://astrea.linkeddata.es/shapes#a01f561d199b11dc33fac8036a6e3f52> , <https://astrea.linkeddata.es/shapes#9c48cc64167af7e0259b811278ba66f5> , <https://astrea.linkeddata.es/shapes#92d180b14bc7896853a4e8ac2cefaadb> , <https://astrea.linkeddata.es/shapes#745c0ece789dcdda40d4bc802025ba3b> , <https://astrea.linkeddata.es/shapes#4a244230c2eeedc952356babf0654f74> , <https://astrea.linkeddata.es/shapes#42d6396ea70fc1eb0ab385315cd1b78e> , <https://astrea.linkeddata.es/shapes#b4be9f54ec27ccaa47ace88ee0c96e3d> , <https://astrea.linkeddata.es/shapes#67751df10d92b009e5f81fbb5fe5381b> , <https://astrea.linkeddata.es/shapes#4b3fb6c5c8490d882a2bb7db168e2ba3> , <https://astrea.linkeddata.es/shapes#ab057027d041c4734fbf2c669a59c7bc> , <https://astrea.linkeddata.es/shapes#082140bd5472b140a283064d6cd6975a> , <https://astrea.linkeddata.es/shapes#0e8a986f1a4930771c6ef6aaa5190e9d> , <https://astrea.linkeddata.es/shapes#498ecea4906de70915739bdbdf3d1bc0> , <https://astrea.linkeddata.es/shapes#8355820918b8f052e2489eb782a08ab2> , <https://astrea.linkeddata.es/shapes#3f6891594ac2d163a004bec00f8db48a> , <https://astrea.linkeddata.es/shapes#fc098eb973b87bce1bd4115744551b86> , <https://astrea.linkeddata.es/shapes#cd81dab8bce8117c90b05fbcf8d606bb> , <https://astrea.linkeddata.es/shapes#2dad84f12a64b52855c7830343c4f58f> , <https://astrea.linkeddata.es/shapes#863f7f3e57c7300e5384838039c7e2fa> , <https://astrea.linkeddata.es/shapes#ea23835b34f22b781894b623a973d658> , <https://astrea.linkeddata.es/shapes#7f769f7d67049c32139623b2acc48136> , <https://astrea.linkeddata.es/shapes#fb17299845ed0b956d6270a7adb94108> , <https://astrea.linkeddata.es/shapes#75bd83b02ce82720035527b2b4c6629a> , <https://astrea.linkeddata.es/shapes#a7ce9057e95731396f81892983766282> , <https://astrea.linkeddata.es/shapes#e0a13f1d762170a08e493c5e4e114142> , <https://astrea.linkeddata.es/shapes#ffa627c90b2f93431bad38fc95750b9e> , <https://astrea.linkeddata.es/shapes#b63c0bd12581f3d108ab34c00626aa5d> , <https://astrea.linkeddata.es/shapes#5fc7a4cfd9da5f757ace9f3060926114> , <https://astrea.linkeddata.es/shapes#e7b516b5764ab14aac9d4b2dcbe92e80> , <https://astrea.linkeddata.es/shapes#378884c9a8a498df70f2e193093df0af> , <https://astrea.linkeddata.es/shapes#ea7f816d89aa59cd1f6533acd7d68a0d> , <https://astrea.linkeddata.es/shapes#53fe5f47be58878f5ee21334e78bd29b> , <https://astrea.linkeddata.es/shapes#b105c6441ae96edd15078e5560745c01> , <https://astrea.linkeddata.es/shapes#e6a6bc12eed27f1cd1eb3a06d7fd88fe> , <https://astrea.linkeddata.es/shapes#a9485096ee8522ec745d145e9bd476ee> , <https://astrea.linkeddata.es/shapes#fd268784d770a61cc9487f7932e3e9ec> , <https://astrea.linkeddata.es/shapes#d72246e01af8c27c0cec273caade2503> , <https://astrea.linkeddata.es/shapes#b416dd5c2d9f67483669606210b170a2> , <https://astrea.linkeddata.es/shapes#90eb45cf7ec9659c41ad5c93851b0e30> , <https://astrea.linkeddata.es/shapes#2953a17d848434cedc56f032e955b71c> , <https://astrea.linkeddata.es/shapes#d1a268fdb4c9f57a25cb32cc4d1ebba4> , <https://astrea.linkeddata.es/shapes#07fe8d090dee52aa25cacf9ba01c537d> , <https://astrea.linkeddata.es/shapes#18d6af67e312c01aa54c26562f644a74> , <https://astrea.linkeddata.es/shapes#34858377112945ba92f88f9b4c5cca80> , <https://astrea.linkeddata.es/shapes#467f9b0187d4c9cb09e9552fd853c424> , <https://astrea.linkeddata.es/shapes#3ef793712378e097aac823894a277e63> , <https://astrea.linkeddata.es/shapes#a05ac7cca03788c77c76098d7e8bf0eb> , <https://astrea.linkeddata.es/shapes#7ee881aa4c19ca4da95b62e94503dce4> , <https://astrea.linkeddata.es/shapes#e413508de78af1e9d3c584e9b5deedb8> , <https://astrea.linkeddata.es/shapes#74b49bc808dec30741e3e1eb1ed53d1a> , <https://astrea.linkeddata.es/shapes#40610104feed1d32325e5af62a677091> , <https://astrea.linkeddata.es/shapes#d394f6abafb754273266454d723f136c> , <https://astrea.linkeddata.es/shapes#c6d59ffca53266a09657c4f63a860b63> , <https://astrea.linkeddata.es/shapes#a95a8281f2a2ad9d1c17d5860d1928d7> , <https://astrea.linkeddata.es/shapes#a14a4beb8c823141b04ecdcd544c6c24> , <https://astrea.linkeddata.es/shapes#394d1c7c8107cb1afaf71a2bda36f37f> , <https://astrea.linkeddata.es/shapes#49ed4b7392b70371fd7355a3cb723985> , <https://astrea.linkeddata.es/shapes#2c38d2b4ba0e389ec7f23745c79846a1> , <https://astrea.linkeddata.es/shapes#97608d14f24e012d2d9e0c240db4ebbd> , <https://astrea.linkeddata.es/shapes#3379a444505260c2b9cfb1c6a60d72a6> , <https://astrea.linkeddata.es/shapes#561d7681316bbbc7f832f6f814fa96dd> , <https://astrea.linkeddata.es/shapes#63128467a5c43b5c79d02ce860a25a35> , <https://astrea.linkeddata.es/shapes#6377ec8bf178cbed1015579677bd9ea1> , <https://astrea.linkeddata.es/shapes#73a5ae53db7538a12598eabeea03a805> , <https://astrea.linkeddata.es/shapes#a7e354952e6e2e49ec1f7af4ce494f82> , <https://astrea.linkeddata.es/shapes#661ff1df69b4fc2fe8af0fa4b82f9baa> , <https://astrea.linkeddata.es/shapes#ad83efcf74312d4ccf90a5d48dc240e1> , <https://astrea.linkeddata.es/shapes#2667661929df0b00be11cd95494858a0> , <https://astrea.linkeddata.es/shapes#ae67a51cacd06ddcdb06f699a3ba1edd> , <https://astrea.linkeddata.es/shapes#0077371fb6a0f0a5a979f5555e6fc112> , <https://astrea.linkeddata.es/shapes#25b994690194193caeeb130fadea31a3> , <https://astrea.linkeddata.es/shapes#92b9b0684bc310902d40e390162e24db> , <https://astrea.linkeddata.es/shapes#dc59200ef8381f75e38a58c0349fb117> , <https://astrea.linkeddata.es/shapes#369ed15e1b028ca2ecadb2ecd80ab23c> , <https://astrea.linkeddata.es/shapes#a0005af2635b82beb671b40f25536d31> , <https://astrea.linkeddata.es/shapes#8c9f0a3ef50fe390869f7c693885d425> , <https://astrea.linkeddata.es/shapes#7dc017b5be41e8f029300ce304e28604> , <https://astrea.linkeddata.es/shapes#7c88fbcde33a85d463c8567c5354a0d6> , <https://astrea.linkeddata.es/shapes#6a12c5fe507b3ce7cc406dce123144f9> , <https://astrea.linkeddata.es/shapes#bd4409f558e91d0c7018614483f32a04> , <https://astrea.linkeddata.es/shapes#ce137a6ae8005973ea185df81f79ee37> , <https://astrea.linkeddata.es/shapes#7af19746f3127ec83e76e897f04b250e> , <https://astrea.linkeddata.es/shapes#d9a07eea7608e43266bfe9ca4489f282> , <https://astrea.linkeddata.es/shapes#68a746f6dc16e2257545c6ad50317a4a> , <https://astrea.linkeddata.es/shapes#335720d2639453b2761f2133ad1ea689> , <https://astrea.linkeddata.es/shapes#15e53e23367d011213dc78e7f316cdb3> , <https://astrea.linkeddata.es/shapes#0ced22d67d360566fe2a1d5fa6f8002d> , <https://astrea.linkeddata.es/shapes#b35d3c375cf8a56d4d543d98062c3d6b> , <https://astrea.linkeddata.es/shapes#c98dd15453f01b309997b9df0840890a> , <https://astrea.linkeddata.es/shapes#e6d0661048de2eec81e36af97154a77c> , <https://astrea.linkeddata.es/shapes#3495be7c9af9e2fae2ce21563ad9ce6c> , <https://astrea.linkeddata.es/shapes#10a35ac17fa93035edd1f5cb97ec6657> , <https://astrea.linkeddata.es/shapes#6fbcd2235e6d9ddfba9b4ffd13e6011a> , <https://astrea.linkeddata.es/shapes#f8d4124fa6ccef0073c0d140fbc4952e> , <https://astrea.linkeddata.es/shapes#8726f48c0392de344bd442462a3d2b44> , <https://astrea.linkeddata.es/shapes#60659d75b2ed5c9c029ee6d55c2ca468> , <https://astrea.linkeddata.es/shapes#1fe104196d554727617b03d79d728d7f> , <https://astrea.linkeddata.es/shapes#18957d70cb7254aab0c859892dba8bc8> , <https://astrea.linkeddata.es/shapes#430516ab83922ebd3b2358bc38af5183> , <https://astrea.linkeddata.es/shapes#c1aa36bd078df44bc90b7e68a15a67b8> , <https://astrea.linkeddata.es/shapes#94bb55321d23804fcf5b5114bf146997> , <https://astrea.linkeddata.es/shapes#dc5b454f9e470e5b2674ad9849eb56a7> , <https://astrea.linkeddata.es/shapes#1747a03e68342090168eaf0538c06be3> , <https://astrea.linkeddata.es/shapes#5e18b9d000e04093ffb62afcb5ba52b0> , <https://astrea.linkeddata.es/shapes#222daa0383ea33da50259d76dd1bce6d> , <https://astrea.linkeddata.es/shapes#3bd717a2c16f80229abc5c4c3804abf3> , <https://astrea.linkeddata.es/shapes#f4ee5382beb062723a5e12fe9675b0fb> , <https://astrea.linkeddata.es/shapes#b517f257d16ac3574991533004220b50> , <https://astrea.linkeddata.es/shapes#5cd4aea43d61c4ea76cbc595132c4a03> , <https://astrea.linkeddata.es/shapes#668f84c2bad0bfece3a5aa042089c335> , <https://astrea.linkeddata.es/shapes#bb43473fb734d46b18a3a3c5dd9396ef> , <https://astrea.linkeddata.es/shapes#2ab095097de7557c92ecfec4b3fe224c> , <https://astrea.linkeddata.es/shapes#b46aa853be72764a8deac87048c3f360> , <https://astrea.linkeddata.es/shapes#811ef72b6ccea344721cf0bcfa6618ba> , <https://astrea.linkeddata.es/shapes#b7ccb73e77bcba8b990d629e13729387> , <https://astrea.linkeddata.es/shapes#052fda1e677e568238c66082e64a25f4> , <https://astrea.linkeddata.es/shapes#5b1930fcf15beb33cadfcbdf9e18c6f1> , <https://astrea.linkeddata.es/shapes#c1038a6f3c1198dc9810493fef1e2979> , <https://astrea.linkeddata.es/shapes#3348f96caa15fb50d86f0a2231585642> , <https://astrea.linkeddata.es/shapes#0bb36baab099e9baf5b5708e4889ca55> , <https://astrea.linkeddata.es/shapes#4810a91c83ff7dea984126ff1c0b506e> , <https://astrea.linkeddata.es/shapes#67ea73d79f4830cf4b727192e28b3589> , <https://astrea.linkeddata.es/shapes#fcf319f0451bc10f3362d90ee1f989dd> , <https://astrea.linkeddata.es/shapes#9729101e06843ef8782157f878647544> , <https://astrea.linkeddata.es/shapes#ee5eaa3db9eb84eaade340d0218f7b6e> , <https://astrea.linkeddata.es/shapes#ecf032bb4de629b3d38a760939fd8399> , <https://astrea.linkeddata.es/shapes#9e81a8547fd8cabc79752e243c8d2b67> , <https://astrea.linkeddata.es/shapes#3db9f16ff18f922fa4e89e575d5e3462> , <https://astrea.linkeddata.es/shapes#da81b166f9f7102bc8818aa0b7ad5ed2> , <https://astrea.linkeddata.es/shapes#448f7c63455693274c0c7968c8d8a627> , <https://astrea.linkeddata.es/shapes#fd48dc61e1a964de2b609d8845d37e57> , <https://astrea.linkeddata.es/shapes#798b30dcccd3c570da21a81eb00ab057> , <https://astrea.linkeddata.es/shapes#74ac90c9c816d92423aaedea3c4d9dd8> , <https://astrea.linkeddata.es/shapes#49c08fc6f10ed3e010052a45d4af3b83> , <https://astrea.linkeddata.es/shapes#e7929688d1eb164b8e14b2892279ac15> , <https://astrea.linkeddata.es/shapes#7a49f5dd0954737e0f7e916a39e41c59> , <https://astrea.linkeddata.es/shapes#090a3f349757c6a335a6955dca2db4d1> , <https://astrea.linkeddata.es/shapes#16b639b6c59786f5c650e18b0080386b> , <https://astrea.linkeddata.es/shapes#659a020ca486578d2e60e11803d71282> , <https://astrea.linkeddata.es/shapes#e463f02d214be54ab0a681b4787a00c3> , <https://astrea.linkeddata.es/shapes#36920dd9110f3211265c5276fad0c96a> , <https://astrea.linkeddata.es/shapes#30c0eaac238bbf9355c228612149395f> , <https://astrea.linkeddata.es/shapes#9cf3dc1325ff90ca1fa74702ec0b985c> , <https://astrea.linkeddata.es/shapes#c28a9bfd3b99f5da1c865b551408b5fe> , <https://astrea.linkeddata.es/shapes#a15184644180c5907019579e4f164aaf> , <https://astrea.linkeddata.es/shapes#ee1e25d05ac997f066419ef1e479566d> , <https://astrea.linkeddata.es/shapes#6b5b5846f1b1eedf6e723871e5f7bba1> , <https://astrea.linkeddata.es/shapes#8df76fe0b54a45992921b0f881bc2919> , <https://astrea.linkeddata.es/shapes#24f9b7100e0fee87b0fc250296cea84d> , <https://astrea.linkeddata.es/shapes#c981b5bfc79b00828dad54baa568a542> , <https://astrea.linkeddata.es/shapes#295bafc6527baf4c75da23610623b103> , <https://astrea.linkeddata.es/shapes#881895cbd12617d2c2f719f60a5f57bc> , <https://astrea.linkeddata.es/shapes#78d9cedde82883eca96c93f724d70bf1> , <https://astrea.linkeddata.es/shapes#6cb58f928b2705cae90d521db9dc2197> ;
+        <https://w3id.org/def/astrea#generatedShapesFrom>
+                <https://astrea.linkeddata.es/report/904470827> .
+
+<https://astrea.linkeddata.es/shapes#3db9f16ff18f922fa4e89e575d5e3462>
+        a                       sh:PropertyShape ;
+        sh:nodeKind             sh:IRIOrLiteral ;
+        sh:path                 :servicePetitioner ;
+        sh:qualifiedMaxCount    "1"^^xsd:nonNegativeInteger ;
+        sh:qualifiedValueShape  [ sh:class  :Agent ] .
+
+<https://astrea.linkeddata.es/shapes#a7ce9057e95731396f81892983766282>
+        a            sh:PropertyShape ;
+        sh:nodeKind  sh:BlankNodeOrIRI ;
+        sh:path      <https://w3id.org/def/saref4bldg#hasSpace> .
+
+<https://astrea.linkeddata.es/shapes#e7b516b5764ab14aac9d4b2dcbe92e80>
+        a            sh:PropertyShape ;
+        sh:class     <http://www.opengis.net/ont/geosparql#SpatialObject> ;
+        sh:nodeKind  sh:IRIOrLiteral ;
+        sh:path      <http://www.opengis.net/ont/geosparql#sfContains> .
+
+<https://astrea.linkeddata.es/shapes#4b3fb6c5c8490d882a2bb7db168e2ba3>
+        a               sh:PropertyShape ;
+        rdfs:label      "about feature of interest"@en , "Auxiliary property created for the n-ary class core:FeatureProperty to link instances of such class to the feature of interest it is about."@en ;
+        sh:description  "Auxiliary property created for the n-ary class core:FeatureProperty to link instances of such class to the feature of interest it is about."@en ;
+        sh:maxCount     1 ;
+        sh:name         "about feature of interest"@en ;
+        sh:nodeKind     sh:IRIOrLiteral , sh:BlankNodeOrIRI ;
+        sh:path         :aboutFeatureOfInterest .
+
+<https://astrea.linkeddata.es/shapes#3f6891594ac2d163a004bec00f8db48a>
+        a            sh:PropertyShape ;
+        sh:class     <http://www.opengis.net/ont/geosparql#Geometry> ;
+        sh:nodeKind  sh:IRIOrLiteral ;
+        sh:path      <http://www.opengis.net/ont/geosparql#hasGeometry> .
+
+<https://astrea.linkeddata.es/shapes#dc5b454f9e470e5b2674ad9849eb56a7>
+        a            sh:PropertyShape ;
+        sh:class     <http://www.w3.org/ns/ssn/systems/Condition> ;
+        sh:nodeKind  sh:IRIOrLiteral ;
+        sh:path      <http://www.w3.org/ns/ssn/systems/inCondition> .
+
+<https://astrea.linkeddata.es/report/904470827>
+        a       <https://w3id.org/def/astrea#ReportEntry> ;
+        <https://w3id.org/def/astrea#message>
+                "Shapes generated with no errors" ;
+        <https://w3id.org/def/astrea#source>
+                "http://iot.linkeddata.es/def/core/ontology.ttl" ;
+        <https://w3id.org/def/astrea#statusCode>
+                "200"^^xsd:int .
+
+<https://astrea.linkeddata.es/shapes#40610104feed1d32325e5af62a677091>
+        a                 sh:NodeShape ;
+        rdfs:isDefinedBy  "http://purl.oclc.org/NET/ssnx/ssn" ;
+        rdfs:label        "Measurement  Range" ;
+        rdfs:seeAlso      "http://www.w3.org/2005/Incubator/ssn/wiki/SSN_Sensor#MeasuringCapability" ;
+        sh:description    "The set of values that the sensor can return as the result of an observation under the defined conditions with the defined measurement properties.  (If no conditions are specified or the conditions do not specify a range for the observed qualities, the measurement range is to be taken as the condition for the observed qualities.)" ;
+        sh:name           "Measurement  Range" ;
+        sh:nodeKind       sh:IRI ;
+        sh:targetClass    <http://www.w3.org/ns/ssn/systems/MeasurementRange> .
+
+<https://astrea.linkeddata.es/shapes#a0005af2635b82beb671b40f25536d31>
+        a               sh:NodeShape ;
+        sh:nodeKind     sh:IRI ;
+        sh:property     <https://astrea.linkeddata.es/shapes#ee5b34c718349b650a0dd49295222143> ;
+        sh:targetClass  rdfs:Resource .
+
+<https://astrea.linkeddata.es/shapes#cd81dab8bce8117c90b05fbcf8d606bb>
+        a            sh:PropertyShape ;
+        sh:class     <http://www.w3.org/ns/sosa/Platform> ;
+        sh:nodeKind  sh:IRIOrLiteral ;
+        sh:path      <http://www.w3.org/ns/sosa/isHostedBy> .
+
+<https://astrea.linkeddata.es/shapes#d457d6fd01c83b1389c8a2758bdf427f>
+        a            sh:PropertyShape ;
+        sh:class     :FeatureProperty ;
+        sh:nodeKind  sh:IRIOrLiteral ;
+        sh:path      :monitorsFeatureProperty .
+
+<https://astrea.linkeddata.es/shapes#c28a9bfd3b99f5da1c865b551408b5fe>
+        a                 sh:PropertyShape ;
+        rdfs:isDefinedBy  <http://www.w3.org/ns/ssn/> ;
+        rdfs:label        "is property of"@en , "Relation between a Property and the entity it belongs to."@en ;
+        sh:description    "Relation between a Property and the entity it belongs to."@en ;
+        sh:name           "is property of"@en ;
+        sh:nodeKind       sh:BlankNodeOrIRI ;
+        sh:path           <http://www.w3.org/ns/ssn/isPropertyOf> .
+
+<https://astrea.linkeddata.es/shapes#97608d14f24e012d2d9e0c240db4ebbd>
+        a               sh:PropertyShape ;
+        rdfs:label      "relation between anything, virtual or physical, and its wot:Thing representation(s)"@en , "is represented by"@en ;
+        sh:class        <http://iot.linkeddata.es/def/wot#Thing> ;
+        sh:description  "relation between anything, virtual or physical, and its wot:Thing representation(s)"@en ;
+        sh:inversePath  :isRepresentedBy ;
+        sh:maxCount     1 ;
+        sh:name         "is represented by"@en ;
+        sh:nodeKind     sh:IRIOrLiteral , sh:BlankNodeOrIRI ;
+        sh:path         :isRepresentedBy .
+
+<https://astrea.linkeddata.es/shapes#1e1c84a4355cdba295d2b4c0c193c0bc>
+        a            sh:PropertyShape ;
+        rdfs:label   "hasMaxValue"@en ;
+        sh:class     rdfs:Resource ;
+        sh:name      "hasMaxValue"@en ;
+        sh:nodeKind  sh:BlankNodeOrIRI ;
+        sh:path      :hasMaxValue .
+
+<https://astrea.linkeddata.es/shapes#15e53e23367d011213dc78e7f316cdb3>
+        a               sh:NodeShape ;
+        rdfs:label      "Composed thing"@en ;
+        sh:description  "This class represent the things (Virtual or Physical) that are composed by other things. While Physicial things can be composed any type of thing, Virtual things can only be composed by Virtual things."@en ;
+        sh:name         "Composed thing"@en ;
+        sh:nodeKind     sh:IRI ;
+        sh:property     <https://astrea.linkeddata.es/shapes#ee5eaa3db9eb84eaade340d0218f7b6e> , <https://astrea.linkeddata.es/shapes#5e18b9d000e04093ffb62afcb5ba52b0> ;
+        sh:targetClass  :ComposedThing .
+
+<https://astrea.linkeddata.es/shapes#74c8ba370d287532fc344537bb184032>
+        a               sh:PropertyShape ;
+        rdfs:label      "expressed in format"@en , "Link from a value to the data format in which it is expressed."@en ;
+        sh:class        <http://iot.linkeddata.es/def/wot#DataSchema> ;
+        sh:description  "Link from a value to the data format in which it is expressed."@en ;
+        sh:name         "expressed in format"@en ;
+        sh:nodeKind     sh:BlankNodeOrIRI ;
+        sh:path         :expressedInFormat .
+
+<https://astrea.linkeddata.es/shapes#ea23835b34f22b781894b623a973d658>
+        a                 sh:NodeShape ;
+        rdfs:isDefinedBy  "http://purl.oclc.org/NET/ssnx/ssn" ;
+        rdfs:label        "Condition" ;
+        rdfs:seeAlso      "http://www.w3.org/2005/Incubator/ssn/wiki/SSN_Base#ConstraintBlock" ;
+        sh:description    "Used to specify ranges for qualities that act as conditions on a system/sensor's operation.  For example, wind speed of 10-60m/s is expressed as a condition linking a quality, wind speed, a unit of measurement, metres per second, and a set of values, 10-60, and may be used as the condition on a MeasurementProperty, for example, to state that a sensor has a particular accuracy in that condition." ;
+        sh:name           "Condition" ;
+        sh:nodeKind       sh:IRI ;
+        sh:targetClass    <http://www.w3.org/ns/ssn/systems/Condition> .
+
+<https://astrea.linkeddata.es/shapes#e0a13f1d762170a08e493c5e4e114142>
+        a               sh:PropertyShape ;
+        rdfs:label      "literal value"@en , "Literal representation of the observed value."@en ;
+        sh:class        rdfs:Resource ;
+        sh:description  "Literal representation of the observed value."@en ;
+        sh:name         "literal value"@en ;
+        sh:nodeKind     sh:BlankNodeOrIRI ;
+        sh:path         :literalValue .
+
+<https://astrea.linkeddata.es/shapes#dc59200ef8381f75e38a58c0349fb117>
+        a               sh:PropertyShape ;
+        rdfs:label      "is located at"@en , "The relation between a phisical thing, for example a device, and the geographical feature in which it is located."@en ;
+        sh:description  "The relation between a phisical thing, for example a device, and the geographical feature in which it is located."@en ;
+        sh:name         "is located at"@en ;
+        sh:nodeKind     sh:BlankNodeOrIRI ;
+        sh:path         :isLocatedAt .
+
+<https://astrea.linkeddata.es/shapes#7c88fbcde33a85d463c8567c5354a0d6>
+        a                 sh:NodeShape ;
+        rdfs:isDefinedBy  "http://purl.oclc.org/NET/ssnx/ssn" ;
+        rdfs:label        "System Lifetime" ;
+        rdfs:seeAlso      "http://www.w3.org/2005/Incubator/ssn/wiki/SSN_Deploy#OperatingRestriction" ;
+        sh:description    "Total useful life of a sensor/system (expressed as total life since manufacture, time in use, number of operations, etc.)." ;
+        sh:name           "System Lifetime" ;
+        sh:nodeKind       sh:IRI ;
+        sh:targetClass    <http://www.w3.org/ns/ssn/systems/SystemLifetime> .
+
+<https://astrea.linkeddata.es/shapes#b9dbb2c284f4cb79845ad8a25b434c68>
+        a               sh:NodeShape ;
+        rdfs:label      "City"@en ;
+        sh:description  "A city is a large human settlement. A city is distinguished from other human settlements by its relatively great size, but also by its functions and its special symbolic status, which may be conferred by a central authority. (https://en.wikipedia.org/wiki/City)"@en ;
+        sh:name         "City"@en ;
+        sh:nodeKind     sh:IRI ;
+        sh:targetClass  <https://w3id.org/def/saref4city#City> .
+
+<https://astrea.linkeddata.es/shapes#c1038a6f3c1198dc9810493fef1e2979>
+        a               sh:NodeShape ;
+        rdfs:label      "Country"@en ;
+        sh:description  "A country is a region that is identified as a distinct national entity in political geography. (https://en.wikipedia.org/wiki/Country)"@en ;
+        sh:name         "Country"@en ;
+        sh:nodeKind     sh:IRI ;
+        sh:targetClass  <https://w3id.org/def/saref4city#Country> .
+
+<https://astrea.linkeddata.es/shapes#c1aa36bd078df44bc90b7e68a15a67b8>
+        a            sh:PropertyShape ;
+        sh:class     <http://www.w3.org/ns/ssn/systems/SurvivalProperty> ;
+        sh:nodeKind  sh:IRIOrLiteral ;
+        sh:path      <http://www.w3.org/ns/ssn/systems/hasSurvivalProperty> .
+
+<https://astrea.linkeddata.es/shapes#7dc017b5be41e8f029300ce304e28604>
+        a               sh:PropertyShape ;
+        rdfs:label      "is component of"@en , "A link between a thing and the ecosystems it belongs to."@en ;
+        sh:description  "A link between a thing and the ecosystems it belongs to."@en ;
+        sh:name         "is component of"@en ;
+        sh:nodeKind     sh:BlankNodeOrIRI ;
+        sh:path         :isComponentOf .
+
+<https://astrea.linkeddata.es/shapes#ecf032bb4de629b3d38a760939fd8399>
+        a            sh:PropertyShape ;
+        rdfs:label   "exposes"@en , "A property representing the Thing (Virtual or Physical) that a service exposes."@en ;
+        sh:class     <http://iot.linkeddata.es/def/wot#Thing> ;
+        sh:name      "exposes"@en , "A property representing the Thing (Virtual or Physical) that a service exposes."@en ;
+        sh:nodeKind  sh:BlankNodeOrIRI ;
+        sh:path      :exposes .
+
+<https://astrea.linkeddata.es/shapes#fcf319f0451bc10f3362d90ee1f989dd>
+        a            sh:PropertyShape ;
+        sh:class     <http://www.w3.org/ns/sosa/Procedure> ;
+        sh:nodeKind  sh:IRIOrLiteral ;
+        sh:path      <http://www.w3.org/ns/ssn/implements> .
+
+<https://astrea.linkeddata.es/shapes#c6d59ffca53266a09657c4f63a860b63>
+        a                 sh:NodeShape ;
+        rdfs:isDefinedBy  "http://purl.oclc.org/NET/ssnx/ssn" ;
+        rdfs:label        "Battery Lifetime" ;
+        rdfs:seeAlso      "http://www.w3.org/2005/Incubator/ssn/wiki/SSN_Energy#EnergyRestriction" ;
+        sh:description    "Total useful life of a battery." ;
+        sh:name           "Battery Lifetime" ;
+        sh:nodeKind       sh:IRI ;
+        sh:targetClass    <http://www.w3.org/ns/ssn/systems/BatteryLifetime> .
+
+<https://astrea.linkeddata.es/shapes#5cd4aea43d61c4ea76cbc595132c4a03>
+        a            sh:PropertyShape ;
+        sh:nodeKind  sh:IRIOrLiteral ;
+        sh:path      rdf:value .
+
+<https://astrea.linkeddata.es/shapes#ab057027d041c4734fbf2c669a59c7bc>
+        a                 sh:PropertyShape ;
+        rdfs:isDefinedBy  "http://purl.oclc.org/NET/ssnx/ssn" ;
+        rdfs:label        "has measurement  capability" , "Relation from a Sensor to a MeasurementCapability describing the measurement properties of the sensor." ;
+        rdfs:seeAlso      "http://www.w3.org/2005/Incubator/ssn/wiki/SSN_Sensor#MeasuringCapability" ;
+        sh:description    "Relation from a Sensor to a MeasurementCapability describing the measurement properties of the sensor." ;
+        sh:name           "has measurement  capability" ;
+        sh:nodeKind       sh:BlankNodeOrIRI ;
+        sh:path           <http://www.w3.org/ns/ssn/systems/hasSystemCapability> .
+
+<https://astrea.linkeddata.es/shapes#e6a6bc12eed27f1cd1eb3a06d7fd88fe>
+        a                       sh:PropertyShape ;
+        sh:nodeKind             sh:IRIOrLiteral ;
+        sh:path                 :isRelativeTo ;
+        sh:qualifiedMaxCount    "1"^^xsd:nonNegativeInteger ;
+        sh:qualifiedValueShape  [ sh:class  []  ] .
+
+<https://astrea.linkeddata.es/shapes#e6d0661048de2eec81e36af97154a77c>
+        a               sh:PropertyShape ;
+        rdfs:label      "monitors feature property"@en , "Auxiliary property created for the n-ary class core:FeatureProperty. This property links devices (sensor or actuators) or interaction patterns to instances of the n-ary class which will be the ones linking to the properties and features of interest monitored."@en ;
+        sh:class        :FeatureProperty ;
+        sh:description  "Auxiliary property created for the n-ary class core:FeatureProperty. This property links devices (sensor or actuators) or interaction patterns to instances of the n-ary class which will be the ones linking to the properties and features of interest monitored."@en ;
+        sh:name         "monitors feature property"@en ;
+        sh:nodeKind     sh:BlankNodeOrIRI ;
+        sh:path         :monitorsFeatureProperty .
+
+<https://astrea.linkeddata.es/shapes#3f60eb32eba87d209c0ebbbdb6a336d7>
+        a               sh:PropertyShape ;
+        rdfs:label      "is ecosystem described by"@en , "Link from an ecosystem to the thing ecosystem descriptions that provide information about such ecosystem."@en ;
+        sh:description  "Link from an ecosystem to the thing ecosystem descriptions that provide information about such ecosystem."@en ;
+        sh:inversePath  :isEcosystemDescribedBy ;
+        sh:maxCount     1 ;
+        sh:name         "is ecosystem described by"@en ;
+        sh:nodeKind     sh:IRIOrLiteral , sh:BlankNodeOrIRI .
+
+<https://astrea.linkeddata.es/shapes#3ef793712378e097aac823894a277e63>
+        a               sh:NodeShape ;
+        sh:nodeKind     sh:IRI ;
+        sh:targetClass  <http://www.w3.org/2003/01/geo/wgs84_pos#Point> .
+
+<https://astrea.linkeddata.es/shapes#5b1930fcf15beb33cadfcbdf9e18c6f1>
+        a               sh:NodeShape ;
+        rdfs:label      "Physical thing"@en ;
+        rdfs:seeAlso    "ISO/IEC CC 30141. Information technology - Internet of Things Reference architecutre (IoT RA)"@en ;
+        sh:description  "Any entity that has a proper space region."@en , "A physical entity is a real-world thing. A physical entity is a specialization of entity. A physical entity may contain other physical entities. A physical entity is a discrete, identifiable part of the physical environment that is of interest to the user for the completion of her goal. Physical entities can be almost any physical object or environment; from humans or animals to cars; from store or logistics chain items to computers; from electronic appliances to closed or open environments.\n\n(Definition taken from \nISO/IEC CC 30141. Information technology - Internet of Things Reference architecutre (IoT RA))"@en ;
+        sh:name         "Physical thing"@en ;
+        sh:nodeKind     sh:IRI ;
+        sh:property     <https://astrea.linkeddata.es/shapes#5fc7a4cfd9da5f757ace9f3060926114> ;
+        sh:targetClass  :PhysicalThing .
+
+<https://astrea.linkeddata.es/shapes#1747a03e68342090168eaf0538c06be3>
+        a                 sh:NodeShape ;
+        rdfs:isDefinedBy  "http://purl.oclc.org/NET/ssnx/ssn" , "http://purl.oclc.org/NET/ssnx/ssn#" ;
+        rdfs:isDefinedBy  <http://www.w3.org/ns/ssn/> ;
+        rdfs:label        "property (ssn)" , "Property" , "Property"@en ;
+        rdfs:seeAlso      "http://www.w3.org/2005/Incubator/ssn/wiki/SSN_Skeleton#Skeleton" ;
+        sh:description    "An observable Quality of an Event or Object.  That is, not a quality of an abstract entity as is also allowed by DUL's Quality, but rather an aspect of an entity that is intrinsic to and cannot exist without the entity and is observable by a sensor." , "A ssn:Property is something that is a DUL:Quality and has a ssn:isPropertyOf property who may be a ssn:FeatureOfInterest"@en , "A quality of an entity. An aspect of an entity that is intrinsic to and cannot exist without the entity."@en ;
+        sh:name           "property (ssn)" , "Property" , "Property"@en ;
+        sh:nodeKind       sh:IRI ;
+        sh:property       <https://astrea.linkeddata.es/shapes#ee1e25d05ac997f066419ef1e479566d> ;
+        sh:targetClass    <http://www.w3.org/ns/ssn/Property> .
+
+<https://astrea.linkeddata.es/shapes#30c0eaac238bbf9355c228612149395f>
+        a               sh:NodeShape ;
+        rdfs:label      "Feature property"@en ;
+        sh:description  "Class created following the n-ary class in order to be able to identify which property of feature of interest is afected or monitors by a device or by an interaction pattern. Instances belongin to this class should point to a given (ssn) property and a given feature of interest."@en ;
+        sh:name         "Feature property"@en ;
+        sh:nodeKind     sh:IRI ;
+        sh:targetClass  :FeatureProperty .
+
+<https://astrea.linkeddata.es/shapes#0e8a986f1a4930771c6ef6aaa5190e9d>
+        a               sh:NodeShape ;
+        rdfs:label      "Neighbourhood"@en ;
+        sh:description  "A set of IoT infrastructures and value-added services integrated through a network of VICINITY Nodes, where the infrastructures can share the access to their IoT objects without losing the control over them."@en ;
+        sh:name         "Neighbourhood"@en ;
+        sh:nodeKind     sh:IRI ;
+        sh:property     <https://astrea.linkeddata.es/shapes#94bb55321d23804fcf5b5114bf146997> ;
+        sh:targetClass  :Neighbourhood .
+
+<https://astrea.linkeddata.es/shapes#fb17299845ed0b956d6270a7adb94108>
+        a            sh:PropertyShape ;
+        sh:class     :Service ;
+        sh:nodeKind  sh:IRIOrLiteral ;
+        sh:path      :interactsUsing .
+
+<https://astrea.linkeddata.es/shapes#2416f66cc5ede3ffadad51113f1a379b>
+        a               sh:PropertyShape ;
+        rdfs:label      "has component"@en , "A link between an ecosystem and the things that compose such ecosystem."@en ;
+        sh:description  "A link between an ecosystem and the things that compose such ecosystem."@en ;
+        sh:name         "has component"@en ;
+        sh:nodeKind     sh:BlankNodeOrIRI ;
+        sh:path         :hasComponent .
+
+<https://astrea.linkeddata.es/shapes#b517f257d16ac3574991533004220b50>
+        a                 sh:PropertyShape ;
+        rdfs:isDefinedBy  "A linkd between an agent and the entities, like devices or services, it provides or owns."@en ;
+        rdfs:label        "provides"@en , "owns"@en ;
+        sh:name           "provides"@en , "owns"@en ;
+        sh:nodeKind       sh:BlankNodeOrIRI ;
+        sh:path           :owns .
+
+<https://astrea.linkeddata.es/shapes#94bb55321d23804fcf5b5114bf146997>
+        a                 sh:PropertyShape ;
+        rdfs:isDefinedBy  "A link between a neighbourhood and the specific agent around which the neighbourhood is built."@en ;
+        rdfs:label        "is neighbourhood of"@en ;
+        sh:class          :Agent ;
+        sh:maxCount       1 ;
+        sh:name           "is neighbourhood of"@en ;
+        sh:nodeKind       sh:IRIOrLiteral , sh:BlankNodeOrIRI ;
+        sh:path           :isNeighbourhoodOf .
+
+<https://astrea.linkeddata.es/shapes#430516ab83922ebd3b2358bc38af5183>
+        a                 sh:PropertyShape ;
+        rdfs:isDefinedBy  "The link between an agent and its neighbourhood. Such neighbourhood will link to all the entities involved in such neighbourhood."@en ;
+        rdfs:label        "has neighbourhood"@en ;
+        sh:class          :Neighbourhood ;
+        sh:maxCount       1 ;
+        sh:name           "has neighbourhood"@en ;
+        sh:nodeKind       sh:IRIOrLiteral , sh:BlankNodeOrIRI ;
+        sh:path           :hasNeighbourhood .
+
+<https://astrea.linkeddata.es/shapes#082140bd5472b140a283064d6cd6975a>
+        a               sh:PropertyShape ;
+        rdfs:label      "device description"@en , "Natural language description of a device."@en ;
+        sh:datatype     xsd:string ;
+        sh:description  "Natural language description of a device."@en ;
+        sh:name         "device description"@en ;
+        sh:nodeKind     sh:Literal ;
+        sh:path         :deviceDescription ;
+        sh:pattern      ".*" .
+
+<https://astrea.linkeddata.es/shapes#d72246e01af8c27c0cec273caade2503>
+        a            sh:PropertyShape ;
+        sh:class     <http://www.w3.org/ns/ssn/systems/SystemProperty> ;
+        sh:nodeKind  sh:IRIOrLiteral ;
+        sh:path      <http://www.w3.org/ns/ssn/systems/hasSystemProperty> .
+
+<https://astrea.linkeddata.es/shapes#bd4409f558e91d0c7018614483f32a04>
+        a               sh:PropertyShape ;
+        rdfs:label      "Specification version, equivalent to \"icv\" field in \"(IoT) DIS 30118-1 - Text for ISO/IEC DIS 30118-1, Information technology — Open Connectivity Foundation — Part 1: Core specification\""@en , "Specification version"@en , "Spec Version"@en ;
+        sh:datatype     xsd:string ;
+        sh:description  "Specification version, equivalent to \"icv\" field in \"(IoT) DIS 30118-1 - Text for ISO/IEC DIS 30118-1, Information technology — Open Connectivity Foundation — Part 1: Core specification\""@en ;
+        sh:name         "Specification version"@en , "Spec Version"@en ;
+        sh:nodeKind     sh:Literal ;
+        sh:path         :specVersion ;
+        sh:pattern      ".*" .
+
+<https://astrea.linkeddata.es/shapes#335720d2639453b2761f2133ad1ea689>
+        a               sh:PropertyShape ;
+        rdfs:label      "description"@en , "General attribute for descriptions assigned to any type of concept" ;
+        sh:datatype     xsd:string ;
+        sh:description  "General attribute for descriptions assigned to any type of concept" ;
+        sh:name         "description"@en ;
+        sh:nodeKind     sh:Literal ;
+        sh:path         :description ;
+        sh:pattern      ".*" .
+
+<https://astrea.linkeddata.es/shapes#4810a91c83ff7dea984126ff1c0b506e>
+        a               sh:NodeShape ;
+        rdfs:label      "Contract"@en ;
+        sh:description  "Contract between organizations and requested services."@en ;
+        sh:name         "Contract"@en ;
+        sh:nodeKind     sh:IRI ;
+        sh:property     <https://astrea.linkeddata.es/shapes#3db9f16ff18f922fa4e89e575d5e3462> , <https://astrea.linkeddata.es/shapes#1fe104196d554727617b03d79d728d7f> , <https://astrea.linkeddata.es/shapes#668f84c2bad0bfece3a5aa042089c335> , <https://astrea.linkeddata.es/shapes#ea7f816d89aa59cd1f6533acd7d68a0d> , <https://astrea.linkeddata.es/shapes#6b5b5846f1b1eedf6e723871e5f7bba1> , <https://astrea.linkeddata.es/shapes#25b994690194193caeeb130fadea31a3> ;
+        sh:targetClass  :Contract .
+
+<https://astrea.linkeddata.es/shapes#b7ccb73e77bcba8b990d629e13729387>
+        a                 sh:NodeShape ;
+        rdfs:isDefinedBy  "http://purl.oclc.org/NET/ssnx/ssn" ;
+        rdfs:label        "Measurement Capability" ;
+        rdfs:seeAlso      "http://www.w3.org/2005/Incubator/ssn/wiki/SSN_Sensor#MeasuringCapability" ;
+        sh:description    "Collects together measurement properties (accuracy, range, precision, etc) and the environmental conditions in which those properties hold, representing a specification of a sensor's capability in those conditions.\n\nThe conditions specified here are those that affect the measurement properties, while those in OperatingRange represent the sensor's standard operating conditions, including conditions that don't affect the observations." ;
+        sh:name           "Measurement Capability" ;
+        sh:nodeKind       sh:IRI ;
+        sh:property       <https://astrea.linkeddata.es/shapes#d72246e01af8c27c0cec273caade2503> , <https://astrea.linkeddata.es/shapes#bb43473fb734d46b18a3a3c5dd9396ef> , <https://astrea.linkeddata.es/shapes#7ee881aa4c19ca4da95b62e94503dce4> ;
+        sh:targetClass    <http://www.w3.org/ns/ssn/systems/SystemCapability> .
+
+<https://astrea.linkeddata.es/shapes#10a35ac17fa93035edd1f5cb97ec6657>
+        a            sh:PropertyShape ;
+        sh:nodeKind  sh:IRIOrLiteral ;
+        sh:path      <https://w3id.org/def/saref4bldg#isSpaceOf> .
+
+<https://astrea.linkeddata.es/shapes#052fda1e677e568238c66082e64a25f4>
+        a                 sh:PropertyShape ;
+        rdfs:isDefinedBy  "A link between an agent and all the neighbouthoods it is involved in."@en ;
+        rdfs:label        "is involved in"@en ;
+        sh:name           "is involved in"@en ;
+        sh:nodeKind       sh:BlankNodeOrIRI ;
+        sh:path           :isInvolvedIn .
+
+<https://astrea.linkeddata.es/shapes#f8d4124fa6ccef0073c0d140fbc4952e>
+        a                 sh:NodeShape ;
+        rdfs:isDefinedBy  "http://purl.oclc.org/NET/ssnx/ssn" ;
+        rdfs:label        "Precision" ;
+        rdfs:seeAlso      "http://www.w3.org/2005/Incubator/ssn/wiki/SSN_Sensor#MeasuringCapability" ;
+        sh:description    "The closeness of agreement between replicate observations on an unchanged or similar quality value: i.e., a measure of a sensor's ability to consitently reproduce an observation." ;
+        sh:name           "Precision" ;
+        sh:nodeKind       sh:IRI ;
+        sh:targetClass    <http://www.w3.org/ns/ssn/systems/Precision> .
+
+<https://astrea.linkeddata.es/shapes#9cf3dc1325ff90ca1fa74702ec0b985c>
+        a                 sh:PropertyShape ;
+        rdfs:isDefinedBy  "http://purl.oclc.org/NET/ssnx/ssn" ;
+        rdfs:label        "has measurement property" , "Relation from a MeasurementCapability to a MeasurementProperty.  For example, to an accuracy (see notes at MeasurementCapability)." ;
+        rdfs:seeAlso      "http://www.w3.org/2005/Incubator/ssn/wiki/SSN_Sensor#MeasuringCapability" ;
+        sh:description    "Relation from a MeasurementCapability to a MeasurementProperty.  For example, to an accuracy (see notes at MeasurementCapability)." ;
+        sh:name           "has measurement property" ;
+        sh:nodeKind       sh:BlankNodeOrIRI ;
+        sh:path           <http://www.w3.org/ns/ssn/systems/hasSystemProperty> .
+
+<https://astrea.linkeddata.es/shapes#3495be7c9af9e2fae2ce21563ad9ce6c>
+        a            sh:PropertyShape ;
+        rdfs:label   "hasMinValue"@en ;
+        sh:name      "hasMinValue"@en ;
+        sh:nodeKind  sh:BlankNodeOrIRI .
+
+<https://astrea.linkeddata.es/shapes#ea7f816d89aa59cd1f6533acd7d68a0d>
+        a               sh:PropertyShape ;
+        rdfs:label      "contract identifier"@en , "Identifier of the contract"@en ;
+        sh:datatype     xsd:string ;
+        sh:description  "contract identifier"@en , "Identifier of the contract"@en ;
+        sh:nodeKind     sh:Literal ;
+        sh:path         :contractId ;
+        sh:pattern      ".*" .
+
+<https://astrea.linkeddata.es/shapes#881895cbd12617d2c2f719f60a5f57bc>
+        a            sh:PropertyShape ;
+        sh:nodeKind  sh:IRIOrLiteral ;
+        sh:path      :describes .
+
+<https://astrea.linkeddata.es/shapes#6d203d49bbe2bbf0bdb2857348ac587c>
+        a               sh:NodeShape ;
+        rdfs:label      "Service"@en ;
+        rdfs:seeAlso    "ISO/IEC CC 30141. Information technology - Internet of Things Reference architecutre (IoT RA)"@en ;
+        sh:description  "A service is a set of distinct capabilities provided by a software component through a defined interface, which may be composed of other services. A service is implemented by one or more components. A service defines network interfaces and exposed by an Endpoint. (definition taken from ISO/IEC 11404:2007)"@en ;
+        sh:name         "Service"@en ;
+        sh:nodeKind     sh:IRI ;
+        sh:property     <https://astrea.linkeddata.es/shapes#7f769f7d67049c32139623b2acc48136> , <https://astrea.linkeddata.es/shapes#f4ee5382beb062723a5e12fe9675b0fb> , <https://astrea.linkeddata.es/shapes#fd48dc61e1a964de2b609d8845d37e57> , <https://astrea.linkeddata.es/shapes#c98dd15453f01b309997b9df0840890a> ;
+        sh:targetClass  :Service .
+
+<https://astrea.linkeddata.es/shapes#90eb45cf7ec9659c41ad5c93851b0e30>
+        a            sh:PropertyShape ;
+        sh:class     <http://iot.linkeddata.es/def/wot#Thing> ;
+        sh:nodeKind  sh:IRIOrLiteral ;
+        sh:path      :describes .
+
+<https://astrea.linkeddata.es/shapes#73a5ae53db7538a12598eabeea03a805>
+        a               sh:NodeShape ;
+        rdfs:label      "Human user"@en ;
+        rdfs:seeAlso    "ISO/IEC CC 30141. Information technology - Internet of Things Reference architecutre (IoT RA)"@en ;
+        sh:description  "A human user is person who uses an IoT system. A human user is a specialization of an IoT-User. A human user interacts across the network via an application. (definition taken from ISO/IEC 11404:2007)"@en ;
+        sh:name         "Human user"@en ;
+        sh:nodeKind     sh:IRI ;
+        sh:property     <https://astrea.linkeddata.es/shapes#ad83efcf74312d4ccf90a5d48dc240e1> ;
+        sh:targetClass  :HumanUser .
+
+<https://astrea.linkeddata.es/shapes#ce137a6ae8005973ea185df81f79ee37>
+        a            sh:PropertyShape ;
+        sh:nodeKind  sh:BlankNodeOrIRI ;
+        sh:path      <http://www.w3.org/ns/ssn/hasDeployment> .
+
+<https://astrea.linkeddata.es/shapes#ae67a51cacd06ddcdb06f699a3ba1edd>
+        a            sh:PropertyShape ;
+        sh:nodeKind  sh:BlankNodeOrIRI ;
+        sh:path      <https://w3id.org/def/saref4bldg#contains> .
+
+<https://astrea.linkeddata.es/shapes#92b9b0684bc310902d40e390162e24db>
+        a               sh:NodeShape ;
+        rdfs:label      "Agent"@en ;
+        sh:description  "An agent is a person or piece of software involved in a VICINITY neighbourhood."@en ;
+        sh:name         "Agent"@en ;
+        sh:nodeKind     sh:IRI ;
+        sh:property     <https://astrea.linkeddata.es/shapes#430516ab83922ebd3b2358bc38af5183> ;
+        sh:targetClass  :Agent .
+
+<https://astrea.linkeddata.es/shapes#2ab095097de7557c92ecfec4b3fe224c>
+        a               sh:PropertyShape ;
+        rdfs:label      "has value"@en , "Indicates a value provided by an interaction pattern or a Thing. In case one ore more values are indicated the order will be defined by the time stamp attributes."@en ;
+        sh:class        :Value ;
+        sh:description  "Indicates a value provided by an interaction pattern or a Thing. In case one ore more values are indicated the order will be defined by the time stamp attributes."@en ;
+        sh:name         "has value"@en ;
+        sh:nodeKind     sh:BlankNodeOrIRI ;
+        sh:path         :hasValue .
+
+<https://astrea.linkeddata.es/shapes#7a49f5dd0954737e0f7e916a39e41c59>
+        a               sh:NodeShape ;
+        sh:nodeKind     sh:IRI ;
+        sh:targetClass  <http://xmlns.com/foaf/0.1/Image> .
+
+<https://astrea.linkeddata.es/shapes#090a3f349757c6a335a6955dca2db4d1>
+        a            sh:PropertyShape ;
+        sh:nodeKind  sh:BlankNodeOrIRI ;
+        sh:path      <http://www.w3.org/ns/ssn/implements> .
+
+<https://astrea.linkeddata.es/shapes#7ee881aa4c19ca4da95b62e94503dce4>
+        a            sh:PropertyShape ;
+        sh:class     <http://www.w3.org/ns/ssn/systems/Condition> ;
+        sh:nodeKind  sh:IRIOrLiteral ;
+        sh:path      <http://www.w3.org/ns/ssn/systems/inCondition> .
+
+<https://astrea.linkeddata.es/shapes#295bafc6527baf4c75da23610623b103>
+        a            sh:PropertyShape ;
+        sh:class     <http://www.w3.org/ns/ssn/systems/Condition> ;
+        sh:nodeKind  sh:IRIOrLiteral ;
+        sh:path      <http://www.w3.org/ns/ssn/systems/inCondition> .
+
+<https://astrea.linkeddata.es/shapes#b63c0bd12581f3d108ab34c00626aa5d>
+        a                 sh:NodeShape ;
+        rdfs:isDefinedBy  "http://purl.oclc.org/NET/ssnx/ssn" ;
+        rdfs:label        "Operating Power Range" ;
+        rdfs:seeAlso      "http://www.w3.org/2005/Incubator/ssn/wiki/SSN_Energy#EnergyRestriction" ;
+        sh:description    "Power range in which system/sensor is expected to operate." ;
+        sh:name           "Operating Power Range" ;
+        sh:nodeKind       sh:IRI ;
+        sh:targetClass    <http://www.w3.org/ns/ssn/systems/OperatingPowerRange> .
+
+<https://astrea.linkeddata.es/shapes#fa3fbf899100648ac5f6280353133740>
+        a                 sh:NodeShape ;
+        rdfs:isDefinedBy  "http://purl.oclc.org/NET/ssnx/ssn" ;
+        rdfs:label        "Frequency" ;
+        rdfs:seeAlso      "http://www.w3.org/2005/Incubator/ssn/wiki/SSN_Sensor#MeasuringCapability" ;
+        sh:description    "The smallest possible time between one observation and the next." ;
+        sh:name           "Frequency" ;
+        sh:nodeKind       sh:IRI ;
+        sh:targetClass    <http://www.w3.org/ns/ssn/systems/Frequency> .
+
+<https://astrea.linkeddata.es/shapes#d9a07eea7608e43266bfe9ca4489f282>
+        a               sh:NodeShape ;
+        rdfs:label      "Administrative area"@en ;
+        sh:description  "An administrative division, unit, entity, area or region, also referred to as a subnational entity, constituent unit, or country subdivision, is a portion of a country or other region delineated for the purpose of administration. (https://en.wikipedia.org/wiki/Administrative_division)"@en ;
+        sh:name         "Administrative area"@en ;
+        sh:nodeKind     sh:IRI ;
+        sh:targetClass  <https://w3id.org/def/saref4city#AdministrativeArea> .
+
+<https://astrea.linkeddata.es/shapes#a9485096ee8522ec745d145e9bd476ee>
+        a               sh:PropertyShape ;
+        rdfs:label      "describes thing"@en , "Link from a thing description to the thing being described"@en ;
+        sh:description  "Link from a thing description to the thing being described"@en ;
+        sh:name         "describes thing"@en ;
+        sh:nodeKind     sh:BlankNodeOrIRI ;
+        sh:path         :describes .
