@@ -1,0 +1,288 @@
+@prefix ns: <https://git.onem2m.org/MAS/BaseOntology/raw/master/base_ontology.owl#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix sh: <http://www.w3.org/ns/shacl#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+<http://mapping.example.com/map_triplesMapControllingfunction_000/shape> a sh:NodeShape ;
+    sh:nodeKind sh:IRI ;
+    sh:pattern "http://.*" ;
+    sh:property [ sh:hasValue "https://git.onem2m.org/MAS/BaseOntology/raw/master/base_ontology.owl#ControllingFunction" ] ;
+    sh:targetClass rdfs:Resource,
+        "https://git.onem2m.org/MAS/BaseOntology/raw/master/base_ontology.owl#ControllingFunction" .
+
+<http://mapping.example.com/map_triplesMapGet_inputdatapoint_000/shape> a sh:NodeShape ;
+    sh:nodeKind sh:IRI ;
+    sh:pattern "http://.*" ;
+    sh:property [ sh:hasValue "https://git.onem2m.org/MAS/BaseOntology/raw/master/base_ontology.owl#GET_InputDataPoint" ] ;
+    sh:targetClass rdfs:Resource,
+        "https://git.onem2m.org/MAS/BaseOntology/raw/master/base_ontology.owl#GET_InputDataPoint" .
+
+<http://mapping.example.com/map_triplesMapInterworkeddevice_000/shape> a sh:NodeShape ;
+    sh:nodeKind sh:IRI ;
+    sh:pattern "http://.*" ;
+    sh:property [ sh:node <http://mapping.example.com/map_triplesMapAreanetwork_000/shape> ;
+            sh:path ns:isPartOf ],
+        [ sh:hasValue "https://git.onem2m.org/MAS/BaseOntology/raw/master/base_ontology.owl#InterworkedDevice" ],
+        [ sh:node <http://mapping.example.com/map_triplesMapAreanetwork_000/shape> ] ;
+    sh:targetClass rdfs:Resource,
+        "https://git.onem2m.org/MAS/BaseOntology/raw/master/base_ontology.owl#InterworkedDevice" ;
+    sh:targetSubjectsOf ns:isPartOf .
+
+<http://mapping.example.com/map_triplesMapMeasuringfunction_000/shape> a sh:NodeShape ;
+    sh:nodeKind sh:IRI ;
+    sh:pattern "http://.*" ;
+    sh:property [ sh:hasValue "https://git.onem2m.org/MAS/BaseOntology/raw/master/base_ontology.owl#MeasuringFunction" ] ;
+    sh:targetClass rdfs:Resource,
+        "https://git.onem2m.org/MAS/BaseOntology/raw/master/base_ontology.owl#MeasuringFunction" .
+
+<http://mapping.example.com/map_triplesMapMetadata_000/shape> a sh:NodeShape ;
+    sh:nodeKind sh:IRI ;
+    sh:pattern "http://.*" ;
+    sh:property [ sh:hasValue "https://git.onem2m.org/MAS/BaseOntology/raw/master/base_ontology.owl#MetaData" ] ;
+    sh:targetClass rdfs:Resource,
+        "https://git.onem2m.org/MAS/BaseOntology/raw/master/base_ontology.owl#MetaData" .
+
+<http://mapping.example.com/map_triplesMapOperationinput_000/shape> a sh:NodeShape ;
+    sh:nodeKind sh:IRI ;
+    sh:pattern "http://.*" ;
+    sh:property [ sh:hasValue "https://git.onem2m.org/MAS/BaseOntology/raw/master/base_ontology.owl#OperationInput" ] ;
+    sh:targetClass rdfs:Resource,
+        "https://git.onem2m.org/MAS/BaseOntology/raw/master/base_ontology.owl#OperationInput" .
+
+<http://mapping.example.com/map_triplesMapOperationoutput_000/shape> a sh:NodeShape ;
+    sh:nodeKind sh:IRI ;
+    sh:pattern "http://.*" ;
+    sh:property [ sh:hasValue "https://git.onem2m.org/MAS/BaseOntology/raw/master/base_ontology.owl#OperationOutput" ] ;
+    sh:targetClass rdfs:Resource,
+        "https://git.onem2m.org/MAS/BaseOntology/raw/master/base_ontology.owl#OperationOutput" .
+
+<http://mapping.example.com/map_triplesMapSet_outputdatapoint_000/shape> a sh:NodeShape ;
+    sh:nodeKind sh:IRI ;
+    sh:pattern "http://.*" ;
+    sh:property [ sh:hasValue "https://git.onem2m.org/MAS/BaseOntology/raw/master/base_ontology.owl#SET_OutputDataPoint" ] ;
+    sh:targetClass rdfs:Resource,
+        "https://git.onem2m.org/MAS/BaseOntology/raw/master/base_ontology.owl#SET_OutputDataPoint" .
+
+<http://mapping.example.com/map_triplesMapSimpletypevariable_000/shape> a sh:NodeShape ;
+    sh:nodeKind sh:IRI ;
+    sh:pattern "http://.*" ;
+    sh:property [ sh:nodeKind sh:Literal ;
+            sh:path ns:hasValue ],
+        [ sh:nodeKind sh:Literal ;
+            sh:path ns:hasDataRestriction_maxInclusive ],
+        [ sh:nodeKind sh:Literal ],
+        [ sh:datatype xsd:integer ;
+            sh:nodeKind sh:Literal ;
+            sh:path ns:hasDataRestriction_maxLength ],
+        [ sh:nodeKind sh:Literal ;
+            sh:path ns:oneM2MAttribute ],
+        [ sh:hasValue "https://git.onem2m.org/MAS/BaseOntology/raw/master/base_ontology.owl#SimpleTypeVariable" ],
+        [ sh:nodeKind sh:Literal ],
+        [ sh:nodeKind sh:Literal ;
+            sh:path ns:hasDataRestriction_pattern ],
+        [ sh:datatype xsd:integer ;
+            sh:nodeKind sh:Literal ;
+            sh:path ns:hasDataRestriction_length ],
+        [ sh:nodeKind sh:Literal ],
+        [ sh:nodeKind sh:Literal ],
+        [ sh:datatype xsd:boolean ;
+            sh:nodeKind sh:Literal ;
+            sh:path ns:isDataList ],
+        [ sh:nodeKind sh:Literal ;
+            sh:path ns:hasDataRestriction_minExclusive ],
+        [ sh:datatype xsd:integer ;
+            sh:nodeKind sh:Literal ],
+        [ sh:nodeKind sh:Literal ;
+            sh:path ns:hasDataRestriction_maxExclusive ],
+        [ sh:nodeKind sh:Literal ;
+            sh:path ns:hasDataRestriction ],
+        [ sh:nodeKind sh:Literal ;
+            sh:path ns:hasDataType ],
+        [ sh:datatype xsd:integer ;
+            sh:nodeKind sh:Literal ;
+            sh:path ns:hasDataRestriction_minLength ],
+        [ sh:nodeKind sh:Literal ;
+            sh:path ns:hasDataRestriction_minInclusive ] ;
+    sh:targetClass rdfs:Resource,
+        "https://git.onem2m.org/MAS/BaseOntology/raw/master/base_ontology.owl#SimpleTypeVariable" ;
+    sh:targetSubjectsOf ns:hasDataRestriction,
+        ns:hasDataRestriction_length,
+        ns:hasDataRestriction_maxExclusive,
+        ns:hasDataRestriction_maxInclusive,
+        ns:hasDataRestriction_maxLength,
+        ns:hasDataRestriction_minExclusive,
+        ns:hasDataRestriction_minInclusive,
+        ns:hasDataRestriction_minLength,
+        ns:hasDataRestriction_pattern,
+        ns:hasDataType,
+        ns:hasValue,
+        ns:isDataList,
+        ns:oneM2MAttribute .
+
+<http://mapping.example.com/map_triplesMapStructuredtypevariable_000/shape> a sh:NodeShape ;
+    sh:nodeKind sh:IRI ;
+    sh:pattern "http://.*" ;
+    sh:property [ sh:node <http://mapping.example.com/map_triplesMapVariable_000/shape> ;
+            sh:path ns:hasSubStructure ],
+        [ sh:hasValue "https://git.onem2m.org/MAS/BaseOntology/raw/master/base_ontology.owl#StructuredTypeVariable" ] ;
+    sh:targetClass rdfs:Resource,
+        "https://git.onem2m.org/MAS/BaseOntology/raw/master/base_ontology.owl#StructuredTypeVariable" ;
+    sh:targetSubjectsOf ns:hasSubStructure .
+
+<http://mapping.example.com/map_triplesMapCommand_000/shape> a sh:NodeShape ;
+    sh:nodeKind sh:IRI ;
+    sh:pattern "http://.*" ;
+    sh:property [ sh:hasValue "https://git.onem2m.org/MAS/BaseOntology/raw/master/base_ontology.owl#Command" ] ;
+    sh:targetClass rdfs:Resource,
+        "https://git.onem2m.org/MAS/BaseOntology/raw/master/base_ontology.owl#Command" .
+
+<http://mapping.example.com/map_triplesMapDevice_000/shape> a sh:NodeShape ;
+    sh:nodeKind sh:IRI ;
+    sh:pattern "http://.*" ;
+    sh:property [ sh:node <http://mapping.example.com/map_triplesMapService_000/shape> ],
+        [ sh:hasValue "https://git.onem2m.org/MAS/BaseOntology/raw/master/base_ontology.owl#Device" ],
+        [ sh:node <http://mapping.example.com/map_triplesMapService_000/shape> ;
+            sh:path ns:hasService ],
+        [ sh:node <http://mapping.example.com/map_triplesMapFunction_000/shape> ;
+            sh:path ns:hasFunction ],
+        [ sh:node <http://mapping.example.com/map_triplesMapDevice_000/shape> ;
+            sh:path ns:consistsOf ] ;
+    sh:targetClass rdfs:Resource,
+        "https://git.onem2m.org/MAS/BaseOntology/raw/master/base_ontology.owl#Device" ;
+    sh:targetSubjectsOf ns:consistsOf,
+        ns:hasFunction,
+        ns:hasService .
+
+<http://mapping.example.com/map_triplesMapInputdatapoint_000/shape> a sh:NodeShape ;
+    sh:nodeKind sh:IRI ;
+    sh:pattern "http://.*" ;
+    sh:property [ sh:hasValue "https://git.onem2m.org/MAS/BaseOntology/raw/master/base_ontology.owl#InputDataPoint" ] ;
+    sh:targetClass rdfs:Resource,
+        "https://git.onem2m.org/MAS/BaseOntology/raw/master/base_ontology.owl#InputDataPoint" .
+
+<http://mapping.example.com/map_triplesMapThingproperty_000/shape> a sh:NodeShape ;
+    sh:nodeKind sh:IRI ;
+    sh:pattern "http://.*" ;
+    sh:property [ sh:hasValue "https://git.onem2m.org/MAS/BaseOntology/raw/master/base_ontology.owl#ThingProperty" ] ;
+    sh:targetClass rdfs:Resource,
+        "https://git.onem2m.org/MAS/BaseOntology/raw/master/base_ontology.owl#ThingProperty" .
+
+<http://mapping.example.com/map_triplesMapVariableconversion_000/shape> a sh:NodeShape ;
+    sh:nodeKind sh:IRI ;
+    sh:pattern "http://.*" ;
+    sh:property [ sh:hasValue "https://git.onem2m.org/MAS/BaseOntology/raw/master/base_ontology.owl#VariableConversion" ],
+        [ sh:node <http://mapping.example.com/map_triplesMapVariable_000/shape> ],
+        [ sh:node <http://mapping.example.com/map_triplesMapVariable_000/shape> ;
+            sh:path ns:convertsTo ] ;
+    sh:targetClass rdfs:Resource,
+        "https://git.onem2m.org/MAS/BaseOntology/raw/master/base_ontology.owl#VariableConversion" ;
+    sh:targetSubjectsOf ns:convertsTo .
+
+<http://mapping.example.com/map_triplesMapAreanetwork_000/shape> a sh:NodeShape ;
+    sh:nodeKind sh:IRI ;
+    sh:pattern "http://.*" ;
+    sh:property [ sh:nodeKind sh:Literal ;
+            sh:path ns:netTechnologyCommunicationProtocol ],
+        [ sh:nodeKind sh:Literal ;
+            sh:path ns:netTechnologyProfile ],
+        [ sh:nodeKind sh:Literal ;
+            sh:path ns:netTechnologyPhysicalStandard ],
+        [ sh:hasValue "https://git.onem2m.org/MAS/BaseOntology/raw/master/base_ontology.owl#AreaNetwork" ],
+        [ sh:nodeKind sh:Literal ] ;
+    sh:targetClass rdfs:Resource,
+        "https://git.onem2m.org/MAS/BaseOntology/raw/master/base_ontology.owl#AreaNetwork" ;
+    sh:targetSubjectsOf ns:netTechnologyCommunicationProtocol,
+        ns:netTechnologyPhysicalStandard,
+        ns:netTechnologyProfile .
+
+<http://mapping.example.com/map_triplesMapOperation_000/shape> a sh:NodeShape ;
+    sh:nodeKind sh:IRI ;
+    sh:pattern "http://.*" ;
+    sh:property [ sh:hasValue "https://git.onem2m.org/MAS/BaseOntology/raw/master/base_ontology.owl#Operation" ] ;
+    sh:targetClass rdfs:Resource,
+        "https://git.onem2m.org/MAS/BaseOntology/raw/master/base_ontology.owl#Operation" .
+
+<http://mapping.example.com/map_triplesMapOutputdatapoint_000/shape> a sh:NodeShape ;
+    sh:nodeKind sh:IRI ;
+    sh:pattern "http://.*" ;
+    sh:property [ sh:hasValue "https://git.onem2m.org/MAS/BaseOntology/raw/master/base_ontology.owl#OutputDataPoint" ] ;
+    sh:targetClass rdfs:Resource,
+        "https://git.onem2m.org/MAS/BaseOntology/raw/master/base_ontology.owl#OutputDataPoint" .
+
+<http://mapping.example.com/map_triplesMapThing_000/shape> a sh:NodeShape ;
+    sh:nodeKind sh:IRI ;
+    sh:pattern "http://.*" ;
+    sh:property [ sh:hasValue "https://git.onem2m.org/MAS/BaseOntology/raw/master/base_ontology.owl#Thing" ],
+        [ sh:nodeKind sh:Literal ],
+        [ sh:node <http://mapping.example.com/map_triplesMapThing_000/shape> ],
+        [ sh:node <http://mapping.example.com/map_triplesMapThingproperty_000/shape> ;
+            sh:path ns:hasThingProperty ],
+        [ sh:node <http://mapping.example.com/map_triplesMapThing_000/shape> ;
+            sh:path ns:hasThingRelation ],
+        [ sh:nodeKind sh:Literal ;
+            sh:path ns:hasThingAnnotation ] ;
+    sh:targetClass rdfs:Resource,
+        "https://git.onem2m.org/MAS/BaseOntology/raw/master/base_ontology.owl#Thing" ;
+    sh:targetSubjectsOf ns:hasThingAnnotation,
+        ns:hasThingProperty,
+        ns:hasThingRelation .
+
+<http://mapping.example.com/map_triplesMapAspect_000/shape> a sh:NodeShape ;
+    sh:nodeKind sh:IRI ;
+    sh:pattern "http://.*" ;
+    sh:property [ sh:hasValue "https://git.onem2m.org/MAS/BaseOntology/raw/master/base_ontology.owl#Aspect" ] ;
+    sh:targetClass rdfs:Resource,
+        "https://git.onem2m.org/MAS/BaseOntology/raw/master/base_ontology.owl#Aspect" .
+
+<http://mapping.example.com/map_triplesMapFunction_000/shape> a sh:NodeShape ;
+    sh:nodeKind sh:IRI ;
+    sh:pattern "http://.*" ;
+    sh:property [ sh:hasValue "https://git.onem2m.org/MAS/BaseOntology/raw/master/base_ontology.owl#Function" ],
+        [ sh:node <http://mapping.example.com/map_triplesMapAspect_000/shape> ],
+        [ sh:node <http://mapping.example.com/map_triplesMapCommand_000/shape> ;
+            sh:path ns:hasCommand ],
+        [ sh:node <http://mapping.example.com/map_triplesMapAspect_000/shape> ;
+            sh:path ns:refersTo ] ;
+    sh:targetClass rdfs:Resource,
+        "https://git.onem2m.org/MAS/BaseOntology/raw/master/base_ontology.owl#Function" ;
+    sh:targetSubjectsOf ns:hasCommand,
+        ns:refersTo .
+
+<http://mapping.example.com/map_triplesMapService_000/shape> a sh:NodeShape ;
+    sh:nodeKind sh:IRI ;
+    sh:pattern "http://.*" ;
+    sh:property [ sh:hasValue "https://git.onem2m.org/MAS/BaseOntology/raw/master/base_ontology.owl#Service" ],
+        [ sh:node <http://mapping.example.com/map_triplesMapService_000/shape> ;
+            sh:path ns:hasSubService ],
+        [ sh:node <http://mapping.example.com/map_triplesMapOutputdatapoint_000/shape> ],
+        [ sh:node <http://mapping.example.com/map_triplesMapInputdatapoint_000/shape> ;
+            sh:path ns:hasInputDataPoint ],
+        [ sh:node <http://mapping.example.com/map_triplesMapFunction_000/shape> ],
+        [ sh:node <http://mapping.example.com/map_triplesMapOutputdatapoint_000/shape> ;
+            sh:path ns:hasOutputDataPoint ],
+        [ sh:node <http://mapping.example.com/map_triplesMapOperation_000/shape> ;
+            sh:path ns:hasOperation ],
+        [ sh:node <http://mapping.example.com/map_triplesMapFunction_000/shape> ;
+            sh:path ns:exposesFunction ],
+        [ sh:node <http://mapping.example.com/map_triplesMapOperation_000/shape> ] ;
+    sh:targetClass rdfs:Resource,
+        "https://git.onem2m.org/MAS/BaseOntology/raw/master/base_ontology.owl#Service" ;
+    sh:targetSubjectsOf ns:exposesFunction,
+        ns:hasInputDataPoint,
+        ns:hasOperation,
+        ns:hasOutputDataPoint,
+        ns:hasSubService .
+
+<http://mapping.example.com/map_triplesMapVariable_000/shape> a sh:NodeShape ;
+    sh:nodeKind sh:IRI ;
+    sh:pattern "http://.*" ;
+    sh:property [ sh:hasValue "https://git.onem2m.org/MAS/BaseOntology/raw/master/base_ontology.owl#Variable" ],
+        [ sh:node <http://mapping.example.com/map_triplesMapVariableconversion_000/shape> ;
+            sh:path ns:hasConversion ],
+        [ sh:node <http://mapping.example.com/map_triplesMapAspect_000/shape> ;
+            sh:path ns:describes ] ;
+    sh:targetClass rdfs:Resource,
+        "https://git.onem2m.org/MAS/BaseOntology/raw/master/base_ontology.owl#Variable" ;
+    sh:targetSubjectsOf ns:describes,
+        ns:hasConversion .
+
