@@ -1,0 +1,111 @@
+prefixes: 
+  xsd: http://www.w3.org/2001/XMLSchema#
+  rr: http://www.w3.org/ns/r2rml#
+  rml: http://semweb.mmlab.be/ns/rml#
+  rdf: http://www.w3.org/1999/02/22-rdf-syntax-ns#
+  ql: http://semweb.mmlab.be/ns/ql# 
+  rdfs: http://www.w3.org/2000/01/rdf-schema#
+  ns: http://iot.linkeddata.es/def/wot-mappings#
+mappings:
+  triplesMapClass:
+    sources:
+    - ['movies.csv~csv']
+    s: http://$(ref)
+    po:
+    - [a, http://www.w3.org/2002/07/owl#Class]
+  triplesMapObjectproperty:
+    sources:
+    - ['movies.csv~csv']
+    s: http://$(ref)
+    po:
+    - [a, http://www.w3.org/2002/07/owl#ObjectProperty]
+  triplesMapDatatypeproperty:
+    sources:
+    - ['movies.csv~csv']
+    s: http://$(ref)
+    po:
+    - [a, http://www.w3.org/2002/07/owl#DatatypeProperty]
+  triplesMapDatatype:
+    sources:
+    - ['movies.csv~csv']
+    s: http://$(ref)
+    po:
+    - [a, http://www.w3.org/2000/01/rdf-schema#Datatype]
+  triplesMapProperty:
+    sources:
+    - ['movies.csv~csv']
+    s: http://$(ref)
+    po:
+    - [a, http://www.w3.org/1999/02/22-rdf-syntax-ns#Property]
+  triplesMapAccessmapping:
+    sources:
+    - ['movies.csv~csv']
+    s: http://$(ref)
+    po:
+    - [a, ns:AccessMapping]
+    - p: ns:isExecutedAfter
+      o:
+      - mapping: triplesMapAccessmapping
+        condition:
+          function: equal
+          parameters:
+          - [str1, $(ref)]
+          - [str2, $(ref)]
+    - p: ns:mapsResourcesFrom
+      o:
+      - mapping: triplesMapEndpoint
+        condition:
+          function: equal
+          parameters:
+          - [str1, $(ref)]
+          - [str2, $(ref)]
+    - p: ns:hasMapping
+      o:
+      - mapping: triplesMapMapping
+        condition:
+          function: equal
+          parameters:
+          - [str1, $(ref)]
+          - [str2, $(ref)]
+  triplesMapMapping:
+    sources:
+    - ['movies.csv~csv']
+    s: http://$(ref)
+    po:
+    - [a, ns:Mapping]
+    - [ns:jsonPath, $(ref)]
+    - [ns:key, $(ref)]
+  triplesMapEndpoint:
+    sources:
+    - ['movies.csv~csv']
+    s: http://$(ref)
+    po:
+    - [a, http://iot.linkeddata.es/def/wot#Endpoint]
+  triplesMapDatatypepropertymapping:
+    sources:
+    - ['movies.csv~csv']
+    s: http://$(ref)
+    po:
+    - [a, ns:DatatypePropertyMapping]
+    - p: ns:targetDatatype
+      o:
+      - mapping: triplesMapDatatype
+        condition:
+          function: equal
+          parameters:
+          - [str1, $(ref)]
+          - [str2, $(ref)]
+  triplesMapObjectpropertymapping:
+    sources:
+    - ['movies.csv~csv']
+    s: http://$(ref)
+    po:
+    - [a, ns:ObjectPropertyMapping]
+    - p: ns:targetClass
+      o:
+      - mapping: triplesMapClass
+        condition:
+          function: equal
+          parameters:
+          - [str1, $(ref)]
+          - [str2, $(ref)]

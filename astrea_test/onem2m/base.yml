@@ -1,0 +1,296 @@
+prefixes: {xsd: http://www.w3.org/2001/XMLSchema#, rr: http://www.w3.org/ns/r2rml#,
+  rml: http://semweb.mmlab.be/ns/rml#, rdf: http://www.w3.org/1999/02/22-rdf-syntax-ns#,
+  ql: http://semweb.mmlab.be/ns/ql#, rdfs: http://www.w3.org/2000/01/rdf-schema#,
+  ns: https://git.onem2m.org/MAS/BaseOntology/raw/master/base_ontology.owl#}
+mappings:
+  triplesMapDevice:
+    sources:
+    - ['movies.csv~csv']
+    s: http://$()
+    po:
+    - [a, ns:Device]
+    - p: ns:consistsOf
+      o:
+      - mapping: triplesMapDevice
+        condition:
+          function: equal
+          parameters:
+          - [str1, $()]
+          - [str2, $()]
+    - p: ns:hasFunction
+      o:
+      - mapping: triplesMapFunction
+        condition:
+          function: equal
+          parameters:
+          - [str1, $()]
+          - [str2, $()]
+    - p: ns:hasService
+      o:
+      - mapping: triplesMapService
+        condition:
+          function: equal
+          parameters:
+          - [str1, $()]
+          - [str2, $()]
+  triplesMapVariableconversion:
+    sources:
+    - ['movies.csv~csv']
+    s: http://$()
+    po:
+    - [a, ns:VariableConversion]
+    - p: ns:convertsTo
+      o:
+      - mapping: triplesMapVariable
+        condition:
+          function: equal
+          parameters:
+          - [str1, $()]
+          - [str2, $()]
+  triplesMapVariable:
+    sources:
+    - ['movies.csv~csv']
+    s: http://$()
+    po:
+    - [a, ns:Variable]
+    - p: ns:describes
+      o:
+      - mapping: triplesMapAspect
+        condition:
+          function: equal
+          parameters:
+          - [str1, $()]
+          - [str2, $()]
+    - p: ns:hasConversion
+      o:
+      - mapping: triplesMapVariableconversion
+        condition:
+          function: equal
+          parameters:
+          - [str1, $()]
+          - [str2, $()]
+  triplesMapAspect:
+    sources:
+    - ['movies.csv~csv']
+    s: http://$()
+    po:
+    - [a, ns:Aspect]
+  triplesMapInputdatapoint:
+    sources:
+    - ['movies.csv~csv']
+    s: http://$()
+    po:
+    - [a, ns:InputDataPoint]
+  triplesMapOperation:
+    sources:
+    - ['movies.csv~csv']
+    s: http://$()
+    po:
+    - [a, ns:Operation]
+  triplesMapOutputdatapoint:
+    sources:
+    - ['movies.csv~csv']
+    s: http://$()
+    po:
+    - [a, ns:OutputDataPoint]
+  triplesMapCommand:
+    sources:
+    - ['movies.csv~csv']
+    s: http://$()
+    po:
+    - [a, ns:Command]
+  triplesMapService:
+    sources:
+    - ['movies.csv~csv']
+    s: http://$()
+    po:
+    - [a, ns:Service]
+    - p: ns:exposesFunction
+      o:
+      - mapping: triplesMapFunction
+        condition:
+          function: equal
+          parameters:
+          - [str1, $()]
+          - [str2, $()]
+    - p: ns:hasInputDataPoint
+      o:
+      - mapping: triplesMapInputdatapoint
+        condition:
+          function: equal
+          parameters:
+          - [str1, $()]
+          - [str2, $()]
+    - p: ns:hasOperation
+      o:
+      - mapping: triplesMapOperation
+        condition:
+          function: equal
+          parameters:
+          - [str1, $()]
+          - [str2, $()]
+    - p: ns:hasOutputDataPoint
+      o:
+      - mapping: triplesMapOutputdatapoint
+        condition:
+          function: equal
+          parameters:
+          - [str1, $()]
+          - [str2, $()]
+    - p: ns:hasSubService
+      o:
+      - mapping: triplesMapService
+        condition:
+          function: equal
+          parameters:
+          - [str1, $()]
+          - [str2, $()]
+  triplesMapFunction:
+    sources:
+    - ['movies.csv~csv']
+    s: http://$()
+    po:
+    - [a, ns:Function]
+    - p: ns:hasCommand
+      o:
+      - mapping: triplesMapCommand
+        condition:
+          function: equal
+          parameters:
+          - [str1, $()]
+          - [str2, $()]
+    - p: ns:refersTo
+      o:
+      - mapping: triplesMapAspect
+        condition:
+          function: equal
+          parameters:
+          - [str1, $()]
+          - [str2, $()]
+  triplesMapOperationinput:
+    sources:
+    - ['movies.csv~csv']
+    s: http://$()
+    po:
+    - [a, ns:OperationInput]
+  triplesMapMetadata:
+    sources:
+    - ['movies.csv~csv']
+    s: http://$()
+    po:
+    - [a, ns:MetaData]
+  triplesMapOperationoutput:
+    sources:
+    - ['movies.csv~csv']
+    s: http://$()
+    po:
+    - [a, ns:OperationOutput]
+  triplesMapStructuredtypevariable:
+    sources:
+    - ['movies.csv~csv']
+    s: http://$()
+    po:
+    - [a, ns:StructuredTypeVariable]
+    - p: ns:hasSubStructure
+      o:
+      - mapping: triplesMapVariable
+        condition:
+          function: equal
+          parameters:
+          - [str1, $()]
+          - [str2, $()]
+  triplesMapThing:
+    sources:
+    - ['movies.csv~csv']
+    s: http://$()
+    po:
+    - [a, ns:Thing]
+    - [ns:hasThingAnnotation, $()]
+    - p: ns:hasThingProperty
+      o:
+      - mapping: triplesMapThingproperty
+        condition:
+          function: equal
+          parameters:
+          - [str1, $()]
+          - [str2, $()]
+    - p: ns:hasThingRelation
+      o:
+      - mapping: triplesMapThing
+        condition:
+          function: equal
+          parameters:
+          - [str1, $()]
+          - [str2, $()]
+  triplesMapThingproperty:
+    sources:
+    - ['movies.csv~csv']
+    s: http://$()
+    po:
+    - [a, ns:ThingProperty]
+  triplesMapInterworkeddevice:
+    sources:
+    - ['movies.csv~csv']
+    s: http://$()
+    po:
+    - [a, ns:InterworkedDevice]
+    - p: ns:isPartOf
+      o:
+      - mapping: triplesMapAreanetwork
+        condition:
+          function: equal
+          parameters:
+          - [str1, $()]
+          - [str2, $()]
+  triplesMapAreanetwork:
+    sources:
+    - ['movies.csv~csv']
+    s: http://$()
+    po:
+    - [a, ns:AreaNetwork]
+    - [ns:netTechnologyCommunicationProtocol, $()]
+    - [ns:netTechnologyPhysicalStandard, $()]
+    - [ns:netTechnologyProfile, $()]
+  triplesMapSimpletypevariable:
+    sources:
+    - ['movies.csv~csv']
+    s: http://$()
+    po:
+    - [a, ns:SimpleTypeVariable]
+    - [ns:hasDataRestriction, $()]
+    - [ns:hasDataRestriction_length, $(), xsd:integer]
+    - [ns:hasDataRestriction_maxExclusive, $()]
+    - [ns:hasDataRestriction_maxInclusive, $()]
+    - [ns:hasDataRestriction_maxLength, $(), xsd:integer]
+    - [ns:hasDataRestriction_minExclusive, $()]
+    - [ns:hasDataRestriction_minInclusive, $()]
+    - [ns:hasDataRestriction_minLength, $(), xsd:integer]
+    - [ns:hasDataRestriction_pattern, $()]
+    - [ns:hasDataType, $()]
+    - [ns:hasValue, $()]
+    - [ns:isDataList, $(), xsd:boolean]
+    - [ns:oneM2MAttribute, $()]
+  triplesMapControllingfunction:
+    sources:
+    - ['movies.csv~csv']
+    s: http://$()
+    po:
+    - [a, ns:ControllingFunction]
+  triplesMapGet_inputdatapoint:
+    sources:
+    - ['movies.csv~csv']
+    s: http://$()
+    po:
+    - [a, ns:GET_InputDataPoint]
+  triplesMapMeasuringfunction:
+    sources:
+    - ['movies.csv~csv']
+    s: http://$()
+    po:
+    - [a, ns:MeasuringFunction]
+  triplesMapSet_outputdatapoint:
+    sources:
+    - ['movies.csv~csv']
+    s: http://$()
+    po:
+    - [a, ns:SET_OutputDataPoint]

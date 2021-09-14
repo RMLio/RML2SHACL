@@ -1,0 +1,609 @@
+prefixes: 
+
+  xsd: http://www.w3.org/2001/XMLSchema#
+  rr: http://www.w3.org/ns/r2rml#
+  rml: http://semweb.mmlab.be/ns/rml#
+  rdf: http://www.w3.org/1999/02/22-rdf-syntax-ns#
+  ql: http://semweb.mmlab.be/ns/ql#
+  rdfs: http://www.w3.org/2000/01/rdf-schema#
+  ns: https://w3id.org/def/openadr#
+
+
+mappings:
+  triplesMapSpatialobject:
+    sources:
+    - ['data.csv~csv']
+    s: http://www.example.com/$(ref)
+    po:
+    - [a, http://www.opengis.net/ont/geosparql#SpatialObject]
+    - p: http://www.opengis.net/ont/geosparql#sfContains
+      o:
+      - mapping: triplesMapSpatialobject
+        condition:
+          function: equal
+          parameters:
+          - [str1, $(ref)]
+          - [str2, $(ref)]
+  triplesMapEvent:
+    sources:
+    - ['data.csv~csv']
+    s: http://www.example.com/$(ref)
+    po:
+    - [a, ns:Event]
+    - [ns:hasEventName, $(ref)]
+    - p: ns:eventDescriptor
+      o:
+      - mapping: triplesMapEventdescriptor
+        condition:
+          function: equal
+          parameters:
+          - [str1, $(ref)]
+          - [str2, $(ref)]
+    - p: ns:hasAreaTarget
+      o:
+      - mapping: triplesMapServicearea
+        condition:
+          function: equal
+          parameters:
+          - [str1, $(ref)]
+          - [str2, $(ref)]
+    - p: ns:hasEventStatus
+      o:
+      - mapping: triplesMapEventstatus
+        condition:
+          function: equal
+          parameters:
+          - [str1, $(ref)]
+          - [str2, $(ref)]
+    - p: ns:hasGroupTarget
+      o:
+      - mapping: triplesMapGroup
+        condition:
+          function: equal
+          parameters:
+          - [str1, $(ref)]
+          - [str2, $(ref)]
+  triplesMapEventdescriptor:
+    sources:
+    - ['data.csv~csv']
+    s: http://www.example.com/$(ref)
+    po:
+    - [a, ns:EventDescriptor]
+    - [ns:hasModificationDateTime, $(ref)]
+    - [ns:hasModificationNumber, $(ref), xsd:integer]
+    - [ns:hasModificationReason, $(ref)]
+    - [ns:hasPriority, $(ref), xsd:integer]
+    - [ns:hasRandomization, $(ref)]
+    - [ns:isResponseRequired, $(ref), xsd:boolean]
+    - [ns:isTestEvent, $(ref), xsd:boolean]
+  triplesMapServicearea:
+    sources:
+    - ['data.csv~csv']
+    s: http://www.example.com/$(ref)
+    po:
+    - [a, ns:ServiceArea]
+  triplesMapEventstatus:
+    sources:
+    - ['data.csv~csv']
+    s: http://www.example.com/$(ref)
+    po:
+    - [a, ns:EventStatus]
+  triplesMapGroup:
+    sources:
+    - ['data.csv~csv']
+    s: http://www.example.com/$(ref)
+    po:
+    - [a, ns:Group]
+  triplesMapItem:
+    sources:
+    - ['data.csv~csv']
+    s: http://www.example.com/$(ref)
+    po:
+    - [a, ns:Item]
+    - [ns:hasItemDescription, $(ref)]
+    - [ns:hasScaleCode, $(ref)]
+  triplesMapReport:
+    sources:
+    - ['data.csv~csv']
+    s: http://www.example.com/$(ref)
+    po:
+    - [a, ns:Report]
+    - [ns:hasReportName, $(ref)]
+    - p: ns:hasLoadControlState
+      o:
+      - mapping: triplesMapLoadcontrolstate
+        condition:
+          function: equal
+          parameters:
+          - [str1, $(ref)]
+          - [str2, $(ref)]
+    - p: ns:hasReportPayload
+      o:
+      - mapping: triplesMapReportpayload
+        condition:
+          function: equal
+          parameters:
+          - [str1, $(ref)]
+          - [str2, $(ref)]
+    - p: ns:reportDataSource
+      o:
+      - mapping: triplesMapGroup
+        condition:
+          function: equal
+          parameters:
+          - [str1, $(ref)]
+          - [str2, $(ref)]
+  triplesMapLoadcontrolstate:
+    sources:
+    - ['data.csv~csv']
+    s: http://www.example.com/$(ref)
+    po:
+    - [a, ns:LoadControlState]
+    - [ns:hasCapacity, $(ref)]
+    - [ns:hasLevelOffset, $(ref)]
+    - [ns:hasPercentageOffset, $(ref)]
+    - [ns:hasSetPoint, $(ref)]
+  triplesMapReportpayload:
+    sources:
+    - ['data.csv~csv']
+    s: http://www.example.com/$(ref)
+    po:
+    - [a, ns:ReportPayload]
+    - p: ns:isDescribedIn
+      o:
+      - mapping: triplesMapReportdescriptor
+        condition:
+          function: equal
+          parameters:
+          - [str1, $(ref)]
+          - [str2, $(ref)]
+  triplesMapSignal:
+    sources:
+    - ['data.csv~csv']
+    s: http://www.example.com/$(ref)
+    po:
+    - [a, ns:Signal]
+    - [ns:hasSignalName, $(ref)]
+  triplesMapReportdatapayload:
+    sources:
+    - ['data.csv~csv']
+    s: http://www.example.com/$(ref)
+    po:
+    - [a, ns:ReportDataPayload]
+  triplesMapSignalinterval:
+    sources:
+    - ['data.csv~csv']
+    s: http://www.example.com/$(ref)
+    po:
+    - [a, ns:SignalInterval]
+  triplesMapReportdescriptor:
+    sources:
+    - ['data.csv~csv']
+    s: http://www.example.com/$(ref)
+    po:
+    - [a, ns:ReportDescriptor]
+  triplesMapSchedule:
+    sources:
+    - ['data.csv~csv']
+    s: http://www.example.com/$(ref)
+    po:
+    - [a, ns:Schedule]
+  triplesMapDatareport:
+    sources:
+    - ['data.csv~csv']
+    s: http://www.example.com/$(ref)
+    po:
+    - [a, ns:DataReport]
+    - p: ns:isSpecifiedIn
+      o:
+      - mapping: triplesMapMetadatareport
+        condition:
+          function: equal
+          parameters:
+          - [str1, $(ref)]
+          - [str2, $(ref)]
+  triplesMapMetadatareport:
+    sources:
+    - ['data.csv~csv']
+    s: http://www.example.com/$(ref)
+    po:
+    - [a, ns:MetadataReport]
+    - p: ns:reportDescriptor
+      o:
+      - mapping: triplesMapReportdescriptor
+        condition:
+          function: equal
+          parameters:
+          - [str1, $(ref)]
+          - [str2, $(ref)]
+  triplesMapNode:
+    sources:
+    - ['data.csv~csv']
+    s: http://www.example.com/$(ref)
+    po:
+    - [a, ns:Node]
+    - [ns:hasNodeName, $(ref)]
+    - [ns:hasProfileName, $(ref)]
+    - [ns:hasRegistrationNumber, $(ref)]
+    - [ns:hasTransportName, $(ref)]
+    - p: ns:sendsEvent
+      o:
+      - mapping: triplesMapEvent
+        condition:
+          function: equal
+          parameters:
+          - [str1, $(ref)]
+          - [str2, $(ref)]
+    - p: ns:sendsOpt
+      o:
+      - mapping: triplesMapOpt
+        condition:
+          function: equal
+          parameters:
+          - [str1, $(ref)]
+          - [str2, $(ref)]
+    - p: ns:sendsReport
+      o:
+      - mapping: triplesMapReport
+        condition:
+          function: equal
+          parameters:
+          - [str1, $(ref)]
+          - [str2, $(ref)]
+  triplesMapOpt:
+    sources:
+    - ['data.csv~csv']
+    s: http://www.example.com/$(ref)
+    po:
+    - [a, ns:Opt]
+  triplesMapReportstatuspayload:
+    sources:
+    - ['data.csv~csv']
+    s: http://www.example.com/$(ref)
+    po:
+    - [a, ns:ReportStatusPayload]
+    - [ns:isManualOverride, $(ref), xsd:boolean]
+    - [ns:isOnline, $(ref), xsd:boolean]
+  triplesMapSamplingrate:
+    sources:
+    - ['data.csv~csv']
+    s: http://www.example.com/$(ref)
+    po:
+    - [a, ns:SamplingRate]
+    - [ns:isOnChange, $(ref), xsd:boolean]
+  triplesMapFeature:
+    sources:
+    - ['data.csv~csv']
+    s: http://www.example.com/$(ref)
+    po:
+    - [a, http://www.opengis.net/ont/geosparql#Feature]
+  triplesMapGeometry:
+    sources:
+    - ['data.csv~csv']
+    s: http://www.example.com/$(ref)
+    po:
+    - [a, http://www.opengis.net/ont/geosparql#Geometry]
+  triplesMapPoint:
+    sources:
+    - ['data.csv~csv']
+    s: http://www.example.com/$(ref)
+    po:
+    - [a, http://www.w3.org/2003/01/geo/wgs84_pos#Point]
+  triplesMapSpatialthing:
+    sources:
+    - ['data.csv~csv']
+    s: http://www.example.com/$(ref)
+    po:
+    - [a, http://www.w3.org/2003/01/geo/wgs84_pos#SpatialThing]
+  triplesMapDuration:
+    sources:
+    - ['data.csv~csv']
+    s: http://www.example.com/$(ref)
+    po:
+    - [a, http://www.w3.org/2006/time#Duration]
+  triplesMapInstant:
+    sources:
+    - ['data.csv~csv']
+    s: http://www.example.com/$(ref)
+    po:
+    - [a, http://www.w3.org/2006/time#Instant]
+  triplesMapTemporalentity:
+    sources:
+    - ['data.csv~csv']
+    s: http://www.example.com/$(ref)
+    po:
+    - [a, http://www.w3.org/2006/time#TemporalEntity]
+  triplesMapInterval:
+    sources:
+    - ['data.csv~csv']
+    s: http://www.example.com/$(ref)
+    po:
+    - [a, http://www.w3.org/2006/time#Interval]
+  triplesMapUnit_of_measure:
+    sources:
+    - ['data.csv~csv']
+    s: http://www.example.com/$(ref)
+    po:
+    - [a, http://www.wurvoc.org/vocabularies/om-1.8/Unit_of_measure]
+  triplesMapBidenergysetpointsignal:
+    sources:
+    - ['data.csv~csv']
+    s: http://www.example.com/$(ref)
+    po:
+    - [a, ns:BidEnergySetpointSignal]
+  triplesMapBidenergysignal:
+    sources:
+    - ['data.csv~csv']
+    s: http://www.example.com/$(ref)
+    po:
+    - [a, ns:BidEnergySignal]
+  triplesMapBidloadsetpointsignal:
+    sources:
+    - ['data.csv~csv']
+    s: http://www.example.com/$(ref)
+    po:
+    - [a, ns:BidLoadSetpointSignal]
+  triplesMapBidloadsignal:
+    sources:
+    - ['data.csv~csv']
+    s: http://www.example.com/$(ref)
+    po:
+    - [a, ns:BidLoadSignal]
+  triplesMapBidpriceabsolutesignal:
+    sources:
+    - ['data.csv~csv']
+    s: http://www.example.com/$(ref)
+    po:
+    - [a, ns:BidPriceAbsoluteSignal]
+  triplesMapBidpricesignal:
+    sources:
+    - ['data.csv~csv']
+    s: http://www.example.com/$(ref)
+    po:
+    - [a, ns:BidPricesignal]
+  triplesMapChargestatedeltasignal:
+    sources:
+    - ['data.csv~csv']
+    s: http://www.example.com/$(ref)
+    po:
+    - [a, ns:ChargeStateDeltaSignal]
+  triplesMapChargestatesignal:
+    sources:
+    - ['data.csv~csv']
+    s: http://www.example.com/$(ref)
+    po:
+    - [a, ns:ChargeStateSignal]
+  triplesMapChargestatemultipliersignal:
+    sources:
+    - ['data.csv~csv']
+    s: http://www.example.com/$(ref)
+    po:
+    - [a, ns:ChargeStateMultiplierSignal]
+  triplesMapChargestatesetpointsignal:
+    sources:
+    - ['data.csv~csv']
+    s: http://www.example.com/$(ref)
+    po:
+    - [a, ns:ChargeStateSetpointSignal]
+  triplesMapDemandchargepriceabsolutesignal:
+    sources:
+    - ['data.csv~csv']
+    s: http://www.example.com/$(ref)
+    po:
+    - [a, ns:DemandChargePriceAbsoluteSignal]
+  triplesMapDemandchargesignal:
+    sources:
+    - ['data.csv~csv']
+    s: http://www.example.com/$(ref)
+    po:
+    - [a, ns:DemandChargeSignal]
+  triplesMapDemandchargepricemultipliersignal:
+    sources:
+    - ['data.csv~csv']
+    s: http://www.example.com/$(ref)
+    po:
+    - [a, ns:DemandChargePriceMultiplierSignal]
+  triplesMapDemandchargepricerelativesignal:
+    sources:
+    - ['data.csv~csv']
+    s: http://www.example.com/$(ref)
+    po:
+    - [a, ns:DemandChargePriceRelativeSignal]
+  triplesMapElectricitypriceabsolutesignal:
+    sources:
+    - ['data.csv~csv']
+    s: http://www.example.com/$(ref)
+    po:
+    - [a, ns:ElectricityPriceAbsoluteSignal]
+  triplesMapElectricitypricesignal:
+    sources:
+    - ['data.csv~csv']
+    s: http://www.example.com/$(ref)
+    po:
+    - [a, ns:ElectricityPriceSignal]
+  triplesMapElectricitypricemultipliersignal:
+    sources:
+    - ['data.csv~csv']
+    s: http://www.example.com/$(ref)
+    po:
+    - [a, ns:ElectricityPriceMultiplierSignal]
+  triplesMapElectricitypricerelativesignal:
+    sources:
+    - ['data.csv~csv']
+    s: http://www.example.com/$(ref)
+    po:
+    - [a, ns:ElectricityPriceRelativeSignal]
+  triplesMapEnergypriceabsolutepricesignal:
+    sources:
+    - ['data.csv~csv']
+    s: http://www.example.com/$(ref)
+    po:
+    - [a, ns:EnergyPriceAbsolutePriceSignal]
+  triplesMapEnergypricesignal:
+    sources:
+    - ['data.csv~csv']
+    s: http://www.example.com/$(ref)
+    po:
+    - [a, ns:EnergyPriceSignal]
+  triplesMapEnergypricemultipliersignal:
+    sources:
+    - ['data.csv~csv']
+    s: http://www.example.com/$(ref)
+    po:
+    - [a, ns:EnergyPriceMultiplierSignal]
+  triplesMapEnergypricerelativesignal:
+    sources:
+    - ['data.csv~csv']
+    s: http://www.example.com/$(ref)
+    po:
+    - [a, ns:EnergyPriceRelativeSignal]
+  triplesMapGreenbuttonreport:
+    sources:
+    - ['data.csv~csv']
+    s: http://www.example.com/$(ref)
+    po:
+    - [a, ns:GreenButtonReport]
+  triplesMapHistoryreport:
+    sources:
+    - ['data.csv~csv']
+    s: http://www.example.com/$(ref)
+    po:
+    - [a, ns:HistoryReport]
+  triplesMapHistoryusagereport:
+    sources:
+    - ['data.csv~csv']
+    s: http://www.example.com/$(ref)
+    po:
+    - [a, ns:HistoryUsageReport]
+  triplesMapLoadcontrolcapacitysignal:
+    sources:
+    - ['data.csv~csv']
+    s: http://www.example.com/$(ref)
+    po:
+    - [a, ns:LoadControlCapacitySignal]
+  triplesMapLoadcontrolsignal:
+    sources:
+    - ['data.csv~csv']
+    s: http://www.example.com/$(ref)
+    po:
+    - [a, ns:LoadControlSignal]
+  triplesMapLoadcontrolleveloffsetsignal:
+    sources:
+    - ['data.csv~csv']
+    s: http://www.example.com/$(ref)
+    po:
+    - [a, ns:LoadControlLevelOffsetSignal]
+  triplesMapLoadcontrolpercentoffset:
+    sources:
+    - ['data.csv~csv']
+    s: http://www.example.com/$(ref)
+    po:
+    - [a, ns:LoadControlPercentOffset]
+  triplesMapLoadcontrolsetpointsignal:
+    sources:
+    - ['data.csv~csv']
+    s: http://www.example.com/$(ref)
+    po:
+    - [a, ns:LoadControlSetpointSignal]
+  triplesMapLoaddispatchdeltasignal:
+    sources:
+    - ['data.csv~csv']
+    s: http://www.example.com/$(ref)
+    po:
+    - [a, ns:LoadDispatchDeltaSignal]
+  triplesMapLoaddispatchsignal:
+    sources:
+    - ['data.csv~csv']
+    s: http://www.example.com/$(ref)
+    po:
+    - [a, ns:LoadDispatchSignal]
+  triplesMapLoaddispatchlevelsignal:
+    sources:
+    - ['data.csv~csv']
+    s: http://www.example.com/$(ref)
+    po:
+    - [a, ns:LoadDispatchLevelSignal]
+  triplesMapLoaddispatchmultiplier:
+    sources:
+    - ['data.csv~csv']
+    s: http://www.example.com/$(ref)
+    po:
+    - [a, ns:LoadDispatchMultiplier]
+  triplesMapLoaddispatchsetpointsignal:
+    sources:
+    - ['data.csv~csv']
+    s: http://www.example.com/$(ref)
+    po:
+    - [a, ns:LoadDispatchSetpointSignal]
+  triplesMapOptin:
+    sources:
+    - ['data.csv~csv']
+    s: http://www.example.com/$(ref)
+    po:
+    - [a, ns:OptIn]
+  triplesMapOptout:
+    sources:
+    - ['data.csv~csv']
+    s: http://www.example.com/$(ref)
+    po:
+    - [a, ns:OptOut]
+  triplesMapReportdatadescriptor:
+    sources:
+    - ['data.csv~csv']
+    s: http://www.example.com/$(ref)
+    po:
+    - [a, ns:ReportDataDescriptor]
+  triplesMapReportstatusdescriptor:
+    sources:
+    - ['data.csv~csv']
+    s: http://www.example.com/$(ref)
+    po:
+    - [a, ns:ReportStatusDescriptor]
+  triplesMapResource:
+    sources:
+    - ['data.csv~csv']
+    s: http://www.example.com/$(ref)
+    po:
+    - [a, ns:Resource]
+  triplesMapSignaltype:
+    sources:
+    - ['data.csv~csv']
+    s: http://www.example.com/$(ref)
+    po:
+    - [a, ns:SignalType]
+  triplesMapSimplesignal:
+    sources:
+    - ['data.csv~csv']
+    s: http://www.example.com/$(ref)
+    po:
+    - [a, ns:SimpleSignal]
+  triplesMapTelemetryreport:
+    sources:
+    - ['data.csv~csv']
+    s: http://www.example.com/$(ref)
+    po:
+    - [a, ns:TelemetryReport]
+  triplesMapTelemetrystatusreport:
+    sources:
+    - ['data.csv~csv']
+    s: http://www.example.com/$(ref)
+    po:
+    - [a, ns:TelemetryStatusReport]
+  triplesMapTelemetryusagereport:
+    sources:
+    - ['data.csv~csv']
+    s: http://www.example.com/$(ref)
+    po:
+    - [a, ns:TelemetryUsageReport]
+  triplesMapVen:
+    sources:
+    - ['data.csv~csv']
+    s: http://www.example.com/$(ref)
+    po:
+    - [a, ns:VEN]
+  triplesMapVtn:
+    sources:
+    - ['data.csv~csv']
+    s: http://www.example.com/$(ref)
+    po:
+    - [a, ns:VTN]

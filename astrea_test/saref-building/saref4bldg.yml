@@ -1,0 +1,419 @@
+prefixes: {xsd: http://www.w3.org/2001/XMLSchema#, rr: http://www.w3.org/ns/r2rml#,
+  rml: http://semweb.mmlab.be/ns/rml#, rdf: http://www.w3.org/1999/02/22-rdf-syntax-ns#,
+  ql: http://semweb.mmlab.be/ns/ql#, rdfs: http://www.w3.org/2000/01/rdf-schema#,
+  ns: https://saref.etsi.org/saref4bldg/}
+mappings:
+  triplesMapCoolingtower:
+    sources:
+    - ['movies.csv~csv']
+    s: http://$(ref)
+    po:
+    - [a, ns:CoolingTower]
+  triplesMapEnergyconversiondevice:
+    sources:
+    - ['movies.csv~csv']
+    s: http://$(ref)
+    po:
+    - [a, ns:EnergyConversionDevice]
+  triplesMapMeasurement:
+    sources:
+    - ['movies.csv~csv']
+    s: http://$(ref)
+    po:
+    - [a, https://saref.etsi.org/core/Measurement]
+  triplesMapSwitchingdevice:
+    sources:
+    - ['movies.csv~csv']
+    s: http://$(ref)
+    po:
+    - [a, ns:SwitchingDevice]
+  triplesMapFlowcontroller:
+    sources:
+    - ['movies.csv~csv']
+    s: http://$(ref)
+    po:
+    - [a, ns:FlowController]
+  triplesMapProperty:
+    sources:
+    - ['movies.csv~csv']
+    s: http://$(ref)
+    po:
+    - [a, https://saref.etsi.org/core/Property]
+  triplesMapUnitofmeasure:
+    sources:
+    - ['movies.csv~csv']
+    s: http://$(ref)
+    po:
+    - [a, https://saref.etsi.org/core/UnitOfMeasure]
+  triplesMapDamper:
+    sources:
+    - ['movies.csv~csv']
+    s: http://$(ref)
+    po:
+    - [a, ns:Damper]
+  triplesMapVibrationisolator:
+    sources:
+    - ['movies.csv~csv']
+    s: http://$(ref)
+    po:
+    - [a, ns:VibrationIsolator]
+  triplesMapDevice:
+    sources:
+    - ['movies.csv~csv']
+    s: http://$(ref)
+    po:
+    - [a, https://saref.etsi.org/core/Device]
+  triplesMapSpaceheater:
+    sources:
+    - ['movies.csv~csv']
+    s: http://$(ref)
+    po:
+    - [a, ns:SpaceHeater]
+  triplesMapFlowterminal:
+    sources:
+    - ['movies.csv~csv']
+    s: http://$(ref)
+    po:
+    - [a, ns:FlowTerminal]
+  triplesMapFiresuppressionterminal:
+    sources:
+    - ['movies.csv~csv']
+    s: http://$(ref)
+    po:
+    - [a, ns:FireSuppressionTerminal]
+  triplesMapTransportelement:
+    sources:
+    - ['movies.csv~csv']
+    s: http://$(ref)
+    po:
+    - [a, ns:TransportElement]
+  triplesMapCompressor:
+    sources:
+    - ['movies.csv~csv']
+    s: http://$(ref)
+    po:
+    - [a, ns:Compressor]
+  triplesMapFlowmovingdevice:
+    sources:
+    - ['movies.csv~csv']
+    s: http://$(ref)
+    po:
+    - [a, ns:FlowMovingDevice]
+  triplesMapLamp:
+    sources:
+    - ['movies.csv~csv']
+    s: http://$(ref)
+    po:
+    - [a, ns:Lamp]
+  triplesMapMedicaldevice:
+    sources:
+    - ['movies.csv~csv']
+    s: http://$(ref)
+    po:
+    - [a, ns:MedicalDevice]
+  triplesMapBuildingdevice:
+    sources:
+    - ['movies.csv~csv']
+    s: http://$(ref)
+    po:
+    - [a, ns:BuildingDevice]
+  triplesMapBuildingobject:
+    sources:
+    - ['movies.csv~csv']
+    s: http://$(ref)
+    po:
+    - [a, ns:BuildingObject]
+  triplesMapCondenser:
+    sources:
+    - ['movies.csv~csv']
+    s: http://$(ref)
+    po:
+    - [a, ns:Condenser]
+  triplesMapHumidifier:
+    sources:
+    - ['movies.csv~csv']
+    s: http://$(ref)
+    po:
+    - [a, ns:Humidifier]
+  triplesMapSanitaryterminal:
+    sources:
+    - ['movies.csv~csv']
+    s: http://$(ref)
+    po:
+    - [a, ns:SanitaryTerminal]
+  triplesMapInterceptor:
+    sources:
+    - ['movies.csv~csv']
+    s: http://$(ref)
+    po:
+    - [a, ns:Interceptor]
+  triplesMapFlowtreatmentdevice:
+    sources:
+    - ['movies.csv~csv']
+    s: http://$(ref)
+    po:
+    - [a, ns:FlowTreatmentDevice]
+  triplesMapDistributiondevice:
+    sources:
+    - ['movies.csv~csv']
+    s: http://$(ref)
+    po:
+    - [a, ns:DistributionDevice]
+  triplesMapValve:
+    sources:
+    - ['movies.csv~csv']
+    s: http://$(ref)
+    po:
+    - [a, ns:Valve]
+  triplesMapProtectivedevicetrippingunit:
+    sources:
+    - ['movies.csv~csv']
+    s: http://$(ref)
+    po:
+    - [a, ns:ProtectiveDeviceTrippingUnit]
+  triplesMapDistributioncontroldevice:
+    sources:
+    - ['movies.csv~csv']
+    s: http://$(ref)
+    po:
+    - [a, ns:DistributionControlDevice]
+  triplesMapHeatexchanger:
+    sources:
+    - ['movies.csv~csv']
+    s: http://$(ref)
+    po:
+    - [a, ns:HeatExchanger]
+  triplesMapOutlet:
+    sources:
+    - ['movies.csv~csv']
+    s: http://$(ref)
+    po:
+    - [a, ns:Outlet]
+  triplesMapFan:
+    sources:
+    - ['movies.csv~csv']
+    s: http://$(ref)
+    po:
+    - [a, ns:Fan]
+  triplesMapDistributionflowdevice:
+    sources:
+    - ['movies.csv~csv']
+    s: http://$(ref)
+    po:
+    - [a, ns:DistributionFlowDevice]
+  triplesMapShadingdevice:
+    sources:
+    - ['movies.csv~csv']
+    s: http://$(ref)
+    po:
+    - [a, ns:ShadingDevice]
+  triplesMapFilter:
+    sources:
+    - ['movies.csv~csv']
+    s: http://$(ref)
+    po:
+    - [a, ns:Filter]
+  triplesMapTransformer:
+    sources:
+    - ['movies.csv~csv']
+    s: http://$(ref)
+    po:
+    - [a, ns:Transformer]
+  triplesMapCoil:
+    sources:
+    - ['movies.csv~csv']
+    s: http://$(ref)
+    po:
+    - [a, ns:Coil]
+  triplesMapSolardevice:
+    sources:
+    - ['movies.csv~csv']
+    s: http://$(ref)
+    po:
+    - [a, ns:SolarDevice]
+  triplesMapPhysicalobject:
+    sources:
+    - ['movies.csv~csv']
+    s: http://$(ref)
+    po:
+    - [a, ns:PhysicalObject]
+  triplesMapSensor:
+    sources:
+    - ['movies.csv~csv']
+    s: http://$(ref)
+    po:
+    - [a, https://saref.etsi.org/core/Sensor]
+  triplesMapFlowstoragedevice:
+    sources:
+    - ['movies.csv~csv']
+    s: http://$(ref)
+    po:
+    - [a, ns:FlowStorageDevice]
+  triplesMapBurner:
+    sources:
+    - ['movies.csv~csv']
+    s: http://$(ref)
+    po:
+    - [a, ns:Burner]
+  triplesMapActuator:
+    sources:
+    - ['movies.csv~csv']
+    s: http://$(ref)
+    po:
+    - [a, https://saref.etsi.org/core/Actuator]
+  triplesMapPump:
+    sources:
+    - ['movies.csv~csv']
+    s: http://$(ref)
+    po:
+    - [a, ns:Pump]
+  triplesMapProtectivedevice:
+    sources:
+    - ['movies.csv~csv']
+    s: http://$(ref)
+    po:
+    - [a, ns:ProtectiveDevice]
+  triplesMapUnitarycontrolelement:
+    sources:
+    - ['movies.csv~csv']
+    s: http://$(ref)
+    po:
+    - [a, ns:UnitaryControlElement]
+  triplesMapChiller:
+    sources:
+    - ['movies.csv~csv']
+    s: http://$(ref)
+    po:
+    - [a, ns:Chiller]
+  triplesMapElectricgenerator:
+    sources:
+    - ['movies.csv~csv']
+    s: http://$(ref)
+    po:
+    - [a, ns:ElectricGenerator]
+  triplesMapElectricappliance:
+    sources:
+    - ['movies.csv~csv']
+    s: http://$(ref)
+    po:
+    - [a, ns:ElectricAppliance]
+  triplesMapElectricmotor:
+    sources:
+    - ['movies.csv~csv']
+    s: http://$(ref)
+    po:
+    - [a, ns:ElectricMotor]
+  triplesMapBuildingspace:
+    sources:
+    - ['movies.csv~csv']
+    s: http://$(ref)
+    po:
+    - [a, ns:BuildingSpace]
+  triplesMapAirtoairheatrecovery:
+    sources:
+    - ['movies.csv~csv']
+    s: http://$(ref)
+    po:
+    - [a, ns:AirToAirHeatRecovery]
+  triplesMapDuctsilencer:
+    sources:
+    - ['movies.csv~csv']
+    s: http://$(ref)
+    po:
+    - [a, ns:DuctSilencer]
+  triplesMapTank:
+    sources:
+    - ['movies.csv~csv']
+    s: http://$(ref)
+    po:
+    - [a, ns:Tank]
+  triplesMapCommunicationappliance:
+    sources:
+    - ['movies.csv~csv']
+    s: http://$(ref)
+    po:
+    - [a, ns:CommunicationAppliance]
+  triplesMapAudiovisualappliance:
+    sources:
+    - ['movies.csv~csv']
+    s: http://$(ref)
+    po:
+    - [a, ns:AudioVisualAppliance]
+  triplesMapEvaporator:
+    sources:
+    - ['movies.csv~csv']
+    s: http://$(ref)
+    po:
+    - [a, ns:Evaporator]
+  triplesMapEngine:
+    sources:
+    - ['movies.csv~csv']
+    s: http://$(ref)
+    po:
+    - [a, ns:Engine]
+  triplesMapFlowmeter:
+    sources:
+    - ['movies.csv~csv']
+    s: http://$(ref)
+    po:
+    - [a, ns:FlowMeter]
+  triplesMapFlowinstrument:
+    sources:
+    - ['movies.csv~csv']
+    s: http://$(ref)
+    po:
+    - [a, ns:FlowInstrument]
+  triplesMapElectrictimecontrol:
+    sources:
+    - ['movies.csv~csv']
+    s: http://$(ref)
+    po:
+    - [a, ns:ElectricTimeControl]
+  triplesMapElectricflowstoragedevice:
+    sources:
+    - ['movies.csv~csv']
+    s: http://$(ref)
+    po:
+    - [a, ns:ElectricFlowStorageDevice]
+  triplesMapCooledbeam:
+    sources:
+    - ['movies.csv~csv']
+    s: http://$(ref)
+    po:
+    - [a, ns:CooledBeam]
+  triplesMapBuilding:
+    sources:
+    - ['movies.csv~csv']
+    s: http://$(ref)
+    po:
+    - [a, ns:Building]
+  triplesMapTubebundle:
+    sources:
+    - ['movies.csv~csv']
+    s: http://$(ref)
+    po:
+    - [a, ns:TubeBundle]
+  triplesMapController:
+    sources:
+    - ['movies.csv~csv']
+    s: http://$(ref)
+    po:
+    - [a, ns:Controller]
+  triplesMapEvaporativecooler:
+    sources:
+    - ['movies.csv~csv']
+    s: http://$(ref)
+    po:
+    - [a, ns:EvaporativeCooler]
+  triplesMapAlarm:
+    sources:
+    - ['movies.csv~csv']
+    s: http://$(ref)
+    po:
+    - [a, ns:Alarm]
+  triplesMapBoiler:
+    sources:
+    - ['movies.csv~csv']
+    s: http://$(ref)
+    po:
+    - [a, ns:Boiler]

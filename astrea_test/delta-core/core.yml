@@ -1,0 +1,434 @@
+prefixes: {xsd: http://www.w3.org/2001/XMLSchema#, rr: http://www.w3.org/ns/r2rml#,
+  rml: http://semweb.mmlab.be/ns/rml#, rdf: http://www.w3.org/1999/02/22-rdf-syntax-ns#,
+  ql: http://semweb.mmlab.be/ns/ql#, rdfs: http://www.w3.org/2000/01/rdf-schema#,
+  ns: http://delta.linkeddata.es/def/core#}
+mappings:
+  triplesMapSmartcontract:
+    sources:
+    - ['movies.csv~csv']
+    s: http://$(ref)
+    po:
+    - [a, ns:SmartContract]
+    - p: ns:agreesOn
+      o:
+      - mapping: triplesMapProperty
+        condition:
+          function: equal
+          parameters:
+          - [str1, $(ref)]
+          - [str2, $(ref)]
+    - p: ns:hasPayment
+      o:
+      - mapping: triplesMapPayment
+        condition:
+          function: equal
+          parameters:
+          - [str1, $(ref)]
+          - [str2, $(ref)]
+  triplesMapProperty:
+    sources:
+    - ['movies.csv~csv']
+    s: http://$(ref)
+    po:
+    - [a, https://saref.etsi.org/core/Property]
+  triplesMapVirtualnode:
+    sources:
+    - ['movies.csv~csv']
+    s: http://$(ref)
+    po:
+    - [a, ns:VirtualNode]
+    - p: ns:belongsToCluster
+      o:
+      - mapping: triplesMapCluster
+        condition:
+          function: equal
+          parameters:
+          - [str1, $(ref)]
+          - [str2, $(ref)]
+    - p: ns:hasIndex
+      o:
+      - mapping: triplesMapIndex
+        condition:
+          function: equal
+          parameters:
+          - [str1, $(ref)]
+          - [str2, $(ref)]
+  triplesMapCluster:
+    sources:
+    - ['movies.csv~csv']
+    s: http://$(ref)
+    po:
+    - [a, ns:Cluster]
+  triplesMapAggregator:
+    sources:
+    - ['movies.csv~csv']
+    s: http://$(ref)
+    po:
+    - [a, ns:Aggregator]
+    - p: ns:consumes
+      o:
+      - mapping: triplesMapMarketsettlement
+        condition:
+          function: equal
+          parameters:
+          - [str1, $(ref)]
+          - [str2, $(ref)]
+  triplesMapMarketsettlement:
+    sources:
+    - ['movies.csv~csv']
+    s: http://$(ref)
+    po:
+    - [a, ns:MarketSettlement]
+  triplesMapFeid:
+    sources:
+    - ['movies.csv~csv']
+    s: http://$(ref)
+    po:
+    - [a, ns:FEID]
+    - [ns:supportsAutomatedDR, $(ref), xsd:boolean]
+    - p: ns:detects
+      o:
+      - mapping: triplesMapViolation
+        condition:
+          function: equal
+          parameters:
+          - [str1, $(ref)]
+          - [str2, $(ref)]
+  triplesMapViolation:
+    sources:
+    - ['movies.csv~csv']
+    s: http://$(ref)
+    po:
+    - [a, ns:Violation]
+  triplesMapBoundary:
+    sources:
+    - ['movies.csv~csv']
+    s: http://$(ref)
+    po:
+    - [a, ns:Boundary]
+    - p: ns:hasLowerBoundary
+      o:
+      - mapping: 
+        condition:
+          function: equal
+          parameters:
+          - [str1, $(ref)]
+          - [str2, $(ref)]
+    - p: ns:hasUpperBoundary
+      o:
+      - mapping: 
+        condition:
+          function: equal
+          parameters:
+          - [str1, $(ref)]
+          - [str2, $(ref)]
+  triplesMapComfortsetting:
+    sources:
+    - ['movies.csv~csv']
+    s: http://$(ref)
+    po:
+    - [a, ns:ComfortSetting]
+  triplesMapTemporalentity:
+    sources:
+    - ['movies.csv~csv']
+    s: http://$(ref)
+    po:
+    - [a, http://www.w3.org/2006/time#TemporalEntity]
+  triplesMapDuration:
+    sources:
+    - ['movies.csv~csv']
+    s: http://$(ref)
+    po:
+    - [a, http://www.w3.org/2006/time#Duration]
+  triplesMapViolationfunction:
+    sources:
+    - ['movies.csv~csv']
+    s: http://$(ref)
+    po:
+    - [a, ns:ViolationCondition]
+    - p: ns:hasEstimatedMeasurement
+      o:
+      - mapping: 
+        condition:
+          function: equal
+          parameters:
+          - [str1, $(ref)]
+          - [str2, $(ref)]
+  triplesMapMeasurement:
+    sources:
+    - ['movies.csv~csv']
+    s: http://$(ref)
+    po:
+    - [a, https://saref.etsi.org/core/Measurement]
+  triplesMapIndex:
+    sources:
+    - ['movies.csv~csv']
+    s: http://$(ref)
+    po:
+    - [a, ns:Index]
+  triplesMapPayment:
+    sources:
+    - ['movies.csv~csv']
+    s: http://$(ref)
+    po:
+    - [a, ns:Payment]
+  triplesMapPhase:
+    sources:
+    - ['movies.csv~csv']
+    s: http://$(ref)
+    po:
+    - [a, ns:Phase]
+  triplesMapCustomer:
+    sources:
+    - ['movies.csv~csv']
+    s: http://$(ref)
+    po:
+    - [a, ns:Customer]
+  triplesMapFeature:
+    sources:
+    - ['movies.csv~csv']
+    s: http://$(ref)
+    po:
+    - [a, http://www.opengis.net/ont/geosparql#Feature]
+    - p: http://www.opengis.net/ont/geosparql#hasGeometry
+      o:
+      - mapping: triplesMapGeometry
+        condition:
+          function: equal
+          parameters:
+          - [str1, $(ref)]
+          - [str2, $(ref)]
+  triplesMapGeometry:
+    sources:
+    - ['movies.csv~csv']
+    s: http://$(ref)
+    po:
+    - [a, http://www.opengis.net/ont/geosparql#Geometry]
+  triplesMapAction:
+    sources:
+    - ['movies.csv~csv']
+    s: http://$(ref)
+    po:
+    - [a, ns:Action]
+  triplesMapVtn:
+    sources:
+    - ['movies.csv~csv']
+    s: http://$(ref)
+    po:
+    - [a, https://w3id.org/def/openadr#VTN]
+  triplesMapProfile:
+    sources:
+    - ['movies.csv~csv']
+    s: http://$(ref)
+    po:
+    - [a, https://saref.etsi.org/core/Profile]
+  triplesMapTransaction:
+    sources:
+    - ['movies.csv~csv']
+    s: http://$(ref)
+    po:
+    - [a, ns:Transaction]
+  triplesMapAsset:
+    sources:
+    - ['movies.csv~csv']
+    s: http://$(ref)
+    po:
+    - [a, ns:Asset]
+  triplesMapDevice:
+    sources:
+    - ['movies.csv~csv']
+    s: http://$(ref)
+    po:
+    - [a, https://saref.etsi.org/core/Device]
+  triplesMapBattery:
+    sources:
+    - ['movies.csv~csv']
+    s: http://$(ref)
+    po:
+    - [a, ns:Battery]
+  triplesMapConsumer:
+    sources:
+    - ['movies.csv~csv']
+    s: http://$(ref)
+    po:
+    - [a, ns:Consumer]
+  triplesMapCustomercluster:
+    sources:
+    - ['movies.csv~csv']
+    s: http://$(ref)
+    po:
+    - [a, ns:CustomerCluster]
+  triplesMapReward:
+    sources:
+    - ['movies.csv~csv']
+    s: http://$(ref)
+    po:
+    - [a, ns:Reward]
+  triplesMapDiscount:
+    sources:
+    - ['movies.csv~csv']
+    s: http://$(ref)
+    po:
+    - [a, ns:Discount]
+  triplesMapVen:
+    sources:
+    - ['movies.csv~csv']
+    s: http://$(ref)
+    po:
+    - [a, https://w3id.org/def/openadr#VEN]
+  triplesMapSector:
+    sources:
+    - ['movies.csv~csv']
+    s: http://$(ref)
+    po:
+    - [a, ns:Sector]
+  triplesMapSystemconstraint:
+    sources:
+    - ['movies.csv~csv']
+    s: http://$(ref)
+    po:
+    - [a, ns:SystemConstraint]
+  triplesMapFeeder:
+    sources:
+    - ['movies.csv~csv']
+    s: http://$(ref)
+    po:
+    - [a, ns:Feeder]
+  triplesMapFrequency:
+    sources:
+    - ['movies.csv~csv']
+    s: http://$(ref)
+    po:
+    - [a, ns:Frequency]
+  triplesMapHvac:
+    sources:
+    - ['movies.csv~csv']
+    s: http://$(ref)
+    po:
+    - [a, ns:HVAC]
+  triplesMapIncentive:
+    sources:
+    - ['movies.csv~csv']
+    s: http://$(ref)
+    po:
+    - [a, ns:Incentive]
+  triplesMapLightbulb:
+    sources:
+    - ['movies.csv~csv']
+    s: http://$(ref)
+    po:
+    - [a, ns:Lightbulb]
+  triplesMapLineloadingviolation:
+    sources:
+    - ['movies.csv~csv']
+    s: http://$(ref)
+    po:
+    - [a, ns:LineLoadingViolation]
+  triplesMapMonetaryremuneration:
+    sources:
+    - ['movies.csv~csv']
+    s: http://$(ref)
+    po:
+    - [a, ns:MonetaryRemuneration]
+  triplesMapOvervoltageviolation:
+    sources:
+    - ['movies.csv~csv']
+    s: http://$(ref)
+    po:
+    - [a, ns:OvervoltageViolation]
+  triplesMapPoint:
+    sources:
+    - ['movies.csv~csv']
+    s: http://$(ref)
+    po:
+    - [a, ns:Point]
+  triplesMapProducer:
+    sources:
+    - ['movies.csv~csv']
+    s: http://$(ref)
+    po:
+    - [a, ns:Producer]
+  triplesMapProsumer:
+    sources:
+    - ['movies.csv~csv']
+    s: http://$(ref)
+    po:
+    - [a, ns:Prosumer]
+  triplesMapRelay:
+    sources:
+    - ['movies.csv~csv']
+    s: http://$(ref)
+    po:
+    - [a, ns:Relay]
+  triplesMapVoltage:
+    sources:
+    - ['movies.csv~csv']
+    s: http://$(ref)
+    po:
+    - [a, ns:Voltage]
+  triplesMapVoucher:
+    sources:
+    - ['movies.csv~csv']
+    s: http://$(ref)
+    po:
+    - [a, ns:Voucher]
+  triplesMapSpatialthing:
+    sources:
+    - ['movies.csv~csv']
+    s: http://$(ref)
+    po:
+    - [a, http://www.w3.org/2003/01/geo/wgs84_pos#SpatialThing]
+  triplesMapInstant:
+    sources:
+    - ['movies.csv~csv']
+    s: http://$(ref)
+    po:
+    - [a, http://www.w3.org/2006/time#Instant]
+  triplesMapInterval:
+    sources:
+    - ['movies.csv~csv']
+    s: http://$(ref)
+    po:
+    - [a, http://www.w3.org/2006/time#Interval]
+  triplesMapEnergy:
+    sources:
+    - ['movies.csv~csv']
+    s: http://$(ref)
+    po:
+    - [a, https://saref.etsi.org/core/Energy]
+  triplesMapFeatureofinterest:
+    sources:
+    - ['movies.csv~csv']
+    s: http://$(ref)
+    po:
+    - [a, https://saref.etsi.org/core/FeatureOfInterest]
+  triplesMapUnitofmeasure:
+    sources:
+    - ['movies.csv~csv']
+    s: http://$(ref)
+    po:
+    - [a, https://saref.etsi.org/core/UnitOfMeasure]
+  triplesMapPower:
+    sources:
+    - ['movies.csv~csv']
+    s: http://$(ref)
+    po:
+    - [a, https://saref.etsi.org/core/Power]
+  triplesMapPrice:
+    sources:
+    - ['movies.csv~csv']
+    s: http://$(ref)
+    po:
+    - [a, https://saref.etsi.org/core/Price]
+  triplesMapKeyperfomanceindicatorassessement:
+    sources:
+    - ['movies.csv~csv']
+    s: http://$(ref)
+    po:
+    - [a, https://saref.etsi.org/saref4city/KeyPerfomanceIndicatorAssessement]
+  triplesMapKeyperformanceindicator:
+    sources:
+    - ['movies.csv~csv']
+    s: http://$(ref)
+    po:
+    - [a, https://saref.etsi.org/saref4city/KeyPerformanceIndicator]

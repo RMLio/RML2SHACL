@@ -1,0 +1,371 @@
+prefixes: {xsd: http://www.w3.org/2001/XMLSchema#, rr: http://www.w3.org/ns/r2rml#,
+  rml: http://semweb.mmlab.be/ns/rml#, rdf: http://www.w3.org/1999/02/22-rdf-syntax-ns#,
+  ql: http://semweb.mmlab.be/ns/ql#, rdfs: http://www.w3.org/2000/01/rdf-schema#,
+  ns: http://www.w3.org/2006/time#}
+mappings:
+  triplesMapDatetimedescription:
+    sources:
+    - ['movies.csv~csv']
+    s: http://$(ref)
+    po:
+    - [a, ns:DateTimeDescription]
+  triplesMapGeneraldatetimedescription:
+    sources:
+    - ['movies.csv~csv']
+    s: http://$(ref)
+    po:
+    - [a, ns:GeneralDateTimeDescription]
+    - [ns:dayOfYear, $(ref), xsd:integer]
+    - [ns:hour, $(ref), xsd:integer]
+    - [ns:minute, $(ref), xsd:integer]
+    - [ns:second, $(ref), xsd:float]
+    - [ns:week, $(ref), xsd:integer]
+    - p: ns:dayOfWeek
+      o:
+      - mapping: triplesMapDayofweek
+        condition:
+          function: equal
+          parameters:
+          - [str1, $(ref)]
+          - [str2, $(ref)]
+    - p: ns:monthOfYear
+      o:
+      - mapping: triplesMapMonthofyear
+        condition:
+          function: equal
+          parameters:
+          - [str1, $(ref)]
+          - [str2, $(ref)]
+    - p: ns:timeZone
+      o:
+      - mapping: triplesMapTimezone
+        condition:
+          function: equal
+          parameters:
+          - [str1, $(ref)]
+          - [str2, $(ref)]
+  triplesMapDatetimeinterval:
+    sources:
+    - ['movies.csv~csv']
+    s: http://$(ref)
+    po:
+    - [a, ns:DateTimeInterval]
+    - [ns:xsdDateTime, $(ref), xsd:dateTime]
+    - p: ns:hasDateTimeDescription
+      o:
+      - mapping: triplesMapGeneraldatetimedescription
+        condition:
+          function: equal
+          parameters:
+          - [str1, $(ref)]
+          - [str2, $(ref)]
+  triplesMapProperinterval:
+    sources:
+    - ['movies.csv~csv']
+    s: http://$(ref)
+    po:
+    - [a, ns:ProperInterval]
+    - p: ns:intervalAfter
+      o:
+      - mapping: triplesMapProperinterval
+        condition:
+          function: equal
+          parameters:
+          - [str1, $(ref)]
+          - [str2, $(ref)]
+    - p: ns:intervalDisjoint
+      o:
+      - mapping: triplesMapProperinterval
+        condition:
+          function: equal
+          parameters:
+          - [str1, $(ref)]
+          - [str2, $(ref)]
+    - p: ns:intervalBefore
+      o:
+      - mapping: triplesMapProperinterval
+        condition:
+          function: equal
+          parameters:
+          - [str1, $(ref)]
+          - [str2, $(ref)]
+    - p: ns:intervalContains
+      o:
+      - mapping: triplesMapProperinterval
+        condition:
+          function: equal
+          parameters:
+          - [str1, $(ref)]
+          - [str2, $(ref)]
+    - p: ns:intervalDuring
+      o:
+      - mapping: triplesMapProperinterval
+        condition:
+          function: equal
+          parameters:
+          - [str1, $(ref)]
+          - [str2, $(ref)]
+    - p: ns:intervalIn
+      o:
+      - mapping: triplesMapProperinterval
+        condition:
+          function: equal
+          parameters:
+          - [str1, $(ref)]
+          - [str2, $(ref)]
+    - p: ns:intervalEquals
+      o:
+      - mapping: triplesMapProperinterval
+        condition:
+          function: equal
+          parameters:
+          - [str1, $(ref)]
+          - [str2, $(ref)]
+    - p: ns:intervalFinishedBy
+      o:
+      - mapping: triplesMapProperinterval
+        condition:
+          function: equal
+          parameters:
+          - [str1, $(ref)]
+          - [str2, $(ref)]
+    - p: ns:intervalFinishes
+      o:
+      - mapping: triplesMapProperinterval
+        condition:
+          function: equal
+          parameters:
+          - [str1, $(ref)]
+          - [str2, $(ref)]
+    - p: ns:intervalMeets
+      o:
+      - mapping: triplesMapProperinterval
+        condition:
+          function: equal
+          parameters:
+          - [str1, $(ref)]
+          - [str2, $(ref)]
+    - p: ns:intervalMetBy
+      o:
+      - mapping: triplesMapProperinterval
+        condition:
+          function: equal
+          parameters:
+          - [str1, $(ref)]
+          - [str2, $(ref)]
+    - p: ns:intervalOverlappedBy
+      o:
+      - mapping: triplesMapProperinterval
+        condition:
+          function: equal
+          parameters:
+          - [str1, $(ref)]
+          - [str2, $(ref)]
+    - p: ns:intervalOverlaps
+      o:
+      - mapping: triplesMapProperinterval
+        condition:
+          function: equal
+          parameters:
+          - [str1, $(ref)]
+          - [str2, $(ref)]
+    - p: ns:intervalStartedBy
+      o:
+      - mapping: triplesMapProperinterval
+        condition:
+          function: equal
+          parameters:
+          - [str1, $(ref)]
+          - [str2, $(ref)]
+    - p: ns:intervalStarts
+      o:
+      - mapping: triplesMapProperinterval
+        condition:
+          function: equal
+          parameters:
+          - [str1, $(ref)]
+          - [str2, $(ref)]
+  triplesMapDayofweek:
+    sources:
+    - ['movies.csv~csv']
+    s: http://$(ref)
+    po:
+    - [a, ns:DayOfWeek]
+  triplesMapDuration:
+    sources:
+    - ['movies.csv~csv']
+    s: http://$(ref)
+    po:
+    - [a, ns:Duration]
+    - [ns:numericDuration, $(ref), xsd:float]
+  triplesMapTemporalduration:
+    sources:
+    - ['movies.csv~csv']
+    s: http://$(ref)
+    po:
+    - [a, ns:TemporalDuration]
+  triplesMapDurationdescription:
+    sources:
+    - ['movies.csv~csv']
+    s: http://$(ref)
+    po:
+    - [a, ns:DurationDescription]
+  triplesMapGeneraldurationdescription:
+    sources:
+    - ['movies.csv~csv']
+    s: http://$(ref)
+    po:
+    - [a, ns:GeneralDurationDescription]
+    - [ns:days, $(ref), xsd:float]
+    - [ns:hours, $(ref), xsd:float]
+    - [ns:minutes, $(ref), xsd:float]
+    - [ns:months, $(ref), xsd:float]
+    - [ns:seconds, $(ref), xsd:float]
+    - [ns:weeks, $(ref), xsd:float]
+    - [ns:years, $(ref), xsd:float]
+  triplesMapTemporalposition:
+    sources:
+    - ['movies.csv~csv']
+    s: http://$(ref)
+    po:
+    - [a, ns:TemporalPosition]
+  triplesMapMonthofyear:
+    sources:
+    - ['movies.csv~csv']
+    s: http://$(ref)
+    po:
+    - [a, ns:MonthOfYear]
+  triplesMapTimezone:
+    sources:
+    - ['movies.csv~csv']
+    s: http://$(ref)
+    po:
+    - [a, ns:TimeZone]
+  triplesMapInstant:
+    sources:
+    - ['movies.csv~csv']
+    s: http://$(ref)
+    po:
+    - [a, ns:Instant]
+    - [ns:inXSDDate, $(ref), xsd:date]
+    - [ns:inXSDDateTime, $(ref), xsd:dateTime]
+    - [ns:inXSDDateTimeStamp, $(ref)]
+    - [ns:inXSDgYear, $(ref)]
+    - [ns:inXSDgYearMonth, $(ref)]
+    - p: ns:inDateTime
+      o:
+      - mapping: triplesMapGeneraldatetimedescription
+        condition:
+          function: equal
+          parameters:
+          - [str1, $(ref)]
+          - [str2, $(ref)]
+    - p: ns:inTemporalPosition
+      o:
+      - mapping: triplesMapTemporalposition
+        condition:
+          function: equal
+          parameters:
+          - [str1, $(ref)]
+          - [str2, $(ref)]
+    - p: ns:inTimePosition
+      o:
+      - mapping: triplesMapTimeposition
+        condition:
+          function: equal
+          parameters:
+          - [str1, $(ref)]
+          - [str2, $(ref)]
+  triplesMapTemporalentity:
+    sources:
+    - ['movies.csv~csv']
+    s: http://$(ref)
+    po:
+    - [a, ns:TemporalEntity]
+    - [ns:hasXSDDuration, $(ref)]
+    - p: ns:after
+      o:
+      - mapping: triplesMapTemporalentity
+        condition:
+          function: equal
+          parameters:
+          - [str1, $(ref)]
+          - [str2, $(ref)]
+    - p: ns:before
+      o:
+      - mapping: triplesMapTemporalentity
+        condition:
+          function: equal
+          parameters:
+          - [str1, $(ref)]
+          - [str2, $(ref)]
+    - p: ns:hasBeginning
+      o:
+      - mapping: triplesMapInstant
+        condition:
+          function: equal
+          parameters:
+          - [str1, $(ref)]
+          - [str2, $(ref)]
+    - p: ns:hasTemporalDuration
+      o:
+      - mapping: triplesMapTemporalduration
+        condition:
+          function: equal
+          parameters:
+          - [str1, $(ref)]
+          - [str2, $(ref)]
+    - p: ns:hasEnd
+      o:
+      - mapping: triplesMapInstant
+        condition:
+          function: equal
+          parameters:
+          - [str1, $(ref)]
+          - [str2, $(ref)]
+  triplesMapInterval:
+    sources:
+    - ['movies.csv~csv']
+    s: http://$(ref)
+    po:
+    - [a, ns:Interval]
+    - p: ns:inside
+      o:
+      - mapping: triplesMapInstant
+        condition:
+          function: equal
+          parameters:
+          - [str1, $(ref)]
+          - [str2, $(ref)]
+  triplesMapJanuary:
+    sources:
+    - ['movies.csv~csv']
+    s: http://$(ref)
+    po:
+    - [a, ns:January]
+  triplesMapTrs:
+    sources:
+    - ['movies.csv~csv']
+    s: http://$(ref)
+    po:
+    - [a, ns:TRS]
+  triplesMapTemporalunit:
+    sources:
+    - ['movies.csv~csv']
+    s: http://$(ref)
+    po:
+    - [a, ns:TemporalUnit]
+  triplesMapTimeposition:
+    sources:
+    - ['movies.csv~csv']
+    s: http://$(ref)
+    po:
+    - [a, ns:TimePosition]
+    - [ns:numericPosition, $(ref), xsd:float]
+    - [ns:nominalPosition, $(ref)]
+  triplesMapYear:
+    sources:
+    - ['movies.csv~csv']
+    s: http://$(ref)
+    po:
+    - [a, ns:Year]
