@@ -1,0 +1,3 @@
+[submodule "shaclgen"]
+	path = shaclgen
+	url = git@github.com:Kortika/shaclgen.git
