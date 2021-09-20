@@ -135,52 +135,8 @@ class RMLtoSHACL:
                             for s2, p2, o2 in graph['SM']:
                                 self.testIfIRIorLiteralSubject(
                                     p2, o2, self.SHACL.graph, target_shape, graph['SM'])
-
-    def findObject(self, propertyBl, graphHelp, graphPOM, rdfType):
-        # we test if the object is an IRI or a Literal
-        for s, p, o in graphPOM.triples((self.RML.oM, None, None)):
-            # Test for when it has a template
-            result = self.testIfIRIorLiteral(
-                p, o, graphHelp, propertyBl, graphPOM)
-            if not result and p == self.RML.pCons and not rdfType:
-                # we don't have a Literal nor an IRI
-                # if rdfType is True then we have a predicateobject with rdf:type
-                # and then we don't have to look at the constant values
-                # because it's filled in findClassinPredicateOM()
-                graphHelp.add((propertyBl, self.shaclNS.hasValue, o))
-            elif p == self.RML.r2rmlNS.parentTriplesMap:
-                # test in other graphs
-                andBlankNode = rdflib.BNode()
-                newIRIand = rdflib.URIRef(self.shaclNS + 'and')
-                self.SHACL.graph.add(
-                    (self.sNodeShape, newIRIand, andBlankNode))
-                blankNodefirst = rdflib.BNode()
-                blankNoderest = rdflib.BNode()
-        # to create a SHACL list we need first en rest elements from RDFS
-                self.SHACL.graph.add(
-                    (andBlankNode, self.rdfSyntax.first, blankNodefirst))
-                self.SHACL.graph.add(
-                    (andBlankNode, self.rdfSyntax.rest, blankNoderest))
-                self.SHACL.graph.add(
-                    (blankNoderest, self.rdfSyntax.rest, self.rdfSyntax.nil))
-                blankNodefirstTwo = rdflib.BNode()
-                self.SHACL.graph.add(
-                    (blankNoderest, self.rdfSyntax.first, blankNodefirstTwo))
-                self.SHACL.graph.add(
-                    (blankNodefirstTwo, self.shaclNS.node, o+'/shape'))
-        # plus '/shape' because we took the name for the Triples Map and added shape and we need to refer to the shape now
-
-                for graph in self.RML.graphs:
-                    for s1, p1, o1 in graph['TM']:
-                        if s1 == o:
-                            for s2, p2, o2 in graph['SM']:
-                                self.testIfIRIorLiteralSubject(
-                                    p2, o2, self.SHACL.graph, blankNodefirst, graph['SM'])
-                # we also have to add the sh:path inside the sh:and
-                for s, p, o in graphPOM:
-                    if p == self.RML.pPred:
-                        graphHelp.add((blankNodefirst, self.shaclNS.path, o))
-
+    
+    
     def testIfIRIorLiteralSubject(self, p, o, graphHelp, propertyBl, graphSM):
         # Test for when it has a template
         Found = False
@@ -454,6 +410,7 @@ class RMLtoSHACL:
                             pass
                         except Exception as e:
                             # something is wrong with the files on GitHub
+                            
                             print(e)
                             writer.writerow(
                                 [i, letter, filetypeColomnInput, e])
