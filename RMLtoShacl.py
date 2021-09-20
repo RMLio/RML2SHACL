@@ -427,9 +427,9 @@ class RMLtoSHACL:
 if __name__ == "__main__":
     RtoS = RMLtoSHACL()
     parser = argparse.ArgumentParser()
-    parser.add_argument("-f", type=str,
+    parser.add_argument("-rml_file", "-f", type=str,
                         help="RML mapping file to be converted into SHACL shapes.")
-    parser.add_argument("-l", type=str, default="INFO",
+    parser.add_argument("-logLevel", "-l", type=str, default="INFO",
                         help="Logging level of this script")
 
     args = parser.parse_args()
