@@ -9,6 +9,9 @@ import csv
 from pathlib import Path
 from requests.exceptions import HTTPError
 import argparse
+import logging
+import timeit
+import time
 
 
 class RMLtoSHACL:
@@ -81,12 +84,12 @@ class RMLtoSHACL:
         rdfType = False
         propertyBl = rdflib.BNode()
         graphHelp = rdflib.Graph()
-        print("#" * 100)
-        print("Start of fillinProperty")
+        logging.debug("#" * 100)
+        logging.debug("Start of fillinProperty")
 
         for s, p, o in graphPOM.triples((self.RML.sPOM, None, None)):
-            print("Inside fillinProperty")
-            print(f"{s}, {p}, {o}")
+            logging.debug("Inside fillinProperty")
+            logging.debug(f"{s}, {p}, {o}")
             # skip predicate object maps with rdf:type since these are already parsed
             # in findClassinPredicateOM() and also skip r2rml:graph since it can become nested
             if o == rdflib.RDF.type or p == self.RML.r2rmlNS.graph:
@@ -94,27 +97,29 @@ class RMLtoSHACL:
 
             graphHelp.add((self.sNodeShape, self.shaclNS.property, propertyBl))
             if p == self.RML.pPred:
-                print("Inside if branch of rr:predicate")
+                logging.debug("Inside if branch of rr:predicate")
                 graphHelp.add((propertyBl, self.shaclNS.path, o))
                 self.findObject(propertyBl, graphHelp, graphPOM, rdfType)
                 propertyBl = rdflib.BNode()
             else:
-                print("else branch of rr:predicate")
+                logging.debug("else branch of rr:predicate")
                 self.findObject(propertyBl, graphHelp, graphPOM, rdfType)
-            print("----" * 20)
+            logging.debug("----" * 20)
 
         self.propertygraphs.append(graphHelp)
 
     def findObject(self, propertyBl, graphHelp, graphPOM, rdfType):
         # we test if the object is an IRI or a Literal
-        print("*"*100)
-        print("Finding objects")
+        logging.debug("*"*100)
+        logging.debug("Finding objects")
         for s, p, o in graphPOM.triples((self.RML.oM, None, None)):
             # Test for when it has a template
-            print(f"{s}, {p}, {o}")
+            logging.debug(f"{s}, {p}, {o}")
+
             result = self.testIfIRIorLiteral(
                 p, o, graphHelp, propertyBl, graphPOM)
-            print(result)
+
+            logging.debug(result)
             if not result and p == self.RML.pCons and not rdfType:
                 # we don't have a Literal nor an IRI
                 # if rdfType is True then we have a predicateobject with rdf:type
@@ -135,8 +140,7 @@ class RMLtoSHACL:
                             for s2, p2, o2 in graph['SM']:
                                 self.testIfIRIorLiteralSubject(
                                     p2, o2, self.SHACL.graph, target_shape, graph['SM'])
-    
-    
+
     def testIfIRIorLiteralSubject(self, p, o, graphHelp, propertyBl, graphSM):
         # Test for when it has a template
         Found = False
@@ -302,10 +306,10 @@ class RMLtoSHACL:
 
         self.SHACL.Validation(validation_shape_graph, self.SHACL.graph)
 
-        print("*" * 100)
-        print("RESULTS")
-        print("="*100)
-        print(self.SHACL.results_text)
+        logging.debug("*" * 100)
+        logging.debug("RESULTS")
+        logging.debug("="*100)
+        logging.debug(self.SHACL.results_text)
 
         return None
 
@@ -340,7 +344,7 @@ class RMLtoSHACL:
             filenameOutput, format=rdflib.util.guess_format(filenameOutput))
         self.SHACL.Validation(self.SHACL.graph, graphOutput)
 
-        print(self.SHACL.results_text)
+        logging.debug(self.SHACL.results_text)
         return shapeFileName
 
     def main(self):
@@ -377,7 +381,7 @@ class RMLtoSHACL:
                             continue
                 # go over all the possible letters for the file names
                     for filetype in FilesGitHub.FileTypes:
-                        print("="*50)
+                        logging.debug("="*50)
                         filetypeColomnInput = filetype.replace('-', '')
                         RtoS = RMLtoSHACL()  # create RtoS object again for a fresh start
                         try:
@@ -410,7 +414,7 @@ class RMLtoSHACL:
                             pass
                         except Exception as e:
                             # something is wrong with the files on GitHub
-                            
+
                             print(e)
                             writer.writerow(
                                 [i, letter, filetypeColomnInput, e])
@@ -425,8 +429,23 @@ if __name__ == "__main__":
     parser = argparse.ArgumentParser()
     parser.add_argument("--rml_file", type=str,
                         help="RML mapping file to be converted into SHACL shapes.")
+    parser.add_argument("-logLevel", type=str, default="INFO",
+                        help="Logging level of this script")
+
     args = parser.parse_args()
+
+    loglevel = args.logLevel
+    numeric_level = getattr(logging, loglevel.upper(), None)
+    if not isinstance(numeric_level, int):
+        raise ValueError('Invalid log level: %s' % loglevel)
+    logging.basicConfig(level=numeric_level)
+
+    start = time.time()
     if args.rml_file is None:
         RtoS.main()
     else:
         RtoS.evaluate_file(args.rml_file)
+
+    end = time.time()
+
+    print(f"Elapsed time: {end -start} seconds")
