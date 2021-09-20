@@ -13,14 +13,12 @@
 @base <http://ontop.inf.unibz.it/bench/bsbm/r2rml/vocabulary#> .
 
 <Offer>
-	a rml:TriplesMap;
+	a rr:TriplesMap;
 	rml:logicalSource [
 		rml:source "http://localhost:3333/"
 	];
-	rr:subjectMap [ rr:template "http://www4.wiwiss.fu-berlin.de/bizer/bsbm/v01/instances/dataFromVendor{publisher}/Offer{nr}"
-;
-					 rr:class <http://www4.wiwiss.fu-berlin.de/bizer/bsbm/v01/vocabulary/Offer>
- ];
+	rr:subjectMap [ rr:template "http://www4.wiwiss.fu-berlin.de/bizer/bsbm/v01/instances/dataFromVendor{publisher}/Offer{nr}";
+					rr:class <http://www4.wiwiss.fu-berlin.de/bizer/bsbm/v01/vocabulary/Offer> ];
 	rr:predicateObjectMap [
 		 rr:predicate 	<http://www4.wiwiss.fu-berlin.de/bizer/bsbm/v01/vocabulary/price> ;
 		 rr:objectMap [ rml:reference "price" ]
@@ -59,7 +57,7 @@
 	].
 
 <Person>
-	 a rml:TriplesMap;
+	 a rr:TriplesMap;
 	rml:logicalSource [ 
 		rml:source "http://localhost:3333/"
 	];
@@ -89,7 +87,7 @@
 	].
 
 <Producer>
-	 a rml:TriplesMap;
+	 a rr:TriplesMap;
 	rml:logicalSource [
 		rml:source "http://localhost:8080/sparql"
 	];
@@ -123,7 +121,7 @@
 	].
 
 <Product>
-	 a rml:TriplesMap;
+	 a rr:TriplesMap;
 	rml:logicalSource [ 
 		rml:source "http://localhost:3333/"
 	];
@@ -201,7 +199,7 @@
 	].
 
 <ProductHasProductFeature>
-	 a rml:TriplesMap;
+	 a rr:TriplesMap;
 	rml:logicalSource [ 
 		rml:source "http://localhost:3333/"
 	];
@@ -213,7 +211,7 @@
 	].
 
 <ProducthasProductType>
-	 a rml:TriplesMap;
+	 a rr:TriplesMap;
 	rml:logicalSource [
 		rml:source "http://localhost:3333/"
 	];
@@ -225,7 +223,7 @@
 	].
 
 <ProductFeature>
-	 a rml:TriplesMap;
+	 a rr:TriplesMap;
 	rml:logicalSource [
 		rml:source "http://localhost:3333/"
 	];
@@ -250,7 +248,7 @@
 	].
 
 <ProductType>
-	 a rml:TriplesMap;
+	 a rr:TriplesMap;
 	rml:logicalSource [
 		rml:source "http://localhost:3333/"
 	];
@@ -279,7 +277,7 @@
 	].
 
 <Review>
-	 a rml:TriplesMap;
+	 a rr:TriplesMap;
 	rml:logicalSource [ 
 		rml:source "http://localhost:8080/sparql"
 	];
@@ -333,7 +331,7 @@
 	].
 
 <Vendor>
-	 a rml:TriplesMap;
+	 a rr:TriplesMap;
 	rml:logicalSource [ 
 		rml:source "http://localhost:8080/sparql"
 	];
