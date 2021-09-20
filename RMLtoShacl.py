@@ -96,16 +96,16 @@ class RMLtoSHACL:
             if p == self.RML.pPred:
                 print("Inside if branch of rr:predicate")
                 graphHelp.add((propertyBl, self.shaclNS.path, o))
-                self.findObjectBis(propertyBl, graphHelp, graphPOM, rdfType)
+                self.findObject(propertyBl, graphHelp, graphPOM, rdfType)
                 propertyBl = rdflib.BNode()
             else:
                 print("else branch of rr:predicate")
-                self.findObjectBis(propertyBl, graphHelp, graphPOM, rdfType)
+                self.findObject(propertyBl, graphHelp, graphPOM, rdfType)
             print("----" * 20)
 
         self.propertygraphs.append(graphHelp)
 
-    def findObjectBis(self, propertyBl, graphHelp, graphPOM, rdfType):
+    def findObject(self, propertyBl, graphHelp, graphPOM, rdfType):
         # we test if the object is an IRI or a Literal
         print("*"*100)
         print("Finding objects")
