@@ -56,10 +56,10 @@ for label in ax.get_yticklabels():
 for label in ax.get_xticklabels():
    label.set_fontproperties(font)
 
-plt.text(0.025, 0.5, "Execution time (seconds)", ha='center', va='center', transform=fig.transFigure, rotation=90,
+plt.text(0.03, 0.5, "Execution time (seconds)", ha='center', va='center', transform=fig.transFigure, rotation=90,
          fontproperties=font)
-plt.text(0.5, 0.025, "# products (thousands)", ha='center', va='center', transform=fig.transFigure,
+plt.text(0.5, 0.04, "# products (thousands)", ha='center', va='center', transform=fig.transFigure,
          fontproperties=font)
 plt.tight_layout()
-plt.show()
 plt.savefig("results.pdf")
+plt.show()
