@@ -157,7 +157,7 @@ class RMLtoSHACL:
         # test for when it has a Reference
         elif p == self.RML.REFERENCE:
             for s1, p1, o1 in graphSM:
-                if p1 == self.RML.TERMTYPE and o1 == self.RML.IRI:
+                if p1 == self.RML.TERMTYPE and o1 == self.RML.IRI_CLASS:
                     self.URIActions(propertyBl, graphHelp)
                     Found = True
                     break
@@ -183,7 +183,7 @@ class RMLtoSHACL:
         # test for when it has a Reference
         elif p == self.RML.REFERENCE:
             for s1, p1, o1 in graphPOM:
-                if s1 == self.RML.OJBECT_MAP and p1 == self.RML.TERMTYPE and o1 == self.RML.IRI:
+                if s1 == self.RML.OJBECT_MAP and p1 == self.RML.TERMTYPE and o1 == self.RML.IRI_CLASS:
                     self.URIActions(propertyBl, graphHelp)
                     Found = True
                     break

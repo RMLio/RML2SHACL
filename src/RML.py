@@ -15,15 +15,19 @@ class RML:
         self.POM = self.r2rmlNS.predicateObjectMap
         self.PREDICATE = self.r2rmlNS.predicate
         self.PRED_MAP = self.r2rmlNS.predicateMap
-        self.TRIPLES_MAP = self.r2rmlNS.TriplesMap
+        self.TRIPLES_MAP_CLASS = self.r2rmlNS.TriplesMap
         self.SUBJECT_MAP = self.r2rmlNS.subjectMap
         self.CLASS = self.r2rmlNS['class']
         self.OJBECT_MAP = self.r2rmlNS.objectMap
-        self.IRI = self.r2rmlNS.IRI
+        self.IRI_CLASS = self.r2rmlNS.IRI
         self.LANGUAGE = self.r2rmlNS.language
         self.CONSTANT = self.r2rmlNS.constant
         self.OBJECT = self.r2rmlNS.object
         self.DATATYPE = self.r2rmlNS.datatype
+
+        # contains triple maps models from rml_model module 
+        # the keys are the triples maps' IRI values 
+        self.tm_model_dict = dict()
         self.graphs = []
         self.refgraphs = []
 
@@ -37,6 +41,17 @@ class RML:
 
     def parseFile(self, file_name):
         self.graph.parse(file_name, format=rdflib.util.guess_format(file_name))
+    
+    def parseTriplesMaps(self, graph):
+
+        for sm, pm, om in graph.triples((None, None, self.TRIPLES_MAP_CLASS)): 
+            if pm == self.SUBJECT_MAP:
+                pass
+
+
+            pass
+
+
 
     def parseGithubFile(self, number, letter, typeInputFile):
         fileReadObj = FilesGitHub()
