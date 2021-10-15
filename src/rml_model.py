@@ -30,7 +30,7 @@ class Triple():
 class TermMap(ABC): 
     iri: Identifier  
     po_dict:Dict[URIRef,List[Any]]
-    def __init__(self, iri:Identifier,  po_dict:Dict[Identifier,List[Any]], **_):
+    def __init__(self, iri:Identifier,  po_dict:Dict[URIRef,List[Any]], **_):
         self.po_dict = po_dict
         self.iri = iri
 
@@ -57,19 +57,8 @@ class GraphMap(TermMap):
 
 @dataclass
 class PredicateObjectMap(TermMap):
-    PMs:List[PredicateMap]  
-    OMs:List[ObjectMap]
-
-    def __post_init__(self):
-        if not self.PMs or not self.OMs: 
-            raise Exception("Cannot have empty predicate or object maps\n" + 
-                            f"PMs: {self.PMs}\n" + 
-                            f"OMs: {self.OMs}\n") 
-
-        if len(self.PMs) != len(self.OMs):
-            raise Exception("Number of predicate maps should be equal to the number of object maps in the POM \n" + 
-                            f"PMs: {self.PMs}\n" + 
-                            f"OMs: {self.OMs}\n")
+    PMs:PredicateMap
+    OMs:ObjectMap
 
     def identity(self): 
         pass

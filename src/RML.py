@@ -3,9 +3,11 @@ import pprint
 import rdflib
 from rdflib.graph import Graph
 from rdflib.term import BNode, Identifier, Literal, URIRef
+from uuid import uuid4
 
 from FilesGitHub import *
-from rml_model import GraphMap, ObjectMap, PredicateMap, PredicateObjectMap, SubjectMap, TriplesMap, LogicalSource
+from rml_model import GraphMap, ObjectMap, PredicateMap, PredicateObjectMap, SubjectMap, TermMap, TriplesMap, LogicalSource
+from typing import Callable, List, Optional, Type
 
 
 class RML:
@@ -53,7 +55,9 @@ class RML:
         print("\n".join([ f"{s}, {p}, {o}" for s, p, o in graph.triples(query)]) )
 
 
-    def parseTriplesMaps(self, graph:Graph):
+    def parseTriplesMaps(self, graph:Graph)-> List[TriplesMap]:
+
+        tms= []
         for tm_iri, _, _ in graph.triples((None, None, self.TRIPLES_MAP_CLASS)): 
             print("Printing triples for the curren TripleMap") 
             print("="*50)
@@ -68,16 +72,43 @@ class RML:
             poms = []
             gm = None 
             logical_source = None 
-            _, _, sm_iri = next(graph.triples((tm_iri, self.SUBJECT_MAP, None))) 
-            sm = self.parseSubjectMap(sm_iri, graph)
+            sm = self.parseTermMap(tm_iri, self.r2rmlNS.subject, self.SUBJECT_MAP, 
+                                   graph, 
+                                   self.parseSubjectMap, 
+                                   SubjectMap)
+
             _, _, logical_source_iri = next(graph.triples((tm_iri, self.LOGICAL_SOURCE, None)))
-
-            lc = self.parseLogicalSource(logical_source_iri, graph)
-
-            print(lc)
+            logical_source = self.parseLogicalSource(logical_source_iri, graph)
 
 
-            pass
+            for _, _, pom_iri in graph.triples((tm_iri, self.POM, None)): 
+                pom = self.parsePredicateObjectMap(pom_iri, graph)
+                poms.append(pom)
+
+            tms.append(TriplesMap(sm, poms, logical_source, gm))  
+
+        return tms 
+
+    def parseTermMap(self, 
+                     tm_iri: Identifier,  constant_pred: URIRef, 
+                     map_pred: URIRef, graph:Graph,  
+                     map_parser: Callable[[Identifier, Graph], TermMap], class_cons: Type[TermMap]) -> Optional[TermMap]:
+        default_val = (None, None, None) 
+        _, _, term_iri = next(graph.triples((tm_iri, map_pred, None)), default_val) 
+
+        if not term_iri is None: 
+            return map_parser(term_iri, graph) 
+
+        _, _, const_iri = next(graph.triples((tm_iri, constant_pred, None)), default_val) 
+
+        if const_iri is None: 
+            return None 
+
+        po_dict = {
+            self.CONSTANT: const_iri 
+        }
+        return class_cons(iri= BNode(), po_dict= po_dict)
+
     def parseLogicalSource(self, logs_iri:Identifier, graph:Graph) -> LogicalSource:
         po_dict = dict() 
         
@@ -115,7 +146,20 @@ class RML:
 
     def parsePredicateObjectMap(self, pom_iri, graph) -> PredicateObjectMap: 
         po_dict = dict() 
-        pass
+
+        print("="*50)
+
+        for s, p, o in graph.triples((pom_iri, None, None)): 
+            print(s,p,o)
+
+        pm = self.parseTermMap(pom_iri, self.PREDICATE, self.PRED_MAP, graph,
+                               self.parsePredicateMap, 
+                               PredicateMap) 
+        om = self.parseTermMap(pom_iri, self.OBJECT, self.OJBECT_MAP, graph, 
+                               self.parseObjectMap, 
+                               ObjectMap)
+
+        return PredicateObjectMap(pom_iri, po_dict, pm, om)
 
     def parseGithubFile(self, number, letter, typeInputFile):
         fileReadObj = FilesGitHub()
@@ -231,4 +275,4 @@ class RML:
 
 if __name__ == '__main__':
     Rml = RML()
-    Rml.testmain()
+    Rml.parseFile("mapping.ttl")
