@@ -9,21 +9,21 @@ class RML:
         self.graph = rdflib.Graph()
         self.rmlNS = rdflib.Namespace('http://semweb.mmlab.be/ns/rml#')
         self.r2rmlNS = rdflib.Namespace('http://www.w3.org/ns/r2rml#')
-        self.template = self.r2rmlNS.template
-        self.reference = self.rmlNS.reference
-        self.termType = self.r2rmlNS.termType
-        self.sPOM = self.r2rmlNS.predicateObjectMap
-        self.pPred = self.r2rmlNS.predicate
-        self.pPredMap = self.r2rmlNS.predicateMap
-        self.tM = self.r2rmlNS.TriplesMap
-        self.sSM = self.r2rmlNS.subjectMap
-        self.pclass = self.r2rmlNS['class']
-        self.oM = self.r2rmlNS.objectMap
+        self.TEMPLATE = self.r2rmlNS.template
+        self.REFERENCE = self.rmlNS.reference
+        self.TERMTYPE = self.r2rmlNS.termType
+        self.POM = self.r2rmlNS.predicateObjectMap
+        self.PREDICATE = self.r2rmlNS.predicate
+        self.PRED_MAP = self.r2rmlNS.predicateMap
+        self.TRIPLES_MAP = self.r2rmlNS.TriplesMap
+        self.SUBJECT_MAP = self.r2rmlNS.subjectMap
+        self.CLASS = self.r2rmlNS['class']
+        self.OJBECT_MAP = self.r2rmlNS.objectMap
         self.IRI = self.r2rmlNS.IRI
-        self.pLan = self.r2rmlNS.language
-        self.pCons = self.r2rmlNS.constant
-        self.obj = self.r2rmlNS.object
-        self.datatype = self.r2rmlNS.datatype
+        self.LANGUAGE = self.r2rmlNS.language
+        self.CONSTANT = self.r2rmlNS.constant
+        self.OBJECT = self.r2rmlNS.object
+        self.DATATYPE = self.r2rmlNS.datatype
         self.graphs = []
         self.refgraphs = []
 
@@ -66,28 +66,28 @@ class RML:
                         graphlogicalSource.add((p, p2, o2))
                     graphHelp["LS"] = graphlogicalSource
                 # the triples belonging to the Subject Map
-                if p == self.sSM:
+                if p == self.SUBJECT_MAP:
                     for s2, p2, o2 in self.graph.triples((o, None, None)):
                         # searching for same Blank Node
                         graphsubjectMap.add((p, p2, o2))
                      # add subject Map  info
                     graphHelp["SM"] = graphsubjectMap
                 # the multiple triples that are PredicateObject Maps
-                if p == self.sPOM:
+                if p == self.POM:
                     graphPredicatObjectMap = rdflib.Graph()
                     # searching for one PredicatObjectMap
                     # searching for same Blank Node
                     for s2, p2, o2 in self.graph.triples((o, None, None)):
                         if p2 == self.r2rmlNS.predicateMap:
-                            for s3, p3, o3 in self.graph.triples((o2, self.pCons, None)):
+                            for s3, p3, o3 in self.graph.triples((o2, self.CONSTANT, None)):
                                 # we make the "rr:predicateMap rr:constant o" triple to sthe shurtcut "rr:PredicateObjectMap rr:predicate o2"
-                                graphPredicatObjectMap.add((p, self.pPred, o3))
+                                graphPredicatObjectMap.add((p, self.PREDICATE, o3))
  # add the predicateobjectMap with the constant transformed into rr:predicate instead of constant
                         else:
                             graphPredicatObjectMap.add((p, p2, o2))
                         # add the predicateobjectMap
 # searching for which objectMap belongs to this PredicateObjectMap
-                    for s2, p2, o2 in graphPredicatObjectMap.triples((p, self.oM, None)):
+                    for s2, p2, o2 in graphPredicatObjectMap.triples((p, self.OJBECT_MAP, None)):
                         for s3, p3, o3 in self.graph.triples((o2, None, None)):
                             graphPredicatObjectMap.add((p2, p3, o3))
 # add the objectMap beloning to the predicateobjectMap added in previous loop
@@ -95,20 +95,20 @@ class RML:
 # remove something with a blanknode in that we added too much
 # if we don't have an rr:ObjectMap but an rr:object (as part of rr:predicateMap as an predicate)
 # we will write this as rr:ObjectMap rr:constant (object that belonged to the rr:object)
-                    for s2, p2, o2 in graphPredicatObjectMap.triples((p, self.obj, None)):
+                    for s2, p2, o2 in graphPredicatObjectMap.triples((p, self.OBJECT, None)):
                      # graphPredicatObjectMap.add((s2,p2,o2))
                      # #add the object beloning to the predicateobjectMap added in previous loop
-                        graphPredicatObjectMap.add((self.oM, self.pCons, o2))
+                        graphPredicatObjectMap.add((self.OJBECT_MAP, self.CONSTANT, o2))
                         graphPredicatObjectMap.remove((s2, p2, o2))
  # remove the "rr:predicateMap rr:object o2" triple from the graph because it gets added in loop for objectMap
                     # loop to find any possible RefObjectMaps
                     for sROM, pROM, oROM in self.graph.triples((None, None, self.r2rmlNS.RefObjectMap)):
                         # if we find one we see if it belongs to the ObjectMap we are working with now
-                        for s3, p3, o3 in self.graph.triples((p, self.oM, sROM)):
+                        for s3, p3, o3 in self.graph.triples((p, self.OJBECT_MAP, sROM)):
                             # if this is the fact we search inside the RefObjectMap (sROM) for the value of rr:parentTriplesMap
                             for s4, p4, o4 in self.graph.triples((sROM, self.r2rmlNS.parentTriplesMap, None)):
                                 graphPredicatObjectMap.add(
-                                    (self.oM, self.r2rmlNS.parentTriplesMap, o4))
+                                    (self.OJBECT_MAP, self.r2rmlNS.parentTriplesMap, o4))
 # add the parentTriplesMap to the ObjectMap
 
                     graphHelp["POM"+str(tel)] = graphPredicatObjectMap

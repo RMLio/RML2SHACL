@@ -42,7 +42,7 @@ class RMLtoSHACL:
     def inferclass(self, graphPOM):
         for prefix, ns in self.RML.graph.namespaces():
             # loop over the Predicate Object Maps only looking at the rr:predicate statements
-            for s1, p1, o1 in graphPOM.triples((self.RML.sPOM, self.RML.pPred, None)):
+            for s1, p1, o1 in graphPOM.triples((self.RML.POM, self.RML.PREDICATE, None)):
                 if ns in o1:
                     graph = rdflib.Graph()
                     try:
@@ -58,24 +58,24 @@ class RMLtoSHACL:
                         pass
 
     def subjectTargetOf(self, graph):
-        for s, p, o in graph.triples((self.RML.sPOM, self.RML.pPred, None)):
+        for s, p, o in graph.triples((self.RML.POM, self.RML.PREDICATE, None)):
             if o != rdflib.RDF.type:
                 self.SHACL.graph.add(
                     (self.sNodeShape, self.shaclNS.targetSubjectsOf, o))
 
     def targetNode(self, graph):
         # if there's a constant in the subjectmap we can add this as sh:targetNode for the shape
-        for s, p, o in graph['SM'].triples((self.RML.sSM, self.RML.pCons, None)):
+        for s, p, o in graph['SM'].triples((self.RML.SUBJECT_MAP, self.RML.CONSTANT, None)):
             self.SHACL.graph.add((self.sNodeShape, self.shaclNS.targetNode, o))
 
     def findClass(self, graph):
-        for s, p, o in graph['SM'].triples((self.RML.sSM, self.RML.pclass, None)):
+        for s, p, o in graph['SM'].triples((self.RML.SUBJECT_MAP, self.RML.CLASS, None)):
             self.SHACL.graph.add(
                 (self.sNodeShape, self.shaclNS.targetClass, o))
 
     def findClassinPrediacteOM(self, graphPOM):
-        for s, p, o in graphPOM.triples((self.RML.sPOM, self.RML.pPred, rdflib.RDF.type)):
-            for s1, p1, o1 in graphPOM.triples((self.RML.oM, self.RML.pCons, None)):
+        for s, p, o in graphPOM.triples((self.RML.POM, self.RML.PREDICATE, rdflib.RDF.type)):
+            for s1, p1, o1 in graphPOM.triples((self.RML.OJBECT_MAP, self.RML.CONSTANT, None)):
                 self.SHACL.graph.add(
                     (self.sNodeShape, self.shaclNS.targetClass, o1))
         self.inferclass(graphPOM)
@@ -87,7 +87,7 @@ class RMLtoSHACL:
         logging.debug("#" * 100)
         logging.debug("Start of fillinProperty")
 
-        for s, p, o in graphPOM.triples((self.RML.sPOM, None, None)):
+        for s, p, o in graphPOM.triples((self.RML.POM, None, None)):
             logging.debug("Inside fillinProperty")
             logging.debug(f"{s}, {p}, {o}")
             # skip predicate object maps with rdf:type since these are already parsed
@@ -96,7 +96,7 @@ class RMLtoSHACL:
                 continue
 
             graphHelp.add((self.sNodeShape, self.shaclNS.property, propertyBl))
-            if p == self.RML.pPred:
+            if p == self.RML.PREDICATE:
                 logging.debug("Inside if branch of rr:predicate")
                 graphHelp.add((propertyBl, self.shaclNS.path, o))
                 self.findObject(propertyBl, graphHelp, graphPOM, rdfType)
@@ -112,7 +112,7 @@ class RMLtoSHACL:
         # we test if the object is an IRI or a Literal
         logging.debug("*"*100)
         logging.debug("Finding objects")
-        for s, p, o in graphPOM.triples((self.RML.oM, None, None)):
+        for s, p, o in graphPOM.triples((self.RML.OJBECT_MAP, None, None)):
             # Test for when it has a template
             logging.debug(f"{s}, {p}, {o}")
 
@@ -120,7 +120,7 @@ class RMLtoSHACL:
                 p, o, graphHelp, propertyBl, graphPOM)
 
             logging.debug(result)
-            if not result and p == self.RML.pCons and not rdfType:
+            if not result and p == self.RML.CONSTANT and not rdfType:
                 # we don't have a Literal nor an IRI
                 # if rdfType is True then we have a predicateobject with rdf:type
                 # and then we don't have to look at the constant values
@@ -144,20 +144,20 @@ class RMLtoSHACL:
     def testIfIRIorLiteralSubject(self, p, o, graphHelp, propertyBl, graphSM):
         # Test for when it has a template
         Found = False
-        if p == self.RML.template:
+        if p == self.RML.TEMPLATE:
             stringpattern = self.createPattern(o)
             graphHelp.add((propertyBl, self.shaclNS.pattern, stringpattern))
             for s1, p1, o1 in graphSM:
-                if p1 == self.RML.termType and o1 == self.RML.r2rmlNS.Literal:
+                if p1 == self.RML.TERMTYPE and o1 == self.RML.r2rmlNS.Literal:
                     self.literalActions(propertyBl, graphHelp, graphSM)
                     Found = True
                     break
             if Found == False:
                 self.URIActions(propertyBl, graphHelp)
         # test for when it has a Reference
-        elif p == self.RML.reference:
+        elif p == self.RML.REFERENCE:
             for s1, p1, o1 in graphSM:
-                if p1 == self.RML.termType and o1 == self.RML.IRI:
+                if p1 == self.RML.TERMTYPE and o1 == self.RML.IRI:
                     self.URIActions(propertyBl, graphHelp)
                     Found = True
                     break
@@ -167,11 +167,11 @@ class RMLtoSHACL:
     def testIfIRIorLiteral(self, p, o, graphHelp, propertyBl, graphPOM):
         # Test for when it has a template
         Found = False
-        if p == self.RML.template:
+        if p == self.RML.TEMPLATE:
             stringpattern = self.createPattern(o)
             graphHelp.add((propertyBl, self.shaclNS.pattern, stringpattern))
             for s1, p1, o1 in graphPOM:
-                if s1 == self.RML.oM and p1 == self.RML.termType and o1 == self.RML.r2rmlNS.Literal:
+                if s1 == self.RML.OJBECT_MAP and p1 == self.RML.TERMTYPE and o1 == self.RML.r2rmlNS.Literal:
                     self.literalActions(propertyBl, graphHelp, graphPOM)
                     Found = True
                     break
@@ -181,9 +181,9 @@ class RMLtoSHACL:
             return Found
         # we return with the value True when we found an IRI of Literal False when we didn't
         # test for when it has a Reference
-        elif p == self.RML.reference:
+        elif p == self.RML.REFERENCE:
             for s1, p1, o1 in graphPOM:
-                if s1 == self.RML.oM and p1 == self.RML.termType and o1 == self.RML.IRI:
+                if s1 == self.RML.OJBECT_MAP and p1 == self.RML.TERMTYPE and o1 == self.RML.IRI:
                     self.URIActions(propertyBl, graphHelp)
                     Found = True
                     break
@@ -196,7 +196,7 @@ class RMLtoSHACL:
         graphHelp.add(
             (propertyBl, self.shaclNS.nodeKind, self.shaclNS.Literal))
         # Check for rr:language
-        for s, p, o in graphPOM.triples((self.RML.oM, self.RML.pLan, None)):
+        for s, p, o in graphPOM.triples((self.RML.OJBECT_MAP, self.RML.LANGUAGE, None)):
             parts = o.split('-')
             blankNodelanguageIn = rdflib.BNode()
             graphHelp.add(
@@ -227,7 +227,7 @@ class RMLtoSHACL:
                         (blankNoderest, self.rdfSyntax.rest, blanknoderestTwo))
                     blankNoderest = blanknoderestTwo
         # Check for rr:datatype
-        for s, p, o in graphPOM.triples((self.RML.oM, self.RML.datatype, None)):
+        for s, p, o in graphPOM.triples((self.RML.OJBECT_MAP, self.RML.DATATYPE, None)):
             graphHelp.add((propertyBl, self.shaclNS.datatype, o))
 
     def URIActions(self, propertyBl, graphHelp):
