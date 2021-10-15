@@ -1,9 +1,11 @@
-import rdflib
 import pprint
+
+import rdflib
 from rdflib.graph import Graph
-from rdflib.term import Identifier, Literal, URIRef, BNode 
-from rml_model import GraphMap, PredicateMap, PredicateObjectMap, SubjectMap, TriplesMap
+from rdflib.term import BNode, Identifier, Literal, URIRef
+
 from FilesGitHub import *
+from rml_model import GraphMap, ObjectMap, PredicateMap, PredicateObjectMap, SubjectMap, TriplesMap, LogicalSource
 
 
 class RML:
@@ -26,6 +28,7 @@ class RML:
         self.CONSTANT = self.r2rmlNS.constant
         self.OBJECT = self.r2rmlNS.object
         self.DATATYPE = self.r2rmlNS.datatype
+        self.LOGICAL_SOURCE = self.rmlNS.logicalSource 
 
         # contains triple maps models from rml_model module 
         # the keys are the triples maps' IRI values 
@@ -50,7 +53,7 @@ class RML:
         print("\n".join([ f"{s}, {p}, {o}" for s, p, o in graph.triples(query)]) )
 
 
-    def parseTriplesMaps(self, graph):
+    def parseTriplesMaps(self, graph:Graph):
         for tm_iri, _, _ in graph.triples((None, None, self.TRIPLES_MAP_CLASS)): 
             print("Printing triples for the curren TripleMap") 
             print("="*50)
@@ -67,10 +70,21 @@ class RML:
             logical_source = None 
             _, _, sm_iri = next(graph.triples((tm_iri, self.SUBJECT_MAP, None))) 
             sm = self.parseSubjectMap(sm_iri, graph)
+            _, _, logical_source_iri = next(graph.triples((tm_iri, self.LOGICAL_SOURCE, None)))
+
+            lc = self.parseLogicalSource(logical_source_iri, graph)
+
+            print(lc)
 
 
             pass
-
+    def parseLogicalSource(self, logs_iri:Identifier, graph:Graph) -> LogicalSource:
+        po_dict = dict() 
+        
+        for _, p, o in graph.triples((logs_iri, None, None)): 
+            po_dict[p]= o 
+        return LogicalSource(logs_iri, po_dict)
+        
     def parseGraphMap(self, graph_iri:Identifier, graph:Graph) -> GraphMap: 
         po_dict = dict()
         if isinstance(graph_iri, URIRef): 
@@ -92,7 +106,8 @@ class RML:
 
         return SubjectMap(sm_IRI, po_dict) 
 
-    def parseObjectMap(self, ob_iri:Identifier, graph:Graph ): -> ObjectMap: 
+    def parseObjectMap(self, ob_iri:Identifier, graph:Graph ) -> ObjectMap: 
+    
         pass
 
     def parsePredicateMap(self, pm_iri:Identifier, graph:Graph) -> PredicateMap: 

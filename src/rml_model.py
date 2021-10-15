@@ -29,7 +29,7 @@ class Triple():
 @dataclass
 class TermMap(ABC): 
     iri: Identifier  
-    po_dict:Dict[Identifier,List[Any]]
+    po_dict:Dict[URIRef,List[Any]]
     def __init__(self, iri:Identifier,  po_dict:Dict[Identifier,List[Any]], **_):
         self.po_dict = po_dict
         self.iri = iri
@@ -76,13 +76,20 @@ class PredicateObjectMap(TermMap):
 
 # END TermMaps models 
 
+
+@dataclass 
+class LogicalSource(): 
+    iri: Identifier 
+    po_dict:Dict[URIRef, Any]
+
+
 @dataclass
 class TriplesMap(): 
     sm:SubjectMap 
     poms:List[PredicateObjectMap] 
-    logical_source: Triple 
+    logical_source: LogicalSource 
     gm: GraphMap = None 
-    triples: List[Triple] = None
+    po_dict = Dict[URIRef, Any]
 
 if __name__ == "__main__":
 
