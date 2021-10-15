@@ -1,6 +1,8 @@
 import rdflib
 import pprint
-
+from rdflib.graph import Graph
+from rdflib.term import Identifier, Literal, URIRef, BNode 
+from rml_model import GraphMap, PredicateMap, PredicateObjectMap, SubjectMap, TriplesMap
 from FilesGitHub import *
 
 
@@ -41,17 +43,64 @@ class RML:
 
     def parseFile(self, file_name):
         self.graph.parse(file_name, format=rdflib.util.guess_format(file_name))
+        self.parseTriplesMaps(self.graph)
     
-    def parseTriplesMaps(self, graph):
 
-        for sm, pm, om in graph.triples((None, None, self.TRIPLES_MAP_CLASS)): 
-            if pm == self.SUBJECT_MAP:
-                pass
+    def printQuery(self, graph, query): 
+        print("\n".join([ f"{s}, {p}, {o}" for s, p, o in graph.triples(query)]) )
+
+
+    def parseTriplesMaps(self, graph):
+        for tm_iri, _, _ in graph.triples((None, None, self.TRIPLES_MAP_CLASS)): 
+            print("Printing triples for the curren TripleMap") 
+            print("="*50)
+            self.printQuery(self.graph, (tm_iri, None, None))
+            print("-"* 50)
+
+            # loop through the triples of the TriplesMap with IRI  == tm_iri 
+            # this loop will parse the corresponding subject maps and POMs for the 
+            # given TriplesMaps IRI. 
+
+            sm = None 
+            poms = []
+            gm = None 
+            logical_source = None 
+            _, _, sm_iri = next(graph.triples((tm_iri, self.SUBJECT_MAP, None))) 
+            sm = self.parseSubjectMap(sm_iri, graph)
 
 
             pass
 
+    def parseGraphMap(self, graph_iri:Identifier, graph:Graph) -> GraphMap: 
+        po_dict = dict()
+        if isinstance(graph_iri, URIRef): 
+            po_dict[self.CONSTANT] = graph_iri
+        else: 
+            for _, graph_p, graph_o in graph.triples((graph_iri, None, None)): 
+                po_dict[graph_p] = graph_o
+        return GraphMap(graph_iri, po_dict)
 
+    def parseSubjectMap(self, sm_IRI:Identifier, graph:Graph) -> SubjectMap:
+        po_dict = dict() 
+        for _, predicate, obj in graph.triples((sm_IRI, None, None)):
+            if not predicate in po_dict: 
+                po_dict[predicate]= []
+            if predicate == self.r2rmlNS.graph: 
+                obj = self.parseGraphMap(obj, graph) 
+
+            po_dict[predicate].append(obj)
+
+        return SubjectMap(sm_IRI, po_dict) 
+
+    def parseObjectMap(self, ob_iri:Identifier, graph:Graph ): -> ObjectMap: 
+        pass
+
+    def parsePredicateMap(self, pm_iri:Identifier, graph:Graph) -> PredicateMap: 
+        pass
+
+    def parsePredicateObjectMap(self, pom_iri, graph) -> PredicateObjectMap: 
+        po_dict = dict() 
+        pass
 
     def parseGithubFile(self, number, letter, typeInputFile):
         fileReadObj = FilesGitHub()
@@ -163,7 +212,6 @@ class RML:
     def testmain(self):
         self.parseGithubFile(7, 'b', FilesGitHub.CSV)
         self.removeBlankNodesMultipleMaps()
-        self.printDictionary(5)
 
 
 if __name__ == '__main__':

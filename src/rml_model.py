@@ -1,54 +1,26 @@
 from abc import ABC, abstractmethod, abstractstaticmethod
-from typing import List
+from typing import List, Dict, Any
 from pprint import pprint
 from json import dumps
 from dataclasses import dataclass
 from enum import Enum, auto
 
-
-
-class TermType(Enum): 
-    IRI = auto() 
-    BLANK = auto() 
-    LITERAL = auto() 
-
-# Term models
-@dataclass
-class Term(ABC): 
-    value: str
-    term_type: TermType 
-
-
-@dataclass
-class Iri(Term): 
-    term_type:TermType = TermType.IRI 
-
-    def __post_init__(self):
-        if self.value[0] + self.value[-1] != "<>": 
-            raise Exception(f"Ivalid IRI: {self.value}")
-
-@dataclass
-class Blank(Term): 
-    term_type:TermType = TermType.BLANK
-
-
-@dataclass
-class Literal(Term): 
-    term_type:TermType = TermType.LITERAL
+from rdflib.term import Identifier, URIRef, BNode, Literal
 
 
 
-@dataclass 
+
+@dataclass(frozen=True, eq=True)
 class Triple():
-    s:Term 
-    p:Term
-    o:Term
+    s:Identifier 
+    p:Identifier 
+    o:Identifier 
 
     def __post_init__(self): 
 
-        if not (self.s.term_type == TermType.IRI) and not (self.s.term_type == TermType.BLANK): 
+        if not (isinstance(self.s, URIRef)) and not (isinstance(self.s, BNode)): 
             raise Exception(f"Subject has to be an IRI or Blank {self.s}") 
-        if not self.p.term_type == TermType.IRI: 
+        if not isinstance(self.p, URIRef) : 
             raise Exception(f"Predicate has to be an IRI {self.p}")
 
 
@@ -56,10 +28,15 @@ class Triple():
 # TermMaps models 
 @dataclass
 class TermMap(ABC): 
-    triples:List[Triple]
+    iri: Identifier  
+    po_dict:Dict[Identifier,List[Any]]
+    def __init__(self, iri:Identifier,  po_dict:Dict[Identifier,List[Any]], **_):
+        self.po_dict = po_dict
+        self.iri = iri
 
-    def __init__(self, triples: List[Triple], **_):
-        self.triples = triples 
+    def __post_init__(self): 
+        if not (isinstance(self.iri, URIRef)) and not (isinstance(self.iri, BNode)): 
+            raise Exception(f"Subject of this TermMap has to be an IRI or Blank {self.iri.__repr__}") 
         
 class SubjectMap(TermMap): 
     def identity(self): 
@@ -80,7 +57,6 @@ class GraphMap(TermMap):
 
 @dataclass
 class PredicateObjectMap(TermMap):
-    triples:List[Triple] 
     PMs:List[PredicateMap]  
     OMs:List[ObjectMap]
 
@@ -101,7 +77,7 @@ class PredicateObjectMap(TermMap):
 # END TermMaps models 
 
 @dataclass
-class TripleMap(): 
+class TriplesMap(): 
     sm:SubjectMap 
     poms:List[PredicateObjectMap] 
     logical_source: Triple 
@@ -110,21 +86,26 @@ class TripleMap():
 
 if __name__ == "__main__":
 
-    sm = SubjectMap(
-        [Triple(Iri("<lksdjflj>"), Iri("<klsjdf>"), Literal("klsdjlfj"))])
-    pm = PredicateMap(
-        [Triple(Iri("<lksdjflj>"), Iri("<klsjdf>"), Literal("klsdjlfj"))])
-    om = ObjectMap(
-        [Triple(Iri("<lksdjflj>"), Iri("<klsjdf>"), Literal("klsdjlfj"))])
+    print( URIRef("rr:template") == URIRef("rr:template"))
 
-    logical_source = Triple(Iri("<lksdjflj>"), Iri(
-        "<klsjdf>"), Literal("klsdjlfj"))
-    gm = GraphMap(  
-        [Triple(Iri("<lksdjflj>"), Iri("<klsjdf>"), Literal("klsdjlfj"))])
+    sm = SubjectMap({
+        URIRef("rr:template"): ["lqsdfijm?%lsdjf%"]
+    })
+    pm = PredicateMap({
+        URIRef("rr:template"): ["lqsdfijm?%lsdjf%"]
+    })
+    om = ObjectMap({
+        URIRef("rr:template"): ["lqsdfijm?%lsdjf%"]
+    })
 
-    pom = PredicateObjectMap([Triple(Iri("<lksdjflj>"), Iri("<klsjdf>"), Literal("ljsdfj"))],
-                             PMs=[pm], OMs=[om])
+    logical_source = Triple(URIRef("lksdjflj"), URIRef(
+        "klsjdf"), Literal("klsdjlfj"))
+    gm = GraphMap(  {
+        URIRef("rr:template"): ["lqsdfijm?%lsdjf%"]
+    })
 
-    TM = TripleMap(sm,[pom], logical_source) 
+    pom = PredicateObjectMap(po_dict={}, PMs=[pm], OMs=[om])
+
+    TM = TriplesMap(sm,[pom], logical_source) 
 
     pprint(TM)
