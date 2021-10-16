@@ -1,13 +1,21 @@
 import pprint
+from typing import Dict, Optional, Type
 
 import rdflib
 from rdflib.graph import Graph
-from rdflib.term import BNode, Identifier, Literal, URIRef
-from uuid import uuid4
+from rdflib.term import BNode, Identifier, URIRef
 
 from FilesGitHub import *
-from rml_model import GraphMap, ObjectMap, PredicateMap, PredicateObjectMap, SubjectMap, TermMap, TriplesMap, LogicalSource
-from typing import Callable, List, Optional, Type, Dict
+from rml_model import (
+    GraphMap,
+    LogicalSource,
+    ObjectMap,
+    PredicateMap,
+    PredicateObjectMap,
+    SubjectMap,
+    TermMap,
+    TriplesMap,
+)
 
 
 class RML:
