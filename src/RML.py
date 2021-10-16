@@ -7,7 +7,7 @@ from uuid import uuid4
 
 from FilesGitHub import *
 from rml_model import GraphMap, ObjectMap, PredicateMap, PredicateObjectMap, SubjectMap, TermMap, TriplesMap, LogicalSource
-from typing import Callable, List, Optional, Type
+from typing import Callable, List, Optional, Type, Dict
 
 
 class RML:
@@ -55,14 +55,10 @@ class RML:
         print("\n".join([ f"{s}, {p}, {o}" for s, p, o in graph.triples(query)]) )
 
 
-    def parseTriplesMaps(self, graph:Graph)-> List[TriplesMap]:
+    def parseTriplesMaps(self, graph:Graph)-> Dict[Identifier,TriplesMap]:
 
-        tms= []
+        tms= dict()
         for tm_iri, _, _ in graph.triples((None, None, self.TRIPLES_MAP_CLASS)): 
-            print("Printing triples for the curren TripleMap") 
-            print("="*50)
-            self.printQuery(self.graph, (tm_iri, None, None))
-            print("-"* 50)
 
             # loop through the triples of the TriplesMap with IRI  == tm_iri 
             # this loop will parse the corresponding subject maps and POMs for the 
@@ -72,42 +68,72 @@ class RML:
             poms = []
             gm = None 
             logical_source = None 
-            sm = self.parseTermMap(tm_iri, self.r2rmlNS.subject, self.SUBJECT_MAP, 
-                                   graph, 
-                                   self.parseSubjectMap, 
-                                   SubjectMap)
+
+            sm = self.parseTermMapfromParentTermMap(tm_iri,self.r2rmlNS.subject, self.SUBJECT_MAP, graph, SubjectMap) 
 
             _, _, logical_source_iri = next(graph.triples((tm_iri, self.LOGICAL_SOURCE, None)))
             logical_source = self.parseLogicalSource(logical_source_iri, graph)
-
 
             for _, _, pom_iri in graph.triples((tm_iri, self.POM, None)): 
                 pom = self.parsePredicateObjectMap(pom_iri, graph)
                 poms.append(pom)
 
-            tms.append(TriplesMap(sm, poms, logical_source, gm))  
+            tms[tm_iri]= TriplesMap(sm, poms, logical_source, gm) 
 
         return tms 
+    
 
-    def parseTermMap(self, 
-                     tm_iri: Identifier,  constant_pred: URIRef, 
+    def parseTermMapfromParentTermMap(self, 
+                     parent_iri: Identifier,  constant_pred: URIRef, 
                      map_pred: URIRef, graph:Graph,  
-                     map_parser: Callable[[Identifier, Graph], TermMap], class_cons: Type[TermMap]) -> Optional[TermMap]:
+                     class_cons: Type[TermMap]) -> Optional[TermMap]:
+        """
+        Parses a TermMap from its parent TermMap identified with the given IRI value. 
+        The type of TermMap parsed will be determined by the parameters: 
+        constant_pred, map_red, map_parser, and class_cons
+        """
+        
+        
+        
         default_val = (None, None, None) 
-        _, _, term_iri = next(graph.triples((tm_iri, map_pred, None)), default_val) 
 
+        # Check if an explicit term map exists and parse them
+        _, _, term_iri = next(graph.triples((parent_iri, map_pred, None)), default_val) 
         if not term_iri is None: 
-            return map_parser(term_iri, graph) 
+            return self.parseTermMap(term_iri, graph, class_cons) 
+        # End of explicit term map parsing
 
-        _, _, const_iri = next(graph.triples((tm_iri, constant_pred, None)), default_val) 
 
+        # Check if a shorthand term map (constant shortcut) exists and parse it 
+        _, _, const_iri = next(graph.triples((parent_iri, constant_pred, None)), default_val) 
         if const_iri is None: 
             return None 
-
         po_dict = {
             self.CONSTANT: const_iri 
         }
         return class_cons(iri= BNode(), po_dict= po_dict)
+
+
+    def parseTermMap(self, sub_node:Identifier, graph:Graph, class_cons: Type[TermMap]) -> Optional[TermMap]: 
+        """
+        Parses a TermMap identified by the given subject node. 
+        The associated GraphMap will also be parsed and added to the generated TermMap automatically. 
+        """
+        po_dict = dict()
+        for _, p, o in graph.triples((sub_node, None, None)): 
+            if not p in po_dict: 
+                po_dict[p] = []
+            po_dict[p].append(o)  
+            
+
+        #Parse a graph map if it exists 
+        graphMap = self.parseTermMapfromParentTermMap(
+            sub_node, self.r2rmlNS.graph, self.r2rmlNS.graphMap, graph, GraphMap)
+
+        po_dict.pop(self.r2rmlNS.graph, None)
+        po_dict[self.r2rmlNS.graphMap] = [graphMap]
+
+        return class_cons(sub_node, po_dict)
 
     def parseLogicalSource(self, logs_iri:Identifier, graph:Graph) -> LogicalSource:
         po_dict = dict() 
@@ -115,51 +141,20 @@ class RML:
         for _, p, o in graph.triples((logs_iri, None, None)): 
             po_dict[p]= o 
         return LogicalSource(logs_iri, po_dict)
+
+    def parsePredicateObjectMap(self, pom_iri:Identifier, graph:Graph) -> PredicateObjectMap: 
         
-    def parseGraphMap(self, graph_iri:Identifier, graph:Graph) -> GraphMap: 
-        po_dict = dict()
-        if isinstance(graph_iri, URIRef): 
-            po_dict[self.CONSTANT] = graph_iri
-        else: 
-            for _, graph_p, graph_o in graph.triples((graph_iri, None, None)): 
-                po_dict[graph_p] = graph_o
-        return GraphMap(graph_iri, po_dict)
+        graphMap = self.parseTermMapfromParentTermMap(
+            pom_iri, self.r2rmlNS.graph, self.r2rmlNS.graphMap, 
+            graph, GraphMap) 
+        predicateMap = self.parseTermMapfromParentTermMap(
+            pom_iri, self.PREDICATE, self.PRED_MAP,
+            graph, PredicateMap) 
+        objectMap = self.parseTermMapfromParentTermMap(
+            pom_iri, self.OBJECT, self.OJBECT_MAP, 
+            graph, ObjectMap) 
 
-    def parseSubjectMap(self, sm_IRI:Identifier, graph:Graph) -> SubjectMap:
-        po_dict = dict() 
-        for _, predicate, obj in graph.triples((sm_IRI, None, None)):
-            if not predicate in po_dict: 
-                po_dict[predicate]= []
-            if predicate == self.r2rmlNS.graph: 
-                obj = self.parseGraphMap(obj, graph) 
-
-            po_dict[predicate].append(obj)
-
-        return SubjectMap(sm_IRI, po_dict) 
-
-    def parseObjectMap(self, ob_iri:Identifier, graph:Graph ) -> ObjectMap: 
-    
-        pass
-
-    def parsePredicateMap(self, pm_iri:Identifier, graph:Graph) -> PredicateMap: 
-        pass
-
-    def parsePredicateObjectMap(self, pom_iri, graph) -> PredicateObjectMap: 
-        po_dict = dict() 
-
-        print("="*50)
-
-        for s, p, o in graph.triples((pom_iri, None, None)): 
-            print(s,p,o)
-
-        pm = self.parseTermMap(pom_iri, self.PREDICATE, self.PRED_MAP, graph,
-                               self.parsePredicateMap, 
-                               PredicateMap) 
-        om = self.parseTermMap(pom_iri, self.OBJECT, self.OJBECT_MAP, graph, 
-                               self.parseObjectMap, 
-                               ObjectMap)
-
-        return PredicateObjectMap(pom_iri, po_dict, pm, om)
+        return PredicateObjectMap(pom_iri, {self.r2rmlNS.graphMap: [graphMap]} , predicateMap, objectMap)
 
     def parseGithubFile(self, number, letter, typeInputFile):
         fileReadObj = FilesGitHub()

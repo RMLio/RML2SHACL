@@ -57,8 +57,8 @@ class GraphMap(TermMap):
 
 @dataclass
 class PredicateObjectMap(TermMap):
-    PMs:PredicateMap
-    OMs:ObjectMap
+    PM:PredicateMap
+    OM:ObjectMap
 
     def identity(self): 
         pass
@@ -67,7 +67,7 @@ class PredicateObjectMap(TermMap):
 
 
 @dataclass 
-class LogicalSource(): 
+class LogicalSource(TermMap): 
     iri: Identifier 
     po_dict:Dict[URIRef, Any]
 
