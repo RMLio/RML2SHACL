@@ -42,7 +42,7 @@ class RML:
 
         # contains triple maps models from rml_model module 
         # the keys are the triples maps' IRI values 
-        self.tm_model_dict = dict()
+        self.tm_model_dict:Dict[Identifier, TriplesMap] = dict()
         self.graphs = []
         self.refgraphs = []
 
@@ -56,7 +56,7 @@ class RML:
 
     def parseFile(self, file_name):
         self.graph.parse(file_name, format=rdflib.util.guess_format(file_name))
-        self.parseTriplesMaps(self.graph)
+        self.tm_model_dict= self.parseTriplesMaps(self.graph)
     
 
     def printQuery(self, graph, query): 
