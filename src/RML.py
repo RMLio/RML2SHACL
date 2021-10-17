@@ -86,7 +86,7 @@ class RML:
                 pom = self.parsePredicateObjectMap(pom_iri, graph)
                 poms.append(pom)
 
-            tms[tm_iri]= TriplesMap(sm, poms, logical_source, gm) 
+            tms[tm_iri]= TriplesMap(tm_iri, sm, poms, logical_source, gm) 
 
         return tms 
     

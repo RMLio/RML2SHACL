@@ -74,6 +74,7 @@ class LogicalSource(TermMap):
 
 @dataclass
 class TriplesMap(): 
+    iri:Identifier 
     sm:SubjectMap 
     poms:List[PredicateObjectMap] 
     logical_source: LogicalSource 
