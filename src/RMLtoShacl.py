@@ -1,17 +1,20 @@
+import argparse
+import csv
+import logging
 import os
+from pathlib import Path
+import string
+import time
+import timeit
+from typing import Any, List
+
 import rdflib
 from rdflib import RDF
+from requests.exceptions import HTTPError
+
+from FilesGitHub import *
 from RML import *
 from SHACL import *
-from FilesGitHub import *
-import string
-import csv
-from pathlib import Path
-from requests.exceptions import HTTPError
-import argparse
-import logging
-import timeit
-import time
 
 
 class RMLtoSHACL:
@@ -25,19 +28,82 @@ class RMLtoSHACL:
         self.sNodeShape = None
         self.propertygraphs = []
 
-    def createNodeShape(self, graph):
+    def createNodeShape(self, triples_map:TriplesMap, shacl_graph:Graph):
         # start of SHACL shape
-        subjectShape = None
-        for s, p, o in graph["TM"]:
-            subjectShape = rdflib.URIRef(s+'/shape')
-            # we create a new IRI for the new shape based on the Triples Map IRI
-            self.SHACL.graph.add((subjectShape, p, self.shaclNS.NodeShape))
 
-        for s2, p2, o2 in graph["SM"]:
-            self.testIfIRIorLiteralSubject(p2, o2, self.SHACL.graph,
-                                           subjectShape, graph["SM"])
+        subjectShape = rdflib.URIRef(triples_map.iri + "/shape") 
+        shacl_graph.add((subjectShape, rdflib.RDF.type, self.shaclNS.NodeShape))
+        self.transformSubjectMap(subjectShape, triples_map.sm, shacl_graph) 
 
-        self.sNodeShape = subjectShape
+
+        for pom in triples_map.poms: 
+            self.transformPOM(subjectShape, pom)
+            
+            pass
+
+
+    def transformIRI(self, node:Identifier, shacl_graph:Graph) -> None: 
+        shacl_graph.add((node, self.shaclNS.nodeKind, self.shaclNS.IRI)) 
+
+
+    def transformList(self, arr:List[Any],  node:Identifier, shacl_graph:Graph) -> None: 
+        """
+        Transform the given array objects into RDF compliant array list. 
+        The transformation is done in the manner of a functional list. 
+        """
+        current_node = node 
+        next_node = rdflib.BNode() 
+        size = len(arr) 
+        for i, obj in enumerate(arr): 
+
+            shacl_graph.add(
+                (current_node, self.rdfSyntax.first, rdflib.Literal(obj))) 
+
+            if i != size-1: 
+                shacl_graph.add( 
+                    (current_node, self.rdfSyntax.rest, next_node))
+            else: 
+                shacl_graph.add(
+                    (current_node, self.rdfSyntax.rest, self.rdfSyntax.nil))
+            current_node = next_node 
+            next_node = rdflib.BNode() 
+
+
+    def transformLiteral(self,node:Identifier, termMap:TermMap, shacl_graph:Graph)-> None: 
+
+        shacl_graph.add( 
+            (node, self.shaclNS.NodeKind, self.shaclNS.Literal))
+
+        # Transform rr:language 
+        # it can be a list of languages
+        language_iri = self.RML.LANGUAGE
+        if language_iri in termMap.po_dict: 
+            languages_arr = termMap.po_dict[language_iri] 
+            
+            for language in  languages_arr: 
+                languageBlank = rdflib.BNode() 
+                shacl_graph.add(
+                    (node, self.shaclNS.languageIn, languageBlank))
+                self.transformList(language.split('-'), languageBlank, shacl_graph) 
+        
+        # Transform rr:datatype
+        datatype_iri = self.RML.DATATYPE
+        if datatype_iri in termMap.po_dict: 
+            datatype_term = termMap.po_dict[datatype_iri][0]
+            shacl_graph.add((node, self.shaclNS.datatype, datatype_term))
+        
+
+    def transformSubjectMap(self, node:Identifier, subjectmap:SubjectMap, shacl_graph:Graph)-> None:
+        """
+        Transform the given SubjectMap into the corresponding SHACL shapes and 
+        store them in the self.SHACL's rdflib graph. 
+        """
+        for predicate, obj_arr  in subjectmap.po_dict.items(): 
+            pass
+        pass
+
+    def transformPOM(self, node:Identifier, pom:PredicateObjectMap) -> None: 
+        pass
 
     def inferclass(self, graphPOM):
         for prefix, ns in self.RML.graph.namespaces():
@@ -145,7 +211,7 @@ class RMLtoSHACL:
         # Test for when it has a template
         Found = False
         if p == self.RML.TEMPLATE:
-            stringpattern = self.createPattern(o)
+            stringpattern = self.serializeTemplate(o)
             graphHelp.add((propertyBl, self.shaclNS.pattern, stringpattern))
             for s1, p1, o1 in graphSM:
                 if p1 == self.RML.TERMTYPE and o1 == self.RML.r2rmlNS.Literal:
@@ -168,7 +234,7 @@ class RMLtoSHACL:
         # Test for when it has a template
         Found = False
         if p == self.RML.TEMPLATE:
-            stringpattern = self.createPattern(o)
+            stringpattern = self.serializeTemplate(o)
             graphHelp.add((propertyBl, self.shaclNS.pattern, stringpattern))
             for s1, p1, o1 in graphPOM:
                 if s1 == self.RML.OJBECT_MAP and p1 == self.RML.TERMTYPE and o1 == self.RML.r2rmlNS.Literal:
@@ -233,7 +299,7 @@ class RMLtoSHACL:
     def URIActions(self, propertyBl, graphHelp):
         graphHelp.add((propertyBl, self.shaclNS.nodeKind, self.shaclNS.IRI))
 
-    def createPattern(self, templateString):
+    def serializeTemplate(self, templateString):
         # we want to replace this {word} into a wildcard ='.'
         # and '*' means zero or unlimited amount of characters
         parts = templateString.split('{')
