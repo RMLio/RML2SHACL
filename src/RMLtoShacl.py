@@ -25,28 +25,29 @@ class RMLtoSHACL:
         self.rdfSyntax = rdflib.Namespace(
             'http://www.w3.org/1999/02/22-rdf-syntax-ns#')
         self.SHACL = SHACL()
-        self.sNodeShape = None
-        self.propertygraphs = []
-
-    def createNodeShape(self, triples_map:TriplesMap, shacl_graph:Graph):
-        # start of SHACL shape
-
-        subjectShape = rdflib.URIRef(triples_map.iri + "/shape") 
-        shacl_graph.add((subjectShape, rdflib.RDF.type, self.shaclNS.NodeShape))
-        self.transformSubjectMap(subjectShape, triples_map.sm, shacl_graph) 
 
 
-        for pom in triples_map.poms: 
-            self.transformPOM(subjectShape, pom)
-            
-            pass
+    def helpAddTriples(self, shacl_graph:Graph, sub:Identifier, 
+                       pred:Identifier, obj_arr:Optional[List[Identifier]]) -> None: 
+        """
+        This method takes an array of object terms (obj_arr)  associated with 
+        the given predicate (pred) and add them to the 
+        subject node (sub) as triples.  
+        """
+
+        if obj_arr is None: 
+            return 
+
+        for el in obj_arr:
+            shacl_graph.add(
+                (sub, pred, el))
+
 
 
     def transformIRI(self, node:Identifier, shacl_graph:Graph) -> None: 
         shacl_graph.add((node, self.shaclNS.nodeKind, self.shaclNS.IRI)) 
 
-
-    def transformList(self, arr:List[Any],  node:Identifier, shacl_graph:Graph) -> None: 
+    def transformList(self, node: Identifier, arr: List[Any], shacl_graph: Graph) -> None:
         """
         Transform the given array objects into RDF compliant array list. 
         The transformation is done in the manner of a functional list. 
@@ -84,45 +85,15 @@ class RMLtoSHACL:
                 languageBlank = rdflib.BNode() 
                 shacl_graph.add(
                     (node, self.shaclNS.languageIn, languageBlank))
-                self.transformList(language.split('-'), languageBlank, shacl_graph) 
+                self.transformList(languageBlank, language.split('-'), shacl_graph) 
         
         # Transform rr:datatype
         datatype_iri = self.RML.DATATYPE
         if datatype_iri in termMap.po_dict: 
-            datatype_term = termMap.po_dict[datatype_iri][0]
-            shacl_graph.add((node, self.shaclNS.datatype, datatype_term))
-        
+            self.helpAddTriples(shacl_graph, node,
+                                self.shaclNS.datatype, termMap.po_dict[datatype_iri]) 
 
-    def transformSubjectMap(self, node:Identifier, subjectmap:SubjectMap, shacl_graph:Graph)-> None:
-        """
-        Transform the given SubjectMap into the corresponding SHACL shapes and 
-        store them in the self.SHACL's rdflib graph. 
-        """
-
-
-        for predicate, obj_arr  in subjectmap.po_dict.items(): 
-            # Start class and type translation
-            if predicate == self.RML.CONSTANT: 
-                for el in obj_arr: 
-                    shacl_graph.add(
-                        (node, self.shaclNS.targetNode, el )) 
-            if predicate == self.RML.CLASS: 
-                for el in obj_arr: 
-                    shacl_graph.add(
-                        (node, self.shaclNS.targetClass, el)) 
-            # End class and type translation
-            
-
-        
-
-
-
-        pass
-
-    def transformPOM(self, node:Identifier, pom:PredicateObjectMap) -> None: 
-        pass
-
-    def serializeTemplate(self, templateString):
+    def serializeTemplate(self, templateString:Identifier)-> Identifier:
         # we want to replace this {word} into a wildcard ='.'
         # and '*' means zero or unlimited amount of characters
         parts = templateString.split('{')
@@ -144,10 +115,99 @@ class RMLtoSHACL:
         resultaat = rdflib.Literal(string)
         return resultaat
 
-        # adding the idividual propertygraphs to the total shape
-        for g in self.propertygraphs:
-            self.SHACL.graph = self.SHACL.graph + g
-        self.propertygraphs.clear()
+
+    def createNodeShape(self, triples_map:TriplesMap, shacl_graph:Graph) -> Identifier:
+        # start of SHACL shape
+
+        subjectShape = rdflib.URIRef(triples_map.iri + "/shape") 
+        shacl_graph.add((subjectShape, rdflib.RDF.type, self.shaclNS.NodeShape))
+        self.transformSubjectMap(subjectShape, triples_map.sm, shacl_graph) 
+        return subjectShape
+
+        
+
+    def transformSubjectMap(self, node:Identifier, subjectmap:SubjectMap, shacl_graph:Graph)-> None:
+        """
+        Transform the given SubjectMap into the corresponding SHACL shapes and 
+        store them in the self.SHACL's rdflib graph. 
+        """
+
+        po_dict = subjectmap.po_dict 
+
+        # Start of class and targetNode shacl mapping
+        self.helpAddTriples(shacl_graph, node, 
+                            self.shaclNS.targetNode,
+                            po_dict.get(self.RML.CONSTANT, []))
+
+        self.helpAddTriples(shacl_graph, node, 
+                            self.shaclNS.targetClass, 
+                            po_dict.get(self.RML.CLASS, [])) 
+
+        # End of class and targetNode shacl mapping
+        
+
+        # Shacl shl:pattern parsing 
+        template_strings = [self.serializeTemplate(x)
+                            for x in po_dict.get(self.RML.TEMPLATE, [])]
+        self.helpAddTriples(shacl_graph, node, 
+                            self.shaclNS.pattern, template_strings)  
+        
+        #Uri or Literal parsing 
+        self.transformIRIorLiteral(po_dict, node, subjectmap, shacl_graph)
+
+    def transformIRIorLiteral(self, po_dict:Dict[URIRef, List[Any]], 
+                              node:Identifier, termMap:TermMap, 
+                              shacl_graph:Graph) -> None:
+        #Uri or Literal parsing 
+        type_arr = po_dict.get(self.RML.TERMTYPE)
+        if type_arr: 
+            term_type = type_arr[0]
+            if term_type == self.RML.r2rmlNS.Literal: 
+                self.transformLiteral(node, termMap, shacl_graph) 
+            else: 
+                self.transformIRI(node, shacl_graph)
+
+        # default behaviour if no termType is defined 
+        elif po_dict.get(self.RML.REFERENCE): 
+            self.transformLiteral(node, termMap, shacl_graph) 
+        else: 
+            self.transformIRI(node, shacl_graph)
+            
+            
+
+
+
+    def transformPOM(self, node:Identifier, pom:PredicateObjectMap, shacl_graph:Graph) -> None: 
+
+        pm = pom.PM 
+        om = pom.OM 
+
+        # Find the subject's class in 
+        # Check if it defines the class of the subject node (node) and 
+        # return immediately since the pom is parsed
+        pred_constant_objs = pm.po_dict.get(self.RML.CONSTANT)
+        if pred_constant_objs and pred_constant_objs[0] == rdflib.RDF.type: 
+            om_constant_objs = om.po_dict.get(self.RML.CONSTANT)
+            self.helpAddTriples(shacl_graph, node, 
+                                self.shaclNS.targetClass,om_constant_objs) 
+            return 
+
+        
+        # Fill in the sh:property node of the given subject (@param node) 
+        sh_property = rdflib.BNode()
+        shacl_graph.add(
+            (node, self.shaclNS.property, sh_property)) 
+
+        self.transformIRIorLiteral(om.po_dict, sh_property, om, shacl_graph) 
+        ptm = om.po_dict.get(self.RML.r2rmlNS.parentTriplesMap)
+        if ptm: 
+            ptm = ptm[0] + "/shape" 
+            shacl_graph.add(
+                (sh_property, self.shaclNS.node, ptm)) 
+
+        self.helpAddTriples(shacl_graph, sh_property,
+                                self.shaclNS.path, pm.po_dict.get(self.RML.CONSTANT))
+
 
     def writeShapeToFile(self, file_name, shape_dir="shapes/"):
         for prefix, ns in self.RML.graph.namespaces():
@@ -170,21 +230,14 @@ class RMLtoSHACL:
 
     def evaluate_file(self, rml_mapping_file):
         self.RML.parseFile(rml_mapping_file)
-        self.RML.removeBlankNodesMultipleMaps()
-        for graph in self.RML.graphs:
-            self.createNodeShape(graph)
-            self.findClass(graph)
-            self.targetNode(graph)
-            length = len(graph)-3
-# Because the dictionary inside graph has first 'TM', 'LM' and 'SM'
-# as keys we do the length of the dictionary minus 3
-# #we can use this newly calculated length for the indexes
-# used for the possible multiple PredicateObjectsMaps (POM)
-            for i in range(length):
-                self.subjectTargetOf(graph["POM"+str(i)])
-                self.findClassinPrediacteOM(graph["POM"+str(i)])
-                self.fillinProperty(graph["POM"+str(i)])
-        self.finalizeShape()
+
+        for _, triples_map in self.RML.tm_model_dict.items(): 
+            subject_shape_node = self.createNodeShape(triples_map, self.SHACL.graph)
+            
+            for pom in triples_map.poms: 
+                self.transformPOM(subject_shape_node, pom, self.SHACL.graph)
+            
+
 
         outputfileName = f"{rml_mapping_file}-output-shape.ttl"
         self.writeShapeToFile(outputfileName)
@@ -201,29 +254,21 @@ class RMLtoSHACL:
 
         return None
 
-    def MakeTotalShape(self, numberInput, letterInput, inputfile):
+    def TestGithubFiles(self, numberInput, letterInput, inputfile):
         number = numberInput
         letter = letterInput
         inputfileType = inputfile
         self.RML.parseGithubFile(number, letter, inputfileType)
         self.RML.removeBlankNodesMultipleMaps()
 
-        for graph in self.RML.graphs:
-            self.createNodeShape(graph)
-            self.findClass(graph)
-            self.targetNode(graph)
-            length = len(graph)-3
-# Because the dictionary inside graph has first 'TM', 'LM' and 'SM'
-# as keys we do the length of the dictionary minus 3
-# #we can use this newly calculated length for the indexes
-# used for the possible multiple PredicateObjectsMaps (POM)
-            for i in range(length):
-                self.subjectTargetOf(graph["POM"+str(i)])
-                self.findClassinPrediacteOM(graph["POM"+str(i)])
-                self.fillinProperty(graph["POM"+str(i)])
-        self.finalizeShape()
+        for _, triples_map in self.RML.tm_model_dict.items(): 
+            subject_shape_node = self.createNodeShape(triples_map, self.SHACL.graph)
+            
+            for pom in triples_map.poms: 
+                self.transformPOM(subject_shape_node, pom, self.SHACL.graph)
+
         filenNameShape = 'RMLTC%s%s-%s_outputShape.ttl' % (
-            str(numberInput).zfill(4), letterInput, inputFile)
+            str(numberInput).zfill(4), letterInput, inputfile)
         shapeFileName = self.writeShapeToFile(filenNameShape)
         filenameOutput = self.readfileObject.getFile(
             number, letter, inputfileType, FilesGitHub.outputRdfFile)
@@ -232,6 +277,9 @@ class RMLtoSHACL:
             filenameOutput, format=rdflib.util.guess_format(filenameOutput))
         self.SHACL.Validation(self.SHACL.graph, graphOutput)
 
+        logging.debug("*" * 100)
+        logging.debug("RESULTS")
+        logging.debug("="*100)
         logging.debug(self.SHACL.results_text)
         return shapeFileName
 
@@ -273,7 +321,7 @@ class RMLtoSHACL:
                         filetypeColomnInput = filetype.replace('-', '')
                         RtoS = RMLtoSHACL()  # create RtoS object again for a fresh start
                         try:
-                            outputShapeFile = RtoS.MakeTotalShape(
+                            outputShapeFile = RtoS.TestGithubFiles(
                                 i, letter, filetype)
                             generated_shape_graph = rdflib.Graph()
                             generated_shape_graph.parse(

@@ -66,7 +66,12 @@ class RML:
     def parseTriplesMaps(self, graph:Graph)-> Dict[Identifier,TriplesMap]:
 
         tms= dict()
-        for tm_iri, _, _ in graph.triples((None, None, self.TRIPLES_MAP_CLASS)): 
+        tm_tmclass = {iri for iri, _, _ in  graph.triples((None, None, self.TRIPLES_MAP_CLASS))}
+        tm_logicals ={iri for iri, _, _ in  graph.triples((None, self.LOGICAL_SOURCE, None))}
+        tm_iri_set = tm_tmclass | tm_logicals
+
+
+        for tm_iri in tm_iri_set: 
 
             # loop through the triples of the TriplesMap with IRI  == tm_iri 
             # this loop will parse the corresponding subject maps and POMs for the 
@@ -97,6 +102,8 @@ class RML:
                      class_cons: Type[TermMap]) -> Optional[TermMap]:
         """
         Parses a TermMap from its parent TermMap identified with the given IRI value. 
+        This function expands the shorthand version to a more explicit term map. 
+        i.e ?x rr:predicate ?y.  -> ?x rr:predicateMap [ rr:constant ?y ]. 
         The type of TermMap parsed will be determined by the parameters: 
         constant_pred, map_red, map_parser, and class_cons
         """
@@ -117,7 +124,7 @@ class RML:
         if const_iri is None: 
             return None 
         po_dict = {
-            self.CONSTANT: const_iri 
+            self.CONSTANT: [const_iri]
         }
         return class_cons(iri= BNode(), po_dict= po_dict)
 
