@@ -29,4 +29,3 @@ class SHACL:
         # results_text is the validation report in text
         # self.printGraph(1,results_graph)
         # print(self.results_text)
-
