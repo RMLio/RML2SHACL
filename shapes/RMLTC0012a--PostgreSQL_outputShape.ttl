@@ -3,14 +3,10 @@
 @prefix sh: <http://www.w3.org/ns/shacl#> .
 
 <http://example.com/base/TriplesMap1/shape> a sh:NodeShape ;
-    sh:nodeKind sh:IRI ;
+    sh:nodeKind sh:BlankNode ;
     sh:pattern ".*_.*_.*" ;
     sh:property [ sh:nodeKind sh:Literal ;
-            sh:path foaf:name ;
-            sh:pattern ".* .*" ],
+            sh:path ex:amount ],
         [ sh:nodeKind sh:Literal ;
-            sh:path ex:amount ] ;
-    sh:targetClass <http://www.w3.org/2002/07/owl#Thing> ;
-    sh:targetSubjectsOf ex:amount,
-        foaf:name .
+            sh:path foaf:name ] .
 

@@ -5,6 +5,5 @@
     sh:nodeKind sh:IRI ;
     sh:pattern "http://example.com/.*/.*" ;
     sh:property [ sh:nodeKind sh:Literal ;
-            sh:path ex:id ] ;
-    sh:targetSubjectsOf ex:id .
+            sh:path ex:id ] .
 

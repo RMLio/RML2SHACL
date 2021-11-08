@@ -4,7 +4,5 @@
 <http://example.com/base/TriplesMap1/shape> a sh:NodeShape ;
     sh:nodeKind sh:Literal ;
     sh:property [ sh:nodeKind sh:Literal ;
-            sh:path foaf:name ] ;
-    sh:targetClass <http://www.w3.org/2002/07/owl#Thing> ;
-    sh:targetSubjectsOf foaf:name .
+            sh:path foaf:name ] .
 

@@ -3,15 +3,14 @@
 @prefix sh: <http://www.w3.org/ns/shacl#> .
 
 <http://example.com/base/TriplesMap1/shape> a sh:NodeShape ;
+    sh:class ex:Student,
+        foaf:Person ;
     sh:nodeKind sh:IRI ;
     sh:pattern "http://example.com/Student/.*/.*" ;
     sh:property [ sh:nodeKind sh:Literal ;
-            sh:path ex:id ],
+            sh:path foaf:name ],
         [ sh:nodeKind sh:Literal ;
-            sh:path foaf:name ] ;
+            sh:path ex:id ] ;
     sh:targetClass ex:Student,
-        <http://www.w3.org/2002/07/owl#Thing>,
-        foaf:Person ;
-    sh:targetSubjectsOf ex:id,
-        foaf:name .
+        foaf:Person .
 

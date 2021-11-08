@@ -5,6 +5,5 @@
     sh:nodeKind sh:IRI ;
     sh:pattern "http://example.com/Person/.*/.*/.*" ;
     sh:property [ sh:nodeKind sh:Literal ;
-            sh:path ex:BirthDay ] ;
-    sh:targetSubjectsOf ex:BirthDay .
+            sh:path ex:BirthDay ] .
 

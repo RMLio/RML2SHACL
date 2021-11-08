@@ -2,8 +2,8 @@
 @prefix sh: <http://www.w3.org/ns/shacl#> .
 
 <http://example.com/TriplesMap1/shape> a sh:NodeShape ;
-    sh:property [ sh:hasValue "Bad Student" ;
+    sh:nodeKind sh:IRI ;
+    sh:property [ sh:nodeKind sh:IRI ;
             sh:path ex:description ] ;
-    sh:targetNode ex:BadStudent ;
-    sh:targetSubjectsOf ex:description .
+    sh:targetNode ex:BadStudent .
 

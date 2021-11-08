@@ -1,10 +1,8 @@
 @prefix foaf: <http://xmlns.com/foaf/0.1/> .
-@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 @prefix sh: <http://www.w3.org/ns/shacl#> .
 
 <http://example.com/base/TriplesMap1/shape> a sh:NodeShape ;
     sh:nodeKind sh:IRI ;
     sh:pattern ".*" ;
-    sh:targetClass rdfs:Resource,
-        foaf:Person .
+    sh:targetClass foaf:Person .
 

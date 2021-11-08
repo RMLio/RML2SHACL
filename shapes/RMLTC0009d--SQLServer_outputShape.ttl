@@ -8,8 +8,5 @@
     sh:property [ sh:nodeKind sh:Literal ;
             sh:path foaf:name ],
         [ sh:nodeKind sh:Literal ;
-            sh:path ex:numSport ] ;
-    sh:targetClass <http://www.w3.org/2002/07/owl#Thing> ;
-    sh:targetSubjectsOf ex:numSport,
-        foaf:name .
+            sh:path ex:numSport ] .
 

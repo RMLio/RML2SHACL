@@ -7,16 +7,12 @@
     sh:pattern "http://example.com/.*" ;
     sh:property [ sh:languageIn ( "en" ) ;
             sh:nodeKind sh:Literal ;
-            sh:path rdfs:label ] ;
-    sh:targetClass rdfs:Resource ;
-    sh:targetSubjectsOf rdfs:label .
+            sh:path rdfs:label ] .
 
 <http://example.com/base/TriplesMap2/shape> a sh:NodeShape ;
     sh:nodeKind sh:IRI ;
     sh:pattern "http://example.com/.*" ;
     sh:property [ sh:languageIn ( "es" ) ;
             sh:nodeKind sh:Literal ;
-            sh:path rdfs:label ] ;
-    sh:targetClass rdfs:Resource ;
-    sh:targetSubjectsOf rdfs:label .
+            sh:path rdfs:label ] .
 

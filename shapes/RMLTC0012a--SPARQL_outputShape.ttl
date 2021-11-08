@@ -1,1 +1,12 @@
+@prefix ex: <http://example.com/> .
+@prefix foaf: <http://xmlns.com/foaf/0.1/> .
+@prefix sh: <http://www.w3.org/ns/shacl#> .
+
+<http://example.com/base#Country/shape> a sh:NodeShape ;
+    sh:nodeKind sh:BlankNode ;
+    sh:pattern ".*.*.*" ;
+    sh:property [ sh:nodeKind sh:Literal ;
+            sh:path ex:amount ],
+        [ sh:nodeKind sh:Literal ;
+            sh:path foaf:name ] .
 

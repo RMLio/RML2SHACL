@@ -1,21 +1,15 @@
 @prefix ex: <http://example.com/> .
 @prefix foaf: <http://xmlns.com/foaf/0.1/> .
-@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 @prefix sh: <http://www.w3.org/ns/shacl#> .
 
 <http://example.com/base/TriplesMap1/shape> a sh:NodeShape ;
     sh:nodeKind sh:IRI ;
     sh:pattern "http://example.com/Student/.*/.*" ;
     sh:property [ sh:nodeKind sh:Literal ;
-            sh:path ex:Sport ],
+            sh:path foaf:name ],
         [ sh:nodeKind sh:Literal ;
             sh:path ex:id ],
         [ sh:nodeKind sh:Literal ;
-            sh:path foaf:name ] ;
-    sh:targetClass rdfs:Resource,
-        <http://www.w3.org/2002/07/owl#Thing>,
-        foaf:Person ;
-    sh:targetSubjectsOf ex:Sport,
-        ex:id,
-        foaf:name .
+            sh:path ex:Sport ] ;
+    sh:targetClass foaf:Person .
 

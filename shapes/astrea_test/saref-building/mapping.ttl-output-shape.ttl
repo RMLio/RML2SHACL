@@ -1,486 +1,347 @@
-@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 @prefix sh: <http://www.w3.org/ns/shacl#> .
 
 <http://mapping.example.com/map_triplesMapActuator_000/shape> a sh:NodeShape ;
     sh:nodeKind sh:IRI ;
     sh:pattern "http://.*" ;
-    sh:property [ sh:hasValue "https://saref.etsi.org/core/Actuator" ] ;
-    sh:targetClass rdfs:Resource,
-        "https://saref.etsi.org/core/Actuator" .
+    sh:targetClass "https://saref.etsi.org/core/Actuator" .
 
 <http://mapping.example.com/map_triplesMapAirtoairheatrecovery_000/shape> a sh:NodeShape ;
     sh:nodeKind sh:IRI ;
     sh:pattern "http://.*" ;
-    sh:property [ sh:hasValue "https://saref.etsi.org/saref4bldg/AirToAirHeatRecovery" ] ;
-    sh:targetClass rdfs:Resource,
-        "https://saref.etsi.org/saref4bldg/AirToAirHeatRecovery" .
+    sh:targetClass "https://saref.etsi.org/saref4bldg/AirToAirHeatRecovery" .
 
 <http://mapping.example.com/map_triplesMapAlarm_000/shape> a sh:NodeShape ;
     sh:nodeKind sh:IRI ;
     sh:pattern "http://.*" ;
-    sh:property [ sh:hasValue "https://saref.etsi.org/saref4bldg/Alarm" ] ;
-    sh:targetClass rdfs:Resource,
-        "https://saref.etsi.org/saref4bldg/Alarm" .
+    sh:targetClass "https://saref.etsi.org/saref4bldg/Alarm" .
 
 <http://mapping.example.com/map_triplesMapAudiovisualappliance_000/shape> a sh:NodeShape ;
     sh:nodeKind sh:IRI ;
     sh:pattern "http://.*" ;
-    sh:property [ sh:hasValue "https://saref.etsi.org/saref4bldg/AudioVisualAppliance" ] ;
-    sh:targetClass rdfs:Resource,
-        "https://saref.etsi.org/saref4bldg/AudioVisualAppliance" .
+    sh:targetClass "https://saref.etsi.org/saref4bldg/AudioVisualAppliance" .
 
 <http://mapping.example.com/map_triplesMapBoiler_000/shape> a sh:NodeShape ;
     sh:nodeKind sh:IRI ;
     sh:pattern "http://.*" ;
-    sh:property [ sh:hasValue "https://saref.etsi.org/saref4bldg/Boiler" ] ;
-    sh:targetClass rdfs:Resource,
-        "https://saref.etsi.org/saref4bldg/Boiler" .
+    sh:targetClass "https://saref.etsi.org/saref4bldg/Boiler" .
 
 <http://mapping.example.com/map_triplesMapBuilding_000/shape> a sh:NodeShape ;
     sh:nodeKind sh:IRI ;
     sh:pattern "http://.*" ;
-    sh:property [ sh:hasValue "https://saref.etsi.org/saref4bldg/Building" ] ;
-    sh:targetClass rdfs:Resource,
-        "https://saref.etsi.org/saref4bldg/Building" .
+    sh:targetClass "https://saref.etsi.org/saref4bldg/Building" .
 
 <http://mapping.example.com/map_triplesMapBuildingdevice_000/shape> a sh:NodeShape ;
     sh:nodeKind sh:IRI ;
     sh:pattern "http://.*" ;
-    sh:property [ sh:hasValue "https://saref.etsi.org/saref4bldg/BuildingDevice" ] ;
-    sh:targetClass rdfs:Resource,
-        "https://saref.etsi.org/saref4bldg/BuildingDevice" .
+    sh:targetClass "https://saref.etsi.org/saref4bldg/BuildingDevice" .
 
 <http://mapping.example.com/map_triplesMapBuildingobject_000/shape> a sh:NodeShape ;
     sh:nodeKind sh:IRI ;
     sh:pattern "http://.*" ;
-    sh:property [ sh:hasValue "https://saref.etsi.org/saref4bldg/BuildingObject" ] ;
-    sh:targetClass rdfs:Resource,
-        "https://saref.etsi.org/saref4bldg/BuildingObject" .
+    sh:targetClass "https://saref.etsi.org/saref4bldg/BuildingObject" .
 
 <http://mapping.example.com/map_triplesMapBuildingspace_000/shape> a sh:NodeShape ;
     sh:nodeKind sh:IRI ;
     sh:pattern "http://.*" ;
-    sh:property [ sh:hasValue "https://saref.etsi.org/saref4bldg/BuildingSpace" ] ;
-    sh:targetClass rdfs:Resource,
-        "https://saref.etsi.org/saref4bldg/BuildingSpace" .
+    sh:targetClass "https://saref.etsi.org/saref4bldg/BuildingSpace" .
 
 <http://mapping.example.com/map_triplesMapBurner_000/shape> a sh:NodeShape ;
     sh:nodeKind sh:IRI ;
     sh:pattern "http://.*" ;
-    sh:property [ sh:hasValue "https://saref.etsi.org/saref4bldg/Burner" ] ;
-    sh:targetClass rdfs:Resource,
-        "https://saref.etsi.org/saref4bldg/Burner" .
+    sh:targetClass "https://saref.etsi.org/saref4bldg/Burner" .
 
 <http://mapping.example.com/map_triplesMapChiller_000/shape> a sh:NodeShape ;
     sh:nodeKind sh:IRI ;
     sh:pattern "http://.*" ;
-    sh:property [ sh:hasValue "https://saref.etsi.org/saref4bldg/Chiller" ] ;
-    sh:targetClass rdfs:Resource,
-        "https://saref.etsi.org/saref4bldg/Chiller" .
+    sh:targetClass "https://saref.etsi.org/saref4bldg/Chiller" .
 
 <http://mapping.example.com/map_triplesMapCoil_000/shape> a sh:NodeShape ;
     sh:nodeKind sh:IRI ;
     sh:pattern "http://.*" ;
-    sh:property [ sh:hasValue "https://saref.etsi.org/saref4bldg/Coil" ] ;
-    sh:targetClass rdfs:Resource,
-        "https://saref.etsi.org/saref4bldg/Coil" .
+    sh:targetClass "https://saref.etsi.org/saref4bldg/Coil" .
 
 <http://mapping.example.com/map_triplesMapCommunicationappliance_000/shape> a sh:NodeShape ;
     sh:nodeKind sh:IRI ;
     sh:pattern "http://.*" ;
-    sh:property [ sh:hasValue "https://saref.etsi.org/saref4bldg/CommunicationAppliance" ] ;
-    sh:targetClass rdfs:Resource,
-        "https://saref.etsi.org/saref4bldg/CommunicationAppliance" .
+    sh:targetClass "https://saref.etsi.org/saref4bldg/CommunicationAppliance" .
 
 <http://mapping.example.com/map_triplesMapCompressor_000/shape> a sh:NodeShape ;
     sh:nodeKind sh:IRI ;
     sh:pattern "http://.*" ;
-    sh:property [ sh:hasValue "https://saref.etsi.org/saref4bldg/Compressor" ] ;
-    sh:targetClass rdfs:Resource,
-        "https://saref.etsi.org/saref4bldg/Compressor" .
+    sh:targetClass "https://saref.etsi.org/saref4bldg/Compressor" .
 
 <http://mapping.example.com/map_triplesMapCondenser_000/shape> a sh:NodeShape ;
     sh:nodeKind sh:IRI ;
     sh:pattern "http://.*" ;
-    sh:property [ sh:hasValue "https://saref.etsi.org/saref4bldg/Condenser" ] ;
-    sh:targetClass rdfs:Resource,
-        "https://saref.etsi.org/saref4bldg/Condenser" .
+    sh:targetClass "https://saref.etsi.org/saref4bldg/Condenser" .
 
 <http://mapping.example.com/map_triplesMapController_000/shape> a sh:NodeShape ;
     sh:nodeKind sh:IRI ;
     sh:pattern "http://.*" ;
-    sh:property [ sh:hasValue "https://saref.etsi.org/saref4bldg/Controller" ] ;
-    sh:targetClass rdfs:Resource,
-        "https://saref.etsi.org/saref4bldg/Controller" .
+    sh:targetClass "https://saref.etsi.org/saref4bldg/Controller" .
 
 <http://mapping.example.com/map_triplesMapCooledbeam_000/shape> a sh:NodeShape ;
     sh:nodeKind sh:IRI ;
     sh:pattern "http://.*" ;
-    sh:property [ sh:hasValue "https://saref.etsi.org/saref4bldg/CooledBeam" ] ;
-    sh:targetClass rdfs:Resource,
-        "https://saref.etsi.org/saref4bldg/CooledBeam" .
+    sh:targetClass "https://saref.etsi.org/saref4bldg/CooledBeam" .
 
 <http://mapping.example.com/map_triplesMapCoolingtower_000/shape> a sh:NodeShape ;
     sh:nodeKind sh:IRI ;
     sh:pattern "http://.*" ;
-    sh:property [ sh:hasValue "https://saref.etsi.org/saref4bldg/CoolingTower" ] ;
-    sh:targetClass rdfs:Resource,
-        "https://saref.etsi.org/saref4bldg/CoolingTower" .
+    sh:targetClass "https://saref.etsi.org/saref4bldg/CoolingTower" .
 
 <http://mapping.example.com/map_triplesMapDamper_000/shape> a sh:NodeShape ;
     sh:nodeKind sh:IRI ;
     sh:pattern "http://.*" ;
-    sh:property [ sh:hasValue "https://saref.etsi.org/saref4bldg/Damper" ] ;
-    sh:targetClass rdfs:Resource,
-        "https://saref.etsi.org/saref4bldg/Damper" .
+    sh:targetClass "https://saref.etsi.org/saref4bldg/Damper" .
 
 <http://mapping.example.com/map_triplesMapDevice_000/shape> a sh:NodeShape ;
     sh:nodeKind sh:IRI ;
     sh:pattern "http://.*" ;
-    sh:property [ sh:hasValue "https://saref.etsi.org/core/Device" ] ;
-    sh:targetClass rdfs:Resource,
-        "https://saref.etsi.org/core/Device" .
+    sh:targetClass "https://saref.etsi.org/core/Device" .
 
 <http://mapping.example.com/map_triplesMapDistributioncontroldevice_000/shape> a sh:NodeShape ;
     sh:nodeKind sh:IRI ;
     sh:pattern "http://.*" ;
-    sh:property [ sh:hasValue "https://saref.etsi.org/saref4bldg/DistributionControlDevice" ] ;
-    sh:targetClass rdfs:Resource,
-        "https://saref.etsi.org/saref4bldg/DistributionControlDevice" .
+    sh:targetClass "https://saref.etsi.org/saref4bldg/DistributionControlDevice" .
 
 <http://mapping.example.com/map_triplesMapDistributiondevice_000/shape> a sh:NodeShape ;
     sh:nodeKind sh:IRI ;
     sh:pattern "http://.*" ;
-    sh:property [ sh:hasValue "https://saref.etsi.org/saref4bldg/DistributionDevice" ] ;
-    sh:targetClass rdfs:Resource,
-        "https://saref.etsi.org/saref4bldg/DistributionDevice" .
+    sh:targetClass "https://saref.etsi.org/saref4bldg/DistributionDevice" .
 
 <http://mapping.example.com/map_triplesMapDistributionflowdevice_000/shape> a sh:NodeShape ;
     sh:nodeKind sh:IRI ;
     sh:pattern "http://.*" ;
-    sh:property [ sh:hasValue "https://saref.etsi.org/saref4bldg/DistributionFlowDevice" ] ;
-    sh:targetClass rdfs:Resource,
-        "https://saref.etsi.org/saref4bldg/DistributionFlowDevice" .
+    sh:targetClass "https://saref.etsi.org/saref4bldg/DistributionFlowDevice" .
 
 <http://mapping.example.com/map_triplesMapDuctsilencer_000/shape> a sh:NodeShape ;
     sh:nodeKind sh:IRI ;
     sh:pattern "http://.*" ;
-    sh:property [ sh:hasValue "https://saref.etsi.org/saref4bldg/DuctSilencer" ] ;
-    sh:targetClass rdfs:Resource,
-        "https://saref.etsi.org/saref4bldg/DuctSilencer" .
+    sh:targetClass "https://saref.etsi.org/saref4bldg/DuctSilencer" .
 
 <http://mapping.example.com/map_triplesMapElectricappliance_000/shape> a sh:NodeShape ;
     sh:nodeKind sh:IRI ;
     sh:pattern "http://.*" ;
-    sh:property [ sh:hasValue "https://saref.etsi.org/saref4bldg/ElectricAppliance" ] ;
-    sh:targetClass rdfs:Resource,
-        "https://saref.etsi.org/saref4bldg/ElectricAppliance" .
+    sh:targetClass "https://saref.etsi.org/saref4bldg/ElectricAppliance" .
 
 <http://mapping.example.com/map_triplesMapElectricflowstoragedevice_000/shape> a sh:NodeShape ;
     sh:nodeKind sh:IRI ;
     sh:pattern "http://.*" ;
-    sh:property [ sh:hasValue "https://saref.etsi.org/saref4bldg/ElectricFlowStorageDevice" ] ;
-    sh:targetClass rdfs:Resource,
-        "https://saref.etsi.org/saref4bldg/ElectricFlowStorageDevice" .
+    sh:targetClass "https://saref.etsi.org/saref4bldg/ElectricFlowStorageDevice" .
 
 <http://mapping.example.com/map_triplesMapElectricgenerator_000/shape> a sh:NodeShape ;
     sh:nodeKind sh:IRI ;
     sh:pattern "http://.*" ;
-    sh:property [ sh:hasValue "https://saref.etsi.org/saref4bldg/ElectricGenerator" ] ;
-    sh:targetClass rdfs:Resource,
-        "https://saref.etsi.org/saref4bldg/ElectricGenerator" .
+    sh:targetClass "https://saref.etsi.org/saref4bldg/ElectricGenerator" .
 
 <http://mapping.example.com/map_triplesMapElectricmotor_000/shape> a sh:NodeShape ;
     sh:nodeKind sh:IRI ;
     sh:pattern "http://.*" ;
-    sh:property [ sh:hasValue "https://saref.etsi.org/saref4bldg/ElectricMotor" ] ;
-    sh:targetClass rdfs:Resource,
-        "https://saref.etsi.org/saref4bldg/ElectricMotor" .
+    sh:targetClass "https://saref.etsi.org/saref4bldg/ElectricMotor" .
 
 <http://mapping.example.com/map_triplesMapElectrictimecontrol_000/shape> a sh:NodeShape ;
     sh:nodeKind sh:IRI ;
     sh:pattern "http://.*" ;
-    sh:property [ sh:hasValue "https://saref.etsi.org/saref4bldg/ElectricTimeControl" ] ;
-    sh:targetClass rdfs:Resource,
-        "https://saref.etsi.org/saref4bldg/ElectricTimeControl" .
+    sh:targetClass "https://saref.etsi.org/saref4bldg/ElectricTimeControl" .
 
 <http://mapping.example.com/map_triplesMapEnergyconversiondevice_000/shape> a sh:NodeShape ;
     sh:nodeKind sh:IRI ;
     sh:pattern "http://.*" ;
-    sh:property [ sh:hasValue "https://saref.etsi.org/saref4bldg/EnergyConversionDevice" ] ;
-    sh:targetClass rdfs:Resource,
-        "https://saref.etsi.org/saref4bldg/EnergyConversionDevice" .
+    sh:targetClass "https://saref.etsi.org/saref4bldg/EnergyConversionDevice" .
 
 <http://mapping.example.com/map_triplesMapEngine_000/shape> a sh:NodeShape ;
     sh:nodeKind sh:IRI ;
     sh:pattern "http://.*" ;
-    sh:property [ sh:hasValue "https://saref.etsi.org/saref4bldg/Engine" ] ;
-    sh:targetClass rdfs:Resource,
-        "https://saref.etsi.org/saref4bldg/Engine" .
+    sh:targetClass "https://saref.etsi.org/saref4bldg/Engine" .
 
 <http://mapping.example.com/map_triplesMapEvaporativecooler_000/shape> a sh:NodeShape ;
     sh:nodeKind sh:IRI ;
     sh:pattern "http://.*" ;
-    sh:property [ sh:hasValue "https://saref.etsi.org/saref4bldg/EvaporativeCooler" ] ;
-    sh:targetClass rdfs:Resource,
-        "https://saref.etsi.org/saref4bldg/EvaporativeCooler" .
+    sh:targetClass "https://saref.etsi.org/saref4bldg/EvaporativeCooler" .
 
 <http://mapping.example.com/map_triplesMapEvaporator_000/shape> a sh:NodeShape ;
     sh:nodeKind sh:IRI ;
     sh:pattern "http://.*" ;
-    sh:property [ sh:hasValue "https://saref.etsi.org/saref4bldg/Evaporator" ] ;
-    sh:targetClass rdfs:Resource,
-        "https://saref.etsi.org/saref4bldg/Evaporator" .
+    sh:targetClass "https://saref.etsi.org/saref4bldg/Evaporator" .
 
 <http://mapping.example.com/map_triplesMapFan_000/shape> a sh:NodeShape ;
     sh:nodeKind sh:IRI ;
     sh:pattern "http://.*" ;
-    sh:property [ sh:hasValue "https://saref.etsi.org/saref4bldg/Fan" ] ;
-    sh:targetClass rdfs:Resource,
-        "https://saref.etsi.org/saref4bldg/Fan" .
+    sh:targetClass "https://saref.etsi.org/saref4bldg/Fan" .
 
 <http://mapping.example.com/map_triplesMapFilter_000/shape> a sh:NodeShape ;
     sh:nodeKind sh:IRI ;
     sh:pattern "http://.*" ;
-    sh:property [ sh:hasValue "https://saref.etsi.org/saref4bldg/Filter" ] ;
-    sh:targetClass rdfs:Resource,
-        "https://saref.etsi.org/saref4bldg/Filter" .
+    sh:targetClass "https://saref.etsi.org/saref4bldg/Filter" .
 
 <http://mapping.example.com/map_triplesMapFiresuppressionterminal_000/shape> a sh:NodeShape ;
     sh:nodeKind sh:IRI ;
     sh:pattern "http://.*" ;
-    sh:property [ sh:hasValue "https://saref.etsi.org/saref4bldg/FireSuppressionTerminal" ] ;
-    sh:targetClass rdfs:Resource,
-        "https://saref.etsi.org/saref4bldg/FireSuppressionTerminal" .
+    sh:targetClass "https://saref.etsi.org/saref4bldg/FireSuppressionTerminal" .
 
 <http://mapping.example.com/map_triplesMapFlowcontroller_000/shape> a sh:NodeShape ;
     sh:nodeKind sh:IRI ;
     sh:pattern "http://.*" ;
-    sh:property [ sh:hasValue "https://saref.etsi.org/saref4bldg/FlowController" ] ;
-    sh:targetClass rdfs:Resource,
-        "https://saref.etsi.org/saref4bldg/FlowController" .
+    sh:targetClass "https://saref.etsi.org/saref4bldg/FlowController" .
 
 <http://mapping.example.com/map_triplesMapFlowinstrument_000/shape> a sh:NodeShape ;
     sh:nodeKind sh:IRI ;
     sh:pattern "http://.*" ;
-    sh:property [ sh:hasValue "https://saref.etsi.org/saref4bldg/FlowInstrument" ] ;
-    sh:targetClass rdfs:Resource,
-        "https://saref.etsi.org/saref4bldg/FlowInstrument" .
+    sh:targetClass "https://saref.etsi.org/saref4bldg/FlowInstrument" .
 
 <http://mapping.example.com/map_triplesMapFlowmeter_000/shape> a sh:NodeShape ;
     sh:nodeKind sh:IRI ;
     sh:pattern "http://.*" ;
-    sh:property [ sh:hasValue "https://saref.etsi.org/saref4bldg/FlowMeter" ] ;
-    sh:targetClass rdfs:Resource,
-        "https://saref.etsi.org/saref4bldg/FlowMeter" .
+    sh:targetClass "https://saref.etsi.org/saref4bldg/FlowMeter" .
 
 <http://mapping.example.com/map_triplesMapFlowmovingdevice_000/shape> a sh:NodeShape ;
     sh:nodeKind sh:IRI ;
     sh:pattern "http://.*" ;
-    sh:property [ sh:hasValue "https://saref.etsi.org/saref4bldg/FlowMovingDevice" ] ;
-    sh:targetClass rdfs:Resource,
-        "https://saref.etsi.org/saref4bldg/FlowMovingDevice" .
+    sh:targetClass "https://saref.etsi.org/saref4bldg/FlowMovingDevice" .
 
 <http://mapping.example.com/map_triplesMapFlowstoragedevice_000/shape> a sh:NodeShape ;
     sh:nodeKind sh:IRI ;
     sh:pattern "http://.*" ;
-    sh:property [ sh:hasValue "https://saref.etsi.org/saref4bldg/FlowStorageDevice" ] ;
-    sh:targetClass rdfs:Resource,
-        "https://saref.etsi.org/saref4bldg/FlowStorageDevice" .
+    sh:targetClass "https://saref.etsi.org/saref4bldg/FlowStorageDevice" .
 
 <http://mapping.example.com/map_triplesMapFlowterminal_000/shape> a sh:NodeShape ;
     sh:nodeKind sh:IRI ;
     sh:pattern "http://.*" ;
-    sh:property [ sh:hasValue "https://saref.etsi.org/saref4bldg/FlowTerminal" ] ;
-    sh:targetClass rdfs:Resource,
-        "https://saref.etsi.org/saref4bldg/FlowTerminal" .
+    sh:targetClass "https://saref.etsi.org/saref4bldg/FlowTerminal" .
 
 <http://mapping.example.com/map_triplesMapFlowtreatmentdevice_000/shape> a sh:NodeShape ;
     sh:nodeKind sh:IRI ;
     sh:pattern "http://.*" ;
-    sh:property [ sh:hasValue "https://saref.etsi.org/saref4bldg/FlowTreatmentDevice" ] ;
-    sh:targetClass rdfs:Resource,
-        "https://saref.etsi.org/saref4bldg/FlowTreatmentDevice" .
+    sh:targetClass "https://saref.etsi.org/saref4bldg/FlowTreatmentDevice" .
 
 <http://mapping.example.com/map_triplesMapHeatexchanger_000/shape> a sh:NodeShape ;
     sh:nodeKind sh:IRI ;
     sh:pattern "http://.*" ;
-    sh:property [ sh:hasValue "https://saref.etsi.org/saref4bldg/HeatExchanger" ] ;
-    sh:targetClass rdfs:Resource,
-        "https://saref.etsi.org/saref4bldg/HeatExchanger" .
+    sh:targetClass "https://saref.etsi.org/saref4bldg/HeatExchanger" .
 
 <http://mapping.example.com/map_triplesMapHumidifier_000/shape> a sh:NodeShape ;
     sh:nodeKind sh:IRI ;
     sh:pattern "http://.*" ;
-    sh:property [ sh:hasValue "https://saref.etsi.org/saref4bldg/Humidifier" ] ;
-    sh:targetClass rdfs:Resource,
-        "https://saref.etsi.org/saref4bldg/Humidifier" .
+    sh:targetClass "https://saref.etsi.org/saref4bldg/Humidifier" .
 
 <http://mapping.example.com/map_triplesMapInterceptor_000/shape> a sh:NodeShape ;
     sh:nodeKind sh:IRI ;
     sh:pattern "http://.*" ;
-    sh:property [ sh:hasValue "https://saref.etsi.org/saref4bldg/Interceptor" ] ;
-    sh:targetClass rdfs:Resource,
-        "https://saref.etsi.org/saref4bldg/Interceptor" .
+    sh:targetClass "https://saref.etsi.org/saref4bldg/Interceptor" .
 
 <http://mapping.example.com/map_triplesMapLamp_000/shape> a sh:NodeShape ;
     sh:nodeKind sh:IRI ;
     sh:pattern "http://.*" ;
-    sh:property [ sh:hasValue "https://saref.etsi.org/saref4bldg/Lamp" ] ;
-    sh:targetClass rdfs:Resource,
-        "https://saref.etsi.org/saref4bldg/Lamp" .
+    sh:targetClass "https://saref.etsi.org/saref4bldg/Lamp" .
 
 <http://mapping.example.com/map_triplesMapMeasurement_000/shape> a sh:NodeShape ;
     sh:nodeKind sh:IRI ;
     sh:pattern "http://.*" ;
-    sh:property [ sh:hasValue "https://saref.etsi.org/core/Measurement" ] ;
-    sh:targetClass rdfs:Resource,
-        "https://saref.etsi.org/core/Measurement" .
+    sh:targetClass "https://saref.etsi.org/core/Measurement" .
 
 <http://mapping.example.com/map_triplesMapMedicaldevice_000/shape> a sh:NodeShape ;
     sh:nodeKind sh:IRI ;
     sh:pattern "http://.*" ;
-    sh:property [ sh:hasValue "https://saref.etsi.org/saref4bldg/MedicalDevice" ] ;
-    sh:targetClass rdfs:Resource,
-        "https://saref.etsi.org/saref4bldg/MedicalDevice" .
+    sh:targetClass "https://saref.etsi.org/saref4bldg/MedicalDevice" .
 
 <http://mapping.example.com/map_triplesMapOutlet_000/shape> a sh:NodeShape ;
     sh:nodeKind sh:IRI ;
     sh:pattern "http://.*" ;
-    sh:property [ sh:hasValue "https://saref.etsi.org/saref4bldg/Outlet" ] ;
-    sh:targetClass rdfs:Resource,
-        "https://saref.etsi.org/saref4bldg/Outlet" .
+    sh:targetClass "https://saref.etsi.org/saref4bldg/Outlet" .
 
 <http://mapping.example.com/map_triplesMapPhysicalobject_000/shape> a sh:NodeShape ;
     sh:nodeKind sh:IRI ;
     sh:pattern "http://.*" ;
-    sh:property [ sh:hasValue "https://saref.etsi.org/saref4bldg/PhysicalObject" ] ;
-    sh:targetClass rdfs:Resource,
-        "https://saref.etsi.org/saref4bldg/PhysicalObject" .
+    sh:targetClass "https://saref.etsi.org/saref4bldg/PhysicalObject" .
 
 <http://mapping.example.com/map_triplesMapProperty_000/shape> a sh:NodeShape ;
     sh:nodeKind sh:IRI ;
     sh:pattern "http://.*" ;
-    sh:property [ sh:hasValue "https://saref.etsi.org/core/Property" ] ;
-    sh:targetClass rdfs:Resource,
-        "https://saref.etsi.org/core/Property" .
+    sh:targetClass "https://saref.etsi.org/core/Property" .
 
 <http://mapping.example.com/map_triplesMapProtectivedevice_000/shape> a sh:NodeShape ;
     sh:nodeKind sh:IRI ;
     sh:pattern "http://.*" ;
-    sh:property [ sh:hasValue "https://saref.etsi.org/saref4bldg/ProtectiveDevice" ] ;
-    sh:targetClass rdfs:Resource,
-        "https://saref.etsi.org/saref4bldg/ProtectiveDevice" .
+    sh:targetClass "https://saref.etsi.org/saref4bldg/ProtectiveDevice" .
 
 <http://mapping.example.com/map_triplesMapProtectivedevicetrippingunit_000/shape> a sh:NodeShape ;
     sh:nodeKind sh:IRI ;
     sh:pattern "http://.*" ;
-    sh:property [ sh:hasValue "https://saref.etsi.org/saref4bldg/ProtectiveDeviceTrippingUnit" ] ;
-    sh:targetClass rdfs:Resource,
-        "https://saref.etsi.org/saref4bldg/ProtectiveDeviceTrippingUnit" .
+    sh:targetClass "https://saref.etsi.org/saref4bldg/ProtectiveDeviceTrippingUnit" .
 
 <http://mapping.example.com/map_triplesMapPump_000/shape> a sh:NodeShape ;
     sh:nodeKind sh:IRI ;
     sh:pattern "http://.*" ;
-    sh:property [ sh:hasValue "https://saref.etsi.org/saref4bldg/Pump" ] ;
-    sh:targetClass rdfs:Resource,
-        "https://saref.etsi.org/saref4bldg/Pump" .
+    sh:targetClass "https://saref.etsi.org/saref4bldg/Pump" .
 
 <http://mapping.example.com/map_triplesMapSanitaryterminal_000/shape> a sh:NodeShape ;
     sh:nodeKind sh:IRI ;
     sh:pattern "http://.*" ;
-    sh:property [ sh:hasValue "https://saref.etsi.org/saref4bldg/SanitaryTerminal" ] ;
-    sh:targetClass rdfs:Resource,
-        "https://saref.etsi.org/saref4bldg/SanitaryTerminal" .
+    sh:targetClass "https://saref.etsi.org/saref4bldg/SanitaryTerminal" .
 
 <http://mapping.example.com/map_triplesMapSensor_000/shape> a sh:NodeShape ;
     sh:nodeKind sh:IRI ;
     sh:pattern "http://.*" ;
-    sh:property [ sh:hasValue "https://saref.etsi.org/core/Sensor" ] ;
-    sh:targetClass rdfs:Resource,
-        "https://saref.etsi.org/core/Sensor" .
+    sh:targetClass "https://saref.etsi.org/core/Sensor" .
 
 <http://mapping.example.com/map_triplesMapShadingdevice_000/shape> a sh:NodeShape ;
     sh:nodeKind sh:IRI ;
     sh:pattern "http://.*" ;
-    sh:property [ sh:hasValue "https://saref.etsi.org/saref4bldg/ShadingDevice" ] ;
-    sh:targetClass rdfs:Resource,
-        "https://saref.etsi.org/saref4bldg/ShadingDevice" .
+    sh:targetClass "https://saref.etsi.org/saref4bldg/ShadingDevice" .
 
 <http://mapping.example.com/map_triplesMapSolardevice_000/shape> a sh:NodeShape ;
     sh:nodeKind sh:IRI ;
     sh:pattern "http://.*" ;
-    sh:property [ sh:hasValue "https://saref.etsi.org/saref4bldg/SolarDevice" ] ;
-    sh:targetClass rdfs:Resource,
-        "https://saref.etsi.org/saref4bldg/SolarDevice" .
+    sh:targetClass "https://saref.etsi.org/saref4bldg/SolarDevice" .
 
 <http://mapping.example.com/map_triplesMapSpaceheater_000/shape> a sh:NodeShape ;
     sh:nodeKind sh:IRI ;
     sh:pattern "http://.*" ;
-    sh:property [ sh:hasValue "https://saref.etsi.org/saref4bldg/SpaceHeater" ] ;
-    sh:targetClass rdfs:Resource,
-        "https://saref.etsi.org/saref4bldg/SpaceHeater" .
+    sh:targetClass "https://saref.etsi.org/saref4bldg/SpaceHeater" .
 
 <http://mapping.example.com/map_triplesMapSwitchingdevice_000/shape> a sh:NodeShape ;
     sh:nodeKind sh:IRI ;
     sh:pattern "http://.*" ;
-    sh:property [ sh:hasValue "https://saref.etsi.org/saref4bldg/SwitchingDevice" ] ;
-    sh:targetClass rdfs:Resource,
-        "https://saref.etsi.org/saref4bldg/SwitchingDevice" .
+    sh:targetClass "https://saref.etsi.org/saref4bldg/SwitchingDevice" .
 
 <http://mapping.example.com/map_triplesMapTank_000/shape> a sh:NodeShape ;
     sh:nodeKind sh:IRI ;
     sh:pattern "http://.*" ;
-    sh:property [ sh:hasValue "https://saref.etsi.org/saref4bldg/Tank" ] ;
-    sh:targetClass rdfs:Resource,
-        "https://saref.etsi.org/saref4bldg/Tank" .
+    sh:targetClass "https://saref.etsi.org/saref4bldg/Tank" .
 
 <http://mapping.example.com/map_triplesMapTransformer_000/shape> a sh:NodeShape ;
     sh:nodeKind sh:IRI ;
     sh:pattern "http://.*" ;
-    sh:property [ sh:hasValue "https://saref.etsi.org/saref4bldg/Transformer" ] ;
-    sh:targetClass rdfs:Resource,
-        "https://saref.etsi.org/saref4bldg/Transformer" .
+    sh:targetClass "https://saref.etsi.org/saref4bldg/Transformer" .
 
 <http://mapping.example.com/map_triplesMapTransportelement_000/shape> a sh:NodeShape ;
     sh:nodeKind sh:IRI ;
     sh:pattern "http://.*" ;
-    sh:property [ sh:hasValue "https://saref.etsi.org/saref4bldg/TransportElement" ] ;
-    sh:targetClass rdfs:Resource,
-        "https://saref.etsi.org/saref4bldg/TransportElement" .
+    sh:targetClass "https://saref.etsi.org/saref4bldg/TransportElement" .
 
 <http://mapping.example.com/map_triplesMapTubebundle_000/shape> a sh:NodeShape ;
     sh:nodeKind sh:IRI ;
     sh:pattern "http://.*" ;
-    sh:property [ sh:hasValue "https://saref.etsi.org/saref4bldg/TubeBundle" ] ;
-    sh:targetClass rdfs:Resource,
-        "https://saref.etsi.org/saref4bldg/TubeBundle" .
+    sh:targetClass "https://saref.etsi.org/saref4bldg/TubeBundle" .
 
 <http://mapping.example.com/map_triplesMapUnitarycontrolelement_000/shape> a sh:NodeShape ;
     sh:nodeKind sh:IRI ;
     sh:pattern "http://.*" ;
-    sh:property [ sh:hasValue "https://saref.etsi.org/saref4bldg/UnitaryControlElement" ] ;
-    sh:targetClass rdfs:Resource,
-        "https://saref.etsi.org/saref4bldg/UnitaryControlElement" .
+    sh:targetClass "https://saref.etsi.org/saref4bldg/UnitaryControlElement" .
 
 <http://mapping.example.com/map_triplesMapUnitofmeasure_000/shape> a sh:NodeShape ;
     sh:nodeKind sh:IRI ;
     sh:pattern "http://.*" ;
-    sh:property [ sh:hasValue "https://saref.etsi.org/core/UnitOfMeasure" ] ;
-    sh:targetClass rdfs:Resource,
-        "https://saref.etsi.org/core/UnitOfMeasure" .
+    sh:targetClass "https://saref.etsi.org/core/UnitOfMeasure" .
 
 <http://mapping.example.com/map_triplesMapValve_000/shape> a sh:NodeShape ;
     sh:nodeKind sh:IRI ;
     sh:pattern "http://.*" ;
-    sh:property [ sh:hasValue "https://saref.etsi.org/saref4bldg/Valve" ] ;
-    sh:targetClass rdfs:Resource,
-        "https://saref.etsi.org/saref4bldg/Valve" .
+    sh:targetClass "https://saref.etsi.org/saref4bldg/Valve" .
 
 <http://mapping.example.com/map_triplesMapVibrationisolator_000/shape> a sh:NodeShape ;
     sh:nodeKind sh:IRI ;
     sh:pattern "http://.*" ;
-    sh:property [ sh:hasValue "https://saref.etsi.org/saref4bldg/VibrationIsolator" ] ;
-    sh:targetClass rdfs:Resource,
-        "https://saref.etsi.org/saref4bldg/VibrationIsolator" .
+    sh:targetClass "https://saref.etsi.org/saref4bldg/VibrationIsolator" .
 

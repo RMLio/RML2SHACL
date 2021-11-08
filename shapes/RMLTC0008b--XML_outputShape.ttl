@@ -1,7 +1,6 @@
 @prefix activity: <http://example.com/activity/> .
 @prefix ex: <http://example.com/> .
 @prefix foaf: <http://xmlns.com/foaf/0.1/> .
-@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 @prefix sh: <http://www.w3.org/ns/shacl#> .
 
 <http://example.com/base/TriplesMap1/shape> a sh:NodeShape ;
@@ -12,17 +11,12 @@
         [ sh:nodeKind sh:Literal ;
             sh:path ex:id ],
         [ sh:node <http://example.com/base/TriplesMap2/shape> ;
+            sh:nodeKind sh:IRI ;
             sh:path ex:Sport ] ;
-    sh:targetClass rdfs:Resource,
-        <http://www.w3.org/2002/07/owl#Thing>,
-        foaf:Person ;
-    sh:targetSubjectsOf ex:Sport,
-        ex:id,
-        foaf:name .
+    sh:targetClass foaf:Person .
 
 <http://example.com/base/TriplesMap2/shape> a sh:NodeShape ;
     sh:nodeKind sh:IRI ;
     sh:pattern "http://example.com/.*" ;
-    sh:targetClass activity:Sport,
-        rdfs:Resource .
+    sh:targetClass activity:Sport .
 

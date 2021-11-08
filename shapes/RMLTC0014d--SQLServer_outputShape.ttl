@@ -5,7 +5,5 @@
     sh:nodeKind sh:IRI ;
     sh:pattern "http://data.example.com/employee/.*" ;
     sh:property [ sh:nodeKind sh:IRI ;
-            sh:path ex:role ;
-            sh:pattern "http://data.example.com/roles/.*" ] ;
-    sh:targetSubjectsOf ex:role .
+            sh:path ex:role ] .
 

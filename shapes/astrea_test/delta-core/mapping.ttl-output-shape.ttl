@@ -1,199 +1,142 @@
-@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 @prefix sh: <http://www.w3.org/ns/shacl#> .
 
 <http://mapping.example.com/map_triplesMapAggregator_000/shape> a sh:NodeShape ;
     sh:nodeKind sh:IRI ;
     sh:pattern "http://.*" ;
-    sh:property [ sh:hasValue "http://delta.linkeddata.es/def/core#Aggregator" ] ;
-    sh:targetClass rdfs:Resource,
-        "http://delta.linkeddata.es/def/core#Aggregator" .
+    sh:targetClass "http://delta.linkeddata.es/def/core#Aggregator" .
 
 <http://mapping.example.com/map_triplesMapBid_000/shape> a sh:NodeShape ;
     sh:nodeKind sh:IRI ;
     sh:pattern "http://.*" ;
-    sh:property [ sh:hasValue "http://delta.linkeddata.es/def/core#Bid" ] ;
-    sh:targetClass rdfs:Resource,
-        "http://delta.linkeddata.es/def/core#Bid" .
+    sh:targetClass "http://delta.linkeddata.es/def/core#Bid" .
 
 <http://mapping.example.com/map_triplesMapCluster_000/shape> a sh:NodeShape ;
     sh:nodeKind sh:IRI ;
     sh:pattern "http://.*" ;
-    sh:property [ sh:hasValue "http://delta.linkeddata.es/def/core#Cluster" ] ;
-    sh:targetClass rdfs:Resource,
-        "http://delta.linkeddata.es/def/core#Cluster" .
+    sh:targetClass "http://delta.linkeddata.es/def/core#Cluster" .
 
 <http://mapping.example.com/map_triplesMapConsumer_000/shape> a sh:NodeShape ;
     sh:nodeKind sh:IRI ;
     sh:pattern "http://.*" ;
-    sh:property [ sh:hasValue "http://delta.linkeddata.es/def/core#Consumer" ] ;
-    sh:targetClass rdfs:Resource,
-        "http://delta.linkeddata.es/def/core#Consumer" .
+    sh:targetClass "http://delta.linkeddata.es/def/core#Consumer" .
 
 <http://mapping.example.com/map_triplesMapCustomer_000/shape> a sh:NodeShape ;
     sh:nodeKind sh:IRI ;
     sh:pattern "http://.*" ;
-    sh:property [ sh:hasValue "http://delta.linkeddata.es/def/core#Customer" ] ;
-    sh:targetClass rdfs:Resource,
-        "http://delta.linkeddata.es/def/core#Customer" .
+    sh:targetClass "http://delta.linkeddata.es/def/core#Customer" .
 
 <http://mapping.example.com/map_triplesMapDevice_000/shape> a sh:NodeShape ;
     sh:nodeKind sh:IRI ;
     sh:pattern "http://.*" ;
-    sh:property [ sh:hasValue "https://w3id.org/saref#Device" ] ;
-    sh:targetClass rdfs:Resource,
-        "https://w3id.org/saref#Device" .
+    sh:targetClass "https://w3id.org/saref#Device" .
 
 <http://mapping.example.com/map_triplesMapEnergy_000/shape> a sh:NodeShape ;
     sh:nodeKind sh:IRI ;
     sh:pattern "http://.*" ;
-    sh:property [ sh:hasValue "http://delta.linkeddata.es/def/core#Energy" ] ;
-    sh:targetClass rdfs:Resource,
-        "http://delta.linkeddata.es/def/core#Energy" .
+    sh:targetClass "http://delta.linkeddata.es/def/core#Energy" .
 
 <http://mapping.example.com/map_triplesMapEnergymarket_000/shape> a sh:NodeShape ;
     sh:nodeKind sh:IRI ;
     sh:pattern "http://.*" ;
-    sh:property [ sh:hasValue "http://delta.linkeddata.es/def/core#EnergyMarket" ] ;
-    sh:targetClass rdfs:Resource,
-        "http://delta.linkeddata.es/def/core#EnergyMarket" .
+    sh:targetClass "http://delta.linkeddata.es/def/core#EnergyMarket" .
 
 <http://mapping.example.com/map_triplesMapFlexibility_000/shape> a sh:NodeShape ;
     sh:nodeKind sh:IRI ;
     sh:pattern "http://.*" ;
-    sh:property [ sh:hasValue "http://delta.linkeddata.es/def/core#Flexibility" ] ;
-    sh:targetClass rdfs:Resource,
-        "http://delta.linkeddata.es/def/core#Flexibility" .
+    sh:targetClass "http://delta.linkeddata.es/def/core#Flexibility" .
 
 <http://mapping.example.com/map_triplesMapFlexibilitybid_000/shape> a sh:NodeShape ;
     sh:nodeKind sh:IRI ;
     sh:pattern "http://.*" ;
-    sh:property [ sh:hasValue "http://delta.linkeddata.es/def/core#FlexibilityBid" ] ;
-    sh:targetClass rdfs:Resource,
-        "http://delta.linkeddata.es/def/core#FlexibilityBid" .
+    sh:targetClass "http://delta.linkeddata.es/def/core#FlexibilityBid" .
 
 <http://mapping.example.com/map_triplesMapGeneration_000/shape> a sh:NodeShape ;
     sh:nodeKind sh:IRI ;
     sh:pattern "http://.*" ;
-    sh:property [ sh:hasValue "http://delta.linkeddata.es/def/core#Generation" ] ;
-    sh:targetClass rdfs:Resource,
-        "http://delta.linkeddata.es/def/core#Generation" .
+    sh:targetClass "http://delta.linkeddata.es/def/core#Generation" .
 
 <http://mapping.example.com/map_triplesMapIncentive_000/shape> a sh:NodeShape ;
     sh:nodeKind sh:IRI ;
     sh:pattern "http://.*" ;
-    sh:property [ sh:hasValue "http://delta.linkeddata.es/def/core#Incentive" ] ;
-    sh:targetClass rdfs:Resource,
-        "http://delta.linkeddata.es/def/core#Incentive" .
+    sh:targetClass "http://delta.linkeddata.es/def/core#Incentive" .
 
 <http://mapping.example.com/map_triplesMapLoad_000/shape> a sh:NodeShape ;
     sh:nodeKind sh:IRI ;
     sh:pattern "http://.*" ;
-    sh:property [ sh:hasValue "http://delta.linkeddata.es/def/core#Load" ] ;
-    sh:targetClass rdfs:Resource,
-        "http://delta.linkeddata.es/def/core#Load" .
+    sh:targetClass "http://delta.linkeddata.es/def/core#Load" .
 
 <http://mapping.example.com/map_triplesMapMeasurement_000/shape> a sh:NodeShape ;
     sh:nodeKind sh:IRI ;
     sh:pattern "http://.*" ;
-    sh:property [ sh:hasValue "https://w3id.org/saref#Measurement" ] ;
-    sh:targetClass rdfs:Resource,
-        "https://w3id.org/saref#Measurement" .
+    sh:targetClass "https://w3id.org/saref#Measurement" .
 
 <http://mapping.example.com/map_triplesMapPower_000/shape> a sh:NodeShape ;
     sh:nodeKind sh:IRI ;
     sh:pattern "http://.*" ;
-    sh:property [ sh:hasValue "http://delta.linkeddata.es/def/core#Power" ] ;
-    sh:targetClass rdfs:Resource,
-        "http://delta.linkeddata.es/def/core#Power" .
+    sh:targetClass "http://delta.linkeddata.es/def/core#Power" .
 
 <http://mapping.example.com/map_triplesMapPrice_000/shape> a sh:NodeShape ;
     sh:nodeKind sh:IRI ;
     sh:pattern "http://.*" ;
-    sh:property [ sh:hasValue "https://w3id.org/saref#Price" ] ;
-    sh:targetClass rdfs:Resource,
-        "https://w3id.org/saref#Price" .
+    sh:targetClass "https://w3id.org/saref#Price" .
 
 <http://mapping.example.com/map_triplesMapPricebid_000/shape> a sh:NodeShape ;
     sh:nodeKind sh:IRI ;
     sh:pattern "http://.*" ;
-    sh:property [ sh:hasValue "http://delta.linkeddata.es/def/core#PriceBid" ] ;
-    sh:targetClass rdfs:Resource,
-        "http://delta.linkeddata.es/def/core#PriceBid" .
+    sh:targetClass "http://delta.linkeddata.es/def/core#PriceBid" .
 
 <http://mapping.example.com/map_triplesMapPricebidas_000/shape> a sh:NodeShape ;
     sh:nodeKind sh:IRI ;
     sh:pattern "http://.*" ;
-    sh:property [ sh:hasValue "http://delta.linkeddata.es/def/core#PriceBidAS" ] ;
-    sh:targetClass rdfs:Resource,
-        "http://delta.linkeddata.es/def/core#PriceBidAS" .
+    sh:targetClass "http://delta.linkeddata.es/def/core#PriceBidAS" .
 
 <http://mapping.example.com/map_triplesMapPricebiddayahead_000/shape> a sh:NodeShape ;
     sh:nodeKind sh:IRI ;
     sh:pattern "http://.*" ;
-    sh:property [ sh:hasValue "http://delta.linkeddata.es/def/core#PriceBidDayAhead" ] ;
-    sh:targetClass rdfs:Resource,
-        "http://delta.linkeddata.es/def/core#PriceBidDayAhead" .
+    sh:targetClass "http://delta.linkeddata.es/def/core#PriceBidDayAhead" .
 
 <http://mapping.example.com/map_triplesMapPricebidintraday_000/shape> a sh:NodeShape ;
     sh:nodeKind sh:IRI ;
     sh:pattern "http://.*" ;
-    sh:property [ sh:hasValue "http://delta.linkeddata.es/def/core#PriceBidIntraDay" ] ;
-    sh:targetClass rdfs:Resource,
-        "http://delta.linkeddata.es/def/core#PriceBidIntraDay" .
+    sh:targetClass "http://delta.linkeddata.es/def/core#PriceBidIntraDay" .
 
 <http://mapping.example.com/map_triplesMapProfile_000/shape> a sh:NodeShape ;
     sh:nodeKind sh:IRI ;
     sh:pattern "http://.*" ;
-    sh:property [ sh:hasValue "http://delta.linkeddata.es/def/core#Profile" ] ;
-    sh:targetClass rdfs:Resource,
-        "http://delta.linkeddata.es/def/core#Profile" .
+    sh:targetClass "http://delta.linkeddata.es/def/core#Profile" .
 
 <http://mapping.example.com/map_triplesMapProfit_000/shape> a sh:NodeShape ;
     sh:nodeKind sh:IRI ;
     sh:pattern "http://.*" ;
-    sh:property [ sh:hasValue "http://delta.linkeddata.es/def/core#Profit" ] ;
-    sh:targetClass rdfs:Resource,
-        "http://delta.linkeddata.es/def/core#Profit" .
+    sh:targetClass "http://delta.linkeddata.es/def/core#Profit" .
 
 <http://mapping.example.com/map_triplesMapProperty_000/shape> a sh:NodeShape ;
     sh:nodeKind sh:IRI ;
     sh:pattern "http://.*" ;
-    sh:property [ sh:hasValue "http://delta.linkeddata.es/def/core#Property" ] ;
-    sh:targetClass rdfs:Resource,
-        "http://delta.linkeddata.es/def/core#Property" .
+    sh:targetClass "http://delta.linkeddata.es/def/core#Property" .
 
 <http://mapping.example.com/map_triplesMapProsumer_000/shape> a sh:NodeShape ;
     sh:nodeKind sh:IRI ;
     sh:pattern "http://.*" ;
-    sh:property [ sh:hasValue "http://delta.linkeddata.es/def/core#Prosumer" ] ;
-    sh:targetClass rdfs:Resource,
-        "http://delta.linkeddata.es/def/core#Prosumer" .
+    sh:targetClass "http://delta.linkeddata.es/def/core#Prosumer" .
 
 <http://mapping.example.com/map_triplesMapReward_000/shape> a sh:NodeShape ;
     sh:nodeKind sh:IRI ;
     sh:pattern "http://.*" ;
-    sh:property [ sh:hasValue "http://delta.linkeddata.es/def/core#Reward" ] ;
-    sh:targetClass rdfs:Resource,
-        "http://delta.linkeddata.es/def/core#Reward" .
+    sh:targetClass "http://delta.linkeddata.es/def/core#Reward" .
 
 <http://mapping.example.com/map_triplesMapSpatialthing_000/shape> a sh:NodeShape ;
     sh:nodeKind sh:IRI ;
     sh:pattern "http://.*" ;
-    sh:property [ sh:hasValue "http://www.w3.org/2003/01/geo/wgs84_pos#SpatialThing" ] ;
-    sh:targetClass rdfs:Resource,
-        "http://www.w3.org/2003/01/geo/wgs84_pos#SpatialThing" .
+    sh:targetClass "http://www.w3.org/2003/01/geo/wgs84_pos#SpatialThing" .
 
 <http://mapping.example.com/map_triplesMapTimeinterval_000/shape> a sh:NodeShape ;
     sh:nodeKind sh:IRI ;
     sh:pattern "http://.*" ;
-    sh:property [ sh:hasValue "http://delta.linkeddata.es/def/core#TimeInterval" ] ;
-    sh:targetClass rdfs:Resource,
-        "http://delta.linkeddata.es/def/core#TimeInterval" .
+    sh:targetClass "http://delta.linkeddata.es/def/core#TimeInterval" .
 
 <http://mapping.example.com/map_triplesMapVirtualnode_000/shape> a sh:NodeShape ;
     sh:nodeKind sh:IRI ;
     sh:pattern "http://.*" ;
-    sh:property [ sh:hasValue "http://delta.linkeddata.es/def/core#VirtualNode" ] ;
-    sh:targetClass rdfs:Resource,
-        "http://delta.linkeddata.es/def/core#VirtualNode" .
+    sh:targetClass "http://delta.linkeddata.es/def/core#VirtualNode" .
 

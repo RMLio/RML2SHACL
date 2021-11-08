@@ -5,8 +5,5 @@
     sh:nodeKind sh:IRI ;
     sh:pattern "http://example.com/Student.*" ;
     sh:property [ sh:nodeKind sh:Literal ;
-            sh:path foaf:name ;
-            sh:pattern ".* .*" ] ;
-    sh:targetClass <http://www.w3.org/2002/07/owl#Thing> ;
-    sh:targetSubjectsOf foaf:name .
+            sh:path foaf:name ] .
 
