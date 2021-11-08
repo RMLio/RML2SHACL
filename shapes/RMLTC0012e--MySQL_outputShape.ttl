@@ -15,10 +15,10 @@
     sh:nodeKind sh:BlankNode ;
     sh:pattern ".*_.*_.*" ;
     sh:property [ sh:nodeKind sh:Literal ;
+            sh:path <http://example.com/base/IOUs#lname> ],
+        [ sh:nodeKind sh:Literal ;
             sh:path <http://example.com/base/IOUs#city> ],
         [ sh:nodeKind sh:Literal ;
-            sh:path <http://example.com/base/IOUs#fname> ],
-        [ sh:nodeKind sh:Literal ;
-            sh:path <http://example.com/base/IOUs#lname> ] ;
+            sh:path <http://example.com/base/IOUs#fname> ] ;
     sh:targetClass <http://example.com/base/Lives> .
 

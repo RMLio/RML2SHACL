@@ -5,11 +5,11 @@
 <http://example.com/base/TriplesMap1/shape> a sh:NodeShape ;
     sh:nodeKind sh:IRI ;
     sh:pattern "http://example.com/resource/student_.*" ;
-    sh:property [ sh:node <http://example.com/base/TriplesMap2/shape> ;
+    sh:property [ sh:nodeKind sh:Literal ;
+            sh:path foaf:name ],
+        [ sh:node <http://example.com/base/TriplesMap2/shape> ;
             sh:nodeKind sh:IRI ;
-            sh:path <http://example.com/ontology/practises> ],
-        [ sh:nodeKind sh:Literal ;
-            sh:path foaf:name ] .
+            sh:path <http://example.com/ontology/practises> ] .
 
 <http://example.com/base/TriplesMap2/shape> a sh:NodeShape ;
     sh:nodeKind sh:IRI ;

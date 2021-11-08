@@ -5,23 +5,19 @@
     sh:nodeKind sh:IRI ;
     sh:pattern "http://example.com/.*/.*;.*" ;
     sh:property [ sh:nodeKind sh:Literal ;
-            sh:path ex:id ],
-        [ sh:nodeKind sh:Literal ;
             sh:path ex:lastName ],
         [ sh:nodeKind sh:IRI ;
-            sh:path ex:plays ;
-            sh:pattern "http://example.com/.*/.*" ],
+            sh:path ex:plays ],
         [ sh:nodeKind sh:Literal ;
-            sh:path ex:firstName ] ;
-    sh:targetSubjectsOf ex:firstName,
-        ex:id,
-        ex:lastName,
-        ex:plays .
+            sh:path ex:id ],
+        [ sh:nodeKind sh:Literal ;
+            sh:path ex:firstName ] .
 
 <http://example.com/base/TriplesMap2/shape> a sh:NodeShape ;
     sh:nodeKind sh:IRI ;
     sh:pattern "http://example.com/.*/.*" ;
     sh:property [ sh:nodeKind sh:Literal ;
-            sh:path ex:id ] ;
-    sh:targetSubjectsOf ex:id .
+            sh:path ex:description ],
+        [ sh:nodeKind sh:Literal ;
+            sh:path ex:id ] .
 

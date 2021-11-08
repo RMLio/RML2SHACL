@@ -8,9 +8,9 @@
     sh:nodeKind sh:IRI ;
     sh:pattern "http://example.com/Student/.*/.*" ;
     sh:property [ sh:nodeKind sh:Literal ;
-            sh:path ex:id ],
+            sh:path foaf:name ],
         [ sh:nodeKind sh:Literal ;
-            sh:path foaf:name ] ;
+            sh:path ex:id ] ;
     sh:targetClass ex:Student,
         foaf:Person .
 

@@ -6,13 +6,13 @@
 <http://example.com/base/TriplesMap1/shape> a sh:NodeShape ;
     sh:nodeKind sh:IRI ;
     sh:pattern "http://example.com/Student/.*/.*" ;
-    sh:property [ sh:node <http://example.com/base/TriplesMap2/shape> ;
+    sh:property [ sh:nodeKind sh:Literal ;
+            sh:path ex:id ],
+        [ sh:node <http://example.com/base/TriplesMap2/shape> ;
             sh:nodeKind sh:IRI ;
             sh:path ex:Sport ],
         [ sh:nodeKind sh:Literal ;
-            sh:path foaf:name ],
-        [ sh:nodeKind sh:Literal ;
-            sh:path ex:id ] ;
+            sh:path foaf:name ] ;
     sh:targetClass foaf:Person .
 
 <http://example.com/base/TriplesMap2/shape> a sh:NodeShape ;

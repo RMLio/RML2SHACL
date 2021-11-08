@@ -8,10 +8,10 @@
     sh:property [ sh:nodeKind sh:Literal ;
             sh:path ex:lastName ],
         [ sh:nodeKind sh:Literal ;
-            sh:path ex:firstName ],
-        [ sh:nodeKind sh:Literal ;
             sh:path ex:gender ],
         [ sh:nodeKind sh:Literal ;
-            sh:path ex:id ] ;
+            sh:path ex:id ],
+        [ sh:nodeKind sh:Literal ;
+            sh:path ex:firstName ] ;
     sh:targetClass foaf:Person .
 

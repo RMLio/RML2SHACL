@@ -6,7 +6,7 @@
     sh:nodeKind sh:IRI ;
     sh:pattern "http://example.com/resource/student_.*" ;
     sh:property [ sh:nodeKind sh:Literal ;
-            sh:path ex:numSport ],
+            sh:path foaf:name ],
         [ sh:nodeKind sh:Literal ;
-            sh:path foaf:name ] .
+            sh:path ex:numSport ] .
 

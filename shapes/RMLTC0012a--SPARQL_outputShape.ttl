@@ -6,7 +6,7 @@
     sh:nodeKind sh:BlankNode ;
     sh:pattern ".*.*.*" ;
     sh:property [ sh:nodeKind sh:Literal ;
-            sh:path ex:amount ],
+            sh:path foaf:name ],
         [ sh:nodeKind sh:Literal ;
-            sh:path foaf:name ] .
+            sh:path ex:amount ] .
 

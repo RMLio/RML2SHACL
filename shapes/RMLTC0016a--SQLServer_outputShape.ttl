@@ -6,12 +6,12 @@
     sh:nodeKind sh:IRI ;
     sh:pattern "http://example.com/Patient/.*" ;
     sh:property [ sh:nodeKind sh:Literal ;
-            sh:path ex:gender ],
+            sh:path ex:id ],
         [ sh:nodeKind sh:Literal ;
             sh:path ex:firstName ],
         [ sh:nodeKind sh:Literal ;
             sh:path ex:lastName ],
         [ sh:nodeKind sh:Literal ;
-            sh:path ex:id ] ;
+            sh:path ex:gender ] ;
     sh:targetClass foaf:Person .
 

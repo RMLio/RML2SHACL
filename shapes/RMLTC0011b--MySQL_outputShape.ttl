@@ -19,7 +19,7 @@
     sh:nodeKind sh:IRI ;
     sh:pattern "http://example.com/sport/.*" ;
     sh:property [ sh:nodeKind sh:Literal ;
-            sh:path ex:id ],
+            sh:path ex:description ],
         [ sh:nodeKind sh:Literal ;
-            sh:path ex:description ] .
+            sh:path ex:id ] .
 

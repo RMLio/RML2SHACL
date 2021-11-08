@@ -9,24 +9,24 @@
     sh:class bsbm:Offer ;
     sh:nodeKind sh:IRI ;
     sh:pattern "http://www4.wiwiss.fu-berlin.de/bizer/bsbm/v01/instances/dataFromVendor.*/Offer.*" ;
-    sh:property [ sh:nodeKind sh:IRI ;
-            sh:path dc:publisher ],
-        [ sh:nodeKind sh:Literal ;
-            sh:path bsbm:deliveryDays ],
-        [ sh:nodeKind sh:Literal ;
+    sh:property [ sh:nodeKind sh:Literal ;
             sh:path dc:date ],
         [ sh:nodeKind sh:IRI ;
             sh:path bsbm:product ],
-        [ sh:nodeKind sh:Literal ;
-            sh:path bsbm:validTo ],
-        [ sh:nodeKind sh:Literal ;
-            sh:path bsbm:offerWebpage ],
         [ sh:nodeKind sh:IRI ;
             sh:path bsbm:vendor ],
         [ sh:nodeKind sh:Literal ;
+            sh:path bsbm:validTo ],
+        [ sh:nodeKind sh:Literal ;
             sh:path bsbm:price ],
         [ sh:nodeKind sh:Literal ;
-            sh:path bsbm:validFrom ] ;
+            sh:path bsbm:offerWebpage ],
+        [ sh:nodeKind sh:Literal ;
+            sh:path bsbm:validFrom ],
+        [ sh:nodeKind sh:Literal ;
+            sh:path bsbm:deliveryDays ],
+        [ sh:nodeKind sh:IRI ;
+            sh:path dc:publisher ] ;
     sh:targetClass bsbm:Offer .
 
 <http://ontop.inf.unibz.it/bench/bsbm/r2rml/Person/shape> a sh:NodeShape ;
@@ -35,14 +35,14 @@
     sh:pattern "http://www4.wiwiss.fu-berlin.de/bizer/bsbm/v01/instances/dataFromRatingSite.*/Reviewer.*" ;
     sh:property [ sh:nodeKind sh:Literal ;
             sh:path foaf:name ],
+        [ sh:nodeKind sh:IRI ;
+            sh:path bsbm:country ],
+        [ sh:nodeKind sh:IRI ;
+            sh:path dc:publisher ],
         [ sh:nodeKind sh:Literal ;
             sh:path dc:date ],
         [ sh:nodeKind sh:Literal ;
-            sh:path foaf:mbox_sha1sum ],
-        [ sh:nodeKind sh:IRI ;
-            sh:path dc:publisher ],
-        [ sh:nodeKind sh:IRI ;
-            sh:path bsbm:country ] ;
+            sh:path foaf:mbox_sha1sum ] ;
     sh:targetClass foaf:Person .
 
 <http://ontop.inf.unibz.it/bench/bsbm/r2rml/Producer/shape> a sh:NodeShape ;
@@ -51,16 +51,16 @@
     sh:pattern "http://www4.wiwiss.fu-berlin.de/bizer/bsbm/v01/instances/dataFromProducer.*/Producer.*" ;
     sh:property [ sh:nodeKind sh:Literal ;
             sh:path bsbm:country ],
-        [ sh:nodeKind sh:Literal ;
-            sh:path foaf:homepage ],
+        [ sh:nodeKind sh:IRI ;
+            sh:path dc:publisher ],
         [ sh:nodeKind sh:Literal ;
             sh:path rdfs:label ],
         [ sh:nodeKind sh:Literal ;
+            sh:path foaf:homepage ],
+        [ sh:nodeKind sh:Literal ;
             sh:path rdfs:comment ],
         [ sh:nodeKind sh:Literal ;
-            sh:path dc:date ],
-        [ sh:nodeKind sh:IRI ;
-            sh:path dc:publisher ] ;
+            sh:path dc:date ] ;
     sh:targetClass bsbm:Producer .
 
 <http://ontop.inf.unibz.it/bench/bsbm/r2rml/Product/shape> a sh:NodeShape ;
@@ -68,51 +68,51 @@
     sh:nodeKind sh:IRI ;
     sh:pattern "http://www4.wiwiss.fu-berlin.de/bizer/bsbm/v01/instances/dataFromProducer.*/Product.*" ;
     sh:property [ sh:nodeKind sh:Literal ;
+            sh:path bsbm:productPropertyTextual5 ],
+        [ sh:nodeKind sh:Literal ;
             sh:path bsbm:productPropertyTextual3 ],
         [ sh:nodeKind sh:Literal ;
-            sh:path rdfs:label ],
-        [ sh:nodeKind sh:IRI ;
-            sh:path dc:publisher ],
+            sh:path bsbm:productPropertyNumeric4 ],
         [ sh:nodeKind sh:Literal ;
             sh:path bsbm:productPropertyNumeric1 ],
-        [ sh:nodeKind sh:Literal ;
-            sh:path rdfs:comment ],
-        [ sh:nodeKind sh:Literal ;
-            sh:path bsbm:productPropertyNumeric3 ],
-        [ sh:nodeKind sh:Literal ;
-            sh:path bsbm:productPropertyNumeric6 ],
-        [ sh:nodeKind sh:Literal ;
-            sh:path bsbm:productPropertyTextual5 ],
+        [ sh:nodeKind sh:IRI ;
+            sh:path dc:publisher ],
         [ sh:nodeKind sh:IRI ;
             sh:path bsbm:producer ],
         [ sh:nodeKind sh:Literal ;
-            sh:path bsbm:productPropertyNumeric2 ],
-        [ sh:nodeKind sh:Literal ;
-            sh:path bsbm:productPropertyTextual6 ],
-        [ sh:nodeKind sh:Literal ;
-            sh:path dc:date ],
+            sh:path bsbm:productPropertyNumeric5 ],
         [ sh:nodeKind sh:Literal ;
             sh:path bsbm:productPropertyTextual2 ],
         [ sh:nodeKind sh:Literal ;
             sh:path bsbm:productPropertyTextual4 ],
         [ sh:nodeKind sh:Literal ;
-            sh:path bsbm:productPropertyNumeric5 ],
+            sh:path bsbm:productPropertyNumeric3 ],
         [ sh:nodeKind sh:Literal ;
             sh:path bsbm:productPropertyTextual1 ],
         [ sh:nodeKind sh:Literal ;
-            sh:path bsbm:productPropertyNumeric4 ] ;
+            sh:path bsbm:productPropertyNumeric6 ],
+        [ sh:nodeKind sh:Literal ;
+            sh:path rdfs:comment ],
+        [ sh:nodeKind sh:Literal ;
+            sh:path rdfs:label ],
+        [ sh:nodeKind sh:Literal ;
+            sh:path bsbm:productPropertyNumeric2 ],
+        [ sh:nodeKind sh:Literal ;
+            sh:path dc:date ],
+        [ sh:nodeKind sh:Literal ;
+            sh:path bsbm:productPropertyTextual6 ] ;
     sh:targetClass bsbm:Product .
 
 <http://ontop.inf.unibz.it/bench/bsbm/r2rml/ProductFeature/shape> a sh:NodeShape ;
     sh:class bsbm:ProductFeature ;
     sh:nodeKind sh:IRI ;
     sh:pattern "http://www4.wiwiss.fu-berlin.de/bizer/bsbm/v01/instances/ProductFeature.*" ;
-    sh:property [ sh:nodeKind sh:Literal ;
-            sh:path rdfs:comment ],
-        [ sh:nodeKind sh:IRI ;
+    sh:property [ sh:nodeKind sh:IRI ;
             sh:path dc:publisher ],
         [ sh:nodeKind sh:Literal ;
             sh:path rdfs:label ],
+        [ sh:nodeKind sh:Literal ;
+            sh:path rdfs:comment ],
         [ sh:nodeKind sh:Literal ;
             sh:path dc:date ] ;
     sh:targetClass bsbm:ProductFeature .
@@ -127,16 +127,16 @@
     sh:class bsbm:ProductType ;
     sh:nodeKind sh:IRI ;
     sh:pattern "http://www4.wiwiss.fu-berlin.de/bizer/bsbm/v01/instances/ProductType.*" ;
-    sh:property [ sh:nodeKind sh:IRI ;
-            sh:path dc:publisher ],
-        [ sh:nodeKind sh:IRI ;
-            sh:path bsbm:subClassOf ],
-        [ sh:nodeKind sh:Literal ;
+    sh:property [ sh:nodeKind sh:Literal ;
             sh:path dc:date ],
         [ sh:nodeKind sh:Literal ;
-            sh:path rdfs:comment ],
+            sh:path rdfs:label ],
+        [ sh:nodeKind sh:IRI ;
+            sh:path dc:publisher ],
         [ sh:nodeKind sh:Literal ;
-            sh:path rdfs:label ] ;
+            sh:path rdfs:comment ],
+        [ sh:nodeKind sh:IRI ;
+            sh:path bsbm:subClassOf ] ;
     sh:targetClass bsbm:ProductType .
 
 <http://ontop.inf.unibz.it/bench/bsbm/r2rml/ProducthasProductType/shape> a sh:NodeShape ;
@@ -147,28 +147,28 @@
     sh:class bsbm:Review ;
     sh:nodeKind sh:IRI ;
     sh:pattern "http://www4.wiwiss.fu-berlin.de/bizer/bsbm/v01/instances/dataFromRatingSite.*/Review.*" ;
-    sh:property [ sh:nodeKind sh:Literal ;
-            sh:path rev:text ],
+    sh:property [ sh:nodeKind sh:IRI ;
+            sh:path bsbm:reviewFor ],
         [ sh:nodeKind sh:Literal ;
-            sh:path bsbm:rating3 ],
+            sh:path bsbm:reviewDate ],
         [ sh:nodeKind sh:Literal ;
             sh:path bsbm:rating1 ],
         [ sh:nodeKind sh:Literal ;
-            sh:path bsbm:rating2 ],
-        [ sh:nodeKind sh:Literal ;
-            sh:path dc:date ],
+            sh:path rev:text ],
         [ sh:nodeKind sh:IRI ;
             sh:path dc:publisher ],
         [ sh:nodeKind sh:IRI ;
             sh:path rev:reviewer ],
         [ sh:nodeKind sh:Literal ;
+            sh:path bsbm:rating2 ],
+        [ sh:nodeKind sh:Literal ;
             sh:path dc:title ],
-        [ sh:nodeKind sh:IRI ;
-            sh:path bsbm:reviewFor ],
         [ sh:nodeKind sh:Literal ;
             sh:path bsbm:rating4 ],
         [ sh:nodeKind sh:Literal ;
-            sh:path bsbm:reviewDate ] ;
+            sh:path bsbm:rating3 ],
+        [ sh:nodeKind sh:Literal ;
+            sh:path dc:date ] ;
     sh:targetClass bsbm:Review .
 
 <http://ontop.inf.unibz.it/bench/bsbm/r2rml/Vendor/shape> a sh:NodeShape ;
@@ -176,16 +176,16 @@
     sh:nodeKind sh:IRI ;
     sh:pattern "http://www4.wiwiss.fu-berlin.de/bizer/bsbm/v01/instances/dataFromVendor.*/Vendor.*" ;
     sh:property [ sh:nodeKind sh:Literal ;
-            sh:path foaf:homepage ],
-        [ sh:nodeKind sh:IRI ;
-            sh:path dc:publisher ],
-        [ sh:nodeKind sh:IRI ;
-            sh:path bsbm:country ],
-        [ sh:nodeKind sh:Literal ;
             sh:path rdfs:comment ],
         [ sh:nodeKind sh:Literal ;
             sh:path rdfs:label ],
         [ sh:nodeKind sh:Literal ;
-            sh:path dc:date ] ;
+            sh:path dc:date ],
+        [ sh:nodeKind sh:Literal ;
+            sh:path foaf:homepage ],
+        [ sh:nodeKind sh:IRI ;
+            sh:path bsbm:country ],
+        [ sh:nodeKind sh:IRI ;
+            sh:path dc:publisher ] ;
     sh:targetClass bsbm:Vendor .
 
