@@ -246,39 +246,7 @@ class RML:
                     tel = tel + 1
             self.graphs.append(graphHelp)
 
-    def printDictionary(self, keuze):
-        for graphHelp in self.graphs:
-            if keuze == 1:
-                for g in graphHelp["TM"]:
-                    print("TM graph: " + str(g))
-            if keuze == 2:
-                for g in graphHelp["LS"]:
-                    print(g)
-            if keuze == 3:
-                for g in graphHelp["SM"]:
-                    print(g)
-            if keuze == 4:
-                length = len(graphHelp) - 3
-                # Because the dictionary inside graphHelp has first 'TM', 'LM' and 'SM' as keys
-                # we do the length of the dictionary minus 3
-                # this way we can use this newly calculated length
-                # for the indexes used for the possible multiple PredicateObjectsMaps (POM)
-                for i in range(length):
-                    print("new POM" + str(i))
-                    for g in graphHelp["POM" + str(i)]:
-                        print(g)
-            if keuze == 5:
-                for n, g in graphHelp.items():
-                    for stm in g:
-                        print(n, stm)
-            if keuze == 6:
-                for g in graphHelp.values():
-                    for stm in g:
-                        print(stm)
 
-    def testmain(self):
-        self.parseGithubFile(7, 'b', FilesGitHub.CSV)
-        self.removeBlankNodesMultipleMaps()
 
 
 if __name__ == '__main__':
