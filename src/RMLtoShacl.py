@@ -12,9 +12,9 @@ import rdflib
 from rdflib import RDF
 from requests.exceptions import HTTPError
 
-from FilesGitHub import *
-from RML import *
-from SHACL import *
+from .FilesGitHub import *
+from .RML import *
+from .SHACL import *
 
 
 class RMLtoSHACL:
@@ -248,6 +248,35 @@ class RMLtoSHACL:
         logging.debug(self.SHACL.results_text)
 
         return None
+
+    def TestGithubFiles(self, numberInput, letterInput, inputfile):
+        number = numberInput
+        letter = letterInput
+        inputfileType = inputfile
+        self.RML.parseGithubFile(number, letter, inputfileType)
+        self.RML.removeBlankNodesMultipleMaps()
+
+        for _, triples_map in self.RML.tm_model_dict.items():
+            subject_shape_node = self.createNodeShape(triples_map, self.SHACL.graph)
+
+            for pom in triples_map.poms:
+                self.transformPOM(subject_shape_node, pom, self.SHACL.graph)
+
+        filenNameShape = 'RMLTC%s%s-%s_outputShape.ttl' % (
+            str(numberInput).zfill(4), letterInput, inputfile)
+        shapeFileName = self.writeShapeToFile(filenNameShape)
+        filenameOutput = self.readfileObject.getFile(
+            number, letter, inputfileType, FilesGitHub.outputRdfFile)
+        graphOutput = rdflib.Graph()
+        graphOutput.parse(
+            filenameOutput, format=rdflib.util.guess_format(filenameOutput))
+        self.SHACL.Validation(self.SHACL.graph, graphOutput)
+
+        logging.debug("*" * 100)
+        logging.debug("RESULTS")
+        logging.debug("=" * 100)
+        logging.debug(self.SHACL.results_text)
+        return shapeFileName
 
 
     def main(self):

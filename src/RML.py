@@ -4,9 +4,8 @@ from typing import Dict, Optional, Type
 import rdflib
 from rdflib.graph import Graph
 from rdflib.term import BNode, Identifier, URIRef
-
-from FilesGitHub import *
-from rml_model import (
+from .FilesGitHub import FilesGitHub
+from .rml_model import (
     GraphMap,
     LogicalSource,
     ObjectMap,
