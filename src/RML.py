@@ -4,7 +4,6 @@ from typing import Dict, Optional, Type
 import rdflib
 from rdflib.graph import Graph
 from rdflib.term import BNode, Identifier, URIRef
-from .FilesGitHub import FilesGitHub
 from .rml_model import (
     GraphMap,
     LogicalSource,
@@ -168,12 +167,6 @@ class RML:
 
         return PredicateObjectMap(pom_iri, {self.r2rmlNS.graphMap: [graphMap]}, predicateMap, objectMap)
 
-    def parseGithubFile(self, number, letter, typeInputFile):
-        fileReadObj = FilesGitHub()
-        filename = fileReadObj.getFile(
-            number, letter, typeInputFile, fileReadObj.Mappingfile)
-        self.parseFile(filename)
-        # self.printGraph(1)
 
     def removeBlankNodesMultipleMaps(self):
         # loop over all the Triple Maps in the RML input file
