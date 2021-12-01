@@ -17,11 +17,19 @@ from src.RML import *
 from src.RMLtoShacl import RMLtoSHACL
 from src.SHACL import *
 
+def parseGithubFile(self, number, letter, typeInputFile):
+    fileReadObj = FilesGitHub()
+    filename = fileReadObj.getFile(
+        number, letter, typeInputFile, fileReadObj.Mappingfile)
+    self.parseFile(filename)
+        # self.printGraph(1)
 def TestGithubFiles(RtoS: RMLtoSHACL, numberInput, letterInput, inputfile):
     number = numberInput
     letter = letterInput
     inputfileType = inputfile
-    RtoS.RML.parseGithubFile(number, letter, inputfileType)
+    fileReadObj = FilesGitHub()
+    filename = fileReadObj.getFile(number, letter, inputfileType, fileReadObj.Mappingfile) ; 
+    RtoS.RML.parseFile(filename)
     RtoS.RML.removeBlankNodesMultipleMaps()
 
     for _, triples_map in RtoS.RML.tm_model_dict.items():

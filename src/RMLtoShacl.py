@@ -248,28 +248,3 @@ class RMLtoSHACL:
         return None
 
 
-if __name__ == "__main__":
-    RtoS = RMLtoSHACL()
-    parser = argparse.ArgumentParser()
-    parser.add_argument("-rml_file", "-f", type=str,
-                        help="RML mapping file to be converted into SHACL shapes.")
-    parser.add_argument("-logLevel", "-l", type=str, default="INFO",
-                        help="Logging level of this script")
-
-    args = parser.parse_args()
-
-    loglevel = args.logLevel
-    numeric_level = getattr(logging, loglevel.upper(), None)
-    if not isinstance(numeric_level, int):
-        raise ValueError('Invalid log level: %s' % loglevel)
-    logging.basicConfig(level=numeric_level)
-
-    start = time.time()
-    if args.rml_file is None:
-        exit()
-    else:
-        RtoS.evaluate_file(args.rml_file)
-
-    end = time.time()
-
-    print(f"Elapsed time: {end - start} seconds")
