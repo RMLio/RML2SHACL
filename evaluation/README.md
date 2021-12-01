@@ -26,39 +26,16 @@ The following diagram describes the workflow of our evaluation in
 such a case:
 
 **RML2SHACL**'s workflow: 
-```plantuml
-start
-if (Input type is RDF/A) then (yes)
-    :owl2rml; 
-    -> YARRRML template;
 
-    :yarrrml parser;
-    -> RML rules ;
-elseif (Input type is RML) then (yes)
-else (no)
-    end
-endif
-:RML2SHACL;
--> SHACL shape;
-
-
-stop 
-```
+![rml2shacl_workflow](./assets/rml2shacl_workflow.png)
 
 Unlike **RML2SHACL** which generates SHACL shapes from RML mapping files, 
 **shaclgen** generates them from RDF triples. 
 The following diagram describe its workflow. 
 
 **Shaclgen**'s workflow:
-```plantuml
-start
--> RDF triples; 
 
-:shaclgen; 
--> SHACL shape;
-
-stop 
-```
+![shaclgen_workflow](./assets/shaclgen_workflow.png)
 
 
 #Validation of the generated shapes 
