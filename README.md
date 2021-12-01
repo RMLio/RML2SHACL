@@ -1,10 +1,10 @@
-#RML2SHACL 
+# RML2SHACL 
 
 A tool to generate SHACL shapes from RML mapping files for RDF graphs validation. 
 
 
 
-#Prerequisite
+# Prerequisite
 
 Install the required dependencies: 
 ```bash
@@ -12,7 +12,7 @@ pip install -r requirements.txt
 ```
 
 
-#Usage 
+# Usage 
 
 
 General usage info: 

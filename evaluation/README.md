@@ -14,7 +14,7 @@ The target tool with which we will compare is
 
 
 
-#General evaluation workflow
+# General evaluation workflow
 
 The script requires RML mapping file to generate SHACL shapes. 
 In the case where RML mapping file is not available, the ontology 
@@ -38,19 +38,19 @@ The following diagram describe its workflow.
 ![shaclgen_workflow](./assets/shaclgen_workflow.png)
 
 
-#Validation of the generated shapes 
+# Validation of the generated shapes 
 
 The generated shape graphs are validated using the SHACL shapes provided by 
 [W3C](https://www.w3.org/TR/shacl/#shacl-shacl). 
 
 
-#Test cases 
+# Test cases 
 
 To evaluate **RML2SHACL**, we devised the following test cases which evaluate 
 the quality of the generated shapes and the execution time of **RML2SHACL**. 
 
 
-##RML test cases 
+## RML test cases 
 RML test cases can be evaluated as simply as just running the evaluation 
 script without arguments: 
 These test cases are used for shape quality evaluation whether a shape is 
