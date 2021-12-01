@@ -1,13 +1,8 @@
-import RMLtoShacl
-import shaclgen.shaclgen
 import argparse
 from argparse import RawDescriptionHelpFormatter
-from argparse import RawTextHelpFormatter
 import time
-import tracemalloc
 
-from shaclgen.shaclgen.shaclgen import data_graph
-import shaclgen.shaclgen.schema as schema
+from shaclgen.shaclgen import data_graph
 
 parser = argparse.ArgumentParser(
     formatter_class=RawDescriptionHelpFormatter,
